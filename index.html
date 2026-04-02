@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yellow Bin — Recycle Textiles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            yellow: { bin: '#F4D000', dark: '#C9AB00' },
+            grey: { dark: '#4A4A44', mid: '#6B6B65', light: '#D0D0D9', pale: '#F5F5F3' },
+            eco: '#4CAF50',
+          },
+          fontFamily: {
+            heading: ['Montserrat', 'sans-serif'],
+            body: ['Roboto', 'sans-serif'],
+          },
+          letterSpacing: { tight: '-0.03em', tightest: '-0.05em' },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #4A4A44;
+      background: #FAFAF8;
+      overflow-x: hidden;
+    }
+
+    /* ── Grain texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: #4A4A44;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.15), 0 4px 24px rgba(0,0,0,0.12);
+    }
+    .nav-link {
+      position: relative;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.01em;
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 2px;
+      background: #F4D000;
+      transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #F4D000;
+      color: #4A4A44;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.02em;
+      padding: 11px 24px;
+      border-radius: 6px;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(244,208,0,0.3), 0 1px 2px rgba(0,0,0,0.08);
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: #e6c400;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(244,208,0,0.45), 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 3px solid #F4D000; outline-offset: 3px; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #4A4A44;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.02em;
+      padding: 10px 24px;
+      border-radius: 6px;
+      border: 1.5px solid #D0D0D9;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-secondary:hover {
+      border-color: #4A4A44;
+      background: rgba(74,74,68,0.04);
+      transform: translateY(-1px);
+    }
+    .btn-secondary:active { transform: translateY(0); }
+    .btn-secondary:focus-visible { outline: 3px solid #F4D000; outline-offset: 3px; }
+
+    /* ── Hero ── */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: #FAFAF8;
+    }
+
+    .hero-bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(244,208,0,0.12);
+      border: 1px solid rgba(244,208,0,0.35);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #4A4A44;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      color: #4A4A44;
+    }
+
+    .hero-highlight {
+      position: relative;
+      display: inline-block;
+      color: #4A4A44;
+    }
+    .hero-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 4px; left: -2px; right: -2px;
+      height: 14px;
+      background: #F4D000;
+      z-index: -1;
+      border-radius: 2px;
+    }
+
+    /* ── Stats ── */
+    .stat-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: #F4D000;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ── Steps ── */
+    .step-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 5rem;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: rgba(244,208,0,0.15);
+      position: absolute;
+      top: -8px; right: 16px;
+      user-select: none;
+    }
+
+    .step-card {
+      position: relative;
+      background: white;
+      border-radius: 16px;
+      padding: 36px 32px;
+      transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s ease;
+      box-shadow: 0 2px 8px rgba(74,74,68,0.06), 0 1px 2px rgba(74,74,68,0.04);
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(74,74,68,0.1), 0 4px 12px rgba(244,208,0,0.12);
+    }
+
+    /* ── Impact numbers ── */
+    .impact-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #4A4A44, #6B6B65);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Why card ── */
+    .why-card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px 24px;
+      border: 1px solid rgba(208,208,217,0.6);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .why-card:hover {
+      border-color: #F4D000;
+      box-shadow: 0 8px 32px rgba(244,208,0,0.12), 0 2px 8px rgba(74,74,68,0.06);
+      transform: translateY(-2px);
+    }
+
+    /* ── CTA banner ── */
+    .cta-banner {
+      background: #4A4A44;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,208,0,0.15) 0%, transparent 70%);
+    }
+    .cta-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,208,0,0.08) 0%, transparent 70%);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #4A4A44;
+    }
+    .footer-link {
+      color: #D0D0D9;
+      font-size: 0.875rem;
+      transition: color 0.2s ease;
+      text-decoration: none;
+    }
+    .footer-link:hover { color: #F4D000; }
+
+    /* ── Icon circle ── */
+    .icon-circle {
+      width: 52px; height: 52px;
+      background: rgba(244,208,0,0.12);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Bin counter ── */
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Marquee ── */
+    .marquee-track {
+      display: flex;
+      gap: 48px;
+      animation: marquee 28s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── Mobile nav ── */
+    #mobile-menu {
+      display: none;
+    }
+    #mobile-menu.open {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════ -->
+  <nav id="navbar" class="px-6 py-3">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex-shrink-0">
+        <img src="brand_assets/Yellow Bin Logo_New White.png" alt="Yellow Bin — Recycle Textiles" style="height:78px;width:auto;" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="how-it-works.html" class="nav-link">How It Works</a>
+        <a href="our-impact.html" class="nav-link">Our Impact</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="find-a-bin.html" class="nav-link">Find a Bin</a>
+      </div>
+
+      <!-- CTA -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="find-a-bin.html" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Find a Bin
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger" class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden bg-white/95 backdrop-blur-md border-t border-grey-light mt-2 rounded-b-2xl shadow-lg">
+      <div class="flex flex-col gap-1 px-6 py-4">
+        <a href="how-it-works.html" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">How It Works</a>
+        <a href="our-impact.html" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Our Impact</a>
+        <a href="about.html" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">About Us</a>
+        <a href="find-a-bin.html" class="py-3 font-body font-medium text-grey-dark">Find a Bin</a>
+        <a href="find-a-bin.html" class="btn-primary mt-4 justify-center">Find a Bin Near You</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero-section" id="home">
+    <!-- Background decorative elements -->
+    <div class="hero-bg-circle" style="width:600px;height:600px;top:-150px;right:-200px;background:radial-gradient(circle at center, rgba(244,208,0,0.08) 0%, transparent 70%);"></div>
+    <div class="hero-bg-circle" style="width:400px;height:400px;bottom:-100px;left:-100px;background:radial-gradient(circle at center, rgba(244,208,0,0.06) 0%, transparent 70%);"></div>
+
+    <!-- Floating shapes -->
+    <div style="position:absolute;top:20%;right:8%;width:280px;height:280px;border-radius:50%;border:1px solid rgba(244,208,0,0.2);pointer-events:none;"></div>
+    <div style="position:absolute;top:25%;right:12%;width:180px;height:180px;border-radius:50%;border:1px solid rgba(244,208,0,0.12);pointer-events:none;"></div>
+
+    <div class="max-w-6xl mx-auto px-6 w-full pt-28 pb-16">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left: Text -->
+        <div>
+          <!-- Badge -->
+          <div class="hero-badge mb-6" style="animation: fadeInUp 0.5s ease forwards;">
+            <span style="width:8px;height:8px;border-radius:50%;background:#4CAF50;display:inline-block;flex-shrink:0;box-shadow:0 0 0 2px rgba(76,175,80,0.25);"></span>
+            <span>Sustainable Textile Collection</span>
+          </div>
+
+          <!-- Heading -->
+          <h1 class="hero-heading mb-6" style="font-size:clamp(3rem,6vw,5.5rem);animation:fadeInUp 0.6s 0.1s ease both;">
+            Give Your<br/>
+            Old Clothes<br/>
+            a <span class="hero-highlight">New Life.</span>
+          </h1>
+
+          <!-- Subheading -->
+          <p class="text-grey-mid leading-relaxed mb-8 max-w-md" style="font-size:1.1rem;line-height:1.7;animation:fadeInUp 0.6s 0.2s ease both;font-family:'Roboto',sans-serif;">
+            Drop off your unwanted clothing at a Yellow Bin near you. We collect, sort, and recycle textiles — keeping them out of landfill and back into the community.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap gap-3" style="animation:fadeInUp 0.6s 0.3s ease both;">
+            <a href="find-a-bin.html" class="btn-primary" style="font-size:0.95rem;padding:14px 28px;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Find a Bin Near You
+            </a>
+            <a href="how-it-works.html" class="btn-secondary" style="font-size:0.95rem;padding:14px 28px;">
+              How It Works
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <!-- Mini stats row -->
+          <div class="flex flex-wrap gap-8 mt-12 pt-10 border-t border-grey-light" style="animation:fadeInUp 0.6s 0.4s ease both;">
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:#4A4A44;">500+</div>
+              <div style="font-size:0.8rem;color:#6B6B65;font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Bins Placed</div>
+            </div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:#4A4A44;">2M+ kg</div>
+              <div style="font-size:0.8rem;color:#6B6B65;font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Textiles Recycled</div>
+            </div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:#4A4A44;">50+</div>
+              <div style="font-size:0.8rem;color:#6B6B65;font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Cities Covered</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual card -->
+        <div class="relative flex justify-center items-center" style="animation:fadeInScale 0.7s 0.3s ease both;">
+
+          <!-- Main image card -->
+          <div style="position:relative;width:100%;max-width:460px;">
+            <!-- Background card (shadow layer) -->
+            <div style="position:absolute;inset:0;transform:rotate(3deg);border-radius:24px;background:rgba(244,208,0,0.15);"></div>
+            <!-- Image -->
+            <div style="position:relative;border-radius:24px;overflow:hidden;background:#e8e8e4;aspect-ratio:4/3;box-shadow:0 24px 60px rgba(74,74,68,0.15),0 8px 24px rgba(74,74,68,0.08);">
+              <img src="https://placehold.co/920x690/e8e4d8/9a9990?text=Yellow+Bin+in+Action"
+                   alt="Yellow Bin textile recycling in a community"
+                   style="width:100%;height:100%;object-fit:cover;" />
+              <!-- Gradient overlay -->
+              <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(74,74,68,0.45) 0%, transparent 55%);"></div>
+              <!-- Caption on image -->
+              <div style="position:absolute;bottom:20px;left:20px;right:20px;">
+                <span style="font-family:'Roboto',sans-serif;font-size:0.75rem;font-weight:500;color:white;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Community Collection Point</span>
+                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:white;margin-top:2px;">Making Recycling Easy for Everyone</div>
+              </div>
+            </div>
+
+            <!-- Floating pill: eco badge -->
+            <div style="position:absolute;top:-16px;right:-16px;background:white;border-radius:100px;padding:10px 16px;box-shadow:0 8px 24px rgba(74,74,68,0.12),0 2px 6px rgba(74,74,68,0.06);display:flex;align-items:center;gap:8px;z-index:10;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;color:#4A4A44;">Eco-Certified</span>
+            </div>
+
+            <!-- Floating card: kg collected today -->
+            <div style="position:absolute;bottom:-20px;left:-20px;background:white;border-radius:14px;padding:14px 18px;box-shadow:0 8px 24px rgba(74,74,68,0.12),0 2px 6px rgba(74,74,68,0.06);z-index:10;min-width:160px;">
+              <div style="font-family:'Roboto',sans-serif;font-size:0.7rem;font-weight:500;color:#6B6B65;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Collected Today</div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.6rem;letter-spacing:-0.03em;color:#4A4A44;line-height:1;">2,847 <span style="font-size:0.9rem;color:#6B6B65;font-weight:500;">kg</span></div>
+              <div style="display:flex;align-items:center;gap:4px;margin-top:4px;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+                <span style="font-size:0.72rem;color:#4CAF50;font-weight:500;">+12% this week</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0.4;animation:bounce 2s ease-in-out infinite;">
+      <span style="font-family:'Roboto',sans-serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:#4A4A44;">Scroll</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       MARQUEE STRIP
+  ══════════════════════════════════════════ -->
+  <div style="background:#F4D000;padding:14px 0;overflow:hidden;border-top:1px solid rgba(74,74,68,0.06);border-bottom:1px solid rgba(74,74,68,0.06);">
+    <div style="display:flex;overflow:hidden;">
+      <div class="marquee-track" style="gap:40px;">
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Recycle Textiles</span>
+        <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Become More</span>
+        <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Zero Waste</span>
+        <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Community-Driven</span>
+        <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Clean &amp; Simple</span>
+        <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Sustainable</span>
+        <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
+        <!-- duplicate for seamless loop -->
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Recycle Textiles</span>
+        <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Become More</span>
+        <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Zero Waste</span>
+        <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Community-Driven</span>
+        <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Clean &amp; Simple</span>
+        <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Sustainable</span>
+        <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       WHY YELLOW BIN
+  ══════════════════════════════════════════ -->
+  <section id="why-yellowbin" style="padding:100px 0;background:#FAFAF8;">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left: Image collage -->
+        <div class="reveal" style="position:relative;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:12px;">
+            <div style="grid-column:1;grid-row:1 2;border-radius:16px;overflow:hidden;background:#e8e4d8;aspect-ratio:3/4;box-shadow:0 8px 24px rgba(74,74,68,0.1);">
+              <img src="https://placehold.co/400x530/e8e4d8/9a9990?text=Drop+Off" style="width:100%;height:100%;object-fit:cover;" alt="Clothing drop-off" />
+            </div>
+            <div style="grid-column:2;grid-row:1;border-radius:16px;overflow:hidden;background:#dde8d8;aspect-ratio:1;box-shadow:0 8px 24px rgba(74,74,68,0.1);">
+              <img src="https://placehold.co/260x260/dde8d4/8a9a84?text=Sorting" style="width:100%;height:100%;object-fit:cover;" alt="Sorting textiles" />
+            </div>
+            <div style="grid-column:2;grid-row:2;border-radius:16px;overflow:hidden;background:#f0e8d8;aspect-ratio:1;box-shadow:0 8px 24px rgba(74,74,68,0.1);position:relative;">
+              <img src="https://placehold.co/260x260/f0e8d4/a09070?text=Community" style="width:100%;height:100%;object-fit:cover;" alt="Community" />
+              <!-- Yellow overlay accent -->
+              <div style="position:absolute;inset:0;background:rgba(244,208,0,0.15);mix-blend-mode:multiply;"></div>
+            </div>
+          </div>
+          <!-- Floating label -->
+          <div style="position:absolute;bottom:-18px;right:24px;background:#F4D000;border-radius:100px;padding:10px 18px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;color:#4A4A44;box-shadow:0 4px 16px rgba(244,208,0,0.4);">
+            ♻ 100% Commitment
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="reveal" style="transition-delay:0.2s;">
+          <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
+            <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+            Why Choose Us
+          </div>
+          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.15;margin-bottom:20px;">
+            A Smarter Way to Give Clothes a Second Chance
+          </h2>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.7;color:#6B6B65;margin-bottom:36px;">
+            We make textile recycling effortless for individuals and responsible for the planet. No guessing, no guilt — just a simple, transparent process you can trust.
+          </p>
+
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div class="why-card">
+              <div style="display:flex;gap:14px;align-items:flex-start;">
+                <div style="width:36px;height:36px;border-radius:8px;background:rgba(244,208,0,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9AB00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:4px;">Zero Landfill Commitment</div>
+                  <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;">Every piece dropped off is tracked and diverted from landfill. We report transparently on what happens to your donations.</div>
+                </div>
+              </div>
+            </div>
+            <div class="why-card">
+              <div style="display:flex;gap:14px;align-items:flex-start;">
+                <div style="width:36px;height:36px;border-radius:8px;background:rgba(244,208,0,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9AB00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div>
+                  <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:4px;">Community First</div>
+                  <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;">Wearable clothes are redistributed to local charities and community groups first — helping people and the planet at once.</div>
+                </div>
+              </div>
+            </div>
+            <div class="why-card">
+              <div style="display:flex;gap:14px;align-items:flex-start;">
+                <div style="width:36px;height:36px;border-radius:8px;background:rgba(244,208,0,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9AB00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </div>
+                <div>
+                  <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:4px;">Convenient Collection</div>
+                  <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;">Bins are placed in convenient, high-footfall locations. Open 24/7 with no appointment, no forms, no fuss.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TESTIMONIALS / COMMUNITY
+  ══════════════════════════════════════════ -->
+  <section style="padding:100px 0;background:#FAFAF8;">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="reveal" style="text-align:center;margin-bottom:56px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
+          <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+          Community
+          <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+        </div>
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;">
+          People Love Yellow Bin
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Testimonial 1 -->
+        <div class="reveal" style="background:white;border-radius:16px;padding:28px;border:1px solid rgba(208,208,217,0.5);box-shadow:0 2px 8px rgba(74,74,68,0.04);">
+          <div style="display:flex;gap:2px;margin-bottom:16px;">
+            <span style="color:#F4D000;font-size:1.1rem;">★★★★★</span>
+          </div>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.7;color:#6B6B65;margin-bottom:20px;">"Finally a recycling solution that actually makes sense. I pass the bin on my way to the supermarket — couldn't be easier. Knowing my old clothes don't end up in landfill feels great."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:#e8e4d8;overflow:hidden;">
+              <img src="https://placehold.co/80/e8e4d8/9a9990?text=SJ" style="width:100%;height:100%;object-fit:cover;" alt="Sarah J." />
+            </div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;color:#4A4A44;">Sarah J.</div>
+              <div style="font-family:'Roboto',sans-serif;font-size:0.75rem;color:#6B6B65;">Sydney, NSW</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="reveal" style="background:#4A4A44;border-radius:16px;padding:28px;box-shadow:0 8px 32px rgba(74,74,68,0.15);transition-delay:0.1s;">
+          <div style="display:flex;gap:2px;margin-bottom:16px;">
+            <span style="color:#F4D000;font-size:1.1rem;">★★★★★</span>
+          </div>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.7);margin-bottom:20px;">"We partnered with Yellow Bin for our school's sustainability program. The students love tracking how much we've recycled. It's become a real community initiative."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:#6B6B65;overflow:hidden;">
+              <img src="https://placehold.co/80/6b6b65/ffffff?text=MT" style="width:100%;height:100%;object-fit:cover;" alt="Michael T." />
+            </div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;color:white;">Michael T.</div>
+              <div style="font-family:'Roboto',sans-serif;font-size:0.75rem;color:rgba(255,255,255,0.5);">Principal, Melbourne</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="reveal" style="background:white;border-radius:16px;padding:28px;border:1px solid rgba(208,208,217,0.5);box-shadow:0 2px 8px rgba(74,74,68,0.04);transition-delay:0.2s;">
+          <div style="display:flex;gap:2px;margin-bottom:16px;">
+            <span style="color:#F4D000;font-size:1.1rem;">★★★★★</span>
+          </div>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.7;color:#6B6B65;margin-bottom:20px;">"As a property manager, placing Yellow Bins has been a win for residents and our sustainability credentials. Zero complaints, all convenience."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:#e8e4d8;overflow:hidden;">
+              <img src="https://placehold.co/80/e8e4d8/9a9990?text=LP" style="width:100%;height:100%;object-fit:cover;" alt="Lisa P." />
+            </div>
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;color:#4A4A44;">Lisa P.</div>
+              <div style="font-family:'Roboto',sans-serif;font-size:0.75rem;color:#6B6B65;">Property Manager, Brisbane</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       BE PART OF THE YELLOW MOVEMENT
+  ══════════════════════════════════════════ -->
+  <section style="padding:100px 0;background:#F4D000;position:relative;overflow:hidden;">
+    <!-- Background circles -->
+    <div style="position:absolute;top:-80px;right:-80px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,0.1);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-120px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(74,74,68,0.06);pointer-events:none;"></div>
+
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left: Content -->
+        <div class="reveal">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(74,74,68,0.1);border-radius:100px;padding:6px 14px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#4A4A44;margin-bottom:20px;">
+            Join the Community
+          </div>
+          <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2.2rem,4.5vw,3.6rem);letter-spacing:-0.04em;color:#4A4A44;line-height:1.05;margin-bottom:20px;">
+            Be Part of the<br/>Yellow Movement Now!
+          </h2>
+          <p style="font-family:'Roboto',sans-serif;font-size:1rem;line-height:1.75;color:rgba(74,74,68,0.75);margin-bottom:12px;">
+            All in the Yellow Community — join thousands of Malaysians who are making textile recycling a part of everyday life.
+          </p>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.75;color:rgba(74,74,68,0.7);margin-bottom:36px;">
+            Whether you're an individual, a business, or a school — everyone has a role to play. Drop off your unwanted clothes and textiles at your nearest Yellow Bin and be part of a growing movement that's changing how Malaysia thinks about waste.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;">
+            <a href="about.html" style="display:inline-flex;align-items:center;gap:8px;background:#4A4A44;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.875rem;padding:13px 26px;border-radius:6px;text-decoration:none;transition:background 0.2s ease,transform 0.15s ease;box-shadow:0 4px 16px rgba(74,74,68,0.25);" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#4A4A44'">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="find-a-bin.html" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#4A4A44;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.875rem;padding:12px 26px;border-radius:6px;text-decoration:none;border:2px solid rgba(74,74,68,0.35);transition:border-color 0.2s ease,background 0.2s ease;" onmouseover="this.style.borderColor='#4A4A44';this.style.background='rgba(74,74,68,0.06)'" onmouseout="this.style.borderColor='rgba(74,74,68,0.35)';this.style.background='transparent'">
+              Find a Bin
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Feature tiles -->
+        <div class="reveal" style="transition-delay:0.15s;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div style="background:rgba(74,74,68,0.08);border-radius:16px;padding:24px 20px;backdrop-filter:blur(4px);">
+              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-0.03em;color:#4A4A44;margin-bottom:4px;">500+</div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.82rem;color:#4A4A44;margin-bottom:6px;">Collection Points</div>
+              <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;line-height:1.5;color:rgba(74,74,68,0.65);">Bins placed across malls, schools &amp; neighbourhoods</div>
+            </div>
+            <div style="background:rgba(74,74,68,0.08);border-radius:16px;padding:24px 20px;">
+              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-0.03em;color:#4A4A44;margin-bottom:4px;">2M+</div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.82rem;color:#4A4A44;margin-bottom:6px;">KG Collected</div>
+              <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;line-height:1.5;color:rgba(74,74,68,0.65);">Textiles diverted from landfill since we began</div>
+            </div>
+            <div style="background:rgba(74,74,68,0.08);border-radius:16px;padding:24px 20px;">
+              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-0.03em;color:#4A4A44;margin-bottom:4px;">50+</div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.82rem;color:#4A4A44;margin-bottom:6px;">Cities Covered</div>
+              <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;line-height:1.5;color:rgba(74,74,68,0.65);">And expanding to new locations every month</div>
+            </div>
+            <div style="background:#4A4A44;border-radius:16px;padding:24px 20px;">
+              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-0.03em;color:#F4D000;margin-bottom:4px;">85%</div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.82rem;color:white;margin-bottom:6px;">Recycled or Reused</div>
+              <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;line-height:1.5;color:rgba(255,255,255,0.55);">Of every item we collect finds a new purpose</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SUPPORT OUR CAUSE
+  ══════════════════════════════════════════ -->
+  <section style="padding:100px 0;background:#4A4A44;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:url('https://placehold.co/1440x600/3a3a34/3a3a34?text=') center/cover no-repeat;opacity:0.04;pointer-events:none;"></div>
+
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left: Image -->
+        <div class="reveal" style="position:relative;">
+          <div style="border-radius:20px;overflow:hidden;aspect-ratio:4/3;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.3);">
+            <img src="https://placehold.co/760x570/5a5a52/888880?text=Yellow+Bin+Team" alt="Yellow Bin team and truck" style="width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(244,208,0,0.15) 0%,transparent 60%);"></div>
+          </div>
+          <!-- Yellow accent bar -->
+          <div style="position:absolute;bottom:-16px;left:32px;right:32px;height:6px;background:#F4D000;border-radius:100px;box-shadow:0 4px 16px rgba(244,208,0,0.5);"></div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="reveal" style="transition-delay:0.15s;">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.25);border-radius:100px;padding:6px 14px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#F4D000;margin-bottom:20px;">
+            Get Involved
+          </div>
+          <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.04em;color:white;line-height:1.1;margin-bottom:20px;">
+            Support Our Cause
+          </h2>
+          <p style="font-family:'Roboto',sans-serif;font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.6);margin-bottom:16px;">
+            Yellow Bin is more than a recycling company — we're a movement built on community action. From our team collecting bins to the volunteers who spread the word, every person makes a difference.
+          </p>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.75;color:rgba(255,255,255,0.5);margin-bottom:36px;">
+            Partner with us, volunteer, or simply use your nearest Yellow Bin. Every kilo kept out of landfill is a win for Malaysia's future.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px;">
+            <a href="about.html" class="btn-primary" style="font-size:0.95rem;padding:13px 26px;">
+              Learn More
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+          <!-- Partner logos placeholder -->
+          <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:28px;">
+            <div style="font-family:'Roboto',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:14px;">Trusted by community partners</div>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+              <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 18px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:rgba(255,255,255,0.35);letter-spacing:0.04em;">PARTNER A</div>
+              <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 18px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:rgba(255,255,255,0.35);letter-spacing:0.04em;">PARTNER B</div>
+              <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:8px 18px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:rgba(255,255,255,0.35);letter-spacing:0.04em;">PARTNER C</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       RECYCLING EVENTS
+  ══════════════════════════════════════════ -->
+  <section style="padding:100px 0;background:#FAFAF8;">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Left: Events -->
+        <div>
+          <div class="reveal" style="margin-bottom:40px;">
+            <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
+              <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+              Programs &amp; Events
+            </div>
+            <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;margin-bottom:16px;">
+              Recycling Events at Yellow Bin
+            </h2>
+            <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.75;color:#6B6B65;">
+              We run community events and reward programmes to make recycling fun, accessible, and meaningful for everyone.
+            </p>
+          </div>
+
+          <!-- Recycle & Reward card -->
+          <div class="reveal step-card" style="margin-bottom:16px;border-left:4px solid #F4D000;transition-delay:0.1s;">
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="width:48px;height:48px;border-radius:10px;background:#F4D000;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A4A44" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:6px;">Recycle &amp; Reward</div>
+                <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.6;color:#6B6B65;">Drop off textiles at participating bins and earn reward points redeemable for vouchers, discounts, and community prizes. The more you recycle, the more you earn.</p>
+                <a href="#" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.8rem;color:#4A4A44;text-decoration:none;border-bottom:2px solid #F4D000;padding-bottom:1px;">
+                  Find out more
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Community Drive card -->
+          <div class="reveal step-card" style="margin-bottom:16px;border-left:4px solid #4A4A44;transition-delay:0.2s;">
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="width:48px;height:48px;border-radius:10px;background:#4A4A44;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:6px;">Community Drives</div>
+                <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.6;color:#6B6B65;">We partner with schools, mosques, condominiums, and corporates to run dedicated collection drives — bringing the bin to your community.</p>
+                <a href="#" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.8rem;color:#4A4A44;text-decoration:none;border-bottom:2px solid #F4D000;padding-bottom:1px;">
+                  Find out more
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Social Responsibility -->
+        <div class="reveal" style="transition-delay:0.2s;">
+          <div style="background:#4A4A44;border-radius:20px;overflow:hidden;box-shadow:0 16px 48px rgba(74,74,68,0.15);">
+            <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
+              <img src="https://placehold.co/700x394/5a5a52/888880?text=Social+Responsibility" alt="Social Responsibility" style="width:100%;height:100%;object-fit:cover;" />
+              <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(74,74,68,0.9) 100%);"></div>
+              <div style="position:absolute;top:16px;left:16px;background:#F4D000;border-radius:6px;padding:6px 12px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.04em;color:#4A4A44;">SOCIAL RESPONSIBILITY</div>
+            </div>
+            <div style="padding:28px 28px 32px;">
+              <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.25rem;color:white;margin-bottom:12px;letter-spacing:-0.02em;">Making an Impact Beyond the Bin</h3>
+              <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.7;color:rgba(255,255,255,0.55);margin-bottom:20px;">
+                Yellow Bin actively supports underprivileged communities by redistributing wearable donations directly to shelters, welfare homes, and refugee centres across Malaysia.
+              </p>
+              <div style="display:flex;gap:20px;margin-bottom:24px;">
+                <div style="text-align:center;">
+                  <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;letter-spacing:-0.03em;color:#F4D000;">15+</div>
+                  <div style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:2px;">Welfare Homes</div>
+                </div>
+                <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+                <div style="text-align:center;">
+                  <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;letter-spacing:-0.03em;color:#F4D000;">10K+</div>
+                  <div style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:2px;">Beneficiaries</div>
+                </div>
+                <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+                <div style="text-align:center;">
+                  <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;letter-spacing:-0.03em;color:#F4D000;">5 yrs</div>
+                  <div style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:2px;">Of Service</div>
+                </div>
+              </div>
+              <a href="about.html" class="btn-primary" style="width:100%;justify-content:center;">Learn About Our Impact</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       NEWSLETTER
+  ══════════════════════════════════════════ -->
+  <section style="padding:80px 0;background:#F4D000;">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+
+        <div class="reveal">
+          <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(74,74,68,0.6);margin-bottom:12px;">Stay in the loop</div>
+          <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;margin-bottom:12px;">
+            The Yellow Bin Newsletter
+          </h2>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.7;color:rgba(74,74,68,0.7);">
+            Get updates on new bin locations, recycling events, community stories, and sustainability tips — straight to your inbox.
+          </p>
+        </div>
+
+        <div class="reveal" style="transition-delay:0.15s;">
+          <form onsubmit="event.preventDefault();this.innerHTML='<div style=\'font-family:Montserrat,sans-serif;font-weight:700;color:#4A4A44;font-size:1rem;\'>✓ You\'re subscribed!</div>';">
+            <div style="display:flex;gap:0;background:white;border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(74,74,68,0.15);">
+              <input type="email" required placeholder="Your email address" style="flex:1;padding:15px 18px;font-family:'Roboto',sans-serif;font-size:0.9rem;color:#4A4A44;border:none;outline:none;background:transparent;" />
+              <button type="submit" style="background:#4A4A44;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;padding:12px 22px;border:none;cursor:pointer;transition:background 0.2s ease;white-space:nowrap;letter-spacing:0.02em;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#4A4A44'">Subscribe</button>
+            </div>
+            <div style="font-family:'Roboto',sans-serif;font-size:0.75rem;color:rgba(74,74,68,0.55);margin-top:10px;">
+              No spam. Unsubscribe anytime. We respect your privacy.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CTA BANNER
+  ══════════════════════════════════════════ -->
+  <section class="cta-banner" style="padding:80px 0;">
+    <div class="max-w-4xl mx-auto px-6 text-center reveal" style="position:relative;z-index:1;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.25);border-radius:100px;padding:6px 16px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#F4D000;margin-bottom:24px;">
+        Get Involved
+      </div>
+      <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,3.5rem);letter-spacing:-0.04em;color:white;line-height:1.05;margin-bottom:20px;">
+        Ready to Make a<br/>
+        <span style="color:#F4D000;">Difference?</span>
+      </h2>
+      <p style="font-family:'Roboto',sans-serif;font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto 36px;">
+        Join thousands of Australians already recycling their textiles with Yellow Bin. It takes 30 seconds. Your planet will thank you.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        <a href="find-a-bin.html" class="btn-primary" style="font-size:1rem;padding:15px 32px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Find Your Nearest Bin
+        </a>
+        <a href="#" class="btn-secondary" style="font-size:1rem;padding:14px 32px;color:white;border-color:rgba(255,255,255,0.25);">
+          Partner With Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer style="padding:64px 0 32px;">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="grid md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <img src="brand_assets/Yellow Bin Logo_New White.png" alt="Yellow Bin" style="height:78px;width:auto;margin-bottom:16px;" />
+          <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.7;color:rgba(255,255,255,0.45);max-width:280px;margin-bottom:20px;">
+            Making textile recycling effortless, accessible, and community-driven across Australia.
+          </p>
+          <!-- Social links -->
+          <div style="display:flex;gap:10px;">
+            <a href="#" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;transition:background 0.2s ease;" onmouseover="this.style.background='rgba(244,208,0,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;transition:background 0.2s ease;" onmouseover="this.style.background='rgba(244,208,0,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;transition:background 0.2s ease;" onmouseover="this.style.background='rgba(244,208,0,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">Company</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="how-it-works.html" class="footer-link">How It Works</a>
+            <a href="our-impact.html" class="footer-link">Our Impact</a>
+            <a href="#" class="footer-link">Partner With Us</a>
+            <a href="#" class="footer-link">Careers</a>
+          </div>
+        </div>
+
+        <!-- Support -->
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">Get In Touch</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <a href="#" class="footer-link">Contact Us</a>
+            <a href="#" class="footer-link">FAQ</a>
+            <a href="find-a-bin.html" class="footer-link">Find a Bin</a>
+            <a href="#" class="footer-link">Request a Bin</a>
+            <a href="#" class="footer-link">Press &amp; Media</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div style="padding-top:28px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;">
+        <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.3);">
+          © 2026 Yellow Bin. All rights reserved.
+        </div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;">
+          <a href="#" class="footer-link" style="font-size:0.78rem;">Privacy Policy</a>
+          <a href="#" class="footer-link" style="font-size:0.78rem;">Terms of Service</a>
+          <a href="#" class="footer-link" style="font-size:0.78rem;">Cookie Policy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       ANIMATIONS & SCRIPTS
+  ══════════════════════════════════════════ -->
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.96) translateY(16px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+  </style>
+
+  <script>
+    // Nav is always dark — no scroll class needed
+
+    // ── Mobile menu ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    // Close on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // ── Scroll reveal ──
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // ── Search bar focus ring ──
+    const searchInput = document.querySelector('input[type="text"]');
+    const searchWrapper = searchInput?.parentElement;
+    if (searchInput && searchWrapper) {
+      searchInput.addEventListener('focus', () => {
+        searchWrapper.style.borderColor = '#F4D000';
+        searchWrapper.style.boxShadow = '0 0 0 3px rgba(244,208,0,0.15), 0 2px 12px rgba(74,74,68,0.06)';
+      });
+      searchInput.addEventListener('blur', () => {
+        searchWrapper.style.borderColor = '#D0D0D9';
+        searchWrapper.style.boxShadow = '0 2px 12px rgba(74,74,68,0.06)';
+      });
+    }
+  </script>
+
+</body>
+</html>
