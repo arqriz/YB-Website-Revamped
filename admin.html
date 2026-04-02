@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Yellow Bin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; background: #F0F0EB; min-height: 100vh; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: #1A1A16;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.3), 0 4px 24px rgba(0,0,0,0.2);
+    }
+    .nav-link { font-family:'Roboto',sans-serif;font-weight:500;font-size:0.875rem;color:rgba(255,255,255,0.65);text-decoration:none;transition:color 0.2s; }
+    .nav-link:hover { color:white; }
+
+    .card { background:white;border-radius:16px;box-shadow:0 2px 4px rgba(74,74,68,0.04),0 8px 24px rgba(74,74,68,0.06); }
+
+    .tab-btn {
+      font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.82rem;letter-spacing:0.03em;
+      padding:9px 20px;border-radius:8px;border:none;cursor:pointer;
+      background:transparent;color:#6A6A64;transition:background 0.2s,color 0.2s;
+    }
+    .tab-btn.active { background:#4A4A44;color:white; }
+    .tab-btn:hover:not(.active) { background:#F0F0E8;color:#4A4A44; }
+
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+
+    table { width:100%;border-collapse:collapse; }
+    th { font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#9A9A94;padding:12px 16px;text-align:left;border-bottom:1px solid #F0F0E8; }
+    td { font-family:'Roboto',sans-serif;font-size:0.875rem;color:#2A2A24;padding:14px 16px;border-bottom:1px solid #F7F7F2; }
+    tr:last-child td { border-bottom:none; }
+    tr:hover td { background:#FAFAF7; }
+
+    .stat-card { background:white;border-radius:14px;padding:22px 24px;box-shadow:0 2px 4px rgba(74,74,68,0.04),0 8px 24px rgba(74,74,68,0.06); }
+    .badge { display:inline-flex;align-items:center;padding:3px 10px;border-radius:100px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.68rem;letter-spacing:0.04em; }
+    .badge-admin { background:#FEF9C3;color:#854D0E; }
+    .badge-user { background:#DBEAFE;color:#1D4ED8; }
+
+    .form-input { width:100%;padding:11px 14px;border:1.5px solid #E5E5E0;border-radius:8px;font-family:'Roboto',sans-serif;font-size:0.875rem;color:#2A2A24;background:#FAFAF7;outline:none;transition:border-color 0.2s; }
+    .form-input:focus { border-color:#F4D000; }
+    .form-label { font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;color:#4A4A44;text-transform:uppercase;margin-bottom:5px;display:block; }
+    .btn-save { background:#4A4A44;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.03em;padding:11px 24px;border-radius:8px;border:none;cursor:pointer;transition:background 0.2s; }
+    .btn-save:hover { background:#333; }
+    .btn-danger { background:#FEF2F2;color:#B91C1C;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.78rem;padding:7px 14px;border-radius:6px;border:1px solid #FECACA;cursor:pointer;transition:background 0.2s; }
+    .btn-danger:hover { background:#FEE2E2; }
+
+    .alert { padding:12px 16px;border-radius:8px;font-size:0.875rem;margin-bottom:16px; }
+    .alert-success { background:#F0FDF4;color:#15803D;border:1px solid #BBF7D0; }
+    .alert-error { background:#FEF2F2;color:#B91C1C;border:1px solid #FECACA; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="px-6 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div style="display:flex;align-items:center;gap:20px;">
+        <a href="index.html"><img src="brand_assets/Yellow Bin Logo_New White.png" alt="Yellow Bin" style="height:64px;width:auto;" /></a>
+        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#F4D000;background:rgba(244,208,0,0.15);padding:4px 10px;border-radius:4px;">Admin Panel</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <span id="admin-name" style="font-family:'Roboto',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.6);"></span>
+        <a href="index.html" class="nav-link">View Site</a>
+        <button onclick="signOut()" style="background:rgba(255,255,255,0.1);color:white;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.78rem;padding:8px 16px;border-radius:6px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">Sign Out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main style="padding-top:100px;padding-bottom:80px;" class="max-w-7xl mx-auto px-6">
+
+    <!-- Header -->
+    <div style="margin-bottom:28px;">
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:1.75rem;font-weight:800;color:#2A2A24;letter-spacing:-0.03em;margin:0 0 6px;">Admin Dashboard</h1>
+      <p style="font-family:'Roboto',sans-serif;color:#6A6A64;font-size:0.875rem;margin:0;">Manage users, contributions, events, and gallery.</p>
+    </div>
+
+    <!-- Overview Stats -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:32px;">
+      <div class="stat-card">
+        <p style="font-size:0.75rem;color:#9A9A94;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Total Users</p>
+        <p id="ov-users" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">—</p>
+      </div>
+      <div class="stat-card">
+        <p style="font-size:0.75rem;color:#9A9A94;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Total Drops</p>
+        <p id="ov-drops" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">—</p>
+      </div>
+      <div class="stat-card">
+        <p style="font-size:0.75rem;color:#9A9A94;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Weight Collected</p>
+        <p id="ov-weight" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">—</p>
+      </div>
+      <div class="stat-card">
+        <p style="font-size:0.75rem;color:#9A9A94;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Events Active</p>
+        <p id="ov-events" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">—</p>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div style="display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;">
+      <button class="tab-btn active" onclick="switchTab('users', this)">Users</button>
+      <button class="tab-btn" onclick="switchTab('contributions', this)">Contributions</button>
+      <button class="tab-btn" onclick="switchTab('events', this)">Events</button>
+      <button class="tab-btn" onclick="switchTab('gallery', this)">Gallery</button>
+    </div>
+
+    <!-- ── USERS TAB ── -->
+    <div id="tab-users" class="tab-panel active card" style="overflow:hidden;">
+      <div style="padding:20px 24px;border-bottom:1px solid #F0F0E8;display:flex;align-items:center;justify-content:space-between;">
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0;">User List</h2>
+      </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Joined</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="users-tbody">
+            <tr><td colspan="5" style="text-align:center;color:#9A9A94;padding:40px;">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── CONTRIBUTIONS TAB ── -->
+    <div id="tab-contributions" class="tab-panel card" style="overflow:hidden;">
+      <div style="padding:20px 24px;border-bottom:1px solid #F0F0E8;">
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0;">All Contributions</h2>
+      </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Location</th>
+              <th>Weight (kg)</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="contrib-tbody">
+            <tr><td colspan="4" style="text-align:center;color:#9A9A94;padding:40px;">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── EVENTS TAB ── -->
+    <div id="tab-events" class="tab-panel">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="md:grid-cols-2">
+        <!-- Add event form -->
+        <div class="card" style="padding:28px;">
+          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 20px;">Add New Event</h2>
+          <div id="event-alert" style="display:none;" class="alert"></div>
+          <form id="event-form" style="display:flex;flex-direction:column;gap:16px;">
+            <div>
+              <label class="form-label">Event Title</label>
+              <input class="form-input" type="text" id="ev-title" placeholder="e.g. Textile Drive @ KLCC" required />
+            </div>
+            <div>
+              <label class="form-label">Date</label>
+              <input class="form-input" type="date" id="ev-date" required />
+            </div>
+            <div>
+              <label class="form-label">Location</label>
+              <input class="form-input" type="text" id="ev-location" placeholder="e.g. KLCC Park, KL" />
+            </div>
+            <div>
+              <label class="form-label">Description</label>
+              <textarea class="form-input" id="ev-desc" rows="3" placeholder="Brief description of the event…" style="resize:vertical;"></textarea>
+            </div>
+            <button type="submit" class="btn-save">Add Event</button>
+          </form>
+        </div>
+        <!-- Events list -->
+        <div class="card" style="padding:28px;">
+          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 20px;">Upcoming Events</h2>
+          <div id="events-list" style="display:flex;flex-direction:column;gap:12px;">
+            <p style="color:#9A9A94;font-size:0.875rem;text-align:center;padding:24px 0;">Loading…</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── GALLERY TAB ── -->
+    <div id="tab-gallery" class="tab-panel">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="md:grid-cols-2">
+        <!-- Upload form -->
+        <div class="card" style="padding:28px;">
+          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 20px;">Upload Image</h2>
+          <div id="gallery-alert" style="display:none;" class="alert"></div>
+          <form id="gallery-form" style="display:flex;flex-direction:column;gap:16px;">
+            <div>
+              <label class="form-label">Caption</label>
+              <input class="form-input" type="text" id="gal-caption" placeholder="Image caption" />
+            </div>
+            <div>
+              <label class="form-label">Image File</label>
+              <input class="form-input" type="file" id="gal-file" accept="image/*" required style="padding:9px 14px;" />
+            </div>
+            <button type="submit" class="btn-save">Upload Image</button>
+          </form>
+        </div>
+        <!-- Gallery grid -->
+        <div class="card" style="padding:28px;">
+          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 20px;">Gallery Images</h2>
+          <div id="gallery-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+            <p style="grid-column:span 3;color:#9A9A94;font-size:0.875rem;text-align:center;padding:24px 0;">Loading…</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="background:#000000;padding:28px 0;border-top:1px solid rgba(255,255,255,0.06);">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.35);margin:0;">© 2025 Yellow Bin — Admin Panel</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const { createClient } = supabase;
+    const sb = createClient(
+      'https://pwcdqhcnmzylxvftousp.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3Y2RxaGNubXp5bHh2ZnRvdXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMDYwNDcsImV4cCI6MjA5MDY4MjA0N30.Z2jR0GM5KZj7xfpxnxX37rDoG7XRUy82jseirJfQvxU'
+    );
+
+    async function signOut() {
+      await sb.auth.signOut();
+      window.location.href = 'index.html';
+    }
+
+    function switchTab(name, btn) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + name).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    function showAlert(containerId, msg, type = 'success') {
+      const el = document.getElementById(containerId);
+      el.className = 'alert alert-' + type;
+      el.textContent = msg;
+      el.style.display = 'block';
+      setTimeout(() => { el.style.display = 'none'; }, 4000);
+    }
+
+    async function loadAdmin() {
+      const { data: { session } } = await sb.auth.getSession();
+      if (!session) { window.location.href = 'login.html'; return; }
+
+      // Check admin role
+      const { data: profile } = await sb.from('profiles').select('role').eq('id', session.user.id).single();
+      if (profile?.role !== 'admin') { window.location.href = 'dashboard.html'; return; }
+
+      const meta = session.user.user_metadata || {};
+      document.getElementById('admin-name').textContent = meta.first_name ? `${meta.first_name} (Admin)` : session.user.email;
+
+      loadUsers();
+      loadContributions();
+      loadEvents();
+      loadGallery();
+    }
+
+    // ── USERS ──
+    async function loadUsers() {
+      const { data } = await sb.from('profiles').select('*').order('id');
+      document.getElementById('ov-users').textContent = data?.length ?? '—';
+      if (!data || data.length === 0) {
+        document.getElementById('users-tbody').innerHTML = '<tr><td colspan="5" style="text-align:center;color:#9A9A94;padding:40px;">No users found.</td></tr>';
+        return;
+      }
+      document.getElementById('users-tbody').innerHTML = data.map(u => `
+        <tr>
+          <td>${[u.first_name, u.last_name].filter(Boolean).join(' ') || '—'}</td>
+          <td style="color:#6A6A64;">${u.id.slice(0, 8)}…</td>
+          <td><span class="badge ${u.role === 'admin' ? 'badge-admin' : 'badge-user'}">${u.role}</span></td>
+          <td style="color:#9A9A94;font-size:0.8rem;">—</td>
+          <td>
+            ${u.role !== 'admin'
+              ? `<button class="btn-danger" onclick="promoteUser('${u.id}')">Make Admin</button>`
+              : `<span style="color:#9A9A94;font-size:0.8rem;">Admin</span>`
+            }
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    async function promoteUser(id) {
+      if (!confirm('Promote this user to admin?')) return;
+      const { error } = await sb.from('profiles').update({ role: 'admin' }).eq('id', id);
+      if (error) { alert('Error: ' + error.message); return; }
+      loadUsers();
+    }
+
+    // ── CONTRIBUTIONS ──
+    async function loadContributions() {
+      const { data } = await sb.from('contributions').select('*, profiles(first_name, last_name)').order('created_at', { ascending: false });
+      const totalWeight = data?.reduce((s, c) => s + (c.weight_kg || 0), 0) || 0;
+      document.getElementById('ov-drops').textContent = data?.length ?? '—';
+      document.getElementById('ov-weight').textContent = totalWeight.toFixed(1) + ' kg';
+      if (!data || data.length === 0) {
+        document.getElementById('contrib-tbody').innerHTML = '<tr><td colspan="4" style="text-align:center;color:#9A9A94;padding:40px;">No contributions yet.</td></tr>';
+        return;
+      }
+      document.getElementById('contrib-tbody').innerHTML = data.map(c => {
+        const name = c.profiles ? [c.profiles.first_name, c.profiles.last_name].filter(Boolean).join(' ') : '—';
+        return `
+          <tr>
+            <td>${name}</td>
+            <td>${c.location || '—'}</td>
+            <td style="font-family:'Montserrat',sans-serif;font-weight:600;">${c.weight_kg ?? '—'}</td>
+            <td style="color:#9A9A94;font-size:0.8rem;">${new Date(c.created_at).toLocaleDateString('en-MY')}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // ── EVENTS ──
+    async function loadEvents() {
+      const { data } = await sb.from('events').select('*').order('date', { ascending: true });
+      document.getElementById('ov-events').textContent = data?.filter(e => new Date(e.date) >= new Date()).length ?? '—';
+      if (!data || data.length === 0) {
+        document.getElementById('events-list').innerHTML = '<p style="color:#9A9A94;font-size:0.875rem;text-align:center;padding:24px 0;">No events yet.</p>';
+        return;
+      }
+      document.getElementById('events-list').innerHTML = data.map(ev => `
+        <div style="padding:14px;border-radius:10px;background:#F7F7F2;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+          <div>
+            <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.875rem;color:#2A2A24;margin:0 0 3px;">${ev.title}</p>
+            <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#6A6A64;margin:0;">${new Date(ev.date).toLocaleDateString('en-MY', { day:'numeric',month:'short',year:'numeric' })} · ${ev.location || ''}</p>
+          </div>
+          <button class="btn-danger" onclick="deleteEvent('${ev.id}')">Delete</button>
+        </div>
+      `).join('');
+    }
+
+    document.getElementById('event-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { error } = await sb.from('events').insert({
+        title: document.getElementById('ev-title').value,
+        date: document.getElementById('ev-date').value,
+        location: document.getElementById('ev-location').value,
+        description: document.getElementById('ev-desc').value,
+      });
+      if (error) { showAlert('event-alert', error.message, 'error'); return; }
+      showAlert('event-alert', 'Event added successfully!', 'success');
+      e.target.reset();
+      loadEvents();
+    });
+
+    async function deleteEvent(id) {
+      if (!confirm('Delete this event?')) return;
+      await sb.from('events').delete().eq('id', id);
+      loadEvents();
+    }
+
+    // ── GALLERY ──
+    async function loadGallery() {
+      const { data } = await sb.from('gallery').select('*').order('created_at', { ascending: false });
+      if (!data || data.length === 0) {
+        document.getElementById('gallery-grid').innerHTML = '<p style="grid-column:span 3;color:#9A9A94;font-size:0.875rem;text-align:center;padding:24px 0;">No images yet.</p>';
+        return;
+      }
+      document.getElementById('gallery-grid').innerHTML = data.map(img => `
+        <div style="position:relative;border-radius:8px;overflow:hidden;aspect-ratio:1;">
+          <img src="${img.url}" alt="${img.caption || ''}" style="width:100%;height:100%;object-fit:cover;" />
+          <button onclick="deleteGalleryImage('${img.id}', '${img.path || ''}')" style="position:absolute;top:4px;right:4px;background:rgba(0,0,0,0.6);color:white;border:none;border-radius:4px;padding:3px 6px;cursor:pointer;font-size:0.7rem;">✕</button>
+        </div>
+      `).join('');
+    }
+
+    document.getElementById('gallery-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const file = document.getElementById('gal-file').files[0];
+      const caption = document.getElementById('gal-caption').value;
+      if (!file) return;
+
+      const path = `gallery/${Date.now()}-${file.name}`;
+      const { error: uploadError } = await sb.storage.from('gallery').upload(path, file);
+      if (uploadError) { showAlert('gallery-alert', uploadError.message, 'error'); return; }
+
+      const { data: { publicUrl } } = sb.storage.from('gallery').getPublicUrl(path);
+      const { error: dbError } = await sb.from('gallery').insert({ url: publicUrl, path, caption });
+      if (dbError) { showAlert('gallery-alert', dbError.message, 'error'); return; }
+
+      showAlert('gallery-alert', 'Image uploaded!', 'success');
+      e.target.reset();
+      loadGallery();
+    });
+
+    async function deleteGalleryImage(id, path) {
+      if (!confirm('Delete this image?')) return;
+      if (path) await sb.storage.from('gallery').remove([path]);
+      await sb.from('gallery').delete().eq('id', id);
+      loadGallery();
+    }
+
+    loadAdmin();
+  </script>
+</body>
+</html>

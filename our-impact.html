@@ -187,6 +187,14 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Find a Bin
         </a>
+        <span style="width:1px;height:20px;background:rgba(255,255,255,0.2);display:inline-block;"></span>
+        <div id="nav-auth-out" style="display:flex;gap:8px;align-items:center;">
+          <a href="login.html" class="nav-link">Sign In</a>
+          <a href="signup.html" style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.12);color:white;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.03em;padding:9px 18px;border-radius:6px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">Sign Up</a>
+        </div>
+        <div id="nav-auth-in" style="display:none;align-items:center;">
+          <a href="dashboard.html" class="btn-primary">Dashboard</a>
+        </div>
       </div>
       <button id="hamburger" class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Open menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
@@ -200,8 +208,13 @@
         <a href="how-it-works.html" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">How It Works</a>
         <a href="our-impact.html" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50" style="color:#F4D000;font-weight:600;">Our Impact</a>
         <a href="about.html" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">About Us</a>
-        <a href="find-a-bin.html" class="py-3 font-body font-medium text-grey-dark">Find a Bin</a>
-        <a href="find-a-bin.html" class="btn-primary mt-4 justify-center">Find a Bin Near You</a>
+        <a href="find-a-bin.html" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Find a Bin</a>
+        <div id="mobile-auth-out" style="display:flex;gap:8px;margin-top:12px;">
+          <a href="login.html" style="flex:1;text-align:center;padding:11px;border-radius:6px;border:1.5px solid #4A4A44;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.8rem;color:#4A4A44;text-decoration:none;">Sign In</a>
+          <a href="signup.html" style="flex:1;text-align:center;padding:11px;border-radius:6px;background:#4A4A44;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;color:white;text-decoration:none;">Sign Up</a>
+        </div>
+        <a href="dashboard.html" id="mobile-auth-in" class="btn-primary mt-2 justify-center" style="display:none;">Dashboard</a>
+        <a href="find-a-bin.html" class="btn-primary mt-2 justify-center">Find a Bin Near You</a>
       </div>
     </div>
   </nav>
@@ -601,6 +614,31 @@
       const el = document.getElementById('live-counter');
       if (el) el.textContent = count.toLocaleString();
     }, 3000);
+  </script>
+
+  <!-- Supabase auth state -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+  (function(){
+    const sb = supabase.createClient(
+      'https://pwcdqhcnmzylxvftousp.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3Y2RxaGNubXp5bHh2ZnRvdXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMDYwNDcsImV4cCI6MjA5MDY4MjA0N30.Z2jR0GM5KZj7xfpxnxX37rDoG7XRUy82jseirJfQvxU'
+    );
+    sb.auth.getSession().then(({ data: { session } }) => {
+      if (!session) return;
+      document.getElementById('nav-auth-out').style.display = 'none';
+      document.getElementById('mobile-auth-out').style.display = 'none';
+      sb.from('profiles').select('role').eq('id', session.user.id).single().then(({ data }) => {
+        const url = data?.role === 'admin' ? 'admin.html' : 'dashboard.html';
+        const navIn = document.getElementById('nav-auth-in');
+        navIn.querySelector('a').href = url;
+        navIn.style.display = 'flex';
+        const mobileIn = document.getElementById('mobile-auth-in');
+        mobileIn.href = url;
+        mobileIn.style.display = 'block';
+      });
+    });
+  })();
   </script>
 
 </body>
