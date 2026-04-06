@@ -120,13 +120,14 @@
             <tr>
               <th>Name</th>
               <th>Email</th>
+              <th>Phone</th>
               <th>Role</th>
               <th>Joined</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody id="users-tbody">
-            <tr><td colspan="5" style="text-align:center;color:#9A9A94;padding:40px;">Loading…</td></tr>
+            <tr><td colspan="6" style="text-align:center;color:#9A9A94;padding:40px;">Loading…</td></tr>
           </tbody>
         </table>
       </div>
@@ -178,7 +179,19 @@
               <label class="form-label">Description</label>
               <textarea class="form-input" id="ev-desc" rows="3" placeholder="Brief description of the event…" style="resize:vertical;"></textarea>
             </div>
-            <button type="submit" class="btn-save">Add Event</button>
+            <div>
+              <label class="form-label">Event Poster <span style="font-weight:400;color:#9A9A94;text-transform:none;letter-spacing:0;">(optional)</span></label>
+              <div id="poster-drop-zone" style="border:2px dashed #E5E5E0;border-radius:8px;padding:24px;text-align:center;cursor:pointer;background:#FAFAF7;transition:border-color 0.2s,background 0.2s;" onclick="document.getElementById('ev-poster').click()" ondragover="event.preventDefault();this.style.borderColor='#F4D000';this.style.background='#FFFDE0';" ondragleave="this.style.borderColor='#E5E5E0';this.style.background='#FAFAF7';" ondrop="handlePosterDrop(event)">
+                <svg style="width:28px;height:28px;color:#C0C0BA;margin:0 auto 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <p id="poster-drop-label" style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:#9A9A94;margin:0;">Click or drag & drop a poster image</p>
+              </div>
+              <input type="file" id="ev-poster" accept="image/*" style="display:none;" onchange="previewPoster(this)" />
+              <div id="poster-preview" style="display:none;margin-top:10px;position:relative;">
+                <img id="poster-preview-img" style="width:100%;border-radius:8px;object-fit:cover;max-height:160px;" />
+                <button type="button" onclick="clearPoster()" style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,0.55);color:white;border:none;border-radius:4px;padding:4px 8px;cursor:pointer;font-size:0.72rem;">Remove</button>
+              </div>
+            </div>
+            <button type="submit" class="btn-save" id="ev-submit-btn">Add Event</button>
           </form>
         </div>
         <!-- Events list -->
@@ -285,9 +298,10 @@
       document.getElementById('users-tbody').innerHTML = data.map(u => `
         <tr>
           <td>${[u.first_name, u.last_name].filter(Boolean).join(' ') || '—'}</td>
-          <td style="color:#6A6A64;">${u.id.slice(0, 8)}…</td>
+          <td style="color:#4A4A44;">${u.email || '<span style="color:#C0C0BA;">—</span>'}</td>
+          <td style="color:#6A6A64;font-size:0.82rem;">${u.phone || '<span style="color:#C0C0BA;">—</span>'}</td>
           <td><span class="badge ${u.role === 'admin' ? 'badge-admin' : 'badge-user'}">${u.role}</span></td>
-          <td style="color:#9A9A94;font-size:0.8rem;">—</td>
+          <td style="color:#9A9A94;font-size:0.8rem;">${u.created_at ? new Date(u.created_at).toLocaleDateString('en-MY') : '—'}</td>
           <td>
             ${u.role !== 'admin'
               ? `<button class="btn-danger" onclick="promoteUser('${u.id}')">Make Admin</button>`
@@ -338,9 +352,12 @@
       }
       document.getElementById('events-list').innerHTML = data.map(ev => `
         <div style="padding:14px;border-radius:10px;background:#F7F7F2;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
-          <div>
-            <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.875rem;color:#2A2A24;margin:0 0 3px;">${ev.title}</p>
-            <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#6A6A64;margin:0;">${new Date(ev.date).toLocaleDateString('en-MY', { day:'numeric',month:'short',year:'numeric' })} · ${ev.location || ''}</p>
+          <div style="display:flex;gap:12px;align-items:flex-start;flex:1;min-width:0;">
+            ${ev.poster_url ? `<img src="${ev.poster_url}" alt="Poster" style="width:48px;height:48px;object-fit:cover;border-radius:6px;flex-shrink:0;" />` : `<div style="width:48px;height:48px;border-radius:6px;background:#E5E5E0;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg style="width:20px;height:20px;color:#C0C0BA;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>`}
+            <div style="min-width:0;">
+              <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.875rem;color:#2A2A24;margin:0 0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.title}</p>
+              <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#6A6A64;margin:0;">${new Date(ev.date).toLocaleDateString('en-MY', { day:'numeric',month:'short',year:'numeric' })} · ${ev.location || ''}</p>
+            </div>
           </div>
           <button class="btn-danger" onclick="deleteEvent('${ev.id}')">Delete</button>
         </div>
@@ -349,15 +366,33 @@
 
     document.getElementById('event-form').addEventListener('submit', async (e) => {
       e.preventDefault();
+      const btn = document.getElementById('ev-submit-btn');
+      btn.textContent = 'Saving…';
+      btn.disabled = true;
+
+      let poster_url = null;
+      const posterFile = document.getElementById('ev-poster').files[0];
+      if (posterFile) {
+        const posterPath = `events/${Date.now()}-${posterFile.name}`;
+        const { error: upErr } = await sb.storage.from('events').upload(posterPath, posterFile);
+        if (upErr) { showAlert('event-alert', 'Poster upload failed: ' + upErr.message, 'error'); btn.textContent = 'Add Event'; btn.disabled = false; return; }
+        const { data: { publicUrl } } = sb.storage.from('events').getPublicUrl(posterPath);
+        poster_url = publicUrl;
+      }
+
       const { error } = await sb.from('events').insert({
         title: document.getElementById('ev-title').value,
         date: document.getElementById('ev-date').value,
         location: document.getElementById('ev-location').value,
         description: document.getElementById('ev-desc').value,
+        poster_url,
       });
+      btn.textContent = 'Add Event';
+      btn.disabled = false;
       if (error) { showAlert('event-alert', error.message, 'error'); return; }
       showAlert('event-alert', 'Event added successfully!', 'success');
       e.target.reset();
+      clearPoster();
       loadEvents();
     });
 
@@ -406,6 +441,39 @@
       if (path) await sb.storage.from('gallery').remove([path]);
       await sb.from('gallery').delete().eq('id', id);
       loadGallery();
+    }
+
+    // ── POSTER PREVIEW HELPERS ──
+    function previewPoster(input) {
+      const file = input.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        document.getElementById('poster-preview-img').src = e.target.result;
+        document.getElementById('poster-preview').style.display = 'block';
+        document.getElementById('poster-drop-zone').style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function clearPoster() {
+      document.getElementById('ev-poster').value = '';
+      document.getElementById('poster-preview').style.display = 'none';
+      document.getElementById('poster-drop-zone').style.display = 'block';
+      document.getElementById('poster-drop-label').textContent = 'Click or drag & drop a poster image';
+    }
+
+    function handlePosterDrop(event) {
+      event.preventDefault();
+      const zone = document.getElementById('poster-drop-zone');
+      zone.style.borderColor = '#E5E5E0';
+      zone.style.background = '#FAFAF7';
+      const file = event.dataTransfer.files[0];
+      if (!file || !file.type.startsWith('image/')) return;
+      const dt = new DataTransfer();
+      dt.items.add(file);
+      document.getElementById('ev-poster').files = dt.files;
+      previewPoster(document.getElementById('ev-poster'));
     }
 
     loadAdmin();

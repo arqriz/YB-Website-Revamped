@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — Yellow Bin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; color: #4A4A44; background: #F0F0EB; overflow-x: hidden; min-height: 100vh; }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: #4A4A44;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.15), 0 4px 24px rgba(0,0,0,0.12);
+    }
+    .nav-link {
+      position: relative;
+      font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 0.875rem;
+      color: rgba(255,255,255,0.75); letter-spacing: 0.01em;
+      transition: color 0.2s ease; text-decoration: none;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 2px; background: #F4D000;
+      transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-link:hover { color: white; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: white; }
+    .nav-link.active::after { width: 100%; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #F4D000; color: #4A4A44;
+      font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.875rem;
+      letter-spacing: 0.02em; padding: 11px 24px; border-radius: 6px;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(244,208,0,0.3), 0 1px 2px rgba(0,0,0,0.08);
+      cursor: pointer; border: none; text-decoration: none;
+    }
+    .btn-primary:hover { background: #e6c400; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(244,208,0,0.45), 0 2px 4px rgba(0,0,0,0.1); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 3px solid #F4D000; outline-offset: 3px; }
+
+    /* Hero section */
+    .page-hero {
+      background: #1A1A16;
+      padding: 140px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; top: -40%; right: -10%; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(244,208,0,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; bottom: -20%; left: -5%; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(244,208,0,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Masonry grid */
+    .gallery-grid {
+      columns: 4;
+      column-gap: 16px;
+    }
+    @media (max-width: 1024px) { .gallery-grid { columns: 3; } }
+    @media (max-width: 640px) { .gallery-grid { columns: 2; column-gap: 10px; } }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      display: block;
+    }
+    @media (max-width: 640px) { .gallery-item { margin-bottom: 10px; } }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    .gallery-item-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,26,22,0.75) 0%, rgba(26,26,22,0) 50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex; align-items: flex-end; padding: 16px;
+    }
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+
+    .gallery-item-caption {
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.82rem;
+      color: white;
+      line-height: 1.4;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 10000;
+      background: rgba(10, 10, 8, 0.92);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s ease;
+      backdrop-filter: blur(6px);
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+
+    .lightbox-img {
+      max-width: min(90vw, 960px);
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+      transform: scale(0.94);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .lightbox.open .lightbox-img { transform: scale(1); }
+
+    .lightbox-close {
+      position: fixed; top: 24px; right: 28px;
+      background: rgba(255,255,255,0.12); color: white; border: none;
+      width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+      z-index: 10001;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.22); }
+
+    .lightbox-caption {
+      position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.75); font-family: 'Roboto', sans-serif; font-size: 0.875rem;
+      text-align: center; max-width: 600px; padding: 0 24px;
+      z-index: 10001;
+    }
+
+    /* Empty & loading states */
+    .empty-state {
+      text-align: center; padding: 80px 24px;
+    }
+
+    /* Skeleton shimmer */
+    @keyframes shimmer {
+      0% { background-position: -400px 0; }
+      100% { background-position: 400px 0; }
+    }
+    .skeleton {
+      background: linear-gradient(90deg, #E5E5E0 25%, #EFEFEA 50%, #E5E5E0 75%);
+      background-size: 400px 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 12px;
+    }
+
+    /* Reveal animation */
+    .gallery-item {
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      background: #1A1A16;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="px-6 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div style="display:flex;align-items:center;gap:32px;">
+        <a href="index.html" class="flex-shrink-0">
+          <img src="brand_assets/Yellow Bin Logo_New White.png" alt="Yellow Bin" style="height:64px;width:auto;" />
+        </a>
+        <div style="display:flex;gap:24px;" class="hidden md:flex">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="how-it-works.html" class="nav-link">How It Works</a>
+          <a href="our-impact.html" class="nav-link">Our Impact</a>
+          <a href="about.html" class="nav-link">About Us</a>
+          <a href="gallery.html" class="nav-link active">Gallery</a>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div id="nav-auth-out" style="display:flex;gap:12px;">
+          <a href="login.html" class="nav-link">Sign In</a>
+          <a href="signup.html" style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.12);color:white;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.03em;padding:9px 18px;border-radius:6px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">Sign Up</a>
+        </div>
+        <a href="dashboard.html" id="nav-auth-in" class="btn-primary" style="display:none;">Dashboard</a>
+        <a href="find-a-bin.html" class="btn-primary">Find a Bin</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="max-w-7xl mx-auto px-6 relative" style="z-index:1;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.3);border-radius:100px;padding:6px 14px;margin-bottom:20px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#F4D000;"></span>
+        <span style="font-family:'Roboto',sans-serif;font-size:0.75rem;font-weight:500;color:rgba(255,255,255,0.7);letter-spacing:0.08em;text-transform:uppercase;">Community Moments</span>
+      </div>
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:clamp(2.5rem,6vw,4rem);font-weight:900;color:white;letter-spacing:-0.04em;line-height:1.0;margin:0 0 16px;">
+        Our Gallery
+      </h1>
+      <p style="font-family:'Roboto',sans-serif;font-size:1rem;color:rgba(255,255,255,0.55);max-width:480px;line-height:1.7;margin:0;">
+        A look at our events, drives, and the communities we're building — one bin at a time.
+      </p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <main style="padding: 56px 0 80px;">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Loading skeletons -->
+      <div id="gallery-loading" class="gallery-grid">
+        <div class="skeleton" style="height:220px;margin-bottom:16px;animation-delay:0s;"></div>
+        <div class="skeleton" style="height:300px;margin-bottom:16px;animation-delay:0.05s;"></div>
+        <div class="skeleton" style="height:180px;margin-bottom:16px;animation-delay:0.1s;"></div>
+        <div class="skeleton" style="height:260px;margin-bottom:16px;animation-delay:0.15s;"></div>
+        <div class="skeleton" style="height:240px;margin-bottom:16px;animation-delay:0.2s;"></div>
+        <div class="skeleton" style="height:200px;margin-bottom:16px;animation-delay:0.25s;"></div>
+        <div class="skeleton" style="height:280px;margin-bottom:16px;animation-delay:0.3s;"></div>
+        <div class="skeleton" style="height:190px;margin-bottom:16px;animation-delay:0.35s;"></div>
+      </div>
+
+      <!-- Gallery grid -->
+      <div id="gallery-grid" class="gallery-grid" style="display:none;"></div>
+
+      <!-- Empty state -->
+      <div id="gallery-empty" style="display:none;" class="empty-state">
+        <svg style="width:64px;height:64px;color:#C0C0BA;margin:0 auto 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+        <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:#4A4A44;margin:0 0 8px;">No images yet</h3>
+        <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;color:#9A9A94;margin:0;">Check back soon — our team is uploading moments from recent events.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+    <img id="lightbox-img" class="lightbox-img" src="" alt="" />
+    <p id="lightbox-caption" class="lightbox-caption"></p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="padding:40px 0;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
+        <img src="brand_assets/Yellow Bin Logo_New White.png" alt="Yellow Bin" style="height:48px;width:auto;opacity:0.7;" />
+        <div style="display:flex;gap:24px;flex-wrap:wrap;">
+          <a href="index.html" style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Home</a>
+          <a href="how-it-works.html" style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">How It Works</a>
+          <a href="our-impact.html" style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Our Impact</a>
+          <a href="about.html" style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">About Us</a>
+          <a href="gallery.html" style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.55);text-decoration:none;">Gallery</a>
+        </div>
+        <p style="font-family:'Roboto',sans-serif;font-size:0.75rem;color:rgba(255,255,255,0.25);margin:0;">© 2025 Yellow Bin. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const { createClient } = supabase;
+    const sb = createClient(
+      'https://pwcdqhcnmzylxvftousp.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3Y2RxaGNubXp5bHh2ZnRvdXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMDYwNDcsImV4cCI6MjA5MDY4MjA0N30.Z2jR0GM5KZj7xfpxnxX37rDoG7XRUy82jseirJfQvxU'
+    );
+
+    // Auth state
+    (async () => {
+      const { data: { session } } = await sb.auth.getSession();
+      if (session) {
+        document.getElementById('nav-auth-out').style.display = 'none';
+        document.getElementById('nav-auth-in').style.display = 'inline-flex';
+      }
+    })();
+
+    // Load gallery images
+    async function loadGallery() {
+      const { data, error } = await sb.from('gallery').select('*').order('created_at', { ascending: false });
+
+      document.getElementById('gallery-loading').style.display = 'none';
+
+      if (error || !data || data.length === 0) {
+        document.getElementById('gallery-empty').style.display = 'block';
+        return;
+      }
+
+      const grid = document.getElementById('gallery-grid');
+      grid.style.display = 'block';
+      grid.innerHTML = data.map((img, i) => `
+        <div class="gallery-item" style="animation-delay:${i * 0.04}s;" onclick="openLightbox('${escapeAttr(img.url)}', '${escapeAttr(img.caption || '')}')">
+          <img
+            src="${img.url}"
+            alt="${img.caption || 'Gallery image'}"
+            loading="lazy"
+            style="border-radius:12px;"
+          />
+          <div class="gallery-item-overlay">
+            ${img.caption ? `<p class="gallery-item-caption">${img.caption}</p>` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function escapeAttr(str) {
+      return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    }
+
+    // Lightbox
+    function openLightbox(url, caption) {
+      document.getElementById('lightbox-img').src = url;
+      document.getElementById('lightbox-caption').textContent = caption;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(event) {
+      if (event && event.target === document.getElementById('lightbox-img')) return;
+      if (event && event.currentTarget === document.getElementById('lightbox') && event.target !== event.currentTarget) return;
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => { document.getElementById('lightbox-img').src = ''; }, 300);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    loadGallery();
+  </script>
+</body>
+</html>
