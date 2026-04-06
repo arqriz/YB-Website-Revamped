@@ -220,6 +220,11 @@
           </div>
 
           <div style="margin-bottom:20px;">
+            <label class="form-label" for="phone">Phone Number <span style="font-weight:400;color:#B0B0A8;text-transform:none;letter-spacing:0;">(optional)</span></label>
+            <input class="form-input" type="tel" id="phone" placeholder="+60 12 345 6789" autocomplete="tel" />
+          </div>
+
+          <div style="margin-bottom:20px;">
             <label class="form-label" for="password">Password</label>
             <div style="position:relative;">
               <input class="form-input" type="password" id="password" placeholder="At least 8 characters" autocomplete="new-password" required style="padding-right:44px;" />
@@ -334,6 +339,7 @@
       const firstName = document.getElementById('first-name').value.trim();
       const lastName = document.getElementById('last-name').value.trim();
       const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
       const password = document.getElementById('password').value;
       const confirm = document.getElementById('confirm-password').value;
       const btn = document.getElementById('submit-btn');
@@ -375,7 +381,9 @@
           id: data.user.id,
           first_name: firstName,
           last_name: lastName,
-          role: 'user'
+          role: 'user',
+          email: email,
+          phone: phone || null,
         });
         if (profileError) {
           console.warn('Profile insert failed:', profileError.message);
