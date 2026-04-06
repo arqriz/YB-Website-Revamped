@@ -25,6 +25,7 @@
       }
     }
   </script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -143,6 +144,47 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    #map { width: 100%; height: 100%; }
+
+    /* Custom Leaflet popup */
+    .leaflet-popup-content-wrapper {
+      border-radius: 12px !important;
+      box-shadow: 0 8px 32px rgba(74,74,68,0.18) !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+    .leaflet-popup-content { margin: 0 !important; width: auto !important; }
+    .leaflet-popup-tip-container { display: none; }
+    .map-popup { padding: 14px 18px; min-width: 200px; }
+    .map-popup-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.875rem; color: #2A2A24; margin-bottom: 4px; }
+    .map-popup-address { font-family: 'Roboto', sans-serif; font-size: 0.78rem; color: #6B6B65; line-height: 1.5; margin-bottom: 10px; }
+    .map-popup-badge { display: inline-block; background: #F4D000; color: #4A4A44; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.04em; padding: 3px 9px; border-radius: 100px; }
+
+    /* Custom yellow marker */
+    .yb-marker {
+      width: 32px; height: 32px;
+      background: #F4D000;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      border: 2px solid #C9AB00;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+    .yb-marker.active {
+      background: #4A4A44;
+      border-color: #2A2A24;
+      transform: rotate(-45deg) scale(1.25);
+    }
+    .yb-marker-inner {
+      width: 10px; height: 10px;
+      background: #4A4A44;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .yb-marker.active .yb-marker-inner { background: #F4D000; }
   </style>
 </head>
 <body>
@@ -255,103 +297,7 @@
           </div>
 
           <div id="location-list" style="display:flex;flex-direction:column;gap:10px;max-height:580px;overflow-y:auto;padding-right:4px;">
-
-            <div class="location-card selected" data-type="community" onclick="selectCard(this)">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;">
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;">HQ — Maju Jaya JB</div>
-              </div>
-              <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;margin-bottom:8px;">No.3, Jln Belati 1, Taman Perindustrian Maju Jaya, 81300 JB</div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">🏢 Community</span>
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">Open 24/7</span>
-                <span style="background:rgba(76,175,80,0.08);border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#4CAF50;">● Active</span>
-              </div>
-            </div>
-
-            <div class="location-card" data-type="mall" onclick="selectCard(this)">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;">
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;">Aeon Mall JB City Square</div>
-              </div>
-              <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;margin-bottom:8px;">Jalan Wong Ah Fook, Johor Bahru</div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">🏬 Mall</span>
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">Open 24/7</span>
-                <span style="background:rgba(76,175,80,0.08);border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#4CAF50;">● Active</span>
-              </div>
-            </div>
-
-            <div class="location-card" data-type="mall" onclick="selectCard(this)">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;">
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;">Paradigm Mall JB</div>
-              </div>
-              <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;margin-bottom:8px;">Skudai, Johor Bahru</div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">🏬 Mall</span>
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">Open 24/7</span>
-                <span style="background:rgba(76,175,80,0.08);border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#4CAF50;">● Active</span>
-              </div>
-            </div>
-
-            <div class="location-card" data-type="mall" onclick="selectCard(this)">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;">
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;">Aeon Tebrau City</div>
-              </div>
-              <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;margin-bottom:8px;">Jln Desa Tebrau, Johor Bahru</div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">🏬 Mall</span>
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">Open 24/7</span>
-                <span style="background:rgba(76,175,80,0.08);border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#4CAF50;">● Active</span>
-              </div>
-            </div>
-
-            <div class="location-card" data-type="mall" onclick="selectCard(this)">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;">
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;">KSL City Mall JB</div>
-              </div>
-              <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;margin-bottom:8px;">Jalan Seladang, Johor Bahru</div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">🏬 Mall</span>
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">Open 24/7</span>
-                <span style="background:rgba(76,175,80,0.08);border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#4CAF50;">● Active</span>
-              </div>
-            </div>
-
-            <div class="location-card" data-type="mall" onclick="selectCard(this)">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;">
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;">Sunway Pyramid PJ</div>
-              </div>
-              <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;margin-bottom:8px;">Petaling Jaya, Selangor</div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">🏬 Mall</span>
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">Open 24/7</span>
-                <span style="background:rgba(76,175,80,0.08);border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#4CAF50;">● Active</span>
-              </div>
-            </div>
-
-            <div class="location-card" data-type="mall" onclick="selectCard(this)">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;">
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;">Mid Valley KL</div>
-              </div>
-              <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;margin-bottom:8px;">Lingkaran Syed Putra, Kuala Lumpur</div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">🏬 Mall</span>
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">Open 24/7</span>
-                <span style="background:rgba(76,175,80,0.08);border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#4CAF50;">● Active</span>
-              </div>
-            </div>
-
-            <div class="location-card" data-type="mall" onclick="selectCard(this)">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;">
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;">Mahkota Parade Melaka</div>
-              </div>
-              <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;margin-bottom:8px;">Jalan Merdeka, Melaka</div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">🏬 Mall</span>
-                <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">Open 24/7</span>
-                <span style="background:rgba(76,175,80,0.08);border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#4CAF50;">● Active</span>
-              </div>
-            </div>
-
+            <!-- Rendered by JS -->
           </div>
 
           <!-- Request a bin -->
@@ -368,9 +314,7 @@
         <!-- Right: Map -->
         <div class="lg:col-span-3">
           <div style="position:sticky;top:100px;">
-            <div style="border-radius:20px;overflow:hidden;height:640px;border:1px solid rgba(208,208,217,0.5);box-shadow:0 8px 32px rgba(74,74,68,0.08);">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.11!2d103.5763!3d1.4854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da0bfd9e64a903%3A0x8297ac07c5bd64ac!2sYellow%20Bin!5e0!3m2!1sen!2smy!4v1" width="100%" height="100%" style="border:none;display:block;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+            <div id="map" style="border-radius:20px;overflow:hidden;height:640px;border:1px solid rgba(208,208,217,0.5);box-shadow:0 8px 32px rgba(74,74,68,0.08);"></div>
           </div>
         </div>
 
@@ -538,7 +482,171 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
+    // ── Location data ──
+    const LOCATIONS = [
+      { name: 'HQ — Maju Jaya JB',       address: 'No.3, Jln Belati 1, Taman Perindustrian Maju Jaya, 81300 JB', type: 'community', lat: 1.5332, lng: 103.7381 },
+      { name: 'Aeon Mall JB City Square', address: 'Jalan Wong Ah Fook, Johor Bahru',                               type: 'mall',      lat: 1.4631, lng: 103.7627 },
+      { name: 'Paradigm Mall JB',         address: 'Skudai, Johor Bahru',                                           type: 'mall',      lat: 1.5219, lng: 103.6726 },
+      { name: 'Aeon Tebrau City',         address: 'Jln Desa Tebrau, Johor Bahru',                                  type: 'mall',      lat: 1.5336, lng: 103.7770 },
+      { name: 'KSL City Mall JB',         address: 'Jalan Seladang, Johor Bahru',                                   type: 'mall',      lat: 1.5038, lng: 103.7371 },
+      { name: 'Sunway Pyramid PJ',        address: 'Petaling Jaya, Selangor',                                        type: 'mall',      lat: 3.0737, lng: 101.6072 },
+      { name: 'Mid Valley KL',            address: 'Lingkaran Syed Putra, Kuala Lumpur',                             type: 'mall',      lat: 3.1179, lng: 101.6770 },
+      { name: 'Mahkota Parade Melaka',    address: 'Jalan Merdeka, Melaka',                                          type: 'mall',      lat: 2.1979, lng: 102.2501 },
+    ];
+
+    const TYPE_ICONS = { mall: '🏬', school: '🏫', community: '🏢' };
+
+    // ── Build location cards ──
+    function buildCards(filter) {
+      const list = document.getElementById('location-list');
+      list.innerHTML = '';
+      LOCATIONS.forEach((loc, i) => {
+        if (filter !== 'all' && loc.type !== filter) return;
+        const card = document.createElement('div');
+        card.className = 'location-card' + (i === 0 && filter === 'all' ? ' selected' : '');
+        card.dataset.type = loc.type;
+        card.dataset.index = i;
+        card.innerHTML = `
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:6px;">${loc.name}</div>
+          <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;margin-bottom:8px;">${loc.address}</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">${TYPE_ICONS[loc.type] || '📍'} ${loc.type.charAt(0).toUpperCase()+loc.type.slice(1)}</span>
+            <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">Open 24/7</span>
+            <span style="background:rgba(76,175,80,0.08);border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#4CAF50;">● Active</span>
+          </div>`;
+        card.addEventListener('click', () => selectLocation(i, card));
+        list.appendChild(card);
+      });
+    }
+
+    // ── Leaflet map setup ──
+    let map, markers = [], activeIndex = 0;
+
+    function makeIcon(active) {
+      return L.divIcon({
+        className: '',
+        html: `<div class="yb-marker${active ? ' active' : ''}"><div class="yb-marker-inner"></div></div>`,
+        iconSize: [32, 32],
+        iconAnchor: [10, 32],
+        popupAnchor: [6, -36],
+      });
+    }
+
+    function initMap() {
+      map = L.map('map', { zoomControl: true, scrollWheelZoom: false });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 18,
+      }).addTo(map);
+
+      LOCATIONS.forEach((loc, i) => {
+        const marker = L.marker([loc.lat, loc.lng], { icon: makeIcon(i === 0) })
+          .addTo(map)
+          .bindPopup(`
+            <div class="map-popup">
+              <div class="map-popup-name">${loc.name}</div>
+              <div class="map-popup-address">${loc.address}</div>
+              <span class="map-popup-badge">${TYPE_ICONS[loc.type] || '📍'} ${loc.type.charAt(0).toUpperCase()+loc.type.slice(1)}</span>
+            </div>`, { closeButton: false, offset: [0, 0] });
+
+        marker.on('click', () => {
+          const card = document.querySelector(`.location-card[data-index="${i}"]`);
+          if (card) { selectLocation(i, card); card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+        });
+
+        markers.push(marker);
+      });
+
+      // Start focused on JB (where most pins are)
+      map.setView([1.533, 103.75], 12);
+      markers[0].openPopup();
+    }
+
+    function selectLocation(index, card) {
+      // Update cards
+      document.querySelectorAll('.location-card').forEach(c => c.classList.remove('selected'));
+      if (card) card.classList.add('selected');
+
+      // Update markers
+      markers.forEach((m, i) => m.setIcon(makeIcon(i === index)));
+      activeIndex = index;
+
+      // Pan map
+      const loc = LOCATIONS[index];
+      map.flyTo([loc.lat, loc.lng], 15, { duration: 0.8 });
+      markers[index].openPopup();
+    }
+
+    // ── Filter ──
+    let currentFilter = 'all';
+    function setFilter(type, btn) {
+      currentFilter = type;
+      document.querySelectorAll('[id^="filter-"]').forEach(b => {
+        b.style.background = 'transparent';
+        b.style.borderColor = '#D0D0D9';
+        b.style.color = '#6B6B65';
+      });
+      btn.style.background = '#F4D000';
+      btn.style.borderColor = '#F4D000';
+      btn.style.color = '#4A4A44';
+
+      buildCards(type);
+
+      // Show/hide markers
+      markers.forEach((m, i) => {
+        if (type === 'all' || LOCATIONS[i].type === type) {
+          if (!map.hasLayer(m)) m.addTo(map);
+        } else {
+          if (map.hasLayer(m)) map.removeLayer(m);
+        }
+      });
+
+      // If filtered, fit visible markers
+      const visible = LOCATIONS.reduce((acc, loc, i) => {
+        if (type === 'all' || loc.type === type) acc.push([loc.lat, loc.lng]);
+        return acc;
+      }, []);
+      if (visible.length) map.fitBounds(visible, { padding: [40, 40], maxZoom: 14 });
+    }
+
+    // ── Search ──
+    function doSearch() {
+      const val = document.getElementById('hero-search').value.trim().toLowerCase();
+      if (!val) return;
+      const match = LOCATIONS.findIndex(l =>
+        l.name.toLowerCase().includes(val) || l.address.toLowerCase().includes(val)
+      );
+      if (match !== -1) {
+        buildCards('all');
+        document.querySelectorAll('[id^="filter-"]').forEach(b => { b.style.background='transparent'; b.style.borderColor='#D0D0D9'; b.style.color='#6B6B65'; });
+        document.getElementById('filter-all').style.background='#F4D000';
+        document.getElementById('filter-all').style.borderColor='#F4D000';
+        document.getElementById('filter-all').style.color='#4A4A44';
+        const card = document.querySelector(`.location-card[data-index="${match}"]`);
+        selectLocation(match, card);
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        document.querySelector('.lg\\:col-span-2').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    document.getElementById('hero-search').addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
+
+    function useLocation() {
+      if (!navigator.geolocation) return;
+      navigator.geolocation.getCurrentPosition((pos) => {
+        const { latitude, longitude } = pos.coords;
+        map.setView([latitude, longitude], 13);
+        L.circleMarker([latitude, longitude], {
+          radius: 10, fillColor: '#4A4A44', color: 'white',
+          weight: 2, opacity: 1, fillOpacity: 0.9
+        }).addTo(map).bindPopup('<div class="map-popup"><div class="map-popup-name">Your Location</div></div>').openPopup();
+        document.getElementById('hero-search').placeholder = 'Location detected…';
+      });
+    }
+
+    // ── Nav ──
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
@@ -552,47 +660,9 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => revealObserver.observe(el));
 
-    function doSearch() {
-      const val = document.getElementById('hero-search').value.trim();
-      if (val) {
-        document.querySelector('#location-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-    document.getElementById('hero-search').addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') doSearch();
-    });
-
-    function useLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(() => {
-          document.getElementById('hero-search').placeholder = 'Location detected…';
-        });
-      }
-    }
-
-    function selectCard(card) {
-      document.querySelectorAll('.location-card').forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-    }
-
-    function setFilter(type, btn) {
-      document.querySelectorAll('[id^="filter-"]').forEach(b => {
-        b.style.background = 'transparent';
-        b.style.borderColor = '#D0D0D9';
-        b.style.color = '#6B6B65';
-      });
-      btn.style.background = '#F4D000';
-      btn.style.borderColor = '#F4D000';
-      btn.style.color = '#4A4A44';
-
-      document.querySelectorAll('.location-card').forEach(card => {
-        if (type === 'all' || card.dataset.type === type) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
+    // ── Init ──
+    buildCards('all');
+    initMap();
   </script>
 
   <!-- Supabase auth state -->
