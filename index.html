@@ -333,6 +333,9 @@
 </head>
 <body>
 
+  <!-- Floating recycle bubbles -->
+  <div id="bubble-layer" aria-hidden="true"></div>
+
   <!-- ══════════════════════════════════════════
        NAVIGATION
   ══════════════════════════════════════════ -->
@@ -414,7 +417,7 @@
         <div>
           <!-- Badge -->
           <div class="hero-badge mb-6" style="animation: fadeInUp 0.5s ease forwards;">
-            <span style="width:8px;height:8px;border-radius:50%;background:#4CAF50;display:inline-block;flex-shrink:0;box-shadow:0 0 0 2px rgba(76,175,80,0.25);"></span>
+            <span class="eco-dot-pulse" style="width:8px;height:8px;border-radius:50%;background:#4CAF50;display:inline-block;flex-shrink:0;"></span>
             <span>Sustainable Textile Collection</span>
           </div>
 
@@ -445,15 +448,15 @@
           <!-- Mini stats row -->
           <div class="flex flex-wrap gap-8 mt-12 pt-10 border-t border-grey-light" style="animation:fadeInUp 0.6s 0.4s ease both;">
             <div>
-              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:#4A4A44;">500+</div>
+              <div class="stat-shimmer" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;">500+</div>
               <div style="font-size:0.8rem;color:#6B6B65;font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Bins Placed</div>
             </div>
             <div>
-              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:#4A4A44;">2M+ kg</div>
+              <div class="stat-shimmer" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;">2M+ kg</div>
               <div style="font-size:0.8rem;color:#6B6B65;font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Textiles Recycled</div>
             </div>
             <div>
-              <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:#4A4A44;">50+</div>
+              <div class="stat-shimmer" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;">50+</div>
               <div style="font-size:0.8rem;color:#6B6B65;font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Cities Covered</div>
             </div>
           </div>
@@ -1061,6 +1064,55 @@
       0%, 100% { transform: translateX(-50%) translateY(0); }
       50% { transform: translateX(-50%) translateY(6px); }
     }
+
+    /* ── Floating Recycle Bubbles ── */
+    #bubble-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 48;
+      overflow: hidden;
+    }
+    .eco-bubble {
+      position: absolute;
+      top: -100px;
+      font-size: var(--sz, 2rem);
+      opacity: 0;
+      animation: ecoFloat var(--dur, 10s) var(--del, 0s) ease-in-out infinite;
+      user-select: none;
+      will-change: transform, opacity;
+      filter: drop-shadow(0 2px 6px rgba(244,208,0,0.25));
+    }
+    @keyframes ecoFloat {
+      0%   { opacity: 0;             transform: translateY(0)      translateX(0)             rotate(0deg)          scale(0.55); }
+      8%   { opacity: var(--op,0.5); }
+      88%  { opacity: var(--op,0.5); }
+      100% { opacity: 0;             transform: translateY(108vh)  translateX(var(--drift,20px)) rotate(var(--rot,200deg)) scale(1.05); }
+    }
+
+    /* ── Modern glow pulse on hero badge ── */
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(76,175,80,0.35); }
+      50%       { box-shadow: 0 0 0 6px rgba(76,175,80,0); }
+    }
+    .eco-dot-pulse {
+      animation: glowPulse 2.2s ease-in-out infinite;
+      border-radius: 50%;
+    }
+
+    /* ── Shimmer on stat numbers ── */
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    .stat-shimmer {
+      background: linear-gradient(90deg, #4A4A44 40%, #F4D000 50%, #4A4A44 60%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
   </style>
 
   <script>
@@ -1150,6 +1202,35 @@
     }
   });
 </script>
+
+  <!-- ── Floating Recycle Bubbles Script ── -->
+  <script>
+  (function spawnBubbles() {
+    const layer = document.getElementById('bubble-layer');
+    if (!layer) return;
+    const symbols = ['♻️','♻️','♻️','♻️','🌿','♻️','🍃','♻️','♻️','🌱'];
+    const N = 26;
+    for (let i = 0; i < N; i++) {
+      const b = document.createElement('span');
+      b.className = 'eco-bubble';
+      b.textContent = symbols[i % symbols.length];
+      const size  = (Math.random() * 1.8 + 0.8).toFixed(2);   // 0.8 – 2.6rem
+      const dur   = (Math.random() * 12 + 8).toFixed(1);       // 8 – 20s
+      // Use negative delay so half the bubbles are already mid-fall on page load
+      const delay = (i < N / 2
+        ? -(Math.random() * parseFloat(dur) * 0.85)
+        : (Math.random() * 8)
+      ).toFixed(1);  // half start mid-animation, half stagger in
+      const left  = (Math.random() * 96 + 2).toFixed(1);       // 2 – 98%
+      const op    = (Math.random() * 0.32 + 0.15).toFixed(2);  // 0.15 – 0.47
+      const drift = ((Math.random() - 0.5) * 90).toFixed(0) + 'px';
+      const rot   = ((Math.random() > 0.5 ? 1 : -1) * (Math.random() * 280 + 80)).toFixed(0) + 'deg';
+      b.style.cssText =
+        `--sz:${size}rem;--dur:${dur}s;--del:${delay}s;--op:${op};--drift:${drift};--rot:${rot};left:${left}%;`;
+      layer.appendChild(b);
+    }
+  })();
+  </script>
 
 </body>
 </html>
