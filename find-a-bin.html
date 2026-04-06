@@ -511,13 +511,19 @@
         card.className = 'location-card' + (i === 0 && filter === 'all' ? ' selected' : '');
         card.dataset.type = loc.type;
         card.dataset.index = i;
+        const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}`;
         card.innerHTML = `
           <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:6px;">${loc.name}</div>
           <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;margin-bottom:8px;">${loc.address}</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">${TYPE_ICONS[loc.type] || '📍'} ${loc.type.charAt(0).toUpperCase()+loc.type.slice(1)}</span>
-            <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">Open 24/7</span>
-            <span style="background:rgba(76,175,80,0.08);border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#4CAF50;">● Active</span>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span style="background:#F5F5F3;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#6B6B65;">${TYPE_ICONS[loc.type] || '📍'} ${loc.type.charAt(0).toUpperCase()+loc.type.slice(1)}</span>
+              <span style="background:rgba(76,175,80,0.08);border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Roboto',sans-serif;color:#4CAF50;">● Active</span>
+            </div>
+            <a href="${mapsUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:5px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;color:#4A4A44;text-decoration:none;background:#F4D000;padding:5px 11px;border-radius:6px;transition:background 0.2s;" onmouseover="this.style.background='#e6c400'" onmouseout="this.style.background='#F4D000'">
+              Directions
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
           </div>`;
         card.addEventListener('click', () => selectLocation(i, card));
         list.appendChild(card);
@@ -545,13 +551,19 @@
       }).addTo(map);
 
       LOCATIONS.forEach((loc, i) => {
+        const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}`;
         const marker = L.marker([loc.lat, loc.lng], { icon: makeIcon(i === 0) })
           .addTo(map)
           .bindPopup(`
             <div class="map-popup">
               <div class="map-popup-name">${loc.name}</div>
               <div class="map-popup-address">${loc.address}</div>
-              <span class="map-popup-badge">${TYPE_ICONS[loc.type] || '📍'} ${loc.type.charAt(0).toUpperCase()+loc.type.slice(1)}</span>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
+                <span class="map-popup-badge">${TYPE_ICONS[loc.type] || '📍'} ${loc.type.charAt(0).toUpperCase()+loc.type.slice(1)}</span>
+                <a href="${mapsUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.68rem;color:#4A4A44;text-decoration:none;">
+                  Get Directions <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
             </div>`, { closeButton: false, offset: [0, 0] });
 
         marker.on('click', () => {
