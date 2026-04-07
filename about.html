@@ -125,6 +125,24 @@
     .btn-primary:active { transform: translateY(0); }
     .btn-primary:focus-visible { outline: 3px solid #F4D000; outline-offset: 3px; }
 
+    /* ── Google Translate widget ── */
+    #google_translate_element .goog-te-gadget-simple {
+      background: rgba(255,255,255,0.1) !important;
+      border: 1px solid rgba(255,255,255,0.2) !important;
+      border-radius: 100px !important;
+      padding: 4px 12px !important;
+    }
+    #google_translate_element .goog-te-gadget-simple span,
+    #google_translate_element .goog-te-gadget-simple a {
+      color: white !important;
+      font-size: 0.75rem !important;
+      font-weight: 600 !important;
+      font-family: 'Montserrat', sans-serif !important;
+      text-decoration: none !important;
+    }
+    .goog-te-banner-frame, .goog-te-balloon-frame { display: none !important; }
+    body { top: 0 !important; }
+
     /* ── Reveal ── */
     .reveal {
       opacity: 0;
@@ -199,12 +217,8 @@
         <a href="about.html" class="nav-link active">About Us</a>
         <a href="gallery.html" class="nav-link">Gallery</a>
       </div>
-      <!-- Language Switcher -->
-      <div id="lang-switcher" style="display:flex;align-items:center;gap:2px;background:rgba(255,255,255,0.1);border-radius:100px;padding:3px;border:1px solid rgba(255,255,255,0.15);">
-        <button onclick="setLang('en')" data-lang-btn="en" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 11px;border-radius:100px;border:none;cursor:pointer;transition:background 0.2s ease,color 0.2s ease;background:#F4D000;color:#4A4A44;" >EN</button>
-        <button onclick="setLang('zh')" data-lang-btn="zh" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 11px;border-radius:100px;border:none;cursor:pointer;transition:background 0.2s ease,color 0.2s ease;background:transparent;color:rgba(255,255,255,0.7);">中文</button>
-        <button onclick="setLang('ms')" data-lang-btn="ms" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 11px;border-radius:100px;border:none;cursor:pointer;transition:background 0.2s ease,color 0.2s ease;background:transparent;color:rgba(255,255,255,0.7);">BM</button>
-      </div>
+      <!-- Google Translate -->
+      <div id="google_translate_element"></div>
       <div class="hidden md:flex items-center gap-3">
         <a href="index.html#find-bin" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -844,318 +858,16 @@
 </script>
 
 <script>
-const i18n = {
-  en: {
-    'hero-badge': 'Our Story',
-    'hero-h1-line1': "Together We'll",
-    'hero-h1-line2': 'Make a',
-    'hero-h1-accent': 'Difference.',
-    'hero-sub': "Yellow Bin started with a simple belief: recycling should be easy, accessible, and meaningful for every Malaysian. Today, we're one of the country's leading textile recycling networks.",
-    'hero-btn-story': 'Our Story',
-    'hero-btn-bin': 'Find a Bin',
-    'icon-recycle': 'Recycle',
-    'icon-textiles': 'Textiles',
-    'icon-eco': 'Eco',
-    'icon-schools': 'Schools',
-    'icon-community': 'Community',
-    'icon-malaysia': 'Malaysia',
-    'identity-label': 'Our Identity',
-    'identity-h2': 'Who Are the Yellow Bin?',
-    'identity-p1': 'In line with the government's "Green Our Home" campaign to uplift the awareness amongst public on the importance of environmental conservation, as well as lending a helping hand to the needy in our society, Yellow Bin was set up to collect recyclables from public.',
-    'identity-p2': 'The Yellow Bin mission is to maintain a prosperous and productive recycling system that is committed to the conservation of natural resources. In conjunction with source reduction, reuse, and composting, the recycling of valuable materials is essential to a sustainable environmental, energy, and economic future.',
-    'identity-p3': 'Recycling is a shared responsibility and requires citizen engagement. Yellow Bin promotes the concept of environmental protection, narrow the large carbon footprints, provide a second chance to the growing waste as well as cut down the usage of landfill.',
-    'identity-honoured': 'We are honoured by the support of the various governing bodies and we endeavour to do our best in both recycling and charity works!',
-    'identity-proud': 'We are proud to be the only social enterprise in Johor Bahru which is recognized and authorized by JB, Kulai, Kota Tinggi and Pasir Gudang, Yong Peng, Batu Pahat, Simpang Renggam, Kluang City Council, as well as Jabatan Pengurusan Sisa Pepejal Negara (JPSPN), Jabatan Perancangan Bandar Desa (JPBD), Majlis Perbandaran Johor Bahru Tengah (MPJBT), Kementerian Kesejahteraan Bandar, Perumahan Dan Kerajaan Tempatan (KPKT), Perbadanan Pengurusan Sisa Pepejal dan Pembersihan Awam (PPSPPA) and Malaysian Global Innovation &amp; Creativity Centre (MaGIC) to carry out recycling activities.',
-    'purpose-label': 'Our Purpose',
-    'purpose-h2': 'Why Yellow Bin?',
-    'purpose-1-title': 'Give Trash a New Life',
-    'purpose-1-body': 'Yellow Bin is a non-religious eco project. The recycling team collects recyclables in all residential settlements in the state of Selangor, KL, Malacca and Johor. While we can significantly help to conserve our living environment, we are raising the awareness amongst the public on the impact of global warming. The proceeds we generate from the on-going recycling campaigns will be channeled to fund the various charitable projects in Malaysia.',
-    'purpose-2-title': 'Recycle to Help',
-    'purpose-2-body': 'Yellow Bin Recycling Team organizes various events such as "Go Eco Campaign", "Yellow Bin Seminar", "Yellow Bin Fun Day", etc… in residential areas, schools and shopping malls to encourage community participation in social services and environmental protection.',
-    'purpose-3-title': "It's Our Mission to Go Green",
-    'purpose-3-body': 'In consideration of expanding the area of environmental protection, as well as increasing the engagement from the public, more than 300 Yellow Bins have been placed in shopping malls, office buildings, apartments, residential areas and schools. To date, there had been more than 200,000 people who had participated in this meaningful activity.',
-    'stats-bins-label': 'Active Bins',
-    'stats-bins-sub': 'Across Malaysia',
-    'stats-kg-label': 'KG Collected',
-    'stats-kg-sub': 'Diverted from landfill',
-    'stats-ben-label': 'Beneficiaries',
-    'stats-ben-sub': 'Helped through donations',
-    'stats-reuse-label': 'Recycled or Reused',
-    'stats-reuse-sub': 'Of every item we collect',
-    'mvv-label': 'What Drives Us',
-    'mvv-h2': 'Our Mission, Vision &amp; Values',
-    'mvv-sub': 'Everything we do is guided by a simple belief: every piece of fabric deserves a second chance.',
-    'mission-label': 'Mission',
-    'mission-h3': 'Recycling is the Future',
-    'mission-body': 'Our mission is to promote the concept of environmental protection, to narrow the large carbon footprints, and to provide a second chance to the growing waste.',
-    'vision-label': 'Vision',
-    'vision-h3': 'Sustainable Malaysia',
-    'vision-body': 'The Yellow Bin movement seeks to empower and uplift the awareness amongst the public on the importance of environmental conservation.',
-    'values-label': 'Our Cause',
-    'values-h3': 'Friendly and Purpose-Driven.',
-    'values-body': "We assist the vulnerable elderly, poverty-stricken families, abandoned children, and sick patients to pull through life's difficulties and challenges.",
-    'volunteer-label': 'Get Involved',
-    'volunteer-h2': 'Could You Make a Difference as a Volunteer?',
-    'volunteer-p1': 'Yellow Bin is powered by a passionate community of volunteers who believe in our mission. Volunteers help with bin management, community awareness drives, sorting &amp; distribution, and event organisation.',
-    'volunteer-p2': 'Whether you have one hour or one day a week, every contribution matters. Join us and be part of something bigger than yourself.',
-    'qa1-q': 'What does a volunteer do?',
-    'qa1-a': 'Help manage bin locations, assist at community drives, spread awareness at schools and events, or support our sorting team.',
-    'qa2-q': 'How much time is required?',
-    'qa2-a': 'As little or as much as you can give. We have flexible one-off events as well as ongoing roles for regular volunteers.',
-    'qa3-q': 'Who can volunteer?',
-    'qa3-a': "Anyone! Individuals, students, companies, and organisations are all welcome. No experience needed — just a willingness to help.",
-    'volunteer-btn': 'Become a Volunteer',
-    'impact-label': 'How Your Involvement Helps',
-    'impact-1': 'More bins in more locations',
-    'impact-2': 'Faster processing of donated items',
-    'impact-3': 'Bigger community awareness &amp; reach',
-    'impact-4': 'More donations reaching welfare homes',
-    'recycle-label': 'Accepted Items',
-    'recycle-h2': 'What Can We Recycle?',
-    'recycle-sub': "Yellow Bin accepts a wide range of items — not just clothing. Here's everything you can drop off at any Yellow Bin near you.",
-    'paper-h3': 'Paper',
-    'paper-1': 'Books &amp; magazines',
-    'paper-2': 'Newspapers',
-    'paper-3': 'Cardboard &amp; boxes',
-    'paper-4': 'Printed paper',
-    'clothing-h3': 'Clothing &amp; Textiles',
-    'clothing-1': 'All clothing &amp; apparel',
-    'clothing-2': 'Shoes &amp; bags',
-    'clothing-3': 'Bed linen &amp; towels',
-    'clothing-4': 'Curtains &amp; cushions',
-    'household-h3': 'Household Items',
-    'household-1': 'Soft toys &amp; plush',
-    'household-2': 'Belts &amp; accessories',
-    'household-3': 'Hats &amp; scarves',
-    'household-4': 'Fabric-based items',
-    'uniforms-h3': 'Uniforms &amp; Workwear',
-    'uniforms-1': 'School uniforms',
-    'uniforms-2': 'Corporate workwear',
-    'uniforms-3': 'Sports &amp; team kit',
-    'uniforms-4': 'PPE &amp; protective gear',
-    'recycle-note': 'Items should be clean and dry. We do not accept wet, heavily soiled, or contaminated materials.',
-    'newsletter-h2': 'The Yellow Bin Newsletter',
-    'newsletter-sub': 'Get recycling tips, impact updates, and community news straight to your inbox.',
-    'cta-h2': 'Ready to Make a Difference?',
-    'cta-sub': 'Find your nearest Yellow Bin and start recycling today.',
-    'cta-btn': 'Find a Bin Near You',
-  },
-  zh: {
-    'hero-badge': '我们的故事',
-    'hero-h1-line1': '携手同行，',
-    'hero-h1-line2': '共创',
-    'hero-h1-accent': '改变。',
-    'hero-sub': '黄色回收笱源于一个简单的信念：回收应该简单、方便，对每位马来西亚人都有意义。如今，我们已成为全国领先的纳织品回收网络之一。',
-    'hero-btn-story': '我们的故事',
-    'hero-btn-bin': '寻找回收笱',
-    'icon-recycle': '回收',
-    'icon-textiles': '纳织品',
-    'icon-eco': '环保',
-    'icon-schools': '学校',
-    'icon-community': '社区',
-    'icon-malaysia': '马来西亚',
-    'identity-label': '我们的身份',
-    'identity-h2': '什么是黄色回收笱？',
-    'identity-p1': '配合政府“绳化家园”运动，提高公众对环境保护重要性的意识，同时帮助有需要的社区人士，黄色回收笱应运而生，专门收集公众的可回收物品。',
-    'identity-p2': '黄色回收笱的使命是维持一个繁荣且高效的回收系统，致力于保护自然资源。结合减少源头废物、再利用与堆肥等方式，回收有价值材料对可持续的环境、能源与经济未来至关重要。',
-    'identity-p3': '回收是共同的责任，需要每位公民的参与。黄色回收笱推广环境保护的理念，减少碳足迹，为日益增长的废弃物提供第二次生命，同时减少垃圾填埋场的使用。',
-    'identity-honoured': '我们深感荣幸，得到各政府机构的支持，并将竭尽所能地在回收与慈善工作上做到最好！',
-    'identity-proud': '我们自豪地成为新山唯一一家获得JB、古来、哥打丁宜及巴西古丹、永平、峥江巴辖、士乃、昔加末市议会，以及固体废物管理局（JPSPN）、城镇及乡村规划局（JPBD）、新山中区市政厅（MPJBT）、城市和谐、房屋及地方政府部（KPKT）、固体废物及公共卫生管理机构（PPSPPA）和马来西亚环球创新与创意中心（MaGIC）认可与授权的社会企业，合法开展回收活动。',
-    'purpose-label': '我们的目标',
-    'purpose-h2': '为何选择黄色回收笱？',
-    'purpose-1-title': '赋予废物新生命',
-    'purpose-1-body': '黄色回收笱是一个无宗教背景的环保项目。回收团队在雪兰过、吉隆坡、马六甲及柔佛各住宅区收集可回收物品。我们不仅帮助保护生活环境，同时也提高公众对全球变暖影响的意识。回收活动所得收益将用于资助马来西亚各类慈善项目。',
-    'purpose-2-title': '回收助人',
-    'purpose-2-body': '黄色回收笱团队在住宅区、学校及购物广场组织多种活动，如“绳色环保运动”、“黄色回收笱研讨会”、“黄色回收笱欢乐日”等，鼓就社区参与社会服务与环境保护。',
-    'purpose-3-title': '绳色使命，义不容辞',
-    'purpose-3-body': '为扩大环境保护范围并增加公众参与，超过300个黄色回收笱已被放置在购物广场、办公楼、公寓、住宅区及学校。迎今为止，已有超过20万人参与了这项有意义的活动。',
-    'stats-bins-label': '活跃回收笱',
-    'stats-bins-sub': '遍布全马',
-    'stats-kg-label': '公斤收集量',
-    'stats-kg-sub': '减少垃圾填埋',
-    'stats-ben-label': '受惠人数',
-    'stats-ben-sub': '通过捐赠获得帮助',
-    'stats-reuse-label': '回收或再利用率',
-    'stats-reuse-sub': '每件收集物品',
-    'mvv-label': '驱动我们的力量',
-    'mvv-h2': '使命、愿景与价值观',
-    'mvv-sub': '我们所做的一切，源于一个简单的信念：每一块布料都値得拥有第二次生命。',
-    'mission-label': '使命',
-    'mission-h3': '回收是未来',
-    'mission-body': '我们的使命是推广环境保护理念，减少碳足迹，为日益增长的废物提供第二次机会。',
-    'vision-label': '愿景',
-    'vision-h3': '可持续的马来西亚',
-    'vision-body': '黄色回收笱运动致力于提高公众对环境保护重要性的意识，赋予社区力量。',
-    'values-label': '我们的使命',
-    'values-h3': '友善且目标明确。',
-    'values-body': '我们帮助脈弱的老人、贫困家庭、被遗弃的儿童及病患，协助他们渡过人生中的困难与挑战。',
-    'volunteer-label': '参与其中',
-    'volunteer-h2': '您愿意成为志愿者，共创改变吗？',
-    'volunteer-p1': '黄色回收笱由一群充满热情的志愿者驱动，他们相信我们的使命。志愿者协助管理回收笱、开展社区意识活动、分类与派发物资，以及组织各类活动。',
-    'volunteer-p2': '无论您每周只有一小时还是一整天，每一份贡献都意义非凡。加入我们，成为比自己更大事业的一部分。',
-    'qa1-q': '志愿者做什么？',
-    'qa1-a': '协助管理回收笱位置，参与社区活动，在学校和活动中传播意识，或支持我们的分类团队。',
-    'qa2-q': '需要多少时间？',
-    'qa2-a': '多少都可以，量力而为。我们有一次性活动，也有适合定期志愿者的长期岗位。',
-    'qa3-q': '谁可以做志愿者？',
-    'qa3-a': '任何人！个人、学生、公司和组织都欢迎参与。无需经验，只需一颗愿意帮助的心。',
-    'volunteer-btn': '成为志愿者',
-    'impact-label': '您的参与如何帮助我们',
-    'impact-1': '更多地点设置回收笱',
-    'impact-2': '更快处理捐赠物品',
-    'impact-3': '扩大社区意识与影响力',
-    'impact-4': '更多捐赠物品送达福利院',
-    'recycle-label': '接受物品',
-    'recycle-h2': '我们可以回收什么？',
-    'recycle-sub': '黄色回收笱接受各类物品，不仅限于衣物。以下是您可以投入任何黄色回收笱的所有物品。',
-    'paper-h3': '纸类',
-    'paper-1': '书籍与杂志',
-    'paper-2': '报纸',
-    'paper-3': '纸板与纸筱',
-    'paper-4': '印刷纸',
-    'clothing-h3': '衣物与纳织品',
-    'clothing-1': '所有服装与衣物',
-    'clothing-2': '鞋子与包包',
-    'clothing-3': '床单与毛巾',
-    'clothing-4': '窗帘与靠垃',
-    'household-h3': '家居物品',
-    'household-1': '毛绒玩具',
-    'household-2': '腰带与配件',
-    'household-3': '帽子与围巾',
-    'household-4': '布料类物品',
-    'uniforms-h3': '制服与工作服',
-    'uniforms-1': '校服',
-    'uniforms-2': '企业工作服',
-    'uniforms-3': '运动服与团队服装',
-    'uniforms-4': '个人防护装备',
-    'recycle-note': '物品须保持清洁干燥。我们不接受潮湿、严重污损或受污染的物品。',
-    'newsletter-h2': '黄色回收笱通讯',
-    'newsletter-sub': '订阅即可收到回收小贴士、影响力更新与社区资讯。',
-    'cta-h2': '准备好做出改变了吗？',
-    'cta-sub': '找到最近的黄色回收笱，立即开始回收。',
-    'cta-btn': '寻找附近的回收笱',
-  },
-  ms: {
-    'hero-badge': 'Kisah Kami',
-    'hero-h1-line1': 'Bersama Kita',
-    'hero-h1-line2': 'Cipta',
-    'hero-h1-accent': 'Perubahan.',
-    'hero-sub': 'Yellow Bin bermula dengan satu kepercayaan mudah: kitar semula sepatutnya mudah, boleh diakses, dan bermakna untuk setiap rakyat Malaysia. Hari ini, kami adalah salah satu rangkaian kitar semula tekstil terkemuka negara.',
-    'hero-btn-story': 'Kisah Kami',
-    'hero-btn-bin': 'Cari Tong Berhampiran',
-    'icon-recycle': 'Kitar Semula',
-    'icon-textiles': 'Tekstil',
-    'icon-eco': 'Eko',
-    'icon-schools': 'Sekolah',
-    'icon-community': 'Komuniti',
-    'icon-malaysia': 'Malaysia',
-    'identity-label': 'Identiti Kami',
-    'identity-h2': 'Siapakah Yellow Bin?',
-    'identity-p1': 'Selaras dengan kempen "Hijaukan Rumah Kita" kerajaan untuk meningkatkan kesedaran awam tentang kepentingan pemuliharaan alam sekitar, serta membantu golongan yang memerlukan, Yellow Bin ditubuhkan untuk mengumpul bahan kitar semula daripada orang ramai.',
-    'identity-p2': 'Misi Yellow Bin adalah untuk mengekalkan sistem kitar semula yang makmur dan produktif, komited kepada pemuliharaan sumber asli. Bersama pengurangan sumber, guna semula, dan pengkomposan, kitar semula bahan bernilai adalah penting untuk masa depan alam sekitar, tenaga, dan ekonomi yang mampan.',
-    'identity-p3': 'Kitar semula adalah tanggungjawab bersama dan memerlukan penglibatan setiap warga. Yellow Bin mempromosikan konsep perlindungan alam sekitar, mengurangkan jejak karbon, memberikan peluang kedua kepada sisa yang semakin bertambah, serta mengurangkan penggunaan tapak pelupusan.',
-    'identity-honoured': 'Kami berasa amat terhormat dengan sokongan pelbagai badan kerajaan dan kami akan berusaha sebaik mungkin dalam kerja-kerja kitar semula dan amal!',
-    'identity-proud': 'Kami bangga menjadi satu-satunya perusahaan sosial di Johor Bahru yang diiktiraf dan dibenarkan oleh JB, Kulai, Kota Tinggi dan Pasir Gudang, Yong Peng, Batu Pahat, Simpang Renggam, Majlis Bandaraya Kluang, serta Jabatan Pengurusan Sisa Pepejal Negara (JPSPN), Jabatan Perancangan Bandar Desa (JPBD), Majlis Perbandaran Johor Bahru Tengah (MPJBT), Kementerian Kesejahteraan Bandar, Perumahan Dan Kerajaan Tempatan (KPKT), Perbadanan Pengurusan Sisa Pepejal dan Pembersihan Awam (PPSPPA) dan Malaysian Global Innovation &amp; Creativity Centre (MaGIC) untuk menjalankan aktiviti kitar semula.',
-    'purpose-label': 'Tujuan Kami',
-    'purpose-h2': 'Mengapa Yellow Bin?',
-    'purpose-1-title': 'Berikan Sisa Kehidupan Baru',
-    'purpose-1-body': 'Yellow Bin adalah projek eko tanpa unsur keagamaan. Pasukan kitar semula mengumpul bahan boleh kitar semula di semua penempatan perumahan di Selangor, KL, Melaka dan Johor. Selain membantu memelihara alam sekitar, kami turut meningkatkan kesedaran awam tentang kesan pemanasan global. Hasil kutipan daripada kempen kitar semula berterusan akan disalurkan untuk membiayai pelbagai projek amal di Malaysia.',
-    'purpose-2-title': 'Kitar Semula untuk Membantu',
-    'purpose-2-body': 'Pasukan Kitar Semula Yellow Bin menganjurkan pelbagai acara seperti "Kempen Go Eco", "Seminar Yellow Bin", "Yellow Bin Fun Day", dan lain-lain di kawasan perumahan, sekolah, dan pusat membeli-belah bagi menggalakkan penglibatan komuniti dalam perkhidmatan sosial dan perlindungan alam sekitar.',
-    'purpose-3-title': 'Misi Kami untuk Menghijaukan Malaysia',
-    'purpose-3-body': 'Demi memperluas kawasan perlindungan alam sekitar dan meningkatkan penglibatan orang ramai, lebih 300 Yellow Bin telah ditempatkan di pusat membeli-belah, bangunan pejabat, apartmen, kawasan perumahan dan sekolah. Sehingga kini, lebih 200,000 orang telah menyertai aktiviti bermakna ini.',
-    'stats-bins-label': 'Tong Aktif',
-    'stats-bins-sub': 'Seluruh Malaysia',
-    'stats-kg-label': 'KG Dikumpul',
-    'stats-kg-sub': 'Dialihkan dari tapak pelupusan',
-    'stats-ben-label': 'Penerima Manfaat',
-    'stats-ben-sub': 'Dibantu melalui sumbangan',
-    'stats-reuse-label': 'Dikitar Semula atau Diguna Semula',
-    'stats-reuse-sub': 'Setiap item yang kami kumpul',
-    'mvv-label': 'Apa yang Mendorong Kami',
-    'mvv-h2': 'Misi, Visi &amp; Nilai Kami',
-    'mvv-sub': 'Semua yang kami lakukan dipandu oleh satu kepercayaan mudah: setiap helai kain berhak mendapat peluang kedua.',
-    'mission-label': 'Misi',
-    'mission-h3': 'Kitar Semula adalah Masa Depan',
-    'mission-body': 'Misi kami adalah untuk mempromosikan konsep perlindungan alam sekitar, mengurangkan jejak karbon yang besar, dan memberi peluang kedua kepada sisa yang semakin bertambah.',
-    'vision-label': 'Visi',
-    'vision-h3': 'Malaysia Mampan',
-    'vision-body': 'Gerakan Yellow Bin berusaha untuk memperkasakan dan meningkatkan kesedaran orang ramai tentang kepentingan pemuliharaan alam sekitar.',
-    'values-label': 'Tujuan Kami',
-    'values-h3': 'Mesra dan Bertujuan.',
-    'values-body': 'Kami membantu warga emas yang terdedah, keluarga miskin, kanak-kanak yang ditinggalkan, dan pesakit untuk mengatasi kesukaran dan cabaran hidup.',
-    'volunteer-label': 'Sertai Kami',
-    'volunteer-h2': 'Bolehkah Anda Membuat Perubahan sebagai Sukarelawan?',
-    'volunteer-p1': 'Yellow Bin dikuasai oleh komuniti sukarelawan yang bersemangat dan percaya kepada misi kami. Sukarelawan membantu dengan pengurusan tong, kempen kesedaran komuniti, pengasingan &amp; pengedaran, serta penganjuran acara.',
-    'volunteer-p2': 'Sama ada anda ada satu jam atau satu hari seminggu, setiap sumbangan amat bermakna. Sertai kami dan jadilah sebahagian daripada sesuatu yang lebih besar.',
-    'qa1-q': 'Apa yang dilakukan sukarelawan?',
-    'qa1-a': 'Bantu urus lokasi tong, sertai kempen komuniti, sebarkan kesedaran di sekolah dan acara, atau sokong pasukan pengasingan kami.',
-    'qa2-q': 'Berapa banyak masa diperlukan?',
-    'qa2-a': 'Sebanyak atau sesedikit yang anda mampu. Kami mempunyai acara sekali sahaja dan juga peranan berterusan untuk sukarelawan tetap.',
-    'qa3-q': 'Siapa boleh menjadi sukarelawan?',
-    'qa3-a': 'Sesiapa sahaja! Individu, pelajar, syarikat, dan organisasi semuanya dialu-alukan. Tiada pengalaman diperlukan — hanya kesanggupan untuk membantu.',
-    'volunteer-btn': 'Jadilah Sukarelawan',
-    'impact-label': 'Bagaimana Penglibatan Anda Membantu',
-    'impact-1': 'Lebih banyak tong di lebih banyak lokasi',
-    'impact-2': 'Pemprosesan item derma yang lebih pantas',
-    'impact-3': 'Kesedaran &amp; jangkauan komuniti yang lebih luas',
-    'impact-4': 'Lebih banyak derma sampai ke rumah kebajikan',
-    'recycle-label': 'Item Diterima',
-    'recycle-h2': 'Apa yang Boleh Kami Kitar Semula?',
-    'recycle-sub': 'Yellow Bin menerima pelbagai jenis item — bukan sekadar pakaian. Ini semua yang boleh anda hantar ke mana-mana Yellow Bin berhampiran anda.',
-    'paper-h3': 'Kertas',
-    'paper-1': 'Buku &amp; majalah',
-    'paper-2': 'Akhbar',
-    'paper-3': 'Kadbod &amp; kotak',
-    'paper-4': 'Kertas bercetak',
-    'clothing-h3': 'Pakaian &amp; Tekstil',
-    'clothing-1': 'Semua pakaian &amp; busana',
-    'clothing-2': 'Kasut &amp; beg',
-    'clothing-3': 'Cadar &amp; tuala',
-    'clothing-4': 'Langsir &amp; kusyen',
-    'household-h3': 'Barangan Rumah',
-    'household-1': 'Patung boneka &amp; plush',
-    'household-2': 'Tali pinggang &amp; aksesori',
-    'household-3': 'Topi &amp; selendang',
-    'household-4': 'Barangan berasaskan fabrik',
-    'uniforms-h3': 'Pakaian Seragam &amp; Kerja',
-    'uniforms-1': 'Pakaian seragam sekolah',
-    'uniforms-2': 'Pakaian kerja korporat',
-    'uniforms-3': 'Pakaian sukan &amp; pasukan',
-    'uniforms-4': 'PPE &amp; peralatan perlindungan',
-    'recycle-note': 'Item hendaklah bersih dan kering. Kami tidak menerima bahan yang basah, sangat kotor, atau tercemar.',
-    'newsletter-h2': 'Buletin Yellow Bin',
-    'newsletter-sub': 'Dapatkan tips kitar semula, kemas kini impak, dan berita komuniti terus ke peti masuk anda.',
-    'cta-h2': 'Bersedia untuk Membuat Perubahan?',
-    'cta-sub': 'Cari Yellow Bin terdekat anda dan mula kitar semula hari ini.',
-    'cta-btn': 'Cari Tong Berhampiran Anda',
-  }
-};
-
-let currentLang = localStorage.getItem('yb-lang') || 'en';
-
-function setLang(lang) {
-  currentLang = lang;
-  localStorage.setItem('yb-lang', lang);
-  applyLang();
-  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-    const active = btn.dataset.langBtn === lang;
-    btn.style.background = active ? '#F4D000' : 'transparent';
-    btn.style.color = active ? '#4A4A44' : 'rgba(255,255,255,0.7)';
-  });
-  document.documentElement.lang = lang === 'ms' ? 'ms-MY' : lang === 'zh' ? 'zh-Hans' : 'en-MY';
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,zh-CN,ms',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false,
+  }, 'google_translate_element');
 }
-
-function applyLang() {
-  const t = i18n[currentLang] || i18n.en;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.dataset.i18n;
-    if (t[key] !== undefined) el.innerHTML = t[key];
-  });
-}
-
-document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
 </script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
