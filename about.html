@@ -1,9 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-MY">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us — Yellow Bin | Recycle Textiles</title>
+  <meta name="description" content="Yellow Bin is Malaysia's leading textile recycling social enterprise, operating across Selangor, KL, Malacca and Johor. Authorized by JPSPN, KPKT, MaGIC and multiple city councils." />
+  <meta name="keywords" content="Yellow Bin, textile recycling Malaysia, recycle clothes, kitar semula pakaian, 黄色回收箱, environmental charity Malaysia, JPSPN, KPKT, MaGIC, Johor recycling" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.yellowbin.com.my/about.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.yellowbin.com.my/about.html" />
+  <meta property="og:title" content="About Yellow Bin — Malaysia's Textile Recycling Movement" />
+  <meta property="og:description" content="Yellow Bin is a non-religious eco project collecting recyclables across Selangor, KL, Malacca and Johor. Recognized by JPSPN, KPKT, MaGIC and 8 city councils." />
+  <meta property="og:image" content="https://www.yellowbin.com.my/brand_assets/Yellow Bin Logo_New White.png" />
+  <meta property="og:site_name" content="Yellow Bin" />
+  <meta property="og:locale" content="en_MY" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Yellow Bin — Malaysia's Textile Recycling Movement" />
+  <meta name="twitter:description" content="Yellow Bin is a non-religious eco project collecting recyclables across Malaysia. Recognized by JPSPN, KPKT and MaGIC." />
+  <meta name="twitter:image" content="https://www.yellowbin.com.my/brand_assets/Yellow Bin Logo_New White.png" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Yellow Bin",
+    "url": "https://www.yellowbin.com.my",
+    "logo": "https://www.yellowbin.com.my/brand_assets/Yellow Bin Logo_New White.png",
+    "description": "Yellow Bin is Malaysia's leading textile recycling social enterprise, collecting recyclables across Selangor, KL, Malacca and Johor.",
+    "foundingLocation": "Johor Bahru, Malaysia",
+    "areaServed": ["Selangor", "Kuala Lumpur", "Malacca", "Johor"],
+    "knowsAbout": ["Textile Recycling", "Environmental Conservation", "Charity", "Community Service"],
+    "sameAs": []
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -164,6 +199,12 @@
         <a href="about.html" class="nav-link active">About Us</a>
         <a href="gallery.html" class="nav-link">Gallery</a>
       </div>
+      <!-- Language Switcher -->
+      <div id="lang-switcher" style="display:flex;align-items:center;gap:2px;background:rgba(255,255,255,0.1);border-radius:100px;padding:3px;border:1px solid rgba(255,255,255,0.15);">
+        <button onclick="setLang('en')" data-lang-btn="en" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 11px;border-radius:100px;border:none;cursor:pointer;transition:background 0.2s ease,color 0.2s ease;background:#F4D000;color:#4A4A44;" >EN</button>
+        <button onclick="setLang('zh')" data-lang-btn="zh" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 11px;border-radius:100px;border:none;cursor:pointer;transition:background 0.2s ease,color 0.2s ease;background:transparent;color:rgba(255,255,255,0.7);">中文</button>
+        <button onclick="setLang('ms')" data-lang-btn="ms" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 11px;border-radius:100px;border:none;cursor:pointer;transition:background 0.2s ease,color 0.2s ease;background:transparent;color:rgba(255,255,255,0.7);">BM</button>
+      </div>
       <div class="hidden md:flex items-center gap-3">
         <a href="index.html#find-bin" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -216,22 +257,22 @@
       <div class="grid lg:grid-cols-2 gap-12 items-center">
 
         <div style="animation:fadeInUp 0.6s ease both;">
-          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.25);border-radius:100px;padding:6px 14px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#F4D000;margin-bottom:24px;">
+          <div data-i18n="hero-badge" style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.25);border-radius:100px;padding:6px 14px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#F4D000;margin-bottom:24px;">
             Our Story
           </div>
           <h1 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2.8rem,5.5vw,4.8rem);letter-spacing:-0.04em;color:white;line-height:1.0;margin-bottom:24px;">
-            Together We'll<br/>Make a<br/><span style="color:#F4D000;">Difference.</span>
+            <span data-i18n="hero-h1-line1">Together We'll</span><br/><span data-i18n="hero-h1-line2">Make a</span><br/><span data-i18n="hero-h1-accent" style="color:#F4D000;">Difference.</span>
           </h1>
-          <p style="font-family:'Roboto',sans-serif;font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.6);max-width:480px;margin-bottom:36px;">
+          <p data-i18n="hero-sub" style="font-family:'Roboto',sans-serif;font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.6);max-width:480px;margin-bottom:36px;">
             Yellow Bin started with a simple belief: recycling should be easy, accessible, and meaningful for every Malaysian. Today, we're one of the country's leading textile recycling networks.
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:12px;">
             <a href="#who-we-are" class="btn-primary" style="font-size:0.95rem;padding:13px 26px;">
-              Our Story
+              <span data-i18n="hero-btn-story">Our Story</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
             <a href="index.html#find-bin" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:white;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.875rem;padding:12px 26px;border-radius:6px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.25);transition:border-color 0.2s ease,background 0.2s ease;" onmouseover="this.style.borderColor='white'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)'">
-              Find a Bin
+              <span data-i18n="hero-btn-bin">Find a Bin</span>
             </a>
           </div>
         </div>
@@ -241,27 +282,27 @@
           <!-- Icon cards representing what they do -->
           <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 16px;text-align:center;">
             <div style="font-size:2rem;margin-bottom:8px;">♻️</div>
-            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:white;letter-spacing:0.02em;">Recycle</div>
+            <div data-i18n="icon-recycle" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:white;letter-spacing:0.02em;">Recycle</div>
           </div>
           <div style="background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.2);border-radius:16px;padding:24px 16px;text-align:center;">
             <div style="font-size:2rem;margin-bottom:8px;">👕</div>
-            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:white;letter-spacing:0.02em;">Textiles</div>
+            <div data-i18n="icon-textiles" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:white;letter-spacing:0.02em;">Textiles</div>
           </div>
           <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 16px;text-align:center;">
             <div style="font-size:2rem;margin-bottom:8px;">🌱</div>
-            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:white;letter-spacing:0.02em;">Eco</div>
+            <div data-i18n="icon-eco" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:white;letter-spacing:0.02em;">Eco</div>
           </div>
           <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 16px;text-align:center;">
             <div style="font-size:2rem;margin-bottom:8px;">🏫</div>
-            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:white;letter-spacing:0.02em;">Schools</div>
+            <div data-i18n="icon-schools" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:white;letter-spacing:0.02em;">Schools</div>
           </div>
           <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 16px;text-align:center;">
             <div style="font-size:2rem;margin-bottom:8px;">🤝</div>
-            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:white;letter-spacing:0.02em;">Community</div>
+            <div data-i18n="icon-community" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:white;letter-spacing:0.02em;">Community</div>
           </div>
           <div style="background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.2);border-radius:16px;padding:24px 16px;text-align:center;">
             <div style="font-size:2rem;margin-bottom:8px;">💛</div>
-            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:white;letter-spacing:0.02em;">Malaysia</div>
+            <div data-i18n="icon-malaysia" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:white;letter-spacing:0.02em;">Malaysia</div>
           </div>
         </div>
 
@@ -279,31 +320,31 @@
 
         <!-- Who Are The Yellow Bin -->
         <div class="reveal">
-          <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
-            <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
-            Our Identity
+          <div style=”display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;”>
+            <span style=”width:24px;height:1.5px;background:#F4D000;display:inline-block;”></span>
+            <span data-i18n="identity-label">Our Identity</span>
           </div>
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;margin-bottom:20px;">
+          <h2 data-i18n="identity-h2" style=”font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;margin-bottom:20px;”>
             Who Are the Yellow Bin?
           </h2>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.8;color:#6B6B65;margin-bottom:16px;">
+          <p data-i18n="identity-p1" style=”font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.8;color:#6B6B65;margin-bottom:16px;”>
             In line with the government's “Green Our Home” campaign to uplift the awareness amongst public on the importance of environmental conservation, as well as lending a helping hand to the needy in our society, Yellow Bin was set up to collect recyclables from public.
           </p>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.8;color:#6B6B65;margin-bottom:16px;">
+          <p data-i18n="identity-p2" style=”font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.8;color:#6B6B65;margin-bottom:16px;”>
             The Yellow Bin mission is to maintain a prosperous and productive recycling system that is committed to the conservation of natural resources. In conjunction with source reduction, reuse, and composting, the recycling of valuable materials is essential to a sustainable environmental, energy, and economic future.
           </p>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.8;color:#6B6B65;">
+          <p data-i18n="identity-p3" style=”font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.8;color:#6B6B65;”>
             Recycling is a shared responsibility and requires citizen engagement. Yellow Bin promotes the concept of environmental protection, narrow the large carbon footprints, provide a second chance to the growing waste as well as cut down the usage of landfill.
           </p>
 
           <!-- Govt seals + recognition -->
-          <div style="margin-top:36px;">
-            <p style="font-family:'Roboto',sans-serif;font-size:0.92rem;line-height:1.8;color:#6B6B65;margin-bottom:20px;font-style:italic;border-left:3px solid #F4D000;padding-left:14px;">
+          <div style=”margin-top:36px;”>
+            <p data-i18n="identity-honoured" style=”font-family:'Roboto',sans-serif;font-size:0.92rem;line-height:1.8;color:#6B6B65;margin-bottom:20px;font-style:italic;border-left:3px solid #F4D000;padding-left:14px;”>
               We are honoured by the support of the various governing bodies and we endeavour to do our best in both recycling and charity works!
             </p>
             <div>
-              <img src="Govt-Seals.jpg" alt="Government Bodies &amp; Partners" style="width:100%;border-radius:10px;box-shadow:0 4px 20px rgba(74,74,68,0.1);display:block;margin-bottom:16px;" />
-              <p style="font-family:'Roboto',sans-serif;font-size:0.84rem;line-height:1.85;color:#6B6B65;">
+              <img src=”Govt-Seals.jpg” alt=”Malaysian government bodies authorizing Yellow Bin — JPSPN, KPKT, MaGIC, PPSPPA, JPBD, MPJBT” style=”width:100%;border-radius:10px;box-shadow:0 4px 20px rgba(74,74,68,0.1);display:block;margin-bottom:16px;” />
+              <p data-i18n="identity-proud" style=”font-family:'Roboto',sans-serif;font-size:0.84rem;line-height:1.85;color:#6B6B65;”>
                 We are proud to be the only social enterprise in Johor Bahru which is recognized and authorized by JB, Kulai, Kota Tinggi and Pasir Gudang, Yong Peng, Batu Pahat, Simpang Renggam, Kluang City Council, as well as Jabatan Pengurusan Sisa Pepejal Negara (JPSPN), Jabatan Perancangan Bandar Desa (JPBD), Majlis Perbandaran Johor Bahru Tengah (MPJBT), Kementerian Kesejahteraan Bandar, Perumahan Dan Kerajaan Tempatan (KPKT), Perbadanan Pengurusan Sisa Pepejal dan Pembersihan Awam (PPSPPA) and Malaysian Global Innovation &amp; Creativity Centre (MaGIC) to carry out recycling activities.
               </p>
             </div>
@@ -314,18 +355,18 @@
         <div class="reveal" style="transition-delay:0.15s;">
           <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
             <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
-            Our Purpose
+            <span data-i18n="purpose-label">Our Purpose</span>
           </div>
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;margin-bottom:20px;">
+          <h2 data-i18n="purpose-h2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;margin-bottom:20px;">
             Why Yellow Bin?
           </h2>
           <!-- Purpose sub-section 1 -->
           <div style="margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(208,208,217,0.5);">
             <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.05rem;color:#4A4A44;letter-spacing:-0.01em;margin-bottom:10px;display:flex;align-items:center;gap:10px;">
               <span style="width:28px;height:28px;border-radius:8px;background:#F4D000;display:inline-flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:900;color:#4A4A44;flex-shrink:0;">1</span>
-              Give Trash a New Life
+              <span data-i18n="purpose-1-title">Give Trash a New Life</span>
             </h3>
-            <p style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.8;color:#6B6B65;">
+            <p data-i18n="purpose-1-body" style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.8;color:#6B6B65;">
               Yellow Bin is a non-religious eco project. The recycling team collects recyclables in all residential settlements in the state of Selangor, KL, Malacca and Johor. While we can significantly help to conserve our living environment, we are raising the awareness amongst the public on the impact of global warming. The proceeds we generate from the on-going recycling campaigns will be channeled to fund the various charitable projects in Malaysia.
             </p>
           </div>
@@ -334,9 +375,9 @@
           <div style="margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(208,208,217,0.5);">
             <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.05rem;color:#4A4A44;letter-spacing:-0.01em;margin-bottom:10px;display:flex;align-items:center;gap:10px;">
               <span style="width:28px;height:28px;border-radius:8px;background:#F4D000;display:inline-flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:900;color:#4A4A44;flex-shrink:0;">2</span>
-              Recycle to Help
+              <span data-i18n="purpose-2-title">Recycle to Help</span>
             </h3>
-            <p style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.8;color:#6B6B65;">
+            <p data-i18n="purpose-2-body" style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.8;color:#6B6B65;">
               Yellow Bin Recycling Team organizes various events such as "Go Eco Campaign", "Yellow Bin Seminar", "Yellow Bin Fun Day", etc… in residential areas, schools and shopping malls to encourage community participation in social services and environmental protection.
             </p>
           </div>
@@ -345,9 +386,9 @@
           <div>
             <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.05rem;color:#4A4A44;letter-spacing:-0.01em;margin-bottom:10px;display:flex;align-items:center;gap:10px;">
               <span style="width:28px;height:28px;border-radius:8px;background:#F4D000;display:inline-flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:900;color:#4A4A44;flex-shrink:0;">3</span>
-              It's Our Mission to Go Green
+              <span data-i18n="purpose-3-title">It's Our Mission to Go Green</span>
             </h3>
-            <p style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.8;color:#6B6B65;">
+            <p data-i18n="purpose-3-body" style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.8;color:#6B6B65;">
               In consideration of expanding the area of environmental protection, as well as increasing the engagement from the public, more than 300 Yellow Bins have been placed in shopping malls, office buildings, apartments, residential areas and schools. To date, there had been more than 200,000 people who had participated in this meaningful activity.
             </p>
           </div>
@@ -365,23 +406,23 @@
       <div style="display:grid;grid-template-columns:repeat(2,1fr);border-left:1px solid rgba(74,74,68,0.12);" class="md:grid-cols-4">
         <div class="reveal" style="padding:40px 32px;border-right:1px solid rgba(74,74,68,0.12);border-bottom:1px solid rgba(74,74,68,0.08);">
           <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.8rem;letter-spacing:-0.04em;color:#4A4A44;line-height:1;">500+</div>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;color:#4A4A44;margin-top:6px;">Active Bins</div>
-          <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(74,74,68,0.6);margin-top:4px;">Across Malaysia</div>
+          <div data-i18n="stats-bins-label" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;color:#4A4A44;margin-top:6px;">Active Bins</div>
+          <div data-i18n="stats-bins-sub" style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(74,74,68,0.6);margin-top:4px;">Across Malaysia</div>
         </div>
         <div class="reveal" style="padding:40px 32px;border-right:1px solid rgba(74,74,68,0.12);border-bottom:1px solid rgba(74,74,68,0.08);transition-delay:0.1s;">
           <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.8rem;letter-spacing:-0.04em;color:#4A4A44;line-height:1;">2M+</div>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;color:#4A4A44;margin-top:6px;">KG Collected</div>
-          <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(74,74,68,0.6);margin-top:4px;">Diverted from landfill</div>
+          <div data-i18n="stats-kg-label" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;color:#4A4A44;margin-top:6px;">KG Collected</div>
+          <div data-i18n="stats-kg-sub" style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(74,74,68,0.6);margin-top:4px;">Diverted from landfill</div>
         </div>
         <div class="reveal" style="padding:40px 32px;border-right:1px solid rgba(74,74,68,0.12);transition-delay:0.2s;">
           <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.8rem;letter-spacing:-0.04em;color:#4A4A44;line-height:1;">10K+</div>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;color:#4A4A44;margin-top:6px;">Beneficiaries</div>
-          <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(74,74,68,0.6);margin-top:4px;">Helped through donations</div>
+          <div data-i18n="stats-ben-label" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;color:#4A4A44;margin-top:6px;">Beneficiaries</div>
+          <div data-i18n="stats-ben-sub" style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(74,74,68,0.6);margin-top:4px;">Helped through donations</div>
         </div>
         <div class="reveal" style="padding:40px 32px;border-right:1px solid rgba(74,74,68,0.12);transition-delay:0.3s;">
           <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2.8rem;letter-spacing:-0.04em;color:#4A4A44;line-height:1;">85%</div>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;color:#4A4A44;margin-top:6px;">Recycled or Reused</div>
-          <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(74,74,68,0.6);margin-top:4px;">Of every item we collect</div>
+          <div data-i18n="stats-reuse-label" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;color:#4A4A44;margin-top:6px;">Recycled or Reused</div>
+          <div data-i18n="stats-reuse-sub" style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(74,74,68,0.6);margin-top:4px;">Of every item we collect</div>
         </div>
       </div>
     </div>
@@ -396,13 +437,13 @@
       <div class="reveal" style="text-align:center;margin-bottom:64px;">
         <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
           <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
-          What Drives Us
+          <span data-i18n="mvv-label">What Drives Us</span>
           <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
         </div>
-        <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;max-width:500px;margin:0 auto 16px;">
+        <h2 data-i18n="mvv-h2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;max-width:500px;margin:0 auto 16px;">
           Our Mission, Vision &amp; Values
         </h2>
-        <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.7;color:#6B6B65;max-width:500px;margin:0 auto;">
+        <p data-i18n="mvv-sub" style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.7;color:#6B6B65;max-width:500px;margin:0 auto;">
           Everything we do is guided by a simple belief: every piece of fabric deserves a second chance.
         </p>
       </div>
@@ -414,10 +455,10 @@
           <div style="width:52px;height:52px;border-radius:12px;background:#F4D000;display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 4px 16px rgba(244,208,0,0.3);">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4A4A44" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
           </div>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:10px;">Mission</div>
-          <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:#4A4A44;margin-bottom:12px;letter-spacing:-0.01em;">Make Recycling Effortless</h3>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.7;color:#6B6B65;">
-            To make textile recycling as simple and accessible as possible for every Malaysian — through convenient bin placement, community engagement, and transparent outcomes.
+          <div data-i18n="mission-label" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:10px;">Mission</div>
+          <h3 data-i18n="mission-h3" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:#4A4A44;margin-bottom:12px;letter-spacing:-0.01em;">Recycling is the Future</h3>
+          <p data-i18n="mission-body" style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.7;color:#6B6B65;">
+            Our mission is to promote the concept of environmental protection, to narrow the large carbon footprints, and to provide a second chance to the growing waste.
           </p>
         </div>
 
@@ -426,10 +467,10 @@
           <div style="width:52px;height:52px;border-radius:12px;background:#4A4A44;display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 4px 16px rgba(74,74,68,0.2);">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:10px;">Vision</div>
-          <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:#4A4A44;margin-bottom:12px;letter-spacing:-0.01em;">A Zero Textile Waste Malaysia</h3>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.7;color:#6B6B65;">
-            A Malaysia where no usable textile ever ends up in a landfill — where circular fashion is the norm, not the exception, and communities thrive through shared resources.
+          <div data-i18n="vision-label" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:10px;">Vision</div>
+          <h3 data-i18n="vision-h3" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:#4A4A44;margin-bottom:12px;letter-spacing:-0.01em;">Sustainable Malaysia</h3>
+          <p data-i18n="vision-body" style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.7;color:#6B6B65;">
+            The Yellow Bin movement seeks to empower and uplift the awareness amongst the public on the importance of environmental conservation.
           </p>
         </div>
 
@@ -438,14 +479,11 @@
           <div style="width:52px;height:52px;border-radius:12px;background:rgba(244,208,0,0.12);border:1.5px solid rgba(244,208,0,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9AB00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:10px;">Values</div>
-          <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:#4A4A44;margin-bottom:12px;letter-spacing:-0.01em;">Simple. Friendly. Purpose-Driven.</h3>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;display:flex;align-items:center;gap:8px;"><span style="color:#F4D000;font-weight:700;">→</span> Sustainability in every decision</div>
-            <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;display:flex;align-items:center;gap:8px;"><span style="color:#F4D000;font-weight:700;">→</span> Community over profit</div>
-            <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;display:flex;align-items:center;gap:8px;"><span style="color:#F4D000;font-weight:700;">→</span> Transparency &amp; accountability</div>
-            <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#6B6B65;display:flex;align-items:center;gap:8px;"><span style="color:#F4D000;font-weight:700;">→</span> Inclusive &amp; easy access</div>
-          </div>
+          <div data-i18n="values-label" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:10px;">Our Cause</div>
+          <h3 data-i18n="values-h3" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:#4A4A44;margin-bottom:12px;letter-spacing:-0.01em;">Friendly and Purpose-Driven.</h3>
+          <p data-i18n="values-body" style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.7;color:#6B6B65;">
+            We assist the vulnerable elderly, poverty-stricken families, abandoned children, and sick patients to pull through life's difficulties and challenges.
+          </p>
         </div>
 
       </div>
@@ -464,15 +502,15 @@
         <div class="reveal">
           <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
             <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
-            Get Involved
+            <span data-i18n="volunteer-label">Get Involved</span>
           </div>
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;margin-bottom:20px;">
+          <h2 data-i18n="volunteer-h2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;margin-bottom:20px;">
             Could You Make a Difference as a Volunteer?
           </h2>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.8;color:#6B6B65;margin-bottom:16px;">
+          <p data-i18n="volunteer-p1" style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.8;color:#6B6B65;margin-bottom:16px;">
             Yellow Bin is powered by a passionate community of volunteers who believe in our mission. Volunteers help with bin management, community awareness drives, sorting &amp; distribution, and event organisation.
           </p>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.8;color:#6B6B65;margin-bottom:32px;">
+          <p data-i18n="volunteer-p2" style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.8;color:#6B6B65;margin-bottom:32px;">
             Whether you have one hour or one day a week, every contribution matters. Join us and be part of something bigger than yourself.
           </p>
 
@@ -481,29 +519,29 @@
             <div style="background:white;border-radius:12px;padding:18px 20px;border:1px solid rgba(208,208,217,0.5);">
               <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.875rem;color:#4A4A44;margin-bottom:6px;display:flex;align-items:center;gap:10px;">
                 <span style="width:24px;height:24px;border-radius:50%;background:#F4D000;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:900;color:#4A4A44;flex-shrink:0;">Q</span>
-                What does a volunteer do?
+                <span data-i18n="qa1-q">What does a volunteer do?</span>
               </div>
-              <p style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;padding-left:34px;">Help manage bin locations, assist at community drives, spread awareness at schools and events, or support our sorting team.</p>
+              <p data-i18n="qa1-a" style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;padding-left:34px;">Help manage bin locations, assist at community drives, spread awareness at schools and events, or support our sorting team.</p>
             </div>
             <div style="background:white;border-radius:12px;padding:18px 20px;border:1px solid rgba(208,208,217,0.5);">
               <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.875rem;color:#4A4A44;margin-bottom:6px;display:flex;align-items:center;gap:10px;">
                 <span style="width:24px;height:24px;border-radius:50%;background:#F4D000;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:900;color:#4A4A44;flex-shrink:0;">Q</span>
-                How much time is required?
+                <span data-i18n="qa2-q">How much time is required?</span>
               </div>
-              <p style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;padding-left:34px;">As little or as much as you can give. We have flexible one-off events as well as ongoing roles for regular volunteers.</p>
+              <p data-i18n="qa2-a" style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;padding-left:34px;">As little or as much as you can give. We have flexible one-off events as well as ongoing roles for regular volunteers.</p>
             </div>
             <div style="background:white;border-radius:12px;padding:18px 20px;border:1px solid rgba(208,208,217,0.5);">
               <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.875rem;color:#4A4A44;margin-bottom:6px;display:flex;align-items:center;gap:10px;">
                 <span style="width:24px;height:24px;border-radius:50%;background:#F4D000;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:900;color:#4A4A44;flex-shrink:0;">Q</span>
-                Who can volunteer?
+                <span data-i18n="qa3-q">Who can volunteer?</span>
               </div>
-              <p style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;padding-left:34px;">Anyone! Individuals, students, companies, and organisations are all welcome. No experience needed — just a willingness to help.</p>
+              <p data-i18n="qa3-a" style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;padding-left:34px;">Anyone! Individuals, students, companies, and organisations are all welcome. No experience needed — just a willingness to help.</p>
             </div>
           </div>
 
           <a href="mailto:volunteer@yellowbin.com.my" class="btn-primary" style="font-size:0.95rem;padding:13px 28px;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Become a Volunteer
+            <span data-i18n="volunteer-btn">Become a Volunteer</span>
           </a>
         </div>
 
@@ -524,31 +562,31 @@
               </div>
             </div>
             <div style="padding:28px;">
-              <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">How Your Involvement Helps</div>
+              <div data-i18n="impact-label" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">How Your Involvement Helps</div>
               <div style="display:flex;flex-direction:column;gap:12px;">
                 <div style="display:flex;align-items:center;gap:12px;">
                   <div style="width:32px;height:32px;border-radius:8px;background:rgba(244,208,0,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   </div>
-                  <span style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);">More bins in more locations</span>
+                  <span data-i18n="impact-1" style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);">More bins in more locations</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:12px;">
                   <div style="width:32px;height:32px;border-radius:8px;background:rgba(244,208,0,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   </div>
-                  <span style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);">Faster processing of donated items</span>
+                  <span data-i18n="impact-2" style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);">Faster processing of donated items</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:12px;">
                   <div style="width:32px;height:32px;border-radius:8px;background:rgba(244,208,0,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   </div>
-                  <span style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);">Bigger community awareness &amp; reach</span>
+                  <span data-i18n="impact-3" style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);">Bigger community awareness &amp; reach</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:12px;">
                   <div style="width:32px;height:32px;border-radius:8px;background:rgba(244,208,0,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                   </div>
-                  <span style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);">More donations reaching welfare homes</span>
+                  <span data-i18n="impact-4" style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.6);">More donations reaching welfare homes</span>
                 </div>
               </div>
             </div>
@@ -571,13 +609,13 @@
       <div class="reveal" style="text-align:center;margin-bottom:56px;">
         <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(74,74,68,0.6);margin-bottom:16px;">
           <span style="width:24px;height:1.5px;background:#4A4A44;display:inline-block;"></span>
-          Accepted Items
+          <span data-i18n="recycle-label">Accepted Items</span>
           <span style="width:24px;height:1.5px;background:#4A4A44;display:inline-block;"></span>
         </div>
-        <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.04em;color:#4A4A44;line-height:1.1;margin-bottom:16px;">
+        <h2 data-i18n="recycle-h2" style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.04em;color:#4A4A44;line-height:1.1;margin-bottom:16px;">
           What Can We Recycle?
         </h2>
-        <p style="font-family:'Roboto',sans-serif;font-size:1rem;line-height:1.7;color:rgba(74,74,68,0.65);max-width:520px;margin:0 auto;">
+        <p data-i18n="recycle-sub" style="font-family:'Roboto',sans-serif;font-size:1rem;line-height:1.7;color:rgba(74,74,68,0.65);max-width:520px;margin:0 auto;">
           Yellow Bin accepts a wide range of items — not just clothing. Here's everything you can drop off at any Yellow Bin near you.
         </p>
       </div>
@@ -589,12 +627,12 @@
           <div style="width:56px;height:56px;border-radius:14px;background:#4A4A44;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 16px rgba(74,74,68,0.2);">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           </div>
-          <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:10px;letter-spacing:-0.01em;">Paper</h3>
+          <h3 data-i18n="paper-h3" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:10px;letter-spacing:-0.01em;">Paper</h3>
           <ul style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.8;color:rgba(74,74,68,0.7);list-style:none;padding:0;margin:0;">
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Books &amp; magazines</li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Newspapers</li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Cardboard &amp; boxes</li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Printed paper</li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="paper-1">Books &amp; magazines</span></li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="paper-2">Newspapers</span></li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="paper-3">Cardboard &amp; boxes</span></li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="paper-4">Printed paper</span></li>
           </ul>
         </div>
 
@@ -604,12 +642,12 @@
           <div style="width:56px;height:56px;border-radius:14px;background:#F4D000;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 16px rgba(244,208,0,0.4);">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>
           </div>
-          <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:10px;letter-spacing:-0.01em;">Clothing &amp; Textiles</h3>
+          <h3 data-i18n="clothing-h3" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:10px;letter-spacing:-0.01em;">Clothing &amp; Textiles</h3>
           <ul style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.8;color:rgba(74,74,68,0.7);list-style:none;padding:0;margin:0;">
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> All clothing &amp; apparel</li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Shoes &amp; bags</li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Bed linen &amp; towels</li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Curtains &amp; cushions</li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="clothing-1">All clothing &amp; apparel</span></li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="clothing-2">Shoes &amp; bags</span></li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="clothing-3">Bed linen &amp; towels</span></li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="clothing-4">Curtains &amp; cushions</span></li>
           </ul>
         </div>
 
@@ -618,12 +656,12 @@
           <div style="width:56px;height:56px;border-radius:14px;background:#4A4A44;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 16px rgba(74,74,68,0.2);">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
-          <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:10px;letter-spacing:-0.01em;">Household Items</h3>
+          <h3 data-i18n="household-h3" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:10px;letter-spacing:-0.01em;">Household Items</h3>
           <ul style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.8;color:rgba(74,74,68,0.7);list-style:none;padding:0;margin:0;">
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Soft toys &amp; plush</li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Belts &amp; accessories</li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Hats &amp; scarves</li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Fabric-based items</li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="household-1">Soft toys &amp; plush</span></li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="household-2">Belts &amp; accessories</span></li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="household-3">Hats &amp; scarves</span></li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="household-4">Fabric-based items</span></li>
           </ul>
         </div>
 
@@ -632,12 +670,12 @@
           <div style="width:56px;height:56px;border-radius:14px;background:#4A4A44;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 16px rgba(74,74,68,0.2);">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
           </div>
-          <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:10px;letter-spacing:-0.01em;">Uniforms &amp; Workwear</h3>
+          <h3 data-i18n="uniforms-h3" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:10px;letter-spacing:-0.01em;">Uniforms &amp; Workwear</h3>
           <ul style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.8;color:rgba(74,74,68,0.7);list-style:none;padding:0;margin:0;">
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> School uniforms</li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Corporate workwear</li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> Sports &amp; team kit</li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> PPE &amp; protective gear</li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="uniforms-1">School uniforms</span></li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="uniforms-2">Corporate workwear</span></li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="uniforms-3">Sports &amp; team kit</span></li>
+            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="uniforms-4">PPE &amp; protective gear</span></li>
           </ul>
         </div>
 
@@ -646,7 +684,7 @@
       <!-- Note -->
       <div class="reveal" style="margin-top:32px;background:rgba(74,74,68,0.08);border-radius:12px;padding:18px 24px;display:flex;gap:12px;align-items:flex-start;max-width:720px;margin-left:auto;margin-right:auto;margin-top:32px;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A4A44" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <p style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:rgba(74,74,68,0.7);margin:0;">
+        <p data-i18n="recycle-note" style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:rgba(74,74,68,0.7);margin:0;">
           Items don't need to be clean or in perfect condition — we accept worn, torn, and faded textiles. <strong style="color:#4A4A44;">The only things we cannot accept</strong> are wet, mouldy, or heavily soiled items.
         </p>
       </div>
@@ -665,10 +703,10 @@
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="reveal">
           <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,208,0,0.6);margin-bottom:12px;">Stay connected</div>
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-0.03em;color:white;line-height:1.1;margin-bottom:12px;">
+          <h2 data-i18n="newsletter-h2" style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-0.03em;color:white;line-height:1.1;margin-bottom:12px;">
             The Yellow Bin Newsletter
           </h2>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.5);">
+          <p data-i18n="newsletter-sub" style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.5);">
             New bin locations, recycling tips, community stories, and upcoming events — all in one monthly email.
           </p>
         </div>
@@ -803,6 +841,320 @@
       document.getElementById('wa-options').style.display = 'none';
     }
   });
+</script>
+
+<script>
+const i18n = {
+  en: {
+    'hero-badge': 'Our Story',
+    'hero-h1-line1': "Together We'll",
+    'hero-h1-line2': 'Make a',
+    'hero-h1-accent': 'Difference.',
+    'hero-sub': "Yellow Bin started with a simple belief: recycling should be easy, accessible, and meaningful for every Malaysian. Today, we're one of the country's leading textile recycling networks.",
+    'hero-btn-story': 'Our Story',
+    'hero-btn-bin': 'Find a Bin',
+    'icon-recycle': 'Recycle',
+    'icon-textiles': 'Textiles',
+    'icon-eco': 'Eco',
+    'icon-schools': 'Schools',
+    'icon-community': 'Community',
+    'icon-malaysia': 'Malaysia',
+    'identity-label': 'Our Identity',
+    'identity-h2': 'Who Are the Yellow Bin?',
+    'identity-p1': 'In line with the government's "Green Our Home" campaign to uplift the awareness amongst public on the importance of environmental conservation, as well as lending a helping hand to the needy in our society, Yellow Bin was set up to collect recyclables from public.',
+    'identity-p2': 'The Yellow Bin mission is to maintain a prosperous and productive recycling system that is committed to the conservation of natural resources. In conjunction with source reduction, reuse, and composting, the recycling of valuable materials is essential to a sustainable environmental, energy, and economic future.',
+    'identity-p3': 'Recycling is a shared responsibility and requires citizen engagement. Yellow Bin promotes the concept of environmental protection, narrow the large carbon footprints, provide a second chance to the growing waste as well as cut down the usage of landfill.',
+    'identity-honoured': 'We are honoured by the support of the various governing bodies and we endeavour to do our best in both recycling and charity works!',
+    'identity-proud': 'We are proud to be the only social enterprise in Johor Bahru which is recognized and authorized by JB, Kulai, Kota Tinggi and Pasir Gudang, Yong Peng, Batu Pahat, Simpang Renggam, Kluang City Council, as well as Jabatan Pengurusan Sisa Pepejal Negara (JPSPN), Jabatan Perancangan Bandar Desa (JPBD), Majlis Perbandaran Johor Bahru Tengah (MPJBT), Kementerian Kesejahteraan Bandar, Perumahan Dan Kerajaan Tempatan (KPKT), Perbadanan Pengurusan Sisa Pepejal dan Pembersihan Awam (PPSPPA) and Malaysian Global Innovation &amp; Creativity Centre (MaGIC) to carry out recycling activities.',
+    'purpose-label': 'Our Purpose',
+    'purpose-h2': 'Why Yellow Bin?',
+    'purpose-1-title': 'Give Trash a New Life',
+    'purpose-1-body': 'Yellow Bin is a non-religious eco project. The recycling team collects recyclables in all residential settlements in the state of Selangor, KL, Malacca and Johor. While we can significantly help to conserve our living environment, we are raising the awareness amongst the public on the impact of global warming. The proceeds we generate from the on-going recycling campaigns will be channeled to fund the various charitable projects in Malaysia.',
+    'purpose-2-title': 'Recycle to Help',
+    'purpose-2-body': 'Yellow Bin Recycling Team organizes various events such as "Go Eco Campaign", "Yellow Bin Seminar", "Yellow Bin Fun Day", etc… in residential areas, schools and shopping malls to encourage community participation in social services and environmental protection.',
+    'purpose-3-title': "It's Our Mission to Go Green",
+    'purpose-3-body': 'In consideration of expanding the area of environmental protection, as well as increasing the engagement from the public, more than 300 Yellow Bins have been placed in shopping malls, office buildings, apartments, residential areas and schools. To date, there had been more than 200,000 people who had participated in this meaningful activity.',
+    'stats-bins-label': 'Active Bins',
+    'stats-bins-sub': 'Across Malaysia',
+    'stats-kg-label': 'KG Collected',
+    'stats-kg-sub': 'Diverted from landfill',
+    'stats-ben-label': 'Beneficiaries',
+    'stats-ben-sub': 'Helped through donations',
+    'stats-reuse-label': 'Recycled or Reused',
+    'stats-reuse-sub': 'Of every item we collect',
+    'mvv-label': 'What Drives Us',
+    'mvv-h2': 'Our Mission, Vision &amp; Values',
+    'mvv-sub': 'Everything we do is guided by a simple belief: every piece of fabric deserves a second chance.',
+    'mission-label': 'Mission',
+    'mission-h3': 'Recycling is the Future',
+    'mission-body': 'Our mission is to promote the concept of environmental protection, to narrow the large carbon footprints, and to provide a second chance to the growing waste.',
+    'vision-label': 'Vision',
+    'vision-h3': 'Sustainable Malaysia',
+    'vision-body': 'The Yellow Bin movement seeks to empower and uplift the awareness amongst the public on the importance of environmental conservation.',
+    'values-label': 'Our Cause',
+    'values-h3': 'Friendly and Purpose-Driven.',
+    'values-body': "We assist the vulnerable elderly, poverty-stricken families, abandoned children, and sick patients to pull through life's difficulties and challenges.",
+    'volunteer-label': 'Get Involved',
+    'volunteer-h2': 'Could You Make a Difference as a Volunteer?',
+    'volunteer-p1': 'Yellow Bin is powered by a passionate community of volunteers who believe in our mission. Volunteers help with bin management, community awareness drives, sorting &amp; distribution, and event organisation.',
+    'volunteer-p2': 'Whether you have one hour or one day a week, every contribution matters. Join us and be part of something bigger than yourself.',
+    'qa1-q': 'What does a volunteer do?',
+    'qa1-a': 'Help manage bin locations, assist at community drives, spread awareness at schools and events, or support our sorting team.',
+    'qa2-q': 'How much time is required?',
+    'qa2-a': 'As little or as much as you can give. We have flexible one-off events as well as ongoing roles for regular volunteers.',
+    'qa3-q': 'Who can volunteer?',
+    'qa3-a': "Anyone! Individuals, students, companies, and organisations are all welcome. No experience needed — just a willingness to help.",
+    'volunteer-btn': 'Become a Volunteer',
+    'impact-label': 'How Your Involvement Helps',
+    'impact-1': 'More bins in more locations',
+    'impact-2': 'Faster processing of donated items',
+    'impact-3': 'Bigger community awareness &amp; reach',
+    'impact-4': 'More donations reaching welfare homes',
+    'recycle-label': 'Accepted Items',
+    'recycle-h2': 'What Can We Recycle?',
+    'recycle-sub': "Yellow Bin accepts a wide range of items — not just clothing. Here's everything you can drop off at any Yellow Bin near you.",
+    'paper-h3': 'Paper',
+    'paper-1': 'Books &amp; magazines',
+    'paper-2': 'Newspapers',
+    'paper-3': 'Cardboard &amp; boxes',
+    'paper-4': 'Printed paper',
+    'clothing-h3': 'Clothing &amp; Textiles',
+    'clothing-1': 'All clothing &amp; apparel',
+    'clothing-2': 'Shoes &amp; bags',
+    'clothing-3': 'Bed linen &amp; towels',
+    'clothing-4': 'Curtains &amp; cushions',
+    'household-h3': 'Household Items',
+    'household-1': 'Soft toys &amp; plush',
+    'household-2': 'Belts &amp; accessories',
+    'household-3': 'Hats &amp; scarves',
+    'household-4': 'Fabric-based items',
+    'uniforms-h3': 'Uniforms &amp; Workwear',
+    'uniforms-1': 'School uniforms',
+    'uniforms-2': 'Corporate workwear',
+    'uniforms-3': 'Sports &amp; team kit',
+    'uniforms-4': 'PPE &amp; protective gear',
+    'recycle-note': 'Items should be clean and dry. We do not accept wet, heavily soiled, or contaminated materials.',
+    'newsletter-h2': 'The Yellow Bin Newsletter',
+    'newsletter-sub': 'Get recycling tips, impact updates, and community news straight to your inbox.',
+    'cta-h2': 'Ready to Make a Difference?',
+    'cta-sub': 'Find your nearest Yellow Bin and start recycling today.',
+    'cta-btn': 'Find a Bin Near You',
+  },
+  zh: {
+    'hero-badge': '我们的故事',
+    'hero-h1-line1': '携手同行，',
+    'hero-h1-line2': '共创',
+    'hero-h1-accent': '改变。',
+    'hero-sub': '黄色回收笱源于一个简单的信念：回收应该简单、方便，对每位马来西亚人都有意义。如今，我们已成为全国领先的纳织品回收网络之一。',
+    'hero-btn-story': '我们的故事',
+    'hero-btn-bin': '寻找回收笱',
+    'icon-recycle': '回收',
+    'icon-textiles': '纳织品',
+    'icon-eco': '环保',
+    'icon-schools': '学校',
+    'icon-community': '社区',
+    'icon-malaysia': '马来西亚',
+    'identity-label': '我们的身份',
+    'identity-h2': '什么是黄色回收笱？',
+    'identity-p1': '配合政府“绳化家园”运动，提高公众对环境保护重要性的意识，同时帮助有需要的社区人士，黄色回收笱应运而生，专门收集公众的可回收物品。',
+    'identity-p2': '黄色回收笱的使命是维持一个繁荣且高效的回收系统，致力于保护自然资源。结合减少源头废物、再利用与堆肥等方式，回收有价值材料对可持续的环境、能源与经济未来至关重要。',
+    'identity-p3': '回收是共同的责任，需要每位公民的参与。黄色回收笱推广环境保护的理念，减少碳足迹，为日益增长的废弃物提供第二次生命，同时减少垃圾填埋场的使用。',
+    'identity-honoured': '我们深感荣幸，得到各政府机构的支持，并将竭尽所能地在回收与慈善工作上做到最好！',
+    'identity-proud': '我们自豪地成为新山唯一一家获得JB、古来、哥打丁宜及巴西古丹、永平、峥江巴辖、士乃、昔加末市议会，以及固体废物管理局（JPSPN）、城镇及乡村规划局（JPBD）、新山中区市政厅（MPJBT）、城市和谐、房屋及地方政府部（KPKT）、固体废物及公共卫生管理机构（PPSPPA）和马来西亚环球创新与创意中心（MaGIC）认可与授权的社会企业，合法开展回收活动。',
+    'purpose-label': '我们的目标',
+    'purpose-h2': '为何选择黄色回收笱？',
+    'purpose-1-title': '赋予废物新生命',
+    'purpose-1-body': '黄色回收笱是一个无宗教背景的环保项目。回收团队在雪兰过、吉隆坡、马六甲及柔佛各住宅区收集可回收物品。我们不仅帮助保护生活环境，同时也提高公众对全球变暖影响的意识。回收活动所得收益将用于资助马来西亚各类慈善项目。',
+    'purpose-2-title': '回收助人',
+    'purpose-2-body': '黄色回收笱团队在住宅区、学校及购物广场组织多种活动，如“绳色环保运动”、“黄色回收笱研讨会”、“黄色回收笱欢乐日”等，鼓就社区参与社会服务与环境保护。',
+    'purpose-3-title': '绳色使命，义不容辞',
+    'purpose-3-body': '为扩大环境保护范围并增加公众参与，超过300个黄色回收笱已被放置在购物广场、办公楼、公寓、住宅区及学校。迎今为止，已有超过20万人参与了这项有意义的活动。',
+    'stats-bins-label': '活跃回收笱',
+    'stats-bins-sub': '遍布全马',
+    'stats-kg-label': '公斤收集量',
+    'stats-kg-sub': '减少垃圾填埋',
+    'stats-ben-label': '受惠人数',
+    'stats-ben-sub': '通过捐赠获得帮助',
+    'stats-reuse-label': '回收或再利用率',
+    'stats-reuse-sub': '每件收集物品',
+    'mvv-label': '驱动我们的力量',
+    'mvv-h2': '使命、愿景与价值观',
+    'mvv-sub': '我们所做的一切，源于一个简单的信念：每一块布料都値得拥有第二次生命。',
+    'mission-label': '使命',
+    'mission-h3': '回收是未来',
+    'mission-body': '我们的使命是推广环境保护理念，减少碳足迹，为日益增长的废物提供第二次机会。',
+    'vision-label': '愿景',
+    'vision-h3': '可持续的马来西亚',
+    'vision-body': '黄色回收笱运动致力于提高公众对环境保护重要性的意识，赋予社区力量。',
+    'values-label': '我们的使命',
+    'values-h3': '友善且目标明确。',
+    'values-body': '我们帮助脈弱的老人、贫困家庭、被遗弃的儿童及病患，协助他们渡过人生中的困难与挑战。',
+    'volunteer-label': '参与其中',
+    'volunteer-h2': '您愿意成为志愿者，共创改变吗？',
+    'volunteer-p1': '黄色回收笱由一群充满热情的志愿者驱动，他们相信我们的使命。志愿者协助管理回收笱、开展社区意识活动、分类与派发物资，以及组织各类活动。',
+    'volunteer-p2': '无论您每周只有一小时还是一整天，每一份贡献都意义非凡。加入我们，成为比自己更大事业的一部分。',
+    'qa1-q': '志愿者做什么？',
+    'qa1-a': '协助管理回收笱位置，参与社区活动，在学校和活动中传播意识，或支持我们的分类团队。',
+    'qa2-q': '需要多少时间？',
+    'qa2-a': '多少都可以，量力而为。我们有一次性活动，也有适合定期志愿者的长期岗位。',
+    'qa3-q': '谁可以做志愿者？',
+    'qa3-a': '任何人！个人、学生、公司和组织都欢迎参与。无需经验，只需一颗愿意帮助的心。',
+    'volunteer-btn': '成为志愿者',
+    'impact-label': '您的参与如何帮助我们',
+    'impact-1': '更多地点设置回收笱',
+    'impact-2': '更快处理捐赠物品',
+    'impact-3': '扩大社区意识与影响力',
+    'impact-4': '更多捐赠物品送达福利院',
+    'recycle-label': '接受物品',
+    'recycle-h2': '我们可以回收什么？',
+    'recycle-sub': '黄色回收笱接受各类物品，不仅限于衣物。以下是您可以投入任何黄色回收笱的所有物品。',
+    'paper-h3': '纸类',
+    'paper-1': '书籍与杂志',
+    'paper-2': '报纸',
+    'paper-3': '纸板与纸筱',
+    'paper-4': '印刷纸',
+    'clothing-h3': '衣物与纳织品',
+    'clothing-1': '所有服装与衣物',
+    'clothing-2': '鞋子与包包',
+    'clothing-3': '床单与毛巾',
+    'clothing-4': '窗帘与靠垃',
+    'household-h3': '家居物品',
+    'household-1': '毛绒玩具',
+    'household-2': '腰带与配件',
+    'household-3': '帽子与围巾',
+    'household-4': '布料类物品',
+    'uniforms-h3': '制服与工作服',
+    'uniforms-1': '校服',
+    'uniforms-2': '企业工作服',
+    'uniforms-3': '运动服与团队服装',
+    'uniforms-4': '个人防护装备',
+    'recycle-note': '物品须保持清洁干燥。我们不接受潮湿、严重污损或受污染的物品。',
+    'newsletter-h2': '黄色回收笱通讯',
+    'newsletter-sub': '订阅即可收到回收小贴士、影响力更新与社区资讯。',
+    'cta-h2': '准备好做出改变了吗？',
+    'cta-sub': '找到最近的黄色回收笱，立即开始回收。',
+    'cta-btn': '寻找附近的回收笱',
+  },
+  ms: {
+    'hero-badge': 'Kisah Kami',
+    'hero-h1-line1': 'Bersama Kita',
+    'hero-h1-line2': 'Cipta',
+    'hero-h1-accent': 'Perubahan.',
+    'hero-sub': 'Yellow Bin bermula dengan satu kepercayaan mudah: kitar semula sepatutnya mudah, boleh diakses, dan bermakna untuk setiap rakyat Malaysia. Hari ini, kami adalah salah satu rangkaian kitar semula tekstil terkemuka negara.',
+    'hero-btn-story': 'Kisah Kami',
+    'hero-btn-bin': 'Cari Tong Berhampiran',
+    'icon-recycle': 'Kitar Semula',
+    'icon-textiles': 'Tekstil',
+    'icon-eco': 'Eko',
+    'icon-schools': 'Sekolah',
+    'icon-community': 'Komuniti',
+    'icon-malaysia': 'Malaysia',
+    'identity-label': 'Identiti Kami',
+    'identity-h2': 'Siapakah Yellow Bin?',
+    'identity-p1': 'Selaras dengan kempen "Hijaukan Rumah Kita" kerajaan untuk meningkatkan kesedaran awam tentang kepentingan pemuliharaan alam sekitar, serta membantu golongan yang memerlukan, Yellow Bin ditubuhkan untuk mengumpul bahan kitar semula daripada orang ramai.',
+    'identity-p2': 'Misi Yellow Bin adalah untuk mengekalkan sistem kitar semula yang makmur dan produktif, komited kepada pemuliharaan sumber asli. Bersama pengurangan sumber, guna semula, dan pengkomposan, kitar semula bahan bernilai adalah penting untuk masa depan alam sekitar, tenaga, dan ekonomi yang mampan.',
+    'identity-p3': 'Kitar semula adalah tanggungjawab bersama dan memerlukan penglibatan setiap warga. Yellow Bin mempromosikan konsep perlindungan alam sekitar, mengurangkan jejak karbon, memberikan peluang kedua kepada sisa yang semakin bertambah, serta mengurangkan penggunaan tapak pelupusan.',
+    'identity-honoured': 'Kami berasa amat terhormat dengan sokongan pelbagai badan kerajaan dan kami akan berusaha sebaik mungkin dalam kerja-kerja kitar semula dan amal!',
+    'identity-proud': 'Kami bangga menjadi satu-satunya perusahaan sosial di Johor Bahru yang diiktiraf dan dibenarkan oleh JB, Kulai, Kota Tinggi dan Pasir Gudang, Yong Peng, Batu Pahat, Simpang Renggam, Majlis Bandaraya Kluang, serta Jabatan Pengurusan Sisa Pepejal Negara (JPSPN), Jabatan Perancangan Bandar Desa (JPBD), Majlis Perbandaran Johor Bahru Tengah (MPJBT), Kementerian Kesejahteraan Bandar, Perumahan Dan Kerajaan Tempatan (KPKT), Perbadanan Pengurusan Sisa Pepejal dan Pembersihan Awam (PPSPPA) dan Malaysian Global Innovation &amp; Creativity Centre (MaGIC) untuk menjalankan aktiviti kitar semula.',
+    'purpose-label': 'Tujuan Kami',
+    'purpose-h2': 'Mengapa Yellow Bin?',
+    'purpose-1-title': 'Berikan Sisa Kehidupan Baru',
+    'purpose-1-body': 'Yellow Bin adalah projek eko tanpa unsur keagamaan. Pasukan kitar semula mengumpul bahan boleh kitar semula di semua penempatan perumahan di Selangor, KL, Melaka dan Johor. Selain membantu memelihara alam sekitar, kami turut meningkatkan kesedaran awam tentang kesan pemanasan global. Hasil kutipan daripada kempen kitar semula berterusan akan disalurkan untuk membiayai pelbagai projek amal di Malaysia.',
+    'purpose-2-title': 'Kitar Semula untuk Membantu',
+    'purpose-2-body': 'Pasukan Kitar Semula Yellow Bin menganjurkan pelbagai acara seperti "Kempen Go Eco", "Seminar Yellow Bin", "Yellow Bin Fun Day", dan lain-lain di kawasan perumahan, sekolah, dan pusat membeli-belah bagi menggalakkan penglibatan komuniti dalam perkhidmatan sosial dan perlindungan alam sekitar.',
+    'purpose-3-title': 'Misi Kami untuk Menghijaukan Malaysia',
+    'purpose-3-body': 'Demi memperluas kawasan perlindungan alam sekitar dan meningkatkan penglibatan orang ramai, lebih 300 Yellow Bin telah ditempatkan di pusat membeli-belah, bangunan pejabat, apartmen, kawasan perumahan dan sekolah. Sehingga kini, lebih 200,000 orang telah menyertai aktiviti bermakna ini.',
+    'stats-bins-label': 'Tong Aktif',
+    'stats-bins-sub': 'Seluruh Malaysia',
+    'stats-kg-label': 'KG Dikumpul',
+    'stats-kg-sub': 'Dialihkan dari tapak pelupusan',
+    'stats-ben-label': 'Penerima Manfaat',
+    'stats-ben-sub': 'Dibantu melalui sumbangan',
+    'stats-reuse-label': 'Dikitar Semula atau Diguna Semula',
+    'stats-reuse-sub': 'Setiap item yang kami kumpul',
+    'mvv-label': 'Apa yang Mendorong Kami',
+    'mvv-h2': 'Misi, Visi &amp; Nilai Kami',
+    'mvv-sub': 'Semua yang kami lakukan dipandu oleh satu kepercayaan mudah: setiap helai kain berhak mendapat peluang kedua.',
+    'mission-label': 'Misi',
+    'mission-h3': 'Kitar Semula adalah Masa Depan',
+    'mission-body': 'Misi kami adalah untuk mempromosikan konsep perlindungan alam sekitar, mengurangkan jejak karbon yang besar, dan memberi peluang kedua kepada sisa yang semakin bertambah.',
+    'vision-label': 'Visi',
+    'vision-h3': 'Malaysia Mampan',
+    'vision-body': 'Gerakan Yellow Bin berusaha untuk memperkasakan dan meningkatkan kesedaran orang ramai tentang kepentingan pemuliharaan alam sekitar.',
+    'values-label': 'Tujuan Kami',
+    'values-h3': 'Mesra dan Bertujuan.',
+    'values-body': 'Kami membantu warga emas yang terdedah, keluarga miskin, kanak-kanak yang ditinggalkan, dan pesakit untuk mengatasi kesukaran dan cabaran hidup.',
+    'volunteer-label': 'Sertai Kami',
+    'volunteer-h2': 'Bolehkah Anda Membuat Perubahan sebagai Sukarelawan?',
+    'volunteer-p1': 'Yellow Bin dikuasai oleh komuniti sukarelawan yang bersemangat dan percaya kepada misi kami. Sukarelawan membantu dengan pengurusan tong, kempen kesedaran komuniti, pengasingan &amp; pengedaran, serta penganjuran acara.',
+    'volunteer-p2': 'Sama ada anda ada satu jam atau satu hari seminggu, setiap sumbangan amat bermakna. Sertai kami dan jadilah sebahagian daripada sesuatu yang lebih besar.',
+    'qa1-q': 'Apa yang dilakukan sukarelawan?',
+    'qa1-a': 'Bantu urus lokasi tong, sertai kempen komuniti, sebarkan kesedaran di sekolah dan acara, atau sokong pasukan pengasingan kami.',
+    'qa2-q': 'Berapa banyak masa diperlukan?',
+    'qa2-a': 'Sebanyak atau sesedikit yang anda mampu. Kami mempunyai acara sekali sahaja dan juga peranan berterusan untuk sukarelawan tetap.',
+    'qa3-q': 'Siapa boleh menjadi sukarelawan?',
+    'qa3-a': 'Sesiapa sahaja! Individu, pelajar, syarikat, dan organisasi semuanya dialu-alukan. Tiada pengalaman diperlukan — hanya kesanggupan untuk membantu.',
+    'volunteer-btn': 'Jadilah Sukarelawan',
+    'impact-label': 'Bagaimana Penglibatan Anda Membantu',
+    'impact-1': 'Lebih banyak tong di lebih banyak lokasi',
+    'impact-2': 'Pemprosesan item derma yang lebih pantas',
+    'impact-3': 'Kesedaran &amp; jangkauan komuniti yang lebih luas',
+    'impact-4': 'Lebih banyak derma sampai ke rumah kebajikan',
+    'recycle-label': 'Item Diterima',
+    'recycle-h2': 'Apa yang Boleh Kami Kitar Semula?',
+    'recycle-sub': 'Yellow Bin menerima pelbagai jenis item — bukan sekadar pakaian. Ini semua yang boleh anda hantar ke mana-mana Yellow Bin berhampiran anda.',
+    'paper-h3': 'Kertas',
+    'paper-1': 'Buku &amp; majalah',
+    'paper-2': 'Akhbar',
+    'paper-3': 'Kadbod &amp; kotak',
+    'paper-4': 'Kertas bercetak',
+    'clothing-h3': 'Pakaian &amp; Tekstil',
+    'clothing-1': 'Semua pakaian &amp; busana',
+    'clothing-2': 'Kasut &amp; beg',
+    'clothing-3': 'Cadar &amp; tuala',
+    'clothing-4': 'Langsir &amp; kusyen',
+    'household-h3': 'Barangan Rumah',
+    'household-1': 'Patung boneka &amp; plush',
+    'household-2': 'Tali pinggang &amp; aksesori',
+    'household-3': 'Topi &amp; selendang',
+    'household-4': 'Barangan berasaskan fabrik',
+    'uniforms-h3': 'Pakaian Seragam &amp; Kerja',
+    'uniforms-1': 'Pakaian seragam sekolah',
+    'uniforms-2': 'Pakaian kerja korporat',
+    'uniforms-3': 'Pakaian sukan &amp; pasukan',
+    'uniforms-4': 'PPE &amp; peralatan perlindungan',
+    'recycle-note': 'Item hendaklah bersih dan kering. Kami tidak menerima bahan yang basah, sangat kotor, atau tercemar.',
+    'newsletter-h2': 'Buletin Yellow Bin',
+    'newsletter-sub': 'Dapatkan tips kitar semula, kemas kini impak, dan berita komuniti terus ke peti masuk anda.',
+    'cta-h2': 'Bersedia untuk Membuat Perubahan?',
+    'cta-sub': 'Cari Yellow Bin terdekat anda dan mula kitar semula hari ini.',
+    'cta-btn': 'Cari Tong Berhampiran Anda',
+  }
+};
+
+let currentLang = localStorage.getItem('yb-lang') || 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('yb-lang', lang);
+  applyLang();
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    const active = btn.dataset.langBtn === lang;
+    btn.style.background = active ? '#F4D000' : 'transparent';
+    btn.style.color = active ? '#4A4A44' : 'rgba(255,255,255,0.7)';
+  });
+  document.documentElement.lang = lang === 'ms' ? 'ms-MY' : lang === 'zh' ? 'zh-Hans' : 'en-MY';
+}
+
+function applyLang() {
+  const t = i18n[currentLang] || i18n.en;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
 </script>
 
 </body>
