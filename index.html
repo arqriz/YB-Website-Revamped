@@ -60,6 +60,52 @@
         },
         "knowsAbout": ["textile recycling", "fabric donation", "clothing recycling", "sustainable fashion"],
         "sameAs": []
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://yb-website-revamped.vercel.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Yellow Bin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yellow Bin is Malaysia's leading textile recycling social enterprise. We place convenient collection bins across Johor, Selangor, Kuala Lumpur, and Melaka so you can drop off old clothes, bags, and fabrics anytime — for free."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What items can I put in a Yellow Bin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can donate clothing, textiles, bags, shoes, accessories, uniforms, workwear, and household fabrics like curtains and towels. Items should be clean and dry."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where can I find a Yellow Bin near me?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We have 500+ bin locations across Johor, Selangor, Kuala Lumpur, and Melaka. Use our Find a Bin page at yb-website-revamped.vercel.app/find-a-bin.html to locate the nearest drop-off point."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it free to use Yellow Bin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, dropping off your textiles at a Yellow Bin is completely free. Simply bring your items to the nearest bin and drop them in — no registration or appointment needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to the clothes I donate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Donated textiles are sorted and either redistributed to those in need, repurposed for industrial use, or recycled into new materials — keeping them out of landfill and reducing textile waste in Malaysia."
+            }
+          }
+        ]
       }
     ]
   }
@@ -1011,6 +1057,97 @@
       </div>
     </div>
   </section>
+
+  <!-- ══════════════════════════════════════════
+       FAQ
+  ══════════════════════════════════════════ -->
+  <section id="faq" style="padding:100px 0;background:#FAFAF8;">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center reveal" style="margin-bottom:56px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.3);border-radius:100px;padding:6px 16px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#C9AB00;margin-bottom:20px;">
+          Common Questions
+        </div>
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.04em;color:#4A4A44;line-height:1.1;margin-bottom:16px;">
+          Frequently Asked <span style="color:#F4D000;">Questions</span>
+        </h2>
+        <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.7;color:#6B6B65;max-width:480px;margin:0 auto;">
+          Everything you need to know about recycling your textiles with Yellow Bin.
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0;" id="faq-list">
+
+        <div class="faq-item reveal" style="border-top:1px solid #E0E0D8;">
+          <button onclick="toggleFaq(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 0;background:none;border:none;cursor:pointer;text-align:left;gap:16px;">
+            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;letter-spacing:-0.01em;">What is Yellow Bin?</span>
+            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#F4D000;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer" style="display:none;padding-bottom:24px;">
+            <p style="font-family:'Roboto',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">Yellow Bin is Malaysia's leading textile recycling social enterprise. We place convenient collection bins across Johor, Selangor, Kuala Lumpur, and Melaka so you can drop off old clothes, bags, and fabrics anytime — for free.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="border-top:1px solid #E0E0D8;">
+          <button onclick="toggleFaq(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 0;background:none;border:none;cursor:pointer;text-align:left;gap:16px;">
+            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;letter-spacing:-0.01em;">What items can I put in a Yellow Bin?</span>
+            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#F4D000;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer" style="display:none;padding-bottom:24px;">
+            <p style="font-family:'Roboto',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">You can donate clothing, textiles, bags, shoes, accessories, uniforms, workwear, and household fabrics like curtains and towels. Items should be clean and dry.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="border-top:1px solid #E0E0D8;">
+          <button onclick="toggleFaq(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 0;background:none;border:none;cursor:pointer;text-align:left;gap:16px;">
+            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;letter-spacing:-0.01em;">Where can I find a Yellow Bin near me?</span>
+            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#F4D000;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer" style="display:none;padding-bottom:24px;">
+            <p style="font-family:'Roboto',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">We have 500+ bin locations across Johor, Selangor, Kuala Lumpur, and Melaka. Use our <a href="find-a-bin.html" style="color:#C9AB00;font-weight:500;text-decoration:underline;">Find a Bin</a> page to locate the nearest drop-off point.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="border-top:1px solid #E0E0D8;">
+          <button onclick="toggleFaq(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 0;background:none;border:none;cursor:pointer;text-align:left;gap:16px;">
+            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;letter-spacing:-0.01em;">Is it free to use Yellow Bin?</span>
+            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#F4D000;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer" style="display:none;padding-bottom:24px;">
+            <p style="font-family:'Roboto',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">Yes, dropping off your textiles at a Yellow Bin is completely free. Simply bring your items to the nearest bin and drop them in — no registration or appointment needed.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="border-top:1px solid #E0E0D8;border-bottom:1px solid #E0E0D8;">
+          <button onclick="toggleFaq(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 0;background:none;border:none;cursor:pointer;text-align:left;gap:16px;">
+            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;letter-spacing:-0.01em;">What happens to the clothes I donate?</span>
+            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#F4D000;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-answer" style="display:none;padding-bottom:24px;">
+            <p style="font-family:'Roboto',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">Donated textiles are sorted and either redistributed to those in need, repurposed for industrial use, or recycled into new materials — keeping them out of landfill and reducing textile waste in Malaysia.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <script>
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = answer.style.display === 'block';
+      answer.style.display = isOpen ? 'none' : 'block';
+      icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+  </script>
 
   <!-- ══════════════════════════════════════════
        CTA BANNER

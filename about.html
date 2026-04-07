@@ -28,15 +28,40 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Yellow Bin",
-    "url": "https://www.yellowbin.com.my",
-    "logo": "https://www.yellowbin.com.my/brand_assets/Yellow Bin Logo_New White.png",
-    "description": "Yellow Bin is Malaysia's leading textile recycling social enterprise, collecting recyclables across Selangor, KL, Malacca and Johor.",
-    "foundingLocation": "Johor Bahru, Malaysia",
-    "areaServed": ["Selangor", "Kuala Lumpur", "Malacca", "Johor"],
-    "knowsAbout": ["Textile Recycling", "Environmental Conservation", "Charity", "Community Service"],
-    "sameAs": []
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://yb-website-revamped.vercel.app/#organization",
+        "name": "Yellow Bin",
+        "url": "https://yb-website-revamped.vercel.app/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://yb-website-revamped.vercel.app/brand_assets/yellow-bin-logo.png"
+        },
+        "description": "Yellow Bin is Malaysia's leading textile recycling social enterprise, collecting recyclables across Selangor, KL, Melaka and Johor.",
+        "foundingLocation": "Johor Bahru, Malaysia",
+        "areaServed": ["Selangor", "Kuala Lumpur", "Melaka", "Johor"],
+        "knowsAbout": ["Textile Recycling", "Environmental Conservation", "Charity", "Community Service"],
+        "sameAs": []
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://yb-website-revamped.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://yb-website-revamped.vercel.app/about.html"
+          }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
