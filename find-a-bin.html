@@ -421,34 +421,30 @@
         </div>
         <div class="reveal" style="transition-delay:0.15s;">
           <div style="background:white;border-radius:20px;padding:40px;">
-            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;color:#4A4A44;margin-bottom:24px;letter-spacing:-0.02em;">Request a Bin</h3>
-            <form onsubmit="event.preventDefault();this.innerHTML='<div style=\'font-family:Montserrat,sans-serif;font-weight:700;color:#4A4A44;font-size:1.1rem;text-align:center;padding:20px 0;\'>✓ Request received!<br/><span style=\'font-family:Roboto,sans-serif;font-weight:400;font-size:0.9rem;color:#6B6B65;display:block;margin-top:8px;\'>We\'ll be in touch within 2 business days.</span></div>';">
-              <div style="display:flex;flex-direction:column;gap:14px;">
-                <div>
-                  <label style="font-family:'Roboto',sans-serif;font-size:0.8rem;font-weight:500;color:#4A4A44;display:block;margin-bottom:6px;">Your Name</label>
-                  <input type="text" required placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1.5px solid #D0D0D9;border-radius:8px;font-family:'Roboto',sans-serif;font-size:0.875rem;color:#4A4A44;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#F4D000'" onblur="this.style.borderColor='#D0D0D9'" />
-                </div>
-                <div>
-                  <label style="font-family:'Roboto',sans-serif;font-size:0.8rem;font-weight:500;color:#4A4A44;display:block;margin-bottom:6px;">Email Address</label>
-                  <input type="email" required placeholder="jane@example.com" style="width:100%;padding:12px 14px;border:1.5px solid #D0D0D9;border-radius:8px;font-family:'Roboto',sans-serif;font-size:0.875rem;color:#4A4A44;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#F4D000'" onblur="this.style.borderColor='#D0D0D9'" />
-                </div>
-                <div>
-                  <label style="font-family:'Roboto',sans-serif;font-size:0.8rem;font-weight:500;color:#4A4A44;display:block;margin-bottom:6px;">Location Type</label>
-                  <select style="width:100%;padding:12px 14px;border:1.5px solid #D0D0D9;border-radius:8px;font-family:'Roboto',sans-serif;font-size:0.875rem;color:#4A4A44;outline:none;background:white;cursor:pointer;transition:border-color 0.2s;" onfocus="this.style.borderColor='#F4D000'" onblur="this.style.borderColor='#D0D0D9'">
-                    <option>School or University</option>
-                    <option>Shopping Centre or Mall</option>
-                    <option>Residential Building</option>
-                    <option>Workplace or Office</option>
-                    <option>Community Centre</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label style="font-family:'Roboto',sans-serif;font-size:0.8rem;font-weight:500;color:#4A4A44;display:block;margin-bottom:6px;">Suburb &amp; Postcode</label>
-                  <input type="text" required placeholder="Bondi, 2026" style="width:100%;padding:12px 14px;border:1.5px solid #D0D0D9;border-radius:8px;font-family:'Roboto',sans-serif;font-size:0.875rem;color:#4A4A44;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#F4D000'" onblur="this.style.borderColor='#D0D0D9'" />
-                </div>
-                <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:14px;font-size:0.95rem;margin-top:4px;">Submit Request</button>
+            <p style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#9A9A94;margin:0 0 4px;">Request a bin?</p>
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.3rem;color:#4A4A44;margin:0 0 24px;letter-spacing:-0.02em;">Partner with Us!</h3>
+            <div id="bin-request-success" style="display:none;font-family:'Montserrat',sans-serif;font-weight:700;color:#4A4A44;font-size:1.1rem;text-align:center;padding:20px 0;">
+              ✓ Request received!<br/><span style="font-family:'Roboto',sans-serif;font-weight:400;font-size:0.9rem;color:#6B6B65;display:block;margin-top:8px;">We'll be in touch within 2 business days.</span>
+            </div>
+            <form id="bin-request-form" style="display:flex;flex-direction:column;gap:14px;">
+              <div>
+                <label style="font-family:'Roboto',sans-serif;font-size:0.8rem;font-weight:500;color:#4A4A44;display:block;margin-bottom:6px;">Your Name</label>
+                <input id="br-name" type="text" required placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1.5px solid #D0D0D9;border-radius:8px;font-family:'Roboto',sans-serif;font-size:0.875rem;color:#4A4A44;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#F4D000'" onblur="this.style.borderColor='#D0D0D9'" />
               </div>
+              <div>
+                <label style="font-family:'Roboto',sans-serif;font-size:0.8rem;font-weight:500;color:#4A4A44;display:block;margin-bottom:6px;">Email Address</label>
+                <input id="br-email" type="email" required placeholder="jane@example.com" style="width:100%;padding:12px 14px;border:1.5px solid #D0D0D9;border-radius:8px;font-family:'Roboto',sans-serif;font-size:0.875rem;color:#4A4A44;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#F4D000'" onblur="this.style.borderColor='#D0D0D9'" />
+              </div>
+              <div>
+                <label style="font-family:'Roboto',sans-serif;font-size:0.8rem;font-weight:500;color:#4A4A44;display:block;margin-bottom:6px;">Phone Number</label>
+                <input id="br-phone" type="tel" placeholder="+601X-XXX XXXX" style="width:100%;padding:12px 14px;border:1.5px solid #D0D0D9;border-radius:8px;font-family:'Roboto',sans-serif;font-size:0.875rem;color:#4A4A44;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#F4D000'" onblur="this.style.borderColor='#D0D0D9'" />
+              </div>
+              <div>
+                <label style="font-family:'Roboto',sans-serif;font-size:0.8rem;font-weight:500;color:#4A4A44;display:block;margin-bottom:6px;">Tell us about your location</label>
+                <textarea id="br-message" required rows="3" placeholder="e.g. School in Petaling Jaya with ~500 students, looking to place a bin near the canteen…" style="width:100%;padding:12px 14px;border:1.5px solid #D0D0D9;border-radius:8px;font-family:'Roboto',sans-serif;font-size:0.875rem;color:#4A4A44;outline:none;transition:border-color 0.2s;resize:vertical;" onfocus="this.style.borderColor='#F4D000'" onblur="this.style.borderColor='#D0D0D9'"></textarea>
+              </div>
+              <div id="br-error" style="display:none;font-family:'Roboto',sans-serif;font-size:0.8rem;color:#B91C1C;background:#FEF2F2;border:1px solid #FECACA;border-radius:6px;padding:10px 12px;"></div>
+              <button id="br-submit" type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:14px;font-size:0.95rem;margin-top:4px;">Submit Request</button>
             </form>
           </div>
         </div>
@@ -732,6 +728,34 @@
       'https://pwcdqhcnmzylxvftousp.supabase.co',
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3Y2RxaGNubXp5bHh2ZnRvdXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMDYwNDcsImV4cCI6MjA5MDY4MjA0N30.Z2jR0GM5KZj7xfpxnxX37rDoG7XRUy82jseirJfQvxU'
     );
+    document.getElementById('bin-request-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('br-submit');
+      const errEl = document.getElementById('br-error');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      errEl.style.display = 'none';
+
+      const { error } = await sb.from('partnerships').insert({
+        name: document.getElementById('br-name').value,
+        email: document.getElementById('br-email').value,
+        phone: document.getElementById('br-phone').value,
+        message: document.getElementById('br-message').value,
+      });
+
+      btn.textContent = 'Submit Request';
+      btn.disabled = false;
+
+      if (error) {
+        errEl.textContent = 'Something went wrong. Please try again.';
+        errEl.style.display = 'block';
+        return;
+      }
+
+      document.getElementById('bin-request-form').style.display = 'none';
+      document.getElementById('bin-request-success').style.display = 'block';
+    });
+
     sb.auth.getSession().then(({ data: { session } }) => {
       if (!session) return;
       document.getElementById('nav-auth-out').style.display = 'none';
