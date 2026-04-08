@@ -154,7 +154,7 @@
           </div>
           <div>
             <p style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.06em;color:#9A9A94;text-transform:uppercase;margin:0 0 3px;">Role</p>
-            <span class="badge badge-green">User</span>
+            <span id="detail-role" class="badge badge-green">—</span>
           </div>
         </div>
       </div>
@@ -237,6 +237,16 @@
       document.getElementById('page-heading').textContent = `Welcome back, ${firstName || 'there'}!`;
       document.getElementById('detail-name').textContent = fullName;
       document.getElementById('detail-email').textContent = user.email;
+
+      // Load role from profiles table
+      const { data: profile } = await sb.from('profiles').select('role').eq('id', user.id).single();
+      const role = profile?.role || 'user';
+      const roleEl = document.getElementById('detail-role');
+      roleEl.textContent = role.charAt(0).toUpperCase() + role.slice(1);
+      if (role === 'admin') {
+        roleEl.style.background = '#FEF9C3';
+        roleEl.style.color = '#854D0E';
+      }
 
       // Member since
       const since = new Date(user.created_at);
