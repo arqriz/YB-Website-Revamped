@@ -659,63 +659,60 @@
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- ── CLOTHES — Featured ── -->
+      <div class="reveal md:grid" style="display:flex;flex-direction:column;grid-template-columns:1fr 1fr;gap:0;border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(74,74,68,0.12);margin-bottom:24px;">
+        <div style="overflow:hidden;">
+          <img src="brand_assets/Recycle-Clothes-768x576.png" alt="Mixed Textiles & Clothes" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+        <div style="background:#4A4A44;padding:48px 44px;display:flex;flex-direction:column;justify-content:center;">
+          <span style="display:inline-block;background:#F4D000;color:#4A4A44;font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:20px;width:fit-content;">Primary Category</span>
+          <h3 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.6rem;color:white;letter-spacing:-0.03em;margin:0 0 16px;line-height:1.2;">Mixed Textiles<br/>&amp; Clothes</h3>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.8;color:rgba(255,255,255,0.65);margin:0;">
+            We all have clothes in our wardrobes, on surfaces, in stuffed closets and drawers that we don't need or want anymore. Sometimes we have items that are past their best too. Clothes and textiles can be passed on to someone in need, family members, or donation sites. Ideally they are recycled and made into new items such as padding for chairs and car seats, cleaning cloths, and industrial systems.
+          </p>
+        </div>
+      </div>
+
+      <!-- ── 3 Categories ── -->
+      <div class="grid md:grid-cols-3" style="display:grid;grid-template-columns:1fr;gap:24px;">
 
         <!-- Paper -->
-        <div class="recycle-card reveal">
-          <div style="width:56px;height:56px;border-radius:14px;background:#4A4A44;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 16px rgba(74,74,68,0.2);">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="recycle-card reveal" style="padding:0;overflow:hidden;">
+          <div style="overflow:hidden;border-radius:14px 14px 0 0;">
+            <img src="brand_assets/Recycle-Paper-768x576.png" alt="Paper & Cardboard" style="width:100%;display:block;object-fit:cover;aspect-ratio:4/3;" />
           </div>
-          <h3 data-i18n="paper-h3" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:10px;letter-spacing:-0.01em;">Paper</h3>
-          <ul style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.8;color:rgba(74,74,68,0.7);list-style:none;padding:0;margin:0;">
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="paper-1">Books &amp; magazines</span></li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="paper-2">Newspapers</span></li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="paper-3">Cardboard &amp; boxes</span></li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="paper-4">Printed paper</span></li>
-          </ul>
+          <div style="padding:24px;">
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#4A4A44;margin:0 0 10px;letter-spacing:-0.01em;">Paper &amp; Cardboard</h3>
+            <p style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.75;color:rgba(74,74,68,0.7);margin:0;">
+              Paper is a material that can be easily recycled. Recycled paper is made from paper and paper products that have already been used and reclaimed. Paper recycling can begin at school, the office, local council drop-offs, and even at drop-off points.
+            </p>
+          </div>
         </div>
 
-        <!-- Clothing & Textiles -->
-        <div class="recycle-card reveal" style="transition-delay:0.1s;border:2px solid rgba(244,208,0,0.4);">
-          <div style="position:absolute;top:16px;right:16px;background:#F4D000;border-radius:100px;padding:3px 10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.04em;color:#4A4A44;">MAIN</div>
-          <div style="width:56px;height:56px;border-radius:14px;background:#F4D000;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 16px rgba(244,208,0,0.4);">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>
+        <!-- Plastic -->
+        <div class="recycle-card reveal" style="padding:0;overflow:hidden;transition-delay:0.1s;">
+          <div style="overflow:hidden;border-radius:14px 14px 0 0;">
+            <img src="brand_assets/Recycle-Plastic-768x576.png" alt="Plastic" style="width:100%;display:block;object-fit:cover;aspect-ratio:4/3;" />
           </div>
-          <h3 data-i18n="clothing-h3" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:10px;letter-spacing:-0.01em;">Clothing &amp; Textiles</h3>
-          <ul style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.8;color:rgba(74,74,68,0.7);list-style:none;padding:0;margin:0;">
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="clothing-1">All clothing &amp; apparel</span></li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="clothing-2">Shoes &amp; bags</span></li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="clothing-3">Bed linen &amp; towels</span></li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="clothing-4">Curtains &amp; cushions</span></li>
-          </ul>
+          <div style="padding:24px;">
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#4A4A44;margin:0 0 10px;letter-spacing:-0.01em;">Plastic</h3>
+            <p style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.75;color:rgba(74,74,68,0.7);margin:0;">
+              Plastic recycling is the process of recovering scrap or waste plastic and reprocessing it into useful products — sometimes completely different in form from their original state. Some plastic is non-biodegradable, making recycling a critical part of global efforts to reduce plastic in our waste stream.
+            </p>
+          </div>
         </div>
 
-        <!-- Household -->
-        <div class="recycle-card reveal" style="transition-delay:0.2s;">
-          <div style="width:56px;height:56px;border-radius:14px;background:#4A4A44;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 16px rgba(74,74,68,0.2);">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <!-- Metals -->
+        <div class="recycle-card reveal" style="padding:0;overflow:hidden;transition-delay:0.2s;">
+          <div style="overflow:hidden;border-radius:14px 14px 0 0;">
+            <img src="brand_assets/Recycle-Metal-768x576.png" alt="Metals & Others" style="width:100%;display:block;object-fit:cover;aspect-ratio:4/3;" />
           </div>
-          <h3 data-i18n="household-h3" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:10px;letter-spacing:-0.01em;">Household Items</h3>
-          <ul style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.8;color:rgba(74,74,68,0.7);list-style:none;padding:0;margin:0;">
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="household-1">Soft toys &amp; plush</span></li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="household-2">Belts &amp; accessories</span></li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="household-3">Hats &amp; scarves</span></li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="household-4">Fabric-based items</span></li>
-          </ul>
-        </div>
-
-        <!-- Corporate / Uniforms -->
-        <div class="recycle-card reveal" style="transition-delay:0.3s;">
-          <div style="width:56px;height:56px;border-radius:14px;background:#4A4A44;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 16px rgba(74,74,68,0.2);">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <div style="padding:24px;">
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#4A4A44;margin:0 0 10px;letter-spacing:-0.01em;">Metals &amp; Others</h3>
+            <p style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.75;color:rgba(74,74,68,0.7);margin:0;">
+              Recycling an aluminium can saves a great deal of energy — enough to run a home television for about three hours. Aluminium can be recycled again and again without any loss in quality, making it one of the most valuable materials to recover.
+            </p>
           </div>
-          <h3 data-i18n="uniforms-h3" style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:10px;letter-spacing:-0.01em;">Uniforms &amp; Workwear</h3>
-          <ul style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.8;color:rgba(74,74,68,0.7);list-style:none;padding:0;margin:0;">
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="uniforms-1">School uniforms</span></li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="uniforms-2">Corporate workwear</span></li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="uniforms-3">Sports &amp; team kit</span></li>
-            <li style="display:flex;align-items:center;gap:6px;"><span style="color:#4A4A44;font-weight:700;">·</span> <span data-i18n="uniforms-4">PPE &amp; protective gear</span></li>
-          </ul>
         </div>
 
       </div>
