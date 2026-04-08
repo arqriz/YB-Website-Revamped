@@ -950,47 +950,24 @@
             </p>
           </div>
 
-          <!-- Recycle & Reward card -->
-          <div class="reveal step-card" style="margin-bottom:16px;border-left:4px solid #F4D000;transition-delay:0.1s;">
-            <div style="display:flex;gap:16px;align-items:flex-start;">
-              <div style="width:48px;height:48px;border-radius:10px;background:#F4D000;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A4A44" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <div>
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:6px;">Recycle &amp; Reward</div>
-                <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.6;color:#6B6B65;">Drop off textiles at participating bins and earn reward points redeemable for vouchers, discounts, and community prizes. The more you recycle, the more you earn.</p>
-                <a href="#" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.8rem;color:#4A4A44;text-decoration:none;border-bottom:2px solid #F4D000;padding-bottom:1px;">
-                  Find out more
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-              </div>
+          <!-- Past Events (dynamic) -->
+          <div id="past-events-section">
+            <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+              <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+              Past Events
             </div>
-          </div>
-
-          <!-- Community Drive card -->
-          <div class="reveal step-card" style="margin-bottom:16px;border-left:4px solid #4A4A44;transition-delay:0.2s;">
-            <div style="display:flex;gap:16px;align-items:flex-start;">
-              <div style="width:48px;height:48px;border-radius:10px;background:#4A4A44;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <div>
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;margin-bottom:6px;">Community Drives</div>
-                <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.6;color:#6B6B65;">We partner with schools, mosques, condominiums, and corporates to run dedicated collection drives — bringing the bin to your community.</p>
-                <a href="#" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.8rem;color:#4A4A44;text-decoration:none;border-bottom:2px solid #F4D000;padding-bottom:1px;">
-                  Find out more
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-              </div>
+            <div id="past-events-list" style="display:flex;flex-direction:column;gap:16px;">
+              <div style="text-align:center;padding:32px 0;color:#9A9A94;font-family:'Roboto',sans-serif;font-size:0.875rem;">Loading events…</div>
             </div>
           </div>
 
           <!-- Upcoming Events (dynamic) -->
-          <div id="upcoming-events-section" style="display:none;margin-top:32px;">
-            <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+          <div id="upcoming-events-section" style="display:none;margin-top:36px;">
+            <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
               <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
               Upcoming Events
             </div>
-            <div id="upcoming-events-list" style="display:flex;flex-direction:column;gap:12px;"></div>
+            <div id="upcoming-events-list" style="display:flex;flex-direction:column;gap:20px;"></div>
           </div>
 
         </div>
@@ -1177,7 +1154,7 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Find Your Nearest Bin
         </a>
-        <a href="#" class="btn-secondary" style="font-size:1rem;padding:14px 32px;color:white;border-color:rgba(255,255,255,0.25);">
+        <a href="partner.html" class="btn-secondary" style="font-size:1rem;padding:14px 32px;color:white;border-color:rgba(255,255,255,0.25);">
           Partner With Us
         </a>
       </div>
@@ -1219,8 +1196,7 @@
             <a href="about.html" class="footer-link">About Us</a>
             <a href="how-it-works.html" class="footer-link">How It Works</a>
             <a href="our-impact.html" class="footer-link">Our Impact</a>
-            <a href="#" class="footer-link">Partner With Us</a>
-            <a href="#" class="footer-link">Careers</a>
+            <a href="partner.html" class="footer-link">Partner With Us</a>
           </div>
         </div>
 
@@ -1229,10 +1205,10 @@
           <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">Get In Touch</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <a href="mailto:enquiry@yellowbin.com.my" class="footer-link">Contact Us</a>
-            <a href="#" class="footer-link">FAQ</a>
+            <a href="index.html#faq" class="footer-link">FAQ</a>
             <a href="find-a-bin.html" class="footer-link">Find a Bin</a>
             <a href="https://wa.me/60123611200?text=Hi%2C%20I%20would%20like%20to%20request%20a%20Yellow%20Bin%20placement." target="_blank" class="footer-link">Request a Bin</a>
-            <a href="#" class="footer-link">Press &amp; Media</a>
+            <a href="gallery.html" class="footer-link">Press &amp; Media</a>
           </div>
         </div>
 
@@ -1243,11 +1219,7 @@
         <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.3);">
           © 2026 Yellow Bin. All rights reserved.
         </div>
-        <div style="display:flex;gap:20px;flex-wrap:wrap;">
-          <a href="#" class="footer-link" style="font-size:0.78rem;">Privacy Policy</a>
-          <a href="#" class="footer-link" style="font-size:0.78rem;">Terms of Service</a>
-          <a href="#" class="footer-link" style="font-size:0.78rem;">Cookie Policy</a>
-        </div>
+        <div></div>
       </div>
 
     </div>
@@ -1368,6 +1340,37 @@
       'https://pwcdqhcnmzylxvftousp.supabase.co',
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3Y2RxaGNubXp5bHh2ZnRvdXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMDYwNDcsImV4cCI6MjA5MDY4MjA0N30.Z2jR0GM5KZj7xfpxnxX37rDoG7XRUy82jseirJfQvxU'
     );
+    // ── Past events on homepage ──
+    (async function loadPastEvents() {
+      const today = new Date().toISOString().split('T')[0];
+      const { data } = await sb.from('events').select('*').lt('date', today).order('date', { ascending: false }).limit(4);
+      const list = document.getElementById('past-events-list');
+      if (!data || data.length === 0) {
+        list.innerHTML = '<div style="background:white;border-radius:12px;padding:20px;border:1px solid rgba(208,208,208,0.4);display:flex;gap:14px;align-items:center;"><div style="width:48px;height:48px;border-radius:10px;background:#F4D000;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A4A44" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div style="font-family:\'Montserrat\',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:4px;">Recycle &amp; Reward</div><p style="font-family:\'Roboto\',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;margin:0;">Drop off textiles at participating bins and earn rewards redeemable for vouchers and community prizes.</p></div></div><div style="background:white;border-radius:12px;padding:20px;border:1px solid rgba(208,208,208,0.4);display:flex;gap:14px;align-items:center;"><div style="width:48px;height:48px;border-radius:10px;background:#4A4A44;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><div style="font-family:\'Montserrat\',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:4px;">Community Drives</div><p style="font-family:\'Roboto\',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;margin:0;">We partner with schools, mosques, and corporates to run dedicated collection drives.</p></div></div>';
+        return;
+      }
+      list.innerHTML = data.map(ev => {
+        const d = new Date(ev.date);
+        const dateStr = d.toLocaleDateString('en-MY', { day: 'numeric', month: 'short', year: 'numeric' });
+        const day = d.toLocaleDateString('en-MY', { day: '2-digit' });
+        const mon = d.toLocaleDateString('en-MY', { month: 'short' }).toUpperCase();
+        return `
+        <div style="background:white;border-radius:12px;padding:16px;border:1px solid rgba(208,208,208,0.4);box-shadow:0 2px 8px rgba(74,74,68,0.04);display:flex;gap:14px;align-items:flex-start;">
+          ${ev.poster_url
+            ? `<img src="${ev.poster_url}" alt="${ev.title}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;flex-shrink:0;" />`
+            : `<div style="width:60px;height:60px;border-radius:8px;background:#4A4A44;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.05rem;color:#F4D000;line-height:1;">${day}</span><span style="font-family:'Roboto',sans-serif;font-weight:500;font-size:0.55rem;color:rgba(255,255,255,0.6);letter-spacing:0.08em;">${mon}</span></div>`}
+          <div style="min-width:0;flex:1;">
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.title}</div>
+            <div style="font-family:'Roboto',sans-serif;font-size:0.76rem;color:#9A9A94;margin-bottom:6px;display:flex;align-items:center;gap:6px;">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              ${dateStr}${ev.location ? ' · ' + ev.location : ''}
+            </div>
+            ${ev.description ? `<div style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#9A9A94;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${ev.description}</div>` : ''}
+          </div>
+        </div>`;
+      }).join('');
+    })();
+
     // ── Upcoming events on homepage ──
     (async function loadUpcomingEvents() {
       const today = new Date().toISOString().split('T')[0];
@@ -1379,16 +1382,35 @@
         const d = new Date(ev.date);
         const day = d.toLocaleDateString('en-MY', { day: '2-digit' });
         const mon = d.toLocaleDateString('en-MY', { month: 'short' }).toUpperCase();
-        const posterHtml = ev.poster_url
-          ? `<img src="${ev.poster_url}" alt="${ev.title}" style="width:56px;height:56px;border-radius:8px;object-fit:cover;flex-shrink:0;" />`
-          : `<div style="width:56px;height:56px;border-radius:8px;background:#F4D000;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#4A4A44;line-height:1;">${day}</span><span style="font-family:'Roboto',sans-serif;font-weight:500;font-size:0.6rem;color:#6B6B65;letter-spacing:0.08em;">${mon}</span></div>`;
+        const year = d.getFullYear();
+        const hasPoster = !!ev.poster_url;
         return `
-        <div style="display:flex;gap:14px;align-items:flex-start;background:white;border-radius:12px;padding:14px;border:1px solid rgba(208,208,217,0.5);box-shadow:0 2px 8px rgba(74,74,68,0.04);">
-          ${posterHtml}
-          <div style="min-width:0;">
-            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.title}</div>
-            ${ev.location ? `<div style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#6B6B65;margin-bottom:4px;display:flex;align-items:center;gap:4px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${ev.location}</div>` : ''}
-            ${ev.description ? `<div style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#9A9A94;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${ev.description}</div>` : ''}
+        <div style="background:white;border-radius:16px;overflow:hidden;border:1px solid rgba(208,208,208,0.45);box-shadow:0 4px 20px rgba(74,74,68,0.07);transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(74,74,68,0.13)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(74,74,68,0.07)'">
+          ${hasPoster ? `
+          <div style="position:relative;width:100%;aspect-ratio:16/7;overflow:hidden;">
+            <img src="${ev.poster_url}" alt="${ev.title}" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(30,30,26,0.55) 100%);"></div>
+            <div style="position:absolute;top:12px;left:12px;background:#F4D000;border-radius:8px;padding:6px 10px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.1rem;color:#4A4A44;line-height:1;">${day}</div>
+              <div style="font-family:'Roboto',sans-serif;font-weight:600;font-size:0.6rem;color:#6B6B65;letter-spacing:0.08em;margin-top:1px;">${mon} ${year}</div>
+            </div>
+          </div>` : `
+          <div style="background:linear-gradient(135deg,#F4D000 0%,#e8c400 100%);padding:20px 20px 16px;display:flex;align-items:center;gap:14px;">
+            <div style="background:white;border-radius:10px;padding:8px 12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);flex-shrink:0;">
+              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;color:#4A4A44;line-height:1;">${day}</div>
+              <div style="font-family:'Roboto',sans-serif;font-weight:600;font-size:0.62rem;color:#6B6B65;letter-spacing:0.08em;margin-top:2px;">${mon} ${year}</div>
+            </div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#4A4A44;line-height:1.3;">${ev.title}</div>
+          </div>`}
+          <div style="padding:18px 20px 20px;">
+            ${hasPoster ? `<div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;color:#4A4A44;margin-bottom:8px;line-height:1.3;">${ev.title}</div>` : ''}
+            ${ev.location ? `<div style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:#6B6B65;margin-bottom:8px;display:flex;align-items:center;gap:5px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${ev.location}</div>` : ''}
+            ${ev.description ? `<div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#8A8A84;line-height:1.6;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${ev.description}</div>` : '<div style="margin-bottom:14px;"></div>'}
+            ${ev.link ? `
+            <a href="${ev.link}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;background:#4A4A44;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.03em;padding:10px 18px;border-radius:8px;text-decoration:none;transition:background 0.2s ease;" onmouseover="this.style.background='#F4D000';this.style.color='#4A4A44'" onmouseout="this.style.background='#4A4A44';this.style.color='white'">
+              Follow Event
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>` : ''}
           </div>
         </div>`;
       }).join('');

@@ -181,6 +181,10 @@
               <textarea class="form-input" id="ev-desc" rows="3" placeholder="Brief description of the event…" style="resize:vertical;"></textarea>
             </div>
             <div>
+              <label class="form-label">Event Link <span style="font-weight:400;color:#9A9A94;text-transform:none;letter-spacing:0;">(optional — Facebook, website, etc.)</span></label>
+              <input class="form-input" type="url" id="ev-link" placeholder="https://www.facebook.com/events/..." />
+            </div>
+            <div>
               <label class="form-label">Event Poster <span style="font-weight:400;color:#9A9A94;text-transform:none;letter-spacing:0;">(optional)</span></label>
               <div id="poster-drop-zone" style="border:2px dashed #E5E5E0;border-radius:8px;padding:24px;text-align:center;cursor:pointer;background:#FAFAF7;transition:border-color 0.2s,background 0.2s;" onclick="document.getElementById('ev-poster').click()" ondragover="event.preventDefault();this.style.borderColor='#F4D000';this.style.background='#FFFDE0';" ondragleave="this.style.borderColor='#E5E5E0';this.style.background='#FAFAF7';" ondrop="handlePosterDrop(event)">
                 <svg style="width:28px;height:28px;color:#C0C0BA;margin:0 auto 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
@@ -357,7 +361,8 @@
             ${ev.poster_url ? `<img src="${ev.poster_url}" alt="Poster" style="width:48px;height:48px;object-fit:cover;border-radius:6px;flex-shrink:0;" />` : `<div style="width:48px;height:48px;border-radius:6px;background:#E5E5E0;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg style="width:20px;height:20px;color:#C0C0BA;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>`}
             <div style="min-width:0;">
               <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.875rem;color:#2A2A24;margin:0 0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.title}</p>
-              <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#6A6A64;margin:0;">${new Date(ev.date).toLocaleDateString('en-MY', { day:'numeric',month:'short',year:'numeric' })} · ${ev.location || ''}</p>
+              <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#6A6A64;margin:0 0 4px;">${new Date(ev.date).toLocaleDateString('en-MY', { day:'numeric',month:'short',year:'numeric' })} · ${ev.location || ''}</p>
+              ${ev.link ? `<a href="${ev.link}" target="_blank" rel="noopener" style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:#4A9A4A;text-decoration:underline;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;max-width:200px;">${ev.link}</a>` : ''}
             </div>
           </div>
           <button class="btn-danger" onclick="deleteEvent('${ev.id}')">Delete</button>
@@ -386,6 +391,7 @@
         date: document.getElementById('ev-date').value,
         location: document.getElementById('ev-location').value,
         description: document.getElementById('ev-desc').value,
+        link: document.getElementById('ev-link').value || null,
         poster_url,
       });
       btn.textContent = 'Add Event';
