@@ -241,14 +241,86 @@
       align-items: center;
       position: relative;
       overflow: hidden;
-      background: #FAFAF8;
+      background: #1a1a18;
     }
 
-    .hero-bg-circle {
+    /* ── Slideshow background ── */
+    .slideshow-bg {
       position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
+      inset: 0;
+      overflow: hidden;
     }
+    .slide-item {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.4s ease;
+    }
+    .slide-item.active {
+      opacity: 1;
+      animation: kenBurns 9s ease-out forwards;
+    }
+    @keyframes kenBurns {
+      from { transform: scale(1.0); }
+      to   { transform: scale(1.07); }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(0,0,0,0.70) 0%,
+        rgba(0,0,0,0.52) 42%,
+        rgba(0,0,0,0.22) 75%,
+        rgba(0,0,0,0.10) 100%
+      );
+      z-index: 1;
+    }
+    .slide-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 50%;
+      width: 50px; height: 50px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      color: white;
+    }
+    .slide-arrow:hover {
+      background: rgba(255,255,255,0.24);
+      transform: translateY(-50%) scale(1.06);
+    }
+    .slide-arrow:focus-visible { outline: 3px solid #F4D000; outline-offset: 3px; }
+    .slide-prev { left: 24px; }
+    .slide-next { right: 24px; }
+    .slide-dots {
+      position: absolute;
+      bottom: 76px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+    .slide-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.25s ease;
+      padding: 0;
+    }
+    .slide-dot.active { background: #F4D000; transform: scale(1.35); }
+    .slide-dot:hover  { background: rgba(255,255,255,0.65); }
 
     .hero-badge {
       display: inline-flex;
@@ -508,112 +580,101 @@
        HERO
   ══════════════════════════════════════════ -->
   <section class="hero-section" id="home">
-    <!-- Background decorative elements -->
-    <div class="hero-bg-circle" style="width:600px;height:600px;top:-150px;right:-200px;background:radial-gradient(circle at center, rgba(244,208,0,0.08) 0%, transparent 70%);"></div>
-    <div class="hero-bg-circle" style="width:400px;height:400px;bottom:-100px;left:-100px;background:radial-gradient(circle at center, rgba(244,208,0,0.06) 0%, transparent 70%);"></div>
 
-    <!-- Floating shapes -->
-    <div style="position:absolute;top:20%;right:8%;width:280px;height:280px;border-radius:50%;border:1px solid rgba(244,208,0,0.2);pointer-events:none;"></div>
-    <div style="position:absolute;top:25%;right:12%;width:180px;height:180px;border-radius:50%;border:1px solid rgba(244,208,0,0.12);pointer-events:none;"></div>
+    <!-- Slideshow Background -->
+    <div class="slideshow-bg" aria-hidden="true">
+      <div class="slide-item active" style="background-image:url('Chosen%20Pictures/_DSC3418.jpg');"></div>
+      <div class="slide-item" style="background-image:url('Chosen%20Pictures/_DSC3439.jpg');"></div>
+      <div class="slide-item" style="background-image:url('Chosen%20Pictures/_DSC3447.jpg');"></div>
+      <div class="slide-item" style="background-image:url('Chosen%20Pictures/_DSC3492.jpg');"></div>
+      <div class="slide-item" style="background-image:url('Chosen%20Pictures/_DSC3526.jpg');"></div>
+      <div class="slide-item" style="background-image:url('Chosen%20Pictures/_DSC3524%20(1).jpg');"></div>
+      <div class="slide-item" style="background-image:url('Chosen%20Pictures/_DSC3522.jpg');"></div>
+      <div class="slide-item" style="background-image:url('Chosen%20Pictures/_DSC3521.jpg');"></div>
+      <div class="slide-item" style="background-image:url('Chosen%20Pictures/_DSC3520.jpg');"></div>
+    </div>
 
-    <div class="max-w-6xl mx-auto px-6 w-full pt-28 pb-16">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
+    <!-- Dark gradient overlay -->
+    <div class="hero-overlay"></div>
 
-        <!-- Left: Text -->
-        <div>
-          <!-- Badge -->
-          <div class="hero-badge mb-6" style="animation: fadeInUp 0.5s ease forwards;">
-            <span class="eco-dot-pulse" style="width:8px;height:8px;border-radius:50%;background:#4CAF50;display:inline-block;flex-shrink:0;"></span>
-            <span>Sustainable Textile Collection</span>
-          </div>
+    <!-- Content -->
+    <div class="max-w-6xl mx-auto px-6 w-full pt-28 pb-16" style="position:relative;z-index:2;">
+      <div style="max-width:600px;">
 
-          <!-- Heading -->
-          <h1 class="hero-heading mb-6" style="font-size:clamp(3rem,6vw,5.5rem);animation:fadeInUp 0.6s 0.1s ease both;">
-            Give Your<br/>
-            Old Clothes<br/>
-            a <span class="hero-highlight">New Life.</span>
-          </h1>
-
-          <!-- Subheading -->
-          <p class="text-grey-mid leading-relaxed mb-8 max-w-md" style="font-size:1.1rem;line-height:1.7;animation:fadeInUp 0.6s 0.2s ease both;font-family:'Roboto',sans-serif;">
-            Drop off your unwanted clothing at a Yellow Bin near you. We collect, sort, and recycle textiles — keeping them out of landfill and back into the community.
-          </p>
-
-          <!-- CTAs -->
-          <div class="flex flex-wrap gap-3" style="animation:fadeInUp 0.6s 0.3s ease both;">
-            <a href="find-a-bin.html" class="btn-primary" style="font-size:0.95rem;padding:14px 28px;">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Find a Bin Near You
-            </a>
-            <a href="how-it-works.html" class="btn-secondary" style="font-size:0.95rem;padding:14px 28px;">
-              How It Works
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-
-          <!-- Mini stats row -->
-          <div class="flex flex-wrap gap-8 mt-12 pt-10 border-t border-grey-light" style="animation:fadeInUp 0.6s 0.4s ease both;">
-            <div>
-              <div class="stat-shimmer" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;">500+</div>
-              <div style="font-size:0.8rem;color:#6B6B65;font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Bins Placed</div>
-            </div>
-            <div>
-              <div class="stat-shimmer" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;">2M+ kg</div>
-              <div style="font-size:0.8rem;color:#6B6B65;font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Textiles Recycled</div>
-            </div>
-            <div>
-              <div class="stat-shimmer" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;">50+</div>
-              <div style="font-size:0.8rem;color:#6B6B65;font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Cities Covered</div>
-            </div>
-          </div>
+        <!-- Badge -->
+        <div class="hero-badge mb-6" style="background:rgba(0,0,0,0.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);animation:fadeInUp 0.5s ease forwards;">
+          <span class="eco-dot-pulse" style="width:8px;height:8px;border-radius:50%;background:#4CAF50;display:inline-block;flex-shrink:0;"></span>
+          <span style="color:rgba(255,255,255,0.9);">Sustainable Textile Collection</span>
         </div>
 
-        <!-- Right: Visual card -->
-        <div class="relative flex justify-center items-center" style="animation:fadeInScale 0.7s 0.3s ease both;">
+        <!-- Heading -->
+        <h1 class="hero-heading mb-6" style="font-size:clamp(3rem,6vw,5.5rem);color:white;animation:fadeInUp 0.6s 0.1s ease both;">
+          Give Your<br/>
+          Old Clothes<br/>
+          a <span class="hero-highlight" style="color:white;">New Life.</span>
+        </h1>
 
-          <!-- Main image card -->
-          <div style="position:relative;width:100%;max-width:460px;">
-            <!-- Background card (shadow layer) -->
-            <div style="position:absolute;inset:0;transform:rotate(3deg);border-radius:24px;background:rgba(244,208,0,0.15);"></div>
-            <!-- Image -->
-            <div style="position:relative;border-radius:24px;overflow:hidden;background:#e8e8e4;aspect-ratio:4/3;box-shadow:0 24px 60px rgba(74,74,68,0.15),0 8px 24px rgba(74,74,68,0.08);">
-              <img src="Recycling%20for%20a%20sustainable%20future.png"
-                   alt="Yellow Bin textile recycling in a community"
-                   style="width:100%;height:100%;object-fit:cover;" />
-              <!-- Gradient overlay -->
-              <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(74,74,68,0.45) 0%, transparent 55%);"></div>
-              <!-- Caption on image -->
-              <div style="position:absolute;bottom:20px;left:20px;right:20px;">
-                <span style="font-family:'Roboto',sans-serif;font-size:0.75rem;font-weight:500;color:white;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Community Collection Point</span>
-                <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;color:white;margin-top:2px;">Making Recycling Easy for Everyone</div>
-              </div>
-            </div>
+        <!-- Subheading -->
+        <p style="color:rgba(255,255,255,0.82);font-size:1.1rem;line-height:1.7;margin-bottom:2rem;max-width:480px;font-family:'Roboto',sans-serif;animation:fadeInUp 0.6s 0.2s ease both;">
+          Drop off your unwanted clothing at a Yellow Bin near you. We collect, sort, and recycle textiles — keeping them out of landfill and back into the community.
+        </p>
 
-            <!-- Floating pill: eco badge -->
-            <div style="position:absolute;top:-16px;right:-16px;background:white;border-radius:100px;padding:10px 16px;box-shadow:0 8px 24px rgba(74,74,68,0.12),0 2px 6px rgba(74,74,68,0.06);display:flex;align-items:center;gap:8px;z-index:10;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;color:#4A4A44;">Eco-Certified</span>
-            </div>
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-3" style="animation:fadeInUp 0.6s 0.3s ease both;">
+          <a href="find-a-bin.html" class="btn-primary" style="font-size:0.95rem;padding:14px 28px;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Find a Bin Near You
+          </a>
+          <a href="how-it-works.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);color:white;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.95rem;letter-spacing:0.02em;padding:14px 28px;border-radius:6px;border:1.5px solid rgba(255,255,255,0.3);backdrop-filter:blur(4px);transition:background 0.2s ease,transform 0.15s ease;text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.22)';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='rgba(255,255,255,0.12)';this.style.transform='translateY(0)'">
+            How It Works
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
 
-            <!-- Floating card: kg collected today -->
-            <div style="position:absolute;bottom:-20px;left:-20px;background:white;border-radius:14px;padding:14px 18px;box-shadow:0 8px 24px rgba(74,74,68,0.12),0 2px 6px rgba(74,74,68,0.06);z-index:10;min-width:160px;">
-              <div style="font-family:'Roboto',sans-serif;font-size:0.7rem;font-weight:500;color:#6B6B65;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Collected Today</div>
-              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.6rem;letter-spacing:-0.03em;color:#4A4A44;line-height:1;">2,847 <span style="font-size:0.9rem;color:#6B6B65;font-weight:500;">kg</span></div>
-              <div style="display:flex;align-items:center;gap:4px;margin-top:4px;">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-                <span style="font-size:0.72rem;color:#4CAF50;font-weight:500;">+12% this week</span>
-              </div>
-            </div>
+        <!-- Mini stats row -->
+        <div class="flex flex-wrap gap-8 mt-12 pt-10" style="border-top:1px solid rgba(255,255,255,0.18);animation:fadeInUp 0.6s 0.4s ease both;">
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:white;">500+</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.58);font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Bins Placed</div>
+          </div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:white;">2M+ kg</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.58);font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Textiles Recycled</div>
+          </div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:white;">50+</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.58);font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Cities Covered</div>
           </div>
         </div>
 
       </div>
     </div>
 
+    <!-- Prev / Next arrows -->
+    <button class="slide-arrow slide-prev" aria-label="Previous slide" onclick="heroSlider.prev()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="slide-arrow slide-next" aria-label="Next slide" onclick="heroSlider.next()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <!-- Dot indicators -->
+    <div class="slide-dots" role="tablist" aria-label="Slide indicators">
+      <button class="slide-dot active" aria-label="Slide 1" onclick="heroSlider.goTo(0)"></button>
+      <button class="slide-dot" aria-label="Slide 2" onclick="heroSlider.goTo(1)"></button>
+      <button class="slide-dot" aria-label="Slide 3" onclick="heroSlider.goTo(2)"></button>
+      <button class="slide-dot" aria-label="Slide 4" onclick="heroSlider.goTo(3)"></button>
+      <button class="slide-dot" aria-label="Slide 5" onclick="heroSlider.goTo(4)"></button>
+      <button class="slide-dot" aria-label="Slide 6" onclick="heroSlider.goTo(5)"></button>
+      <button class="slide-dot" aria-label="Slide 7" onclick="heroSlider.goTo(6)"></button>
+      <button class="slide-dot" aria-label="Slide 8" onclick="heroSlider.goTo(7)"></button>
+      <button class="slide-dot" aria-label="Slide 9" onclick="heroSlider.goTo(8)"></button>
+    </div>
+
     <!-- Scroll cue -->
-    <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0.4;animation:bounce 2s ease-in-out infinite;">
-      <span style="font-family:'Roboto',sans-serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:#4A4A44;">Scroll</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0.5;animation:bounce 2s ease-in-out infinite;z-index:10;">
+      <span style="font-family:'Roboto',sans-serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:white;">Scroll</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
   </section>
 
@@ -1456,6 +1517,47 @@
     }
   });
 </script>
+
+  <!-- ── Hero Slideshow ── -->
+  <script>
+  const heroSlider = (function() {
+    const slides = document.querySelectorAll('.slide-item');
+    const dots   = document.querySelectorAll('.slide-dot');
+    let current  = 0;
+    let timer;
+
+    function goTo(idx) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (idx + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      resetTimer();
+    }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 5500);
+    }
+    resetTimer();
+
+    // Pause on hover
+    const section = document.getElementById('home');
+    section.addEventListener('mouseenter', () => clearInterval(timer));
+    section.addEventListener('mouseleave', resetTimer);
+
+    // Touch / swipe
+    let touchStartX = 0;
+    section.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    section.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+    });
+
+    return { goTo, next, prev };
+  })();
+  </script>
 
   <!-- ── Floating Recycle Bubbles Script ── -->
   <script>
