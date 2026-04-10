@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>My Dashboard — Yellow Bin</title>
+  <title>My Dashboard, Yellow Bin</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -98,22 +98,22 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:36px;">
       <div class="stat-card">
         <p style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:#9A9A94;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.06em;font-weight:500;">Total Drops</p>
-        <p id="stat-drops" style="font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:800;color:#2A2A24;margin:0 0 4px;">—</p>
+        <p id="stat-drops" style="font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:800;color:#2A2A24;margin:0 0 4px;">-</p>
         <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#9A9A94;margin:0;">recycling visits</p>
       </div>
       <div class="stat-card">
         <p style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:#9A9A94;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.06em;font-weight:500;">Weight Recycled</p>
-        <p id="stat-weight" style="font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:800;color:#2A2A24;margin:0 0 4px;">—</p>
+        <p id="stat-weight" style="font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:800;color:#2A2A24;margin:0 0 4px;">-</p>
         <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#9A9A94;margin:0;">kg of textiles</p>
       </div>
       <div class="stat-card">
         <p style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:#9A9A94;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.06em;font-weight:500;">CO₂ Saved</p>
-        <p id="stat-co2" style="font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:800;color:#2A2A24;margin:0 0 4px;">—</p>
+        <p id="stat-co2" style="font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:800;color:#2A2A24;margin:0 0 4px;">-</p>
         <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#9A9A94;margin:0;">kg of emissions</p>
       </div>
       <div class="stat-card">
         <p style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:#9A9A94;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.06em;font-weight:500;">Member Since</p>
-        <p id="stat-since" style="font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:800;color:#2A2A24;margin:0 0 4px;line-height:1.3;">—</p>
+        <p id="stat-since" style="font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:800;color:#2A2A24;margin:0 0 4px;line-height:1.3;">-</p>
         <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#9A9A94;margin:0;">account created</p>
       </div>
     </div>
@@ -146,15 +146,15 @@
         <div style="display:flex;flex-direction:column;gap:14px;">
           <div>
             <p style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.06em;color:#9A9A94;text-transform:uppercase;margin:0 0 3px;">Name</p>
-            <p id="detail-name" style="font-family:'Roboto',sans-serif;font-size:0.95rem;color:#2A2A24;margin:0;">—</p>
+            <p id="detail-name" style="font-family:'Roboto',sans-serif;font-size:0.95rem;color:#2A2A24;margin:0;">-</p>
           </div>
           <div>
             <p style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.06em;color:#9A9A94;text-transform:uppercase;margin:0 0 3px;">Email</p>
-            <p id="detail-email" style="font-family:'Roboto',sans-serif;font-size:0.95rem;color:#2A2A24;margin:0;">—</p>
+            <p id="detail-email" style="font-family:'Roboto',sans-serif;font-size:0.95rem;color:#2A2A24;margin:0;">-</p>
           </div>
           <div>
             <p style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.06em;color:#9A9A94;text-transform:uppercase;margin:0 0 3px;">Role</p>
-            <span id="detail-role" class="badge badge-green">—</span>
+            <span id="detail-role" class="badge badge-green">-</span>
           </div>
         </div>
       </div>
@@ -280,7 +280,7 @@
               </div>
             </div>
             <div style="text-align:right;">
-              <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#2A2A24;margin:0;">${c.weight_kg ? c.weight_kg + ' kg' : '—'}</p>
+              <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#2A2A24;margin:0;">${c.weight_kg ? c.weight_kg + ' kg' : '-'}</p>
               <span style="display:inline-flex;align-items:center;gap:3px;background:#DCFCE7;color:#15803D;padding:2px 8px;border-radius:100px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.68rem;letter-spacing:0.04em;">✓ Verified</span>
             </div>
           </div>

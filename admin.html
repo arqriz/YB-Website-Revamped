@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Admin Dashboard — Yellow Bin</title>
+  <title>Admin Dashboard, Yellow Bin</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -86,19 +86,19 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:32px;">
       <div class="stat-card">
         <p style="font-size:0.75rem;color:#9A9A94;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Total Users</p>
-        <p id="ov-users" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">—</p>
+        <p id="ov-users" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">-</p>
       </div>
       <div class="stat-card">
         <p style="font-size:0.75rem;color:#9A9A94;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Total Drops</p>
-        <p id="ov-drops" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">—</p>
+        <p id="ov-drops" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">-</p>
       </div>
       <div class="stat-card">
         <p style="font-size:0.75rem;color:#9A9A94;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Weight Collected</p>
-        <p id="ov-weight" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">—</p>
+        <p id="ov-weight" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">-</p>
       </div>
       <div class="stat-card">
         <p style="font-size:0.75rem;color:#9A9A94;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Events Active</p>
-        <p id="ov-events" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">—</p>
+        <p id="ov-events" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">-</p>
       </div>
     </div>
 
@@ -181,7 +181,7 @@
               <textarea class="form-input" id="ev-desc" rows="3" placeholder="Brief description of the event…" style="resize:vertical;"></textarea>
             </div>
             <div>
-              <label class="form-label">Event Link <span style="font-weight:400;color:#9A9A94;text-transform:none;letter-spacing:0;">(optional — Facebook, website, etc.)</span></label>
+              <label class="form-label">Event Link <span style="font-weight:400;color:#9A9A94;text-transform:none;letter-spacing:0;">(optional, Facebook, website, etc.)</span></label>
               <input class="form-input" type="url" id="ev-link" placeholder="https://www.facebook.com/events/..." />
             </div>
             <div>
@@ -243,7 +243,7 @@
   <!-- FOOTER -->
   <footer style="background:#000000;padding:28px 0;border-top:1px solid rgba(255,255,255,0.06);">
     <div class="max-w-7xl mx-auto px-6 text-center">
-      <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.35);margin:0;">© 2025 Yellow Bin — Admin Panel</p>
+      <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.35);margin:0;">© 2025 Yellow Bin, Admin Panel</p>
     </div>
   </footer>
 
@@ -295,18 +295,18 @@
     // ── USERS ──
     async function loadUsers() {
       const { data } = await sb.from('profiles').select('*').order('id');
-      document.getElementById('ov-users').textContent = data?.length ?? '—';
+      document.getElementById('ov-users').textContent = data?.length ?? '-';
       if (!data || data.length === 0) {
         document.getElementById('users-tbody').innerHTML = '<tr><td colspan="5" style="text-align:center;color:#9A9A94;padding:40px;">No users found.</td></tr>';
         return;
       }
       document.getElementById('users-tbody').innerHTML = data.map(u => `
         <tr>
-          <td>${[u.first_name, u.last_name].filter(Boolean).join(' ') || '—'}</td>
-          <td style="color:#4A4A44;">${u.email || '<span style="color:#C0C0BA;">—</span>'}</td>
-          <td style="color:#6A6A64;font-size:0.82rem;">${u.phone || '<span style="color:#C0C0BA;">—</span>'}</td>
+          <td>${[u.first_name, u.last_name].filter(Boolean).join(' ') || '-'}</td>
+          <td style="color:#4A4A44;">${u.email || '<span style="color:#C0C0BA;">-</span>'}</td>
+          <td style="color:#6A6A64;font-size:0.82rem;">${u.phone || '<span style="color:#C0C0BA;">-</span>'}</td>
           <td><span class="badge ${u.role === 'admin' ? 'badge-admin' : 'badge-user'}">${u.role}</span></td>
-          <td style="color:#9A9A94;font-size:0.8rem;">${u.created_at ? new Date(u.created_at).toLocaleDateString('en-MY') : '—'}</td>
+          <td style="color:#9A9A94;font-size:0.8rem;">${u.created_at ? new Date(u.created_at).toLocaleDateString('en-MY') : '-'}</td>
           <td>
             ${u.role !== 'admin'
               ? `<button class="btn-danger" onclick="promoteUser('${u.id}')">Make Admin</button>`
@@ -328,19 +328,19 @@
     async function loadContributions() {
       const { data } = await sb.from('contributions').select('*, profiles(first_name, last_name)').order('created_at', { ascending: false });
       const totalWeight = data?.reduce((s, c) => s + (c.weight_kg || 0), 0) || 0;
-      document.getElementById('ov-drops').textContent = data?.length ?? '—';
+      document.getElementById('ov-drops').textContent = data?.length ?? '-';
       document.getElementById('ov-weight').textContent = totalWeight.toFixed(1) + ' kg';
       if (!data || data.length === 0) {
         document.getElementById('contrib-tbody').innerHTML = '<tr><td colspan="4" style="text-align:center;color:#9A9A94;padding:40px;">No contributions yet.</td></tr>';
         return;
       }
       document.getElementById('contrib-tbody').innerHTML = data.map(c => {
-        const name = c.profiles ? [c.profiles.first_name, c.profiles.last_name].filter(Boolean).join(' ') : '—';
+        const name = c.profiles ? [c.profiles.first_name, c.profiles.last_name].filter(Boolean).join(' ') : '-';
         return `
           <tr>
             <td>${name}</td>
-            <td>${c.location || '—'}</td>
-            <td style="font-family:'Montserrat',sans-serif;font-weight:600;">${c.weight_kg ?? '—'}</td>
+            <td>${c.location || '-'}</td>
+            <td style="font-family:'Montserrat',sans-serif;font-weight:600;">${c.weight_kg ?? '-'}</td>
             <td style="color:#9A9A94;font-size:0.8rem;">${new Date(c.created_at).toLocaleDateString('en-MY')}</td>
           </tr>
         `;
@@ -350,7 +350,7 @@
     // ── EVENTS ──
     async function loadEvents() {
       const { data } = await sb.from('events').select('*').order('date', { ascending: true });
-      document.getElementById('ov-events').textContent = data?.filter(e => new Date(e.date) >= new Date()).length ?? '—';
+      document.getElementById('ov-events').textContent = data?.filter(e => new Date(e.date) >= new Date()).length ?? '-';
       if (!data || data.length === 0) {
         document.getElementById('events-list').innerHTML = '<p style="color:#9A9A94;font-size:0.875rem;text-align:center;padding:24px 0;">No events yet.</p>';
         return;
