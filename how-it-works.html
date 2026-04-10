@@ -393,14 +393,77 @@
     </div>
   </div>
 
-  <!-- THREE STEPS -->
-  <section style="padding:100px 0;background:#FAFAF8;">
+  <!-- TWO METHODS INTRO -->
+  <section style="padding:72px 0 0;background:#FAFAF8;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal" style="text-align:center;margin-bottom:56px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
+          <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+          Two Ways to Donate
+          <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+        </div>
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;margin-bottom:16px;">
+          Pick the Method That Fits You
+        </h2>
+        <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.7;color:#6B6B65;max-width:480px;margin:0 auto;">
+          Got a bag of clothes? Use the bin. Got a fridge, gym set, or a room full of bulky items? We'll come to you — for free.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 reveal" style="margin-bottom:0;">
+        <!-- Method 01 Card -->
+        <a href="#method-bin" style="text-decoration:none;" onclick="event.preventDefault();document.getElementById('method-bin').scrollIntoView({behavior:'smooth'})">
+          <div style="background:white;border-radius:16px;padding:32px;border:1.5px solid rgba(208,208,217,0.5);transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease;cursor:pointer;" onmouseover="this.style.borderColor='#F4D000';this.style.boxShadow='0 8px 32px rgba(244,208,0,0.12)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(208,208,217,0.5)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+              <div style="display:inline-flex;align-items:center;gap:6px;background:#F4D000;border-radius:100px;padding:5px 12px;">
+                <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.08em;color:#4A4A44;text-transform:uppercase;">Method 01</span>
+              </div>
+              <div style="width:44px;height:44px;background:rgba(244,208,0,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9AB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              </div>
+            </div>
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#4A4A44;margin-bottom:8px;letter-spacing:-0.02em;">Drop-Off at a Yellow Bin</h3>
+            <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.65;color:#6B6B65;margin-bottom:16px;">Clothing, bags, shoes, and household textiles. Find a bin near you and drop off in under a minute — 24/7, no appointment.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span style="font-family:'Roboto',sans-serif;font-size:0.75rem;color:#4A4A44;background:#F5F5F3;border-radius:6px;padding:4px 10px;">Clothes &amp; shoes</span>
+              <span style="font-family:'Roboto',sans-serif;font-size:0.75rem;color:#4A4A44;background:#F5F5F3;border-radius:6px;padding:4px 10px;">Bags &amp; accessories</span>
+              <span style="font-family:'Roboto',sans-serif;font-size:0.75rem;color:#4A4A44;background:#F5F5F3;border-radius:6px;padding:4px 10px;">Linens &amp; curtains</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Method 02 Card -->
+        <a href="#method-pickup" style="text-decoration:none;" onclick="event.preventDefault();document.getElementById('method-pickup').scrollIntoView({behavior:'smooth'})">
+          <div style="background:white;border-radius:16px;padding:32px;border:1.5px solid rgba(208,208,217,0.5);transition:border-color 0.2s ease,box-shadow 0.2s ease,transform 0.2s ease;cursor:pointer;" onmouseover="this.style.borderColor='#4A4A44';this.style.boxShadow='0 8px 32px rgba(74,74,68,0.1)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(208,208,217,0.5)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+              <div style="display:inline-flex;align-items:center;gap:6px;background:#4A4A44;border-radius:100px;padding:5px 12px;">
+                <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.08em;color:white;text-transform:uppercase;">Method 02</span>
+              </div>
+              <div style="width:44px;height:44px;background:rgba(74,74,68,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              </div>
+            </div>
+            <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#4A4A44;margin-bottom:8px;letter-spacing:-0.02em;">Bulky Items Pickup</h3>
+            <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.65;color:#6B6B65;margin-bottom:16px;">Furniture, refrigerators, gym equipment, unused metals, large electronics. WhatsApp us and we'll arrange a free pickup at your door.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span style="font-family:'Roboto',sans-serif;font-size:0.75rem;color:#4A4A44;background:#F5F5F3;border-radius:6px;padding:4px 10px;">Furniture</span>
+              <span style="font-family:'Roboto',sans-serif;font-size:0.75rem;color:#4A4A44;background:#F5F5F3;border-radius:6px;padding:4px 10px;">Large electronics</span>
+              <span style="font-family:'Roboto',sans-serif;font-size:0.75rem;color:#4A4A44;background:#F5F5F3;border-radius:6px;padding:4px 10px;">Unused metals</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE STEPS — METHOD 01 -->
+  <section id="method-bin" style="padding:100px 0;background:#FAFAF8;">
     <div class="max-w-6xl mx-auto px-6">
 
       <div class="reveal" style="margin-bottom:64px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
-          <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
-          The Steps
+        <div style="display:inline-flex;align-items:center;gap:8px;background:#F4D000;border-radius:100px;padding:5px 14px;margin-bottom:16px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4A4A44" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.08em;color:#4A4A44;text-transform:uppercase;">Method 01 — Drop-Off Bin</span>
         </div>
         <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;max-width:500px;">
           Three Steps to a Cleaner Planet
@@ -492,6 +555,143 @@
               <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.7);">is recycled or reused — never landfill</div>
             </div>
           </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BULKY ITEMS PICKUP — METHOD 02 -->
+  <section id="method-pickup" style="padding:100px 0;background:#4A4A44;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:-100px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(244,208,0,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-120px;left:-60px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(244,208,0,0.05) 0%,transparent 70%);pointer-events:none;"></div>
+
+    <div class="max-w-6xl mx-auto px-6" style="position:relative;z-index:1;">
+
+      <div class="reveal" style="margin-bottom:64px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:100px;padding:5px 14px;margin-bottom:16px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.08em;color:white;text-transform:uppercase;">Method 02 — Bulky Items Pickup</span>
+        </div>
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.03em;color:white;line-height:1.1;max-width:600px;margin-bottom:16px;">
+          Got Big Items?<br/><span style="color:#F4D000;">We'll Come to You.</span>
+        </h2>
+        <p style="font-family:'Roboto',sans-serif;font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.5);max-width:540px;">
+          For furniture, large appliances, gym equipment, unused metals, and bulk recyclables — don't haul it yourself. WhatsApp us and we'll arrange a free collection at your doorstep.
+        </p>
+      </div>
+
+      <!-- Eligible Items -->
+      <div class="reveal" style="margin-bottom:56px;">
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:24px 28px;">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(244,208,0,0.7);margin-bottom:14px;">What qualifies for pickup</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 14px;">
+              <span style="font-size:1.1rem;">🪑</span>
+              <span style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);">Furniture &amp; sofas</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 14px;">
+              <span style="font-size:1.1rem;">🧊</span>
+              <span style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);">Refrigerators &amp; freezers</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 14px;">
+              <span style="font-size:1.1rem;">🏋️</span>
+              <span style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);">Gym equipment</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 14px;">
+              <span style="font-size:1.1rem;">📺</span>
+              <span style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);">Large electronics</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 14px;">
+              <span style="font-size:1.1rem;">🔩</span>
+              <span style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);">Unused scrap metal</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border-radius:8px;padding:9px 14px;">
+              <span style="font-size:1.1rem;">📦</span>
+              <span style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.75);">Bulk recyclables</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-Step Flow -->
+      <div class="grid md:grid-cols-4 gap-0 reveal" style="position:relative;">
+        <!-- Connecting line (desktop) -->
+        <div style="position:absolute;top:36px;left:calc(12.5% + 36px);right:calc(12.5% + 36px);height:1.5px;background:linear-gradient(to right,rgba(244,208,0,0.3),rgba(244,208,0,0.15));pointer-events:none;" class="hidden md:block"></div>
+
+        <!-- Step 1 -->
+        <div style="text-align:center;padding:0 16px 0;">
+          <div style="position:relative;display:inline-flex;margin-bottom:20px;">
+            <div style="width:72px;height:72px;border-radius:50%;background:rgba(244,208,0,0.15);border:1.5px solid rgba(244,208,0,0.3);display:flex;align-items:center;justify-content:center;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            </div>
+            <div style="position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;background:#F4D000;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:0.65rem;color:#4A4A44;">01</div>
+          </div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;color:white;margin-bottom:10px;">Contact Us</div>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.65;color:rgba(255,255,255,0.45);">WhatsApp is the fastest — or email works too. Tell us what you have.</p>
+          <a href="https://wa.me/60123611200?text=Hi%2C+I+have+some+bulky+items+I%27d+like+to+recycle.+Can+you+help?" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:#25D366;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.04em;padding:7px 14px;border-radius:100px;text-decoration:none;transition:opacity 0.2s ease;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+
+        <!-- Step 2 -->
+        <div style="text-align:center;padding:0 16px 0;">
+          <div style="position:relative;display:inline-flex;margin-bottom:20px;">
+            <div style="width:72px;height:72px;border-radius:50%;background:rgba(244,208,0,0.12);border:1.5px solid rgba(244,208,0,0.25);display:flex;align-items:center;justify-content:center;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <div style="position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;background:rgba(244,208,0,0.25);border:1px solid rgba(244,208,0,0.4);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:0.65rem;color:#F4D000;">02</div>
+          </div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;color:white;margin-bottom:10px;">Send Photos</div>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.65;color:rgba(255,255,255,0.45);">We'll ask you to photograph the items so we can assess whether we're able to process them.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div style="text-align:center;padding:0 16px 0;">
+          <div style="position:relative;display:inline-flex;margin-bottom:20px;">
+            <div style="width:72px;height:72px;border-radius:50%;background:rgba(244,208,0,0.12);border:1.5px solid rgba(244,208,0,0.25);display:flex;align-items:center;justify-content:center;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div style="position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;background:rgba(244,208,0,0.25);border:1px solid rgba(244,208,0,0.4);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:0.65rem;color:#F4D000;">03</div>
+          </div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;color:white;margin-bottom:10px;">Confirmed Appointment</div>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.65;color:rgba(255,255,255,0.45);">Once approved, we'll schedule a pickup time that works for you. No hassle, no waiting.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div style="text-align:center;padding:0 16px 0;">
+          <div style="position:relative;display:inline-flex;margin-bottom:20px;">
+            <div style="width:72px;height:72px;border-radius:50%;background:rgba(76,175,80,0.15);border:1.5px solid rgba(76,175,80,0.3);display:flex;align-items:center;justify-content:center;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div style="position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:50%;background:rgba(76,175,80,0.25);border:1px solid rgba(76,175,80,0.4);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:0.65rem;color:#4CAF50;">04</div>
+          </div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;color:white;margin-bottom:10px;">We Collect — Free</div>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.65;color:rgba(255,255,255,0.45);">Our team arrives with a truck or van and hauls everything away. The entire service is completely free.</p>
+          <div style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:rgba(76,175,80,0.15);border:1px solid rgba(76,175,80,0.3);border-radius:100px;padding:6px 14px;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.06em;color:#4CAF50;">100% FREE SERVICE</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA row -->
+      <div class="reveal" style="margin-top:64px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:32px 36px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;">
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.15rem;color:white;margin-bottom:6px;">Ready to schedule a pickup?</div>
+          <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.6;color:rgba(255,255,255,0.45);max-width:400px;">WhatsApp is the most responsive channel — we typically reply within a few hours.</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="https://wa.me/60123611200?text=Hi%2C+I+have+some+bulky+items+I%27d+like+to+recycle.+Can+you+help?" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.875rem;padding:12px 22px;border-radius:8px;text-decoration:none;transition:opacity 0.2s ease,transform 0.15s ease;box-shadow:0 4px 16px rgba(37,211,102,0.35);" onmouseover="this.style.opacity='0.9';this.style.transform='translateY(-1px)'" onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+          <a href="mailto:enquiry@yellowbin.com.my" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.875rem;padding:12px 22px;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.15);transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.14)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email Us
+          </a>
         </div>
       </div>
 
