@@ -287,10 +287,10 @@
             <div>
               <label class="form-label">
                 Description
-                <span style="font-weight:400;color:#9A9A94;text-transform:none;letter-spacing:0;">(shown as excerpt and used for SEO, 150-160 chars ideal)</span>
+                <span style="font-weight:400;color:#9A9A94;text-transform:none;letter-spacing:0;">(shown as excerpt, up to 1000 chars)</span>
               </label>
               <textarea class="form-input" id="ct-desc" rows="3" placeholder="Write a compelling summary that tells readers what they'll get from this post..." style="resize:vertical;"></textarea>
-              <div id="ct-desc-counter" style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:#9A9A94;margin-top:4px;text-align:right;">0 / 160</div>
+              <div id="ct-desc-counter" style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:#9A9A94;margin-top:4px;text-align:right;">0 / 1000</div>
             </div>
 
             <!-- External Link -->
@@ -671,8 +671,8 @@
     document.getElementById('ct-desc').addEventListener('input', function() {
       const len = this.value.length;
       const counter = document.getElementById('ct-desc-counter');
-      counter.textContent = `${len} / 160`;
-      counter.style.color = len > 160 ? '#B91C1C' : (len >= 140 ? '#D97706' : '#9A9A94');
+      counter.textContent = `${len} / 1000`;
+      counter.style.color = len > 1000 ? '#B91C1C' : (len >= 900 ? '#D97706' : '#9A9A94');
     });
 
     // ── Image helpers ──────────────────────────────────────────────────
@@ -764,7 +764,7 @@
       document.getElementById('ct-link').value = item.link || '';
       document.getElementById('ct-event-date').value = item.event_date || '';
       document.getElementById('ct-event-date-wrap').style.display = item.type === 'event' ? 'block' : 'none';
-      document.getElementById('ct-desc-counter').textContent = `${(item.description || '').length} / 160`;
+      document.getElementById('ct-desc-counter').textContent = `${(item.description || '').length} / 1000`;
 
       // Set type radio
       const radio = document.querySelector(`input[name="content-type"][value="${item.type}"]`);
@@ -794,7 +794,7 @@
         el.style.background = '#FAFAF7'; el.style.color = '#6A6A64'; el.style.borderColor = '#E5E5E0';
       });
       clearContentImg();
-      document.getElementById('ct-desc-counter').textContent = '0 / 160';
+      document.getElementById('ct-desc-counter').textContent = '0 / 1000';
     }
 
     // ── DELETE ────────────────────────────────────────────────────────
