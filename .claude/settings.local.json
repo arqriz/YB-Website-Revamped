@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node -e ':*)"
+      "Bash(node -e ':*)",
+      "Bash(node screenshot.mjs http://localhost:3000/blog.html journal)"
     ]
   }
 }
