@@ -559,7 +559,7 @@
             <img src="brand_assets/GamutPro_Logo_Horizontal_cvp.jpg" alt="GamutPro" style="max-width:140px;max-height:72px;width:auto;height:auto;object-fit:contain;" />
           </div>
           <div style="padding:28px 36px;display:flex;flex-direction:column;justify-content:center;">
-            <div style="margin-bottom:10px;">
+            <div style="display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;">
               <span style="font-family:'Roboto',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#F4D000;background:rgba(244,208,0,0.1);padding:3px 10px;border-radius:100px;">Marketing &amp; Consultancy</span>
             </div>
             <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#4A4A44;margin:0 0 8px;letter-spacing:-0.02em;">GamutPro</h3>
@@ -576,7 +576,7 @@
             <img src="brand_assets/Gentle Hill Logo_FA_Portrait_cvp.jpg" alt="Gentle Hill Elder Care" style="max-width:80px;max-height:88px;width:auto;height:auto;object-fit:contain;" />
           </div>
           <div style="padding:28px 36px;display:flex;flex-direction:column;justify-content:center;">
-            <div style="margin-bottom:10px;">
+            <div style="display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;">
               <span style="font-family:'Roboto',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#F4D000;background:rgba(244,208,0,0.1);padding:3px 10px;border-radius:100px;">Elder Care</span>
             </div>
             <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#4A4A44;margin:0 0 8px;letter-spacing:-0.02em;">Gentle Hill Elder Care</h3>
@@ -593,7 +593,7 @@
             <img src="brand_assets/Putuo Village Logo_Vertical_cvp.jpg" alt="Putuo Village" style="max-width:80px;max-height:88px;width:auto;height:auto;object-fit:contain;" />
           </div>
           <div style="padding:28px 36px;display:flex;flex-direction:column;justify-content:center;">
-            <div style="margin-bottom:10px;">
+            <div style="display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;">
               <span style="font-family:'Roboto',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#F4D000;background:rgba(244,208,0,0.1);padding:3px 10px;border-radius:100px;">Community &amp; Hospitality</span>
             </div>
             <h3 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#4A4A44;margin:0 0 8px;letter-spacing:-0.02em;">Putuo Village</h3>
@@ -606,6 +606,12 @@
       </div>
     </div>
   </section>
+  <style>
+    @media (max-width: 640px) {
+      .partner-card-h { flex-direction: column !important; }
+      .partner-logo-zone { width: 100% !important; border-right: none !important; border-bottom: 1px solid rgba(74,74,68,0.07) !important; padding: 24px !important; }
+    }
+  </style>
 
   <!-- ══════════════════════════════════════════
        VOLUNTEER / MAKE A DIFFERENCE
