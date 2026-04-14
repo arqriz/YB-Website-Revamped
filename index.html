@@ -110,8 +110,12 @@
     ]
   }
   </script>
-  <!-- Preload first hero slide for fast LCP -->
+  <!-- Preload all hero slides so transitions are instant -->
+  <link rel="preload" as="image" href="iloveimg-compressed/_DSC3521.jpg" />
+  <link rel="preload" as="image" href="iloveimg-compressed/_DSC3439.jpg" />
+  <link rel="preload" as="image" href="iloveimg-compressed/_DSC3447.jpg" />
   <link rel="preload" as="image" href="iloveimg-compressed/_DSC3418.jpg" />
+  <link rel="preload" as="image" href="iloveimg-compressed/_DSC3520.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -963,7 +967,7 @@
             Partner with us, volunteer, or simply use your nearest Yellow Bin. Every kilo kept out of landfill is a win for Malaysia's future.
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px;">
-            <a href="about.html" class="btn-primary" style="font-size:0.95rem;padding:13px 26px;">
+            <a href="partner.html" class="btn-primary" style="font-size:0.95rem;padding:13px 26px;">
               Learn More
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
@@ -1057,7 +1061,7 @@
                   <div style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:2px;">Of Service</div>
                 </div>
               </div>
-              <a href="about.html" class="btn-primary" style="width:100%;justify-content:center;">Learn About Our Impact</a>
+              <a href="our-impact.html" class="btn-primary" style="width:100%;justify-content:center;">Learn About Our Impact</a>
             </div>
           </div>
         </div>
@@ -1522,19 +1526,17 @@
     let current  = 0;
     let timer;
 
-    function loadSlide(idx) {
-      const el = slides[idx];
+    // Eagerly set all background images so they're already in cache when shown
+    slides.forEach(el => {
       if (!el.style.backgroundImage && el.dataset.bg) {
         el.style.backgroundImage = el.dataset.bg;
       }
-    }
+    });
+
     function goTo(idx) {
       slides[current].classList.remove('active');
       dots[current].classList.remove('active');
       current = (idx + slides.length) % slides.length;
-      loadSlide(current);
-      // preload the next one silently
-      loadSlide((current + 1) % slides.length);
       slides[current].classList.add('active');
       dots[current].classList.add('active');
       resetTimer();
