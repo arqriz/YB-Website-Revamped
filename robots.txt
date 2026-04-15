@@ -4,4 +4,4 @@ Disallow: /admin.html
 Disallow: /login.html
 Disallow: /signup.html
 Disallow: /dashboard.html
-Sitemap: https://www.yellowbin.com.my/sitemap.xml
+Sitemap: https://yb-website-revamped.vercel.app/sitemap.xml
