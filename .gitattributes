@@ -1,0 +1,4 @@
+# Force LF for files that must not have CRLF
+sitemap.xml text eol=lf
+robots.txt text eol=lf
+vercel.json text eol=lf
