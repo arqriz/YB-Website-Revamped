@@ -1,9 +1,13 @@
 {
+  "cleanUrls": false,
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/sitemap.xml",
       "headers": [
-        { "key": "Content-Type", "value": "text/xml; charset=utf-8" }
+        { "key": "Content-Type", "value": "text/xml; charset=utf-8" },
+        { "key": "X-Robots-Tag", "value": "noindex" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     },
     {
