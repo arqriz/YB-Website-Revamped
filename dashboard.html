@@ -56,14 +56,14 @@
   <!-- NAV -->
   <nav class="px-6 py-3">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <a href="index.html" class="flex-shrink-0">
+      <a href="/" class="flex-shrink-0">
         <img src="brand_assets/Yellow Bin Logo_New White.png" alt="Yellow Bin" style="height:78px;width:auto;" />
       </a>
       <div class="hidden md:flex items-center gap-8">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="how-it-works.html" class="nav-link">How It Works</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="dashboard.html" class="nav-link" style="color:#F4D000;font-weight:600;">Dashboard</a>
+        <a href="/" class="nav-link">Home</a>
+        <a href="/how-it-works" class="nav-link">How It Works</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/dashboard" class="nav-link" style="color:#F4D000;font-weight:600;">Dashboard</a>
       </div>
       <div class="hidden md:flex items-center gap-3">
         <span id="user-greeting" style="font-family:'Roboto',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.7);"></span>
@@ -77,8 +77,8 @@
     </div>
     <div id="mobile-menu" style="display:none;" class="md:hidden bg-white/95 backdrop-blur-md border-t mt-2 rounded-b-2xl shadow-lg">
       <div class="flex flex-col gap-1 px-6 py-4">
-        <a href="index.html" class="py-3 border-b border-gray-100" style="font-family:'Roboto',sans-serif;color:#4A4A44;text-decoration:none;">Home</a>
-        <a href="dashboard.html" class="py-3 border-b border-gray-100" style="font-family:'Montserrat',sans-serif;font-weight:600;color:#4A4A44;text-decoration:none;">Dashboard</a>
+        <a href="/" class="py-3 border-b border-gray-100" style="font-family:'Roboto',sans-serif;color:#4A4A44;text-decoration:none;">Home</a>
+        <a href="/dashboard" class="py-3 border-b border-gray-100" style="font-family:'Montserrat',sans-serif;font-weight:600;color:#4A4A44;text-decoration:none;">Dashboard</a>
         <button onclick="signOut()" class="mt-3 py-3 text-center rounded-lg" style="background:#4A4A44;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;border:none;cursor:pointer;">Sign Out</button>
       </div>
     </div>
@@ -124,7 +124,7 @@
       <div class="stat-card" style="grid-column:span 2;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
           <h2 class="section-title" style="margin:0;">Recent Contributions</h2>
-          <a href="find-a-bin.html" class="btn-primary" style="font-size:0.75rem;padding:8px 14px;">
+          <a href="/find-a-bin" class="btn-primary" style="font-size:0.75rem;padding:8px 14px;">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Find a Bin
           </a>
@@ -163,7 +163,7 @@
       <div class="stat-card">
         <h2 class="section-title">Quick Actions</h2>
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <a href="find-a-bin.html" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:10px;background:#F7F7F2;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#F0F0E8'" onmouseout="this.style.background='#F7F7F2'">
+          <a href="/find-a-bin" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:10px;background:#F7F7F2;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#F0F0E8'" onmouseout="this.style.background='#F7F7F2'">
             <div style="width:36px;height:36px;border-radius:8px;background:#4A4A44;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
@@ -172,7 +172,7 @@
               <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#9A9A94;margin:0;">Locate a drop-off point</p>
             </div>
           </a>
-          <a href="how-it-works.html" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:10px;background:#F7F7F2;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#F0F0E8'" onmouseout="this.style.background='#F7F7F2'">
+          <a href="/how-it-works" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:10px;background:#F7F7F2;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#F0F0E8'" onmouseout="this.style.background='#F7F7F2'">
             <div style="width:36px;height:36px;border-radius:8px;background:#4A4A44;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             </div>
@@ -181,7 +181,7 @@
               <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#9A9A94;margin:0;">Learn about our process</p>
             </div>
           </a>
-          <a href="our-impact.html" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:10px;background:#F7F7F2;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#F0F0E8'" onmouseout="this.style.background='#F7F7F2'">
+          <a href="/our-impact" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:10px;background:#F7F7F2;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#F0F0E8'" onmouseout="this.style.background='#F7F7F2'">
             <div style="width:36px;height:36px;border-radius:8px;background:#4A4A44;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
