@@ -202,6 +202,53 @@
       box-shadow: 0 16px 40px rgba(74,74,68,0.1), 0 4px 12px rgba(244,208,0,0.08);
     }
 
+    /* ── Recycle section grids — mobile-first ── */
+    .recycle-featured {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(74,74,68,0.10);
+      margin-bottom: 20px;
+    }
+    .recycle-featured img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .recycle-featured-body {
+      background: #4A4A44;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .recycle-categories {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .recycle-categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 900px) {
+      .recycle-featured {
+        grid-template-columns: 340px 1fr;
+      }
+      .recycle-featured img {
+        height: 100%;
+      }
+      .recycle-featured-body {
+        padding: 36px 40px;
+      }
+      .recycle-categories {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
     /* ── Stat card ── */
     .stat-card {
       position: relative;
@@ -661,9 +708,9 @@
       </div>
 
       <!-- ── CLOTHES, Featured ── -->
-      <div class="reveal" style="display:grid;grid-template-columns:340px 1fr;gap:0;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(74,74,68,0.10);margin-bottom:20px;">
-        <img src="brand_assets/Recycle-Clothes-768x576.png" alt="Mixed Textiles & Clothes" style="width:100%;height:100%;object-fit:cover;display:block;" />
-        <div style="background:#4A4A44;padding:36px 40px;display:flex;flex-direction:column;justify-content:center;">
+      <div class="recycle-featured reveal">
+        <img src="brand_assets/Recycle-Clothes-768x576.png" alt="Mixed Textiles & Clothes" />
+        <div class="recycle-featured-body">
           <span style="display:inline-block;background:#F4D000;color:#4A4A44;font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:14px;width:fit-content;">Primary Category</span>
           <h3 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.35rem;color:white;letter-spacing:-0.03em;margin:0 0 12px;line-height:1.2;">Mixed Textiles &amp; Clothes</h3>
           <p style="font-family:'Roboto',sans-serif;font-size:0.85rem;line-height:1.75;color:rgba(255,255,255,0.6);margin:0;">
@@ -673,7 +720,7 @@
       </div>
 
       <!-- ── 3 Categories ── -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+      <div class="recycle-categories">
 
         <!-- Paper -->
         <div class="recycle-card reveal" style="padding:0;overflow:hidden;">
