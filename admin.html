@@ -5,50 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Admin Dashboard, Yellow Bin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     * { box-sizing: border-box; }
-    body { font-family: 'Roboto', sans-serif; background: #F0F0EB; min-height: 100vh; }
+    body { font-family: 'Quicksand', sans-serif; background: #F0F0EB; min-height: 100vh; }
 
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: #1A1A16;
       box-shadow: 0 1px 0 rgba(0,0,0,0.3), 0 4px 24px rgba(0,0,0,0.2);
     }
-    .nav-link { font-family:'Roboto',sans-serif;font-weight:500;font-size:0.875rem;color:rgba(255,255,255,0.65);text-decoration:none;transition:color 0.2s; }
+    .nav-link { font-family:'Quicksand',sans-serif;font-weight:500;font-size:0.875rem;color:rgba(255,255,255,0.65);text-decoration:none;transition:color 0.2s; }
     .nav-link:hover { color:white; }
 
     .card { background:white;border-radius:16px;box-shadow:0 2px 4px rgba(74,74,68,0.04),0 8px 24px rgba(74,74,68,0.06); }
 
     .tab-btn {
-      font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.82rem;letter-spacing:0.03em;
+      font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.82rem;letter-spacing:0.03em;
       padding:9px 20px;border-radius:8px;border:none;cursor:pointer;
       background:transparent;color:#6A6A64;transition:background 0.2s,color 0.2s;
     }
-    .tab-btn.active { background:#4A4A44;color:white; }
-    .tab-btn:hover:not(.active) { background:#F0F0E8;color:#4A4A44; }
+    .tab-btn.active { background:#545454;color:white; }
+    .tab-btn:hover:not(.active) { background:#F0F0E8;color:#545454; }
 
     .tab-panel { display:none; }
     .tab-panel.active { display:block; }
 
     table { width:100%;border-collapse:collapse; }
-    th { font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#9A9A94;padding:12px 16px;text-align:left;border-bottom:1px solid #F0F0E8; }
-    td { font-family:'Roboto',sans-serif;font-size:0.875rem;color:#2A2A24;padding:14px 16px;border-bottom:1px solid #F7F7F2; }
+    th { font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#9A9A94;padding:12px 16px;text-align:left;border-bottom:1px solid #F0F0E8; }
+    td { font-family:'Quicksand',sans-serif;font-size:0.875rem;color:#2A2A24;padding:14px 16px;border-bottom:1px solid #F7F7F2; }
     tr:last-child td { border-bottom:none; }
     tr:hover td { background:#FAFAF7; }
 
     .stat-card { background:white;border-radius:14px;padding:22px 24px;box-shadow:0 2px 4px rgba(74,74,68,0.04),0 8px 24px rgba(74,74,68,0.06); }
-    .badge { display:inline-flex;align-items:center;padding:3px 10px;border-radius:100px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.68rem;letter-spacing:0.04em; }
+    .badge { display:inline-flex;align-items:center;padding:3px 10px;border-radius:100px;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.68rem;letter-spacing:0.04em; }
     .badge-admin { background:#FEF9C3;color:#854D0E; }
     .badge-user { background:#DBEAFE;color:#1D4ED8; }
 
-    .form-input { width:100%;padding:11px 14px;border:1.5px solid #E5E5E0;border-radius:8px;font-family:'Roboto',sans-serif;font-size:0.875rem;color:#2A2A24;background:#FAFAF7;outline:none;transition:border-color 0.2s; }
-    .form-input:focus { border-color:#F4D000; }
-    .form-label { font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;color:#4A4A44;text-transform:uppercase;margin-bottom:5px;display:block; }
-    .btn-save { background:#4A4A44;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.03em;padding:11px 24px;border-radius:8px;border:none;cursor:pointer;transition:background 0.2s; }
+    .form-input { width:100%;padding:11px 14px;border:1.5px solid #E5E5E0;border-radius:8px;font-family:'Quicksand',sans-serif;font-size:0.875rem;color:#2A2A24;background:#FAFAF7;outline:none;transition:border-color 0.2s; }
+    .form-input:focus { border-color:#FFDD00; }
+    .form-label { font-family:'League Spartan',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;color:#545454;text-transform:uppercase;margin-bottom:5px;display:block; }
+    .btn-save { background:#545454;color:white;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.03em;padding:11px 24px;border-radius:8px;border:none;cursor:pointer;transition:background 0.2s; }
     .btn-save:hover { background:#333; }
-    .btn-danger { background:#FEF2F2;color:#B91C1C;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.78rem;padding:7px 14px;border-radius:6px;border:1px solid #FECACA;cursor:pointer;transition:background 0.2s; }
+    .btn-danger { background:#FEF2F2;color:#B91C1C;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.78rem;padding:7px 14px;border-radius:6px;border:1px solid #FECACA;cursor:pointer;transition:background 0.2s; }
     .btn-danger:hover { background:#FEE2E2; }
 
     .alert { padding:12px 16px;border-radius:8px;font-size:0.875rem;margin-bottom:16px; }
@@ -63,12 +63,12 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div style="display:flex;align-items:center;gap:20px;">
         <a href="/"><img src="brand_assets/Yellow Bin Logo_New White.png" alt="Yellow Bin" style="height:64px;width:auto;" /></a>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#F4D000;background:rgba(244,208,0,0.15);padding:4px 10px;border-radius:4px;">Admin Panel</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#FFDD00;background:rgba(244,208,0,0.15);padding:4px 10px;border-radius:4px;">Admin Panel</span>
       </div>
       <div style="display:flex;align-items:center;gap:16px;">
-        <span id="admin-name" style="font-family:'Roboto',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.6);"></span>
+        <span id="admin-name" style="font-family:'Quicksand',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.6);"></span>
         <a href="/" class="nav-link">View Site</a>
-        <button onclick="signOut()" style="background:rgba(255,255,255,0.1);color:white;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.78rem;padding:8px 16px;border-radius:6px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">Sign Out</button>
+        <button onclick="signOut()" style="background:rgba(255,255,255,0.1);color:white;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.78rem;padding:8px 16px;border-radius:6px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">Sign Out</button>
       </div>
     </div>
   </nav>
@@ -78,27 +78,27 @@
 
     <!-- Header -->
     <div style="margin-bottom:28px;">
-      <h1 style="font-family:'Montserrat',sans-serif;font-size:1.75rem;font-weight:800;color:#2A2A24;letter-spacing:-0.03em;margin:0 0 6px;">Admin Dashboard</h1>
-      <p style="font-family:'Roboto',sans-serif;color:#6A6A64;font-size:0.875rem;margin:0;">Manage users, contributions, events, and gallery.</p>
+      <h1 style="font-family:'League Spartan',sans-serif;font-size:1.75rem;font-weight:800;color:#2A2A24;letter-spacing:-0.03em;margin:0 0 6px;">Admin Dashboard</h1>
+      <p style="font-family:'Quicksand',sans-serif;color:#6A6A64;font-size:0.875rem;margin:0;">Manage users, contributions, events, and gallery.</p>
     </div>
 
     <!-- Overview Stats -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:32px;">
       <div class="stat-card">
-        <p style="font-size:0.75rem;color:#9A9A94;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Total Users</p>
-        <p id="ov-users" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">-</p>
+        <p style="font-size:0.75rem;color:#9A9A94;font-family:'League Spartan',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Total Users</p>
+        <p id="ov-users" style="font-family:'League Spartan',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">-</p>
       </div>
       <div class="stat-card">
-        <p style="font-size:0.75rem;color:#9A9A94;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Total Drops</p>
-        <p id="ov-drops" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">-</p>
+        <p style="font-size:0.75rem;color:#9A9A94;font-family:'League Spartan',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Total Drops</p>
+        <p id="ov-drops" style="font-family:'League Spartan',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">-</p>
       </div>
       <div class="stat-card">
-        <p style="font-size:0.75rem;color:#9A9A94;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Weight Collected</p>
-        <p id="ov-weight" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">-</p>
+        <p style="font-size:0.75rem;color:#9A9A94;font-family:'League Spartan',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Weight Collected</p>
+        <p id="ov-weight" style="font-family:'League Spartan',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">-</p>
       </div>
       <div class="stat-card">
-        <p style="font-size:0.75rem;color:#9A9A94;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Events Active</p>
-        <p id="ov-events" style="font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">-</p>
+        <p style="font-size:0.75rem;color:#9A9A94;font-family:'League Spartan',sans-serif;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:0 0 6px;">Events Active</p>
+        <p id="ov-events" style="font-family:'League Spartan',sans-serif;font-size:2rem;font-weight:800;color:#2A2A24;margin:0;">-</p>
       </div>
     </div>
 
@@ -114,7 +114,7 @@
     <!-- ── USERS TAB ── -->
     <div id="tab-users" class="tab-panel active card" style="overflow:hidden;">
       <div style="padding:20px 24px;border-bottom:1px solid #F0F0E8;display:flex;align-items:center;justify-content:space-between;">
-        <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0;">User List</h2>
+        <h2 style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0;">User List</h2>
       </div>
       <div style="overflow-x:auto;">
         <table>
@@ -138,7 +138,7 @@
     <!-- ── CONTRIBUTIONS TAB ── -->
     <div id="tab-contributions" class="tab-panel card" style="overflow:hidden;">
       <div style="padding:20px 24px;border-bottom:1px solid #F0F0E8;">
-        <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0;">All Contributions</h2>
+        <h2 style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0;">All Contributions</h2>
       </div>
       <div style="overflow-x:auto;">
         <table>
@@ -162,7 +162,7 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="md:grid-cols-2">
         <!-- Add event form -->
         <div class="card" style="padding:28px;">
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 20px;">Add New Event</h2>
+          <h2 style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 20px;">Add New Event</h2>
           <div id="event-alert" style="display:none;" class="alert"></div>
           <form id="event-form" style="display:flex;flex-direction:column;gap:16px;">
             <div>
@@ -187,9 +187,9 @@
             </div>
             <div>
               <label class="form-label">Event Poster <span style="font-weight:400;color:#9A9A94;text-transform:none;letter-spacing:0;">(optional)</span></label>
-              <div id="poster-drop-zone" style="border:2px dashed #E5E5E0;border-radius:8px;padding:24px;text-align:center;cursor:pointer;background:#FAFAF7;transition:border-color 0.2s,background 0.2s;" onclick="document.getElementById('ev-poster').click()" ondragover="event.preventDefault();this.style.borderColor='#F4D000';this.style.background='#FFFDE0';" ondragleave="this.style.borderColor='#E5E5E0';this.style.background='#FAFAF7';" ondrop="handlePosterDrop(event)">
+              <div id="poster-drop-zone" style="border:2px dashed #E5E5E0;border-radius:8px;padding:24px;text-align:center;cursor:pointer;background:#FAFAF7;transition:border-color 0.2s,background 0.2s;" onclick="document.getElementById('ev-poster').click()" ondragover="event.preventDefault();this.style.borderColor='#FFDD00';this.style.background='#FFFDE0';" ondragleave="this.style.borderColor='#E5E5E0';this.style.background='#FAFAF7';" ondrop="handlePosterDrop(event)">
                 <svg style="width:28px;height:28px;color:#C0C0BA;margin:0 auto 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                <p id="poster-drop-label" style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:#9A9A94;margin:0;">Click or drag & drop a poster image</p>
+                <p id="poster-drop-label" style="font-family:'Quicksand',sans-serif;font-size:0.8rem;color:#9A9A94;margin:0;">Click or drag & drop a poster image</p>
               </div>
               <input type="file" id="ev-poster" accept="image/*" style="display:none;" onchange="previewPoster(this)" />
               <div id="poster-preview" style="display:none;margin-top:10px;position:relative;">
@@ -202,7 +202,7 @@
         </div>
         <!-- Events list -->
         <div class="card" style="padding:28px;">
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 20px;">Upcoming Events</h2>
+          <h2 style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 20px;">Upcoming Events</h2>
           <div id="events-list" style="display:flex;flex-direction:column;gap:12px;">
             <p style="color:#9A9A94;font-size:0.875rem;text-align:center;padding:24px 0;">Loading…</p>
           </div>
@@ -215,7 +215,7 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="md:grid-cols-2">
         <!-- Upload form -->
         <div class="card" style="padding:28px;">
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 20px;">Upload Image</h2>
+          <h2 style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 20px;">Upload Image</h2>
           <div id="gallery-alert" style="display:none;" class="alert"></div>
           <form id="gallery-form" style="display:flex;flex-direction:column;gap:16px;">
             <div>
@@ -231,7 +231,7 @@
         </div>
         <!-- Gallery grid -->
         <div class="card" style="padding:28px;">
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 20px;">Gallery Images</h2>
+          <h2 style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 20px;">Gallery Images</h2>
           <div id="gallery-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
             <p style="grid-column:span 3;color:#9A9A94;font-size:0.875rem;text-align:center;padding:24px 0;">Loading…</p>
           </div>
@@ -245,8 +245,8 @@
 
         <!-- ADD / EDIT FORM -->
         <div class="card" style="padding:28px;">
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 4px;" id="content-form-heading">Add New Post</h2>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#9A9A94;margin:0 0 20px;">Blogs, community posts, and events shown on the public Blog page.</p>
+          <h2 style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0 0 4px;" id="content-form-heading">Add New Post</h2>
+          <p style="font-family:'Quicksand',sans-serif;font-size:0.78rem;color:#9A9A94;margin:0 0 20px;">Blogs, community posts, and events shown on the public Blog page.</p>
           <div id="content-alert" style="display:none;" class="alert"></div>
 
           <form id="content-form" style="display:flex;flex-direction:column;gap:16px;">
@@ -258,19 +258,19 @@
               <div style="display:flex;gap:8px;">
                 <label style="flex:1;cursor:pointer;">
                   <input type="radio" name="content-type" value="blog" style="display:none;" onchange="onTypeChange(this)" />
-                  <div class="type-radio-btn" data-val="blog" style="text-align:center;padding:9px;border-radius:8px;border:1.5px solid #E5E5E0;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:#6A6A64;transition:all 0.2s;background:#FAFAF7;">
+                  <div class="type-radio-btn" data-val="blog" style="text-align:center;padding:9px;border-radius:8px;border:1.5px solid #E5E5E0;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.78rem;color:#6A6A64;transition:all 0.2s;background:#FAFAF7;">
                     Blog
                   </div>
                 </label>
                 <label style="flex:1;cursor:pointer;">
                   <input type="radio" name="content-type" value="post" style="display:none;" onchange="onTypeChange(this)" />
-                  <div class="type-radio-btn" data-val="post" style="text-align:center;padding:9px;border-radius:8px;border:1.5px solid #E5E5E0;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:#6A6A64;transition:all 0.2s;background:#FAFAF7;">
+                  <div class="type-radio-btn" data-val="post" style="text-align:center;padding:9px;border-radius:8px;border:1.5px solid #E5E5E0;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.78rem;color:#6A6A64;transition:all 0.2s;background:#FAFAF7;">
                     Post
                   </div>
                 </label>
                 <label style="flex:1;cursor:pointer;">
                   <input type="radio" name="content-type" value="event" style="display:none;" onchange="onTypeChange(this)" />
-                  <div class="type-radio-btn" data-val="event" style="text-align:center;padding:9px;border-radius:8px;border:1.5px solid #E5E5E0;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;color:#6A6A64;transition:all 0.2s;background:#FAFAF7;">
+                  <div class="type-radio-btn" data-val="event" style="text-align:center;padding:9px;border-radius:8px;border:1.5px solid #E5E5E0;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.78rem;color:#6A6A64;transition:all 0.2s;background:#FAFAF7;">
                     Event
                   </div>
                 </label>
@@ -290,7 +290,7 @@
                 <span style="font-weight:400;color:#9A9A94;text-transform:none;letter-spacing:0;">(shown as excerpt, up to 1000 chars)</span>
               </label>
               <textarea class="form-input" id="ct-desc" rows="3" placeholder="Write a compelling summary that tells readers what they'll get from this post..." style="resize:vertical;"></textarea>
-              <div id="ct-desc-counter" style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:#9A9A94;margin-top:4px;text-align:right;">0 / 1000</div>
+              <div id="ct-desc-counter" style="font-family:'Quicksand',sans-serif;font-size:0.72rem;color:#9A9A94;margin-top:4px;text-align:right;">0 / 1000</div>
             </div>
 
             <!-- External Link -->
@@ -313,11 +313,11 @@
               <label class="form-label">Cover Image <span style="font-weight:400;color:#9A9A94;text-transform:none;letter-spacing:0;">(optional, shown on card)</span></label>
               <div id="ct-drop-zone" style="border:2px dashed #E5E5E0;border-radius:8px;padding:24px;text-align:center;cursor:pointer;background:#FAFAF7;transition:border-color 0.2s,background 0.2s;"
                 onclick="document.getElementById('ct-img-file').click()"
-                ondragover="event.preventDefault();this.style.borderColor='#F4D000';this.style.background='#FFFDE0';"
+                ondragover="event.preventDefault();this.style.borderColor='#FFDD00';this.style.background='#FFFDE0';"
                 ondragleave="this.style.borderColor='#E5E5E0';this.style.background='#FAFAF7';"
                 ondrop="handleContentImgDrop(event)">
                 <svg style="width:28px;height:28px;color:#C0C0BA;margin:0 auto 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                <p id="ct-drop-label" style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:#9A9A94;margin:0;">Click or drag and drop a cover image</p>
+                <p id="ct-drop-label" style="font-family:'Quicksand',sans-serif;font-size:0.8rem;color:#9A9A94;margin:0;">Click or drag and drop a cover image</p>
               </div>
               <input type="file" id="ct-img-file" accept="image/*" style="display:none;" onchange="previewContentImg(this)" />
               <div id="ct-img-preview-wrap" style="display:none;margin-top:10px;position:relative;">
@@ -329,7 +329,7 @@
 
             <div style="display:flex;gap:10px;">
               <button type="submit" class="btn-save" id="ct-submit-btn" style="flex:1;">Add Post</button>
-              <button type="button" id="ct-cancel-btn" onclick="resetContentForm()" style="display:none;background:#F0F0E8;color:#4A4A44;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.82rem;padding:11px 20px;border-radius:8px;border:none;cursor:pointer;">Cancel</button>
+              <button type="button" id="ct-cancel-btn" onclick="resetContentForm()" style="display:none;background:#F0F0E8;color:#545454;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.82rem;padding:11px 20px;border-radius:8px;border:none;cursor:pointer;">Cancel</button>
             </div>
           </form>
         </div>
@@ -337,12 +337,12 @@
         <!-- CONTENT LIST -->
         <div class="card" style="padding:28px;overflow:hidden;">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:12px;flex-wrap:wrap;">
-            <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0;">All Posts</h2>
+            <h2 style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0;">All Posts</h2>
             <div style="display:flex;gap:6px;">
-              <button onclick="filterContentList('all',this)" class="content-filter-btn active" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#4A4A44;color:white;cursor:pointer;transition:all 0.2s;">All</button>
-              <button onclick="filterContentList('blog',this)" class="content-filter-btn" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#FAFAF7;color:#6A6A64;cursor:pointer;transition:all 0.2s;">Blog</button>
-              <button onclick="filterContentList('post',this)" class="content-filter-btn" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#FAFAF7;color:#6A6A64;cursor:pointer;transition:all 0.2s;">Post</button>
-              <button onclick="filterContentList('event',this)" class="content-filter-btn" style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#FAFAF7;color:#6A6A64;cursor:pointer;transition:all 0.2s;">Event</button>
+              <button onclick="filterContentList('all',this)" class="content-filter-btn active" style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#545454;color:white;cursor:pointer;transition:all 0.2s;">All</button>
+              <button onclick="filterContentList('blog',this)" class="content-filter-btn" style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#FAFAF7;color:#6A6A64;cursor:pointer;transition:all 0.2s;">Blog</button>
+              <button onclick="filterContentList('post',this)" class="content-filter-btn" style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#FAFAF7;color:#6A6A64;cursor:pointer;transition:all 0.2s;">Post</button>
+              <button onclick="filterContentList('event',this)" class="content-filter-btn" style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#FAFAF7;color:#6A6A64;cursor:pointer;transition:all 0.2s;">Event</button>
             </div>
           </div>
           <div id="content-list" style="display:flex;flex-direction:column;gap:10px;max-height:600px;overflow-y:auto;">
@@ -358,7 +358,7 @@
   <!-- FOOTER -->
   <footer style="background:#000000;padding:28px 0;border-top:1px solid rgba(255,255,255,0.06);">
     <div class="max-w-7xl mx-auto px-6 text-center">
-      <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.35);margin:0;">© 2025 Yellow Bin, Admin Panel</p>
+      <p style="font-family:'Quicksand',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.35);margin:0;">© 2025 Yellow Bin, Admin Panel</p>
     </div>
   </footer>
 
@@ -419,7 +419,7 @@
       document.getElementById('users-tbody').innerHTML = data.map(u => `
         <tr>
           <td>${[u.first_name, u.last_name].filter(Boolean).join(' ') || '-'}</td>
-          <td style="color:#4A4A44;">${u.email || '<span style="color:#C0C0BA;">-</span>'}</td>
+          <td style="color:#545454;">${u.email || '<span style="color:#C0C0BA;">-</span>'}</td>
           <td style="color:#6A6A64;font-size:0.82rem;">${u.phone || '<span style="color:#C0C0BA;">-</span>'}</td>
           <td><span class="badge ${u.role === 'admin' ? 'badge-admin' : 'badge-user'}">${u.role}</span></td>
           <td style="color:#9A9A94;font-size:0.8rem;">${u.created_at ? new Date(u.created_at).toLocaleDateString('en-MY') : '-'}</td>
@@ -456,7 +456,7 @@
           <tr>
             <td>${name}</td>
             <td>${c.location || '-'}</td>
-            <td style="font-family:'Montserrat',sans-serif;font-weight:600;">${c.weight_kg ?? '-'}</td>
+            <td style="font-family:'League Spartan',sans-serif;font-weight:600;">${c.weight_kg ?? '-'}</td>
             <td style="color:#9A9A94;font-size:0.8rem;">${new Date(c.created_at).toLocaleDateString('en-MY')}</td>
           </tr>
         `;
@@ -476,9 +476,9 @@
           <div style="display:flex;gap:12px;align-items:flex-start;flex:1;min-width:0;">
             ${ev.poster_url ? `<img src="${ev.poster_url}" alt="Poster" style="width:48px;height:48px;object-fit:cover;border-radius:6px;flex-shrink:0;" />` : `<div style="width:48px;height:48px;border-radius:6px;background:#E5E5E0;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg style="width:20px;height:20px;color:#C0C0BA;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>`}
             <div style="min-width:0;">
-              <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.875rem;color:#2A2A24;margin:0 0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.title}</p>
-              <p style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#6A6A64;margin:0 0 4px;">${new Date(ev.date).toLocaleDateString('en-MY', { day:'numeric',month:'short',year:'numeric' })} · ${ev.location || ''}</p>
-              ${ev.link ? `<a href="${ev.link}" target="_blank" rel="noopener" style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:#4A9A4A;text-decoration:underline;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;max-width:200px;">${ev.link}</a>` : ''}
+              <p style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.875rem;color:#2A2A24;margin:0 0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.title}</p>
+              <p style="font-family:'Quicksand',sans-serif;font-size:0.78rem;color:#6A6A64;margin:0 0 4px;">${new Date(ev.date).toLocaleDateString('en-MY', { day:'numeric',month:'short',year:'numeric' })} · ${ev.location || ''}</p>
+              ${ev.link ? `<a href="${ev.link}" target="_blank" rel="noopener" style="font-family:'Quicksand',sans-serif;font-size:0.72rem;color:#4A9A4A;text-decoration:underline;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;max-width:200px;">${ev.link}</a>` : ''}
             </div>
           </div>
           <button class="btn-danger" onclick="deleteEvent('${ev.id}')">Delete</button>
@@ -616,7 +616,7 @@
       document.querySelectorAll('.content-filter-btn').forEach(b => {
         b.style.background = '#FAFAF7'; b.style.color = '#6A6A64'; b.style.borderColor = '#E5E5E0';
       });
-      btn.style.background = '#4A4A44'; btn.style.color = 'white'; btn.style.borderColor = '#4A4A44';
+      btn.style.background = '#545454'; btn.style.color = 'white'; btn.style.borderColor = '#545454';
       const filtered = type === 'all' ? allContentItems : allContentItems.filter(p => p.type === type);
       renderContentList(filtered);
     }
@@ -626,7 +626,7 @@
         document.getElementById('content-list').innerHTML = '<p style="color:#9A9A94;font-size:0.875rem;text-align:center;padding:32px 0;">No posts yet.</p>';
         return;
       }
-      const typeColors = { blog: '#F4D000', post: '#4A4A44', event: '#4CAF50' };
+      const typeColors = { blog: '#FFDD00', post: '#545454', event: '#4CAF50' };
       const typeTextColors = { blog: '#2A2A24', post: 'white', event: 'white' };
       document.getElementById('content-list').innerHTML = items.map(item => `
         <div style="padding:14px;border-radius:10px;background:#F7F7F2;display:flex;gap:12px;align-items:flex-start;">
@@ -638,15 +638,15 @@
           }
           <div style="flex:1;min-width:0;">
             <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;flex-wrap:wrap;">
-              <span style="display:inline-block;padding:2px 8px;border-radius:100px;background:${typeColors[item.type] || '#E5E5E0'};color:${typeTextColors[item.type] || '#2A2A24'};font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;">${item.type}</span>
-              ${!item.published ? `<span style="display:inline-block;padding:2px 8px;border-radius:100px;background:#FEF9C3;color:#854D0E;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.62rem;letter-spacing:0.05em;text-transform:uppercase;">Draft</span>` : ''}
+              <span style="display:inline-block;padding:2px 8px;border-radius:100px;background:${typeColors[item.type] || '#E5E5E0'};color:${typeTextColors[item.type] || '#2A2A24'};font-family:'League Spartan',sans-serif;font-weight:800;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;">${item.type}</span>
+              ${!item.published ? `<span style="display:inline-block;padding:2px 8px;border-radius:100px;background:#FEF9C3;color:#854D0E;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.62rem;letter-spacing:0.05em;text-transform:uppercase;">Draft</span>` : ''}
             </div>
-            <p style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;color:#2A2A24;margin:0 0 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${item.title}</p>
-            ${item.link ? `<a href="${item.link}" target="_blank" rel="noopener" style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:#4A9A4A;text-decoration:underline;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;max-width:200px;" onclick="event.stopPropagation()">${item.link}</a>` : ''}
-            ${item.type === 'event' && item.event_date ? `<p style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:#9A9A94;margin:2px 0 0;">Event: ${new Date(item.event_date).toLocaleDateString('en-MY',{day:'numeric',month:'short',year:'numeric'})}</p>` : ''}
+            <p style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;color:#2A2A24;margin:0 0 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${item.title}</p>
+            ${item.link ? `<a href="${item.link}" target="_blank" rel="noopener" style="font-family:'Quicksand',sans-serif;font-size:0.72rem;color:#4A9A4A;text-decoration:underline;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;max-width:200px;" onclick="event.stopPropagation()">${item.link}</a>` : ''}
+            ${item.type === 'event' && item.event_date ? `<p style="font-family:'Quicksand',sans-serif;font-size:0.72rem;color:#9A9A94;margin:2px 0 0;">Event: ${new Date(item.event_date).toLocaleDateString('en-MY',{day:'numeric',month:'short',year:'numeric'})}</p>` : ''}
           </div>
           <div style="display:flex;gap:6px;flex-shrink:0;">
-            <button onclick="editContentItem('${item.id}')" style="background:#EEF2FF;color:#4338CA;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.72rem;padding:6px 12px;border-radius:6px;border:none;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#E0E7FF'" onmouseout="this.style.background='#EEF2FF'">Edit</button>
+            <button onclick="editContentItem('${item.id}')" style="background:#EEF2FF;color:#4338CA;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:6px 12px;border-radius:6px;border:none;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#E0E7FF'" onmouseout="this.style.background='#EEF2FF'">Edit</button>
             <button class="btn-danger" onclick="deleteContentItem('${item.id}', '${item.image_path || ''}')">Delete</button>
           </div>
         </div>
@@ -660,7 +660,7 @@
       });
       const activeEl = document.querySelector(`.type-radio-btn[data-val="${radio.value}"]`);
       if (activeEl) {
-        const colors = { blog: ['#FFFDE0','#2A2A24','#F4D000'], post: ['#F5F5F0','#2A2A24','#4A4A44'], event: ['#F0FDF4','#15803D','#4CAF50'] };
+        const colors = { blog: ['#FFFDE0','#2A2A24','#FFDD00'], post: ['#F5F5F0','#2A2A24','#545454'], event: ['#F0FDF4','#15803D','#4CAF50'] };
         const [bg, text, border] = colors[radio.value] || ['#F5F5F0','#2A2A24','#E5E5E0'];
         activeEl.style.background = bg; activeEl.style.color = text; activeEl.style.borderColor = border;
       }

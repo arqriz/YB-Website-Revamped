@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Login, Yellow Bin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            heading: ['Montserrat', 'sans-serif'],
-            body: ['Roboto', 'sans-serif'],
+            heading: ['League Spartan', 'sans-serif'],
+            body: ['Quicksand', 'sans-serif'],
           },
           colors: {
-            yellow: '#F4D000',
-            dark: '#4A4A44',
+            yellow: '#FFDD00',
+            dark: '#545454',
           }
         }
       }
@@ -25,17 +25,17 @@
   </script>
   <style>
     * { box-sizing: border-box; }
-    body { font-family: 'Roboto', sans-serif; background: #F7F7F2; min-height: 100vh; }
+    body { font-family: 'Quicksand', sans-serif; background: #F7F7F2; min-height: 100vh; }
 
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: #4A4A44;
+      background: #545454;
       box-shadow: 0 1px 0 rgba(0,0,0,0.15), 0 4px 24px rgba(0,0,0,0.12);
     }
     .nav-link {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Quicksand', sans-serif;
       font-weight: 500;
       font-size: 0.875rem;
       color: rgba(255,255,255,0.75);
@@ -49,7 +49,7 @@
       position: absolute;
       bottom: -4px; left: 0; right: 0;
       height: 2px;
-      background: #F4D000;
+      background: #FFDD00;
       width: 0;
       transition: width 0.25s ease;
     }
@@ -57,9 +57,9 @@
     .nav-link:hover::after { width: 100%; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
-      background: #F4D000;
-      color: #4A4A44;
-      font-family: 'Montserrat', sans-serif;
+      background: #FFDD00;
+      color: #545454;
+      font-family: 'League Spartan', sans-serif;
       font-weight: 700;
       font-size: 0.8rem;
       letter-spacing: 0.04em;
@@ -85,7 +85,7 @@
       padding: 13px 16px;
       border: 1.5px solid #E5E5E0;
       border-radius: 10px;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Quicksand', sans-serif;
       font-size: 0.9rem;
       color: #2A2A24;
       background: #FAFAF7;
@@ -93,18 +93,18 @@
       outline: none;
     }
     .form-input:focus {
-      border-color: #F4D000;
+      border-color: #FFDD00;
       box-shadow: 0 0 0 3px rgba(244,208,0,0.15);
       background: white;
     }
     .form-input::placeholder { color: #B0B0A8; }
 
     .form-label {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'League Spartan', sans-serif;
       font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.04em;
-      color: #4A4A44;
+      color: #545454;
       text-transform: uppercase;
       margin-bottom: 6px;
       display: block;
@@ -113,9 +113,9 @@
     .submit-btn {
       width: 100%;
       padding: 14px;
-      background: #4A4A44;
+      background: #545454;
       color: white;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'League Spartan', sans-serif;
       font-weight: 700;
       font-size: 0.9rem;
       letter-spacing: 0.04em;
@@ -133,7 +133,7 @@
       padding: 12px 16px;
       border-radius: 8px;
       font-size: 0.875rem;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Quicksand', sans-serif;
     }
     .alert-error { background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; }
     .alert-success { background: #F0FDF4; color: #15803D; border: 1px solid #BBF7D0; }
@@ -175,10 +175,10 @@
     </div>
     <div id="mobile-menu" style="display:none;" class="md:hidden bg-white/95 backdrop-blur-md border-t border-grey-light mt-2 rounded-b-2xl shadow-lg">
       <div class="flex flex-col gap-1 px-6 py-4">
-        <a href="/" class="py-3 font-medium border-b border-gray-100" style="font-family:'Roboto',sans-serif;color:#4A4A44;text-decoration:none;">Home</a>
-        <a href="/how-it-works" class="py-3 font-medium border-b border-gray-100" style="font-family:'Roboto',sans-serif;color:#4A4A44;text-decoration:none;">How It Works</a>
-        <a href="/our-impact" class="py-3 font-medium border-b border-gray-100" style="font-family:'Roboto',sans-serif;color:#4A4A44;text-decoration:none;">Our Impact</a>
-        <a href="/about" class="py-3 font-medium border-b border-gray-100" style="font-family:'Roboto',sans-serif;color:#4A4A44;text-decoration:none;">About Us</a>
+        <a href="/" class="py-3 font-medium border-b border-gray-100" style="font-family:'Quicksand',sans-serif;color:#545454;text-decoration:none;">Home</a>
+        <a href="/how-it-works" class="py-3 font-medium border-b border-gray-100" style="font-family:'Quicksand',sans-serif;color:#545454;text-decoration:none;">How It Works</a>
+        <a href="/our-impact" class="py-3 font-medium border-b border-gray-100" style="font-family:'Quicksand',sans-serif;color:#545454;text-decoration:none;">Our Impact</a>
+        <a href="/about" class="py-3 font-medium border-b border-gray-100" style="font-family:'Quicksand',sans-serif;color:#545454;text-decoration:none;">About Us</a>
         <a href="/signup" class="btn-primary mt-4 justify-center">Sign Up</a>
       </div>
     </div>
@@ -193,11 +193,11 @@
     <div class="w-full px-4" style="max-width:460px;">
       <!-- Header -->
       <div class="text-center mb-8">
-        <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;background:#4A4A44;border-radius:14px;margin-bottom:20px;box-shadow:0 4px 16px rgba(74,74,68,0.2);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4D000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;background:#545454;border-radius:14px;margin-bottom:20px;box-shadow:0 4px 16px rgba(74,74,68,0.2);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFDD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
-        <h1 style="font-family:'Montserrat',sans-serif;font-size:1.75rem;font-weight:800;color:#2A2A24;letter-spacing:-0.03em;margin:0 0 8px;">Welcome back</h1>
-        <p style="font-family:'Roboto',sans-serif;color:#6A6A64;font-size:0.9rem;line-height:1.6;margin:0;">Sign in to your Yellow Bin account</p>
+        <h1 style="font-family:'League Spartan',sans-serif;font-size:1.75rem;font-weight:800;color:#2A2A24;letter-spacing:-0.03em;margin:0 0 8px;">Welcome back</h1>
+        <p style="font-family:'Quicksand',sans-serif;color:#6A6A64;font-size:0.9rem;line-height:1.6;margin:0;">Sign in to your Yellow Bin account</p>
       </div>
 
       <!-- Card -->
@@ -221,21 +221,21 @@
           </div>
 
           <div style="text-align:right;margin-bottom:24px;">
-            <a href="#" style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:#4A4A44;text-decoration:none;font-weight:500;transition:color 0.2s;" onmouseover="this.style.color='#F4D000'" onmouseout="this.style.color='#4A4A44'">Forgot password?</a>
+            <a href="#" style="font-family:'Quicksand',sans-serif;font-size:0.8rem;color:#545454;text-decoration:none;font-weight:500;transition:color 0.2s;" onmouseover="this.style.color='#FFDD00'" onmouseout="this.style.color='#545454'">Forgot password?</a>
           </div>
 
           <button type="submit" class="submit-btn" id="submit-btn">Sign In</button>
         </form>
 
         <div style="margin-top:28px;padding-top:24px;border-top:1px solid #F0F0E8;text-align:center;">
-          <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;color:#6A6A64;margin:0;">
+          <p style="font-family:'Quicksand',sans-serif;font-size:0.875rem;color:#6A6A64;margin:0;">
             Don't have an account?
-            <a href="/signup" style="color:#4A4A44;font-weight:600;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#c9a800'" onmouseout="this.style.color='#4A4A44'">Create one</a>
+            <a href="/signup" style="color:#545454;font-weight:600;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#c9a800'" onmouseout="this.style.color='#545454'">Create one</a>
           </p>
         </div>
       </div>
 
-      <p style="text-align:center;margin-top:24px;font-family:'Roboto',sans-serif;font-size:0.78rem;color:#9A9A94;line-height:1.6;">
+      <p style="text-align:center;margin-top:24px;font-family:'Quicksand',sans-serif;font-size:0.78rem;color:#9A9A94;line-height:1.6;">
         By signing in, you agree to Yellow Bin's Terms of Service and Privacy Policy.
       </p>
     </div>
@@ -244,7 +244,7 @@
   <!-- FOOTER -->
   <footer style="background:#000000;padding:32px 0;border-top:1px solid rgba(255,255,255,0.06);">
     <div class="max-w-6xl mx-auto px-6 text-center">
-      <p style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.4);margin:0;">© 2025 Yellow Bin. All rights reserved.</p>
+      <p style="font-family:'Quicksand',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.4);margin:0;">© 2025 Yellow Bin. All rights reserved.</p>
     </div>
   </footer>
 

@@ -123,20 +123,20 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            yellow: { bin: '#F4D000', dark: '#C9AB00' },
-            grey: { dark: '#4A4A44', mid: '#6B6B65', light: '#D0D0D9', pale: '#F5F5F3' },
+            yellow: { bin: '#FFDD00', dark: '#FFD230' },
+            grey: { dark: '#545454', mid: '#6B6B65', light: '#D0D0D9', pale: '#fff6ea' },
             eco: '#4CAF50',
           },
           fontFamily: {
-            heading: ['Montserrat', 'sans-serif'],
-            body: ['Roboto', 'sans-serif'],
+            heading: ['League Spartan', 'sans-serif'],
+            body: ['Quicksand', 'sans-serif'],
           },
           letterSpacing: { tight: '-0.03em', tightest: '-0.05em' },
         }
@@ -147,9 +147,9 @@
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Roboto', sans-serif;
-      color: #4A4A44;
-      background: #FAFAF8;
+      font-family: 'Quicksand', sans-serif;
+      color: #545454;
+      background: #fff6ea;
       overflow-x: hidden;
     }
 
@@ -170,12 +170,12 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: #4A4A44;
+      background: #545454;
       box-shadow: 0 1px 0 rgba(0,0,0,0.15), 0 4px 24px rgba(0,0,0,0.12);
     }
     .nav-link {
       position: relative;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Quicksand', sans-serif;
       font-weight: 500;
       font-size: 0.875rem;
       color: rgba(255,255,255,0.75);
@@ -188,7 +188,7 @@
       position: absolute;
       bottom: -2px; left: 0;
       width: 0; height: 2px;
-      background: #F4D000;
+      background: #FFDD00;
       transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .nav-link:hover { color: white; }
@@ -198,9 +198,9 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #F4D000;
-      color: #4A4A44;
-      font-family: 'Montserrat', sans-serif;
+      background: #FFDD00;
+      color: #545454;
+      font-family: 'League Spartan', sans-serif;
       font-weight: 700;
       font-size: 0.875rem;
       letter-spacing: 0.02em;
@@ -218,15 +218,15 @@
       box-shadow: 0 4px 20px rgba(244,208,0,0.45), 0 2px 4px rgba(0,0,0,0.1);
     }
     .btn-primary:active { transform: translateY(0); }
-    .btn-primary:focus-visible { outline: 3px solid #F4D000; outline-offset: 3px; }
+    .btn-primary:focus-visible { outline: 3px solid #FFDD00; outline-offset: 3px; }
 
     .btn-secondary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: transparent;
-      color: #4A4A44;
-      font-family: 'Montserrat', sans-serif;
+      color: #545454;
+      font-family: 'League Spartan', sans-serif;
       font-weight: 600;
       font-size: 0.875rem;
       letter-spacing: 0.02em;
@@ -238,12 +238,12 @@
       text-decoration: none;
     }
     .btn-secondary:hover {
-      border-color: #4A4A44;
+      border-color: #545454;
       background: rgba(74,74,68,0.04);
       transform: translateY(-1px);
     }
     .btn-secondary:active { transform: translateY(0); }
-    .btn-secondary:focus-visible { outline: 3px solid #F4D000; outline-offset: 3px; }
+    .btn-secondary:focus-visible { outline: 3px solid #FFDD00; outline-offset: 3px; }
 
     /* ── Hero ── */
     .hero-section {
@@ -309,7 +309,7 @@
       background: rgba(255,255,255,0.24);
       transform: translateY(-50%) scale(1.06);
     }
-    .slide-arrow:focus-visible { outline: 3px solid #F4D000; outline-offset: 3px; }
+    .slide-arrow:focus-visible { outline: 3px solid #FFDD00; outline-offset: 3px; }
     .slide-prev { left: 24px; }
     .slide-next { right: 24px; }
     .slide-dots {
@@ -330,7 +330,7 @@
       transition: background 0.25s ease, transform 0.25s ease;
       padding: 0;
     }
-    .slide-dot.active { background: #F4D000; transform: scale(1.35); }
+    .slide-dot.active { background: #FFDD00; transform: scale(1.35); }
     .slide-dot:hover  { background: rgba(255,255,255,0.65); }
 
     .hero-badge {
@@ -341,33 +341,33 @@
       border: 1px solid rgba(244,208,0,0.35);
       border-radius: 100px;
       padding: 6px 14px;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Quicksand', sans-serif;
       font-size: 0.78rem;
       font-weight: 500;
-      color: #4A4A44;
+      color: #545454;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
     .hero-heading {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'League Spartan', sans-serif;
       font-weight: 900;
       line-height: 1.0;
       letter-spacing: -0.04em;
-      color: #4A4A44;
+      color: #545454;
     }
 
     .hero-highlight {
       position: relative;
       display: inline-block;
-      color: #4A4A44;
+      color: #545454;
     }
     .hero-highlight::after {
       content: '';
       position: absolute;
       bottom: 4px; left: -2px; right: -2px;
       height: 14px;
-      background: #F4D000;
+      background: #FFDD00;
       z-index: -1;
       border-radius: 2px;
     }
@@ -382,13 +382,13 @@
       position: absolute;
       top: 0; left: 0;
       width: 3px; height: 100%;
-      background: #F4D000;
+      background: #FFDD00;
       border-radius: 0 2px 2px 0;
     }
 
     /* ── Steps ── */
     .step-number {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'League Spartan', sans-serif;
       font-weight: 900;
       font-size: 5rem;
       line-height: 1;
@@ -414,10 +414,10 @@
 
     /* ── Impact numbers ── */
     .impact-number {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'League Spartan', sans-serif;
       font-weight: 900;
       letter-spacing: -0.04em;
-      background: linear-gradient(135deg, #4A4A44, #6B6B65);
+      background: linear-gradient(135deg, #545454, #6B6B65);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -432,14 +432,14 @@
       transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     }
     .why-card:hover {
-      border-color: #F4D000;
+      border-color: #FFDD00;
       box-shadow: 0 8px 32px rgba(244,208,0,0.12), 0 2px 8px rgba(74,74,68,0.06);
       transform: translateY(-2px);
     }
 
     /* ── CTA banner ── */
     .cta-banner {
-      background: #4A4A44;
+      background: #545454;
       position: relative;
       overflow: hidden;
     }
@@ -470,7 +470,7 @@
       transition: color 0.2s ease;
       text-decoration: none;
     }
-    .footer-link:hover { color: #F4D000; }
+    .footer-link:hover { color: #FFDD00; }
 
     /* ── Icon circle ── */
     .icon-circle {
@@ -553,7 +553,7 @@
         <span style="width:1px;height:20px;background:rgba(255,255,255,0.2);display:inline-block;"></span>
         <div id="nav-auth-out" style="display:flex;gap:8px;align-items:center;">
           <a href="/login" class="nav-link">Sign In</a>
-          <a href="/signup" style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.12);color:white;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.03em;padding:9px 18px;border-radius:6px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">Sign Up</a>
+          <a href="/signup" style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.12);color:white;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.03em;padding:9px 18px;border-radius:6px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">Sign Up</a>
         </div>
         <div id="nav-auth-in" style="display:none;align-items:center;">
           <a href="/dashboard" class="btn-primary">Dashboard</a>
@@ -578,8 +578,8 @@
         <a href="/blog" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Blog</a>
         <a href="/about" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">About Us</a>
         <div id="mobile-auth-out" style="display:flex;gap:8px;margin-top:12px;">
-          <a href="/login" style="flex:1;text-align:center;padding:11px;border-radius:6px;border:1.5px solid #4A4A44;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.8rem;color:#4A4A44;text-decoration:none;">Sign In</a>
-          <a href="/signup" style="flex:1;text-align:center;padding:11px;border-radius:6px;background:#4A4A44;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;color:white;text-decoration:none;">Sign Up</a>
+          <a href="/login" style="flex:1;text-align:center;padding:11px;border-radius:6px;border:1.5px solid #545454;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.8rem;color:#545454;text-decoration:none;">Sign In</a>
+          <a href="/signup" style="flex:1;text-align:center;padding:11px;border-radius:6px;background:#545454;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.8rem;color:white;text-decoration:none;">Sign Up</a>
         </div>
         <a href="/dashboard" id="mobile-auth-in" class="btn-primary mt-2 justify-center" style="display:none;">Dashboard</a>
         <a href="/find-a-bin" class="btn-primary mt-2 justify-center">Find a Bin Near You</a>
@@ -622,7 +622,7 @@
         </h1>
 
         <!-- Subheading -->
-        <p style="color:rgba(255,255,255,0.82);font-size:1.1rem;line-height:1.7;margin-bottom:2rem;max-width:480px;font-family:'Roboto',sans-serif;animation:fadeInUp 0.6s 0.2s ease both;">
+        <p style="color:rgba(255,255,255,0.82);font-size:1.1rem;line-height:1.7;margin-bottom:2rem;max-width:480px;font-family:'Quicksand',sans-serif;animation:fadeInUp 0.6s 0.2s ease both;">
           Drop off your unwanted clothing at a Yellow Bin near you. We collect, sort, and recycle textiles, keeping them out of landfill and back into the community.
         </p>
 
@@ -632,7 +632,7 @@
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             Find a Bin Near You
           </a>
-          <a href="/how-it-works" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);color:white;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.95rem;letter-spacing:0.02em;padding:14px 28px;border-radius:6px;border:1.5px solid rgba(255,255,255,0.3);backdrop-filter:blur(4px);transition:background 0.2s ease,transform 0.15s ease;text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.22)';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='rgba(255,255,255,0.12)';this.style.transform='translateY(0)'">
+          <a href="/how-it-works" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);color:white;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.95rem;letter-spacing:0.02em;padding:14px 28px;border-radius:6px;border:1.5px solid rgba(255,255,255,0.3);backdrop-filter:blur(4px);transition:background 0.2s ease,transform 0.15s ease;text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.22)';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='rgba(255,255,255,0.12)';this.style.transform='translateY(0)'">
             How It Works
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -641,16 +641,16 @@
         <!-- Mini stats row -->
         <div class="flex flex-wrap gap-8 mt-12 pt-10" style="border-top:1px solid rgba(255,255,255,0.18);animation:fadeInUp 0.6s 0.4s ease both;">
           <div>
-            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:white;">70%+</div>
-            <div style="font-size:0.8rem;color:rgba(255,255,255,0.58);font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Recycled or Reused</div>
+            <div style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:white;">70%+</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.58);font-family:'Quicksand',sans-serif;font-weight:400;margin-top:2px;">Recycled or Reused</div>
           </div>
           <div>
-            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:white;">Free</div>
-            <div style="font-size:0.8rem;color:rgba(255,255,255,0.58);font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Always, No Appointment</div>
+            <div style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:white;">Free</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.58);font-family:'Quicksand',sans-serif;font-weight:400;margin-top:2px;">Always, No Appointment</div>
           </div>
           <div>
-            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:white;">Johor</div>
-            <div style="font-size:0.8rem;color:rgba(255,255,255,0.58);font-family:'Roboto',sans-serif;font-weight:400;margin-top:2px;">Based &amp; Operating</div>
+            <div style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1.8rem;letter-spacing:-0.03em;color:white;">Johor</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.58);font-family:'Quicksand',sans-serif;font-weight:400;margin-top:2px;">Based &amp; Operating</div>
           </div>
         </div>
 
@@ -676,7 +676,7 @@
 
     <!-- Scroll cue -->
     <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0.5;animation:bounce 2s ease-in-out infinite;z-index:10;">
-      <span style="font-family:'Roboto',sans-serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:white;">Scroll</span>
+      <span style="font-family:'Quicksand',sans-serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:white;">Scroll</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
   </section>
@@ -684,33 +684,33 @@
   <!-- ══════════════════════════════════════════
        MARQUEE STRIP
   ══════════════════════════════════════════ -->
-  <div style="background:#F4D000;padding:14px 0;overflow:hidden;border-top:1px solid rgba(74,74,68,0.06);border-bottom:1px solid rgba(74,74,68,0.06);">
+  <div style="background:#FFDD00;padding:14px 0;overflow:hidden;border-top:1px solid rgba(74,74,68,0.06);border-bottom:1px solid rgba(74,74,68,0.06);">
     <div style="display:flex;overflow:hidden;">
       <div class="marquee-track" style="gap:40px;">
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Recycle Textiles</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#545454;text-transform:uppercase;">Recycle Textiles</span>
         <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Become More</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#545454;text-transform:uppercase;">Become More</span>
         <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Zero Waste</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#545454;text-transform:uppercase;">Zero Waste</span>
         <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Community-Driven</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#545454;text-transform:uppercase;">Community-Driven</span>
         <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Clean &amp; Simple</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#545454;text-transform:uppercase;">Clean &amp; Simple</span>
         <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Sustainable</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#545454;text-transform:uppercase;">Sustainable</span>
         <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
         <!-- duplicate for seamless loop -->
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Recycle Textiles</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#545454;text-transform:uppercase;">Recycle Textiles</span>
         <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Become More</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#545454;text-transform:uppercase;">Become More</span>
         <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Zero Waste</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#545454;text-transform:uppercase;">Zero Waste</span>
         <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Community-Driven</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#545454;text-transform:uppercase;">Community-Driven</span>
         <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Clean &amp; Simple</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#545454;text-transform:uppercase;">Clean &amp; Simple</span>
         <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
-        <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#4A4A44;text-transform:uppercase;">Sustainable</span>
+        <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;color:#545454;text-transform:uppercase;">Sustainable</span>
         <span style="color:rgba(74,74,68,0.4);font-size:0.8rem;">✦</span>
       </div>
     </div>
@@ -719,7 +719,7 @@
   <!-- ══════════════════════════════════════════
        WHY YELLOW BIN
   ══════════════════════════════════════════ -->
-  <section id="why-yellowbin" style="padding:100px 0;background:#FAFAF8;">
+  <section id="why-yellowbin" style="padding:100px 0;background:#fff6ea;">
     <div class="max-w-6xl mx-auto px-6">
 
       <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -740,21 +740,21 @@
             </div>
           </div>
           <!-- Floating label -->
-          <div style="position:absolute;bottom:-18px;right:24px;background:#F4D000;border-radius:100px;padding:10px 18px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;color:#4A4A44;box-shadow:0 4px 16px rgba(244,208,0,0.4);">
+          <div style="position:absolute;bottom:-18px;right:24px;background:#FFDD00;border-radius:100px;padding:10px 18px;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.8rem;color:#545454;box-shadow:0 4px 16px rgba(244,208,0,0.4);">
             ♻ 100% Commitment
           </div>
         </div>
 
         <!-- Right: Content -->
         <div class="reveal" style="transition-delay:0.2s;">
-          <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
-            <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+          <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
+            <span style="width:24px;height:1.5px;background:#FFDD00;display:inline-block;"></span>
             Why Choose Us
           </div>
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.15;margin-bottom:20px;">
+          <h2 style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.03em;color:#545454;line-height:1.15;margin-bottom:20px;">
             A Smarter Way to Give Clothes a Second Chance
           </h2>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.7;color:#6B6B65;margin-bottom:36px;">
+          <p style="font-family:'Quicksand',sans-serif;font-size:0.95rem;line-height:1.7;color:#6B6B65;margin-bottom:36px;">
             We make textile recycling effortless for individuals and responsible for the planet. No guessing, no guilt, just a simple, transparent process you can trust.
           </p>
 
@@ -762,33 +762,33 @@
             <div class="why-card">
               <div style="display:flex;gap:14px;align-items:flex-start;">
                 <div style="width:36px;height:36px;border-radius:8px;background:rgba(244,208,0,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9AB00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD230" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 </div>
                 <div>
-                  <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:4px;">Zero Landfill Commitment</div>
-                  <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;">Every piece dropped off is tracked and diverted from landfill. We report transparently on what happens to your donations.</div>
+                  <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:4px;">Zero Landfill Commitment</div>
+                  <div style="font-family:'Quicksand',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;">Every piece dropped off is tracked and diverted from landfill. We report transparently on what happens to your donations.</div>
                 </div>
               </div>
             </div>
             <div class="why-card">
               <div style="display:flex;gap:14px;align-items:flex-start;">
                 <div style="width:36px;height:36px;border-radius:8px;background:rgba(244,208,0,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9AB00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD230" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
                 <div>
-                  <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:4px;">Community First</div>
-                  <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;">Wearable clothes are redistributed to local charities and community groups first, helping people and the planet at once.</div>
+                  <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:4px;">Community First</div>
+                  <div style="font-family:'Quicksand',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;">Wearable clothes are redistributed to local charities and community groups first, helping people and the planet at once.</div>
                 </div>
               </div>
             </div>
             <div class="why-card">
               <div style="display:flex;gap:14px;align-items:flex-start;">
                 <div style="width:36px;height:36px;border-radius:8px;background:rgba(244,208,0,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9AB00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD230" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                 </div>
                 <div>
-                  <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:4px;">Convenient Collection</div>
-                  <div style="font-family:'Roboto',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;">Bins are placed in convenient, high-footfall locations. Open 24/7 with no appointment, no forms, no fuss.</div>
+                  <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:4px;">Convenient Collection</div>
+                  <div style="font-family:'Quicksand',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;">Bins are placed in convenient, high-footfall locations. Open 24/7 with no appointment, no forms, no fuss.</div>
                 </div>
               </div>
             </div>
@@ -803,7 +803,7 @@
   <!-- ══════════════════════════════════════════
        BE PART OF THE YELLOW MOVEMENT
   ══════════════════════════════════════════ -->
-  <section style="padding:100px 0;background:#F4D000;position:relative;overflow:hidden;">
+  <section style="padding:100px 0;background:#FFDD00;position:relative;overflow:hidden;">
     <!-- Background circles -->
     <div style="position:absolute;top:-80px;right:-80px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,0.1);pointer-events:none;"></div>
     <div style="position:absolute;bottom:-120px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(74,74,68,0.06);pointer-events:none;"></div>
@@ -813,24 +813,24 @@
 
         <!-- Left: Content -->
         <div class="reveal">
-          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(74,74,68,0.1);border-radius:100px;padding:6px 14px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#4A4A44;margin-bottom:20px;">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(74,74,68,0.1);border-radius:100px;padding:6px 14px;font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#545454;margin-bottom:20px;">
             Join the Community
           </div>
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2.2rem,4.5vw,3.6rem);letter-spacing:-0.04em;color:#4A4A44;line-height:1.05;margin-bottom:20px;">
+          <h2 style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:clamp(2.2rem,4.5vw,3.6rem);letter-spacing:-0.04em;color:#545454;line-height:1.05;margin-bottom:20px;">
             Be Part of the<br/>Yellow Movement Now!
           </h2>
-          <p style="font-family:'Roboto',sans-serif;font-size:1rem;line-height:1.75;color:rgba(74,74,68,0.75);margin-bottom:12px;">
+          <p style="font-family:'Quicksand',sans-serif;font-size:1rem;line-height:1.75;color:rgba(74,74,68,0.75);margin-bottom:12px;">
             All in the Yellow Community, join thousands of Malaysians who are making textile recycling a part of everyday life.
           </p>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.75;color:rgba(74,74,68,0.7);margin-bottom:36px;">
+          <p style="font-family:'Quicksand',sans-serif;font-size:0.95rem;line-height:1.75;color:rgba(74,74,68,0.7);margin-bottom:36px;">
             Whether you're an individual, a business, or a school, everyone has a role to play. Drop off your unwanted clothes and textiles at your nearest Yellow Bin and be part of a growing movement that's changing how Malaysia thinks about waste.
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:12px;">
-            <a href="/about" style="display:inline-flex;align-items:center;gap:8px;background:#4A4A44;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.875rem;padding:13px 26px;border-radius:6px;text-decoration:none;transition:background 0.2s ease,transform 0.15s ease;box-shadow:0 4px 16px rgba(74,74,68,0.25);" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#4A4A44'">
+            <a href="/about" style="display:inline-flex;align-items:center;gap:8px;background:#545454;color:white;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.875rem;padding:13px 26px;border-radius:6px;text-decoration:none;transition:background 0.2s ease,transform 0.15s ease;box-shadow:0 4px 16px rgba(74,74,68,0.25);" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#545454'">
               Learn More
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-            <a href="/find-a-bin" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#4A4A44;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.875rem;padding:12px 26px;border-radius:6px;text-decoration:none;border:2px solid rgba(74,74,68,0.35);transition:border-color 0.2s ease,background 0.2s ease;" onmouseover="this.style.borderColor='#4A4A44';this.style.background='rgba(74,74,68,0.06)'" onmouseout="this.style.borderColor='rgba(74,74,68,0.35)';this.style.background='transparent'">
+            <a href="/find-a-bin" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#545454;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.875rem;padding:12px 26px;border-radius:6px;text-decoration:none;border:2px solid rgba(74,74,68,0.35);transition:border-color 0.2s ease,background 0.2s ease;" onmouseover="this.style.borderColor='#545454';this.style.background='rgba(74,74,68,0.06)'" onmouseout="this.style.borderColor='rgba(74,74,68,0.35)';this.style.background='transparent'">
               Find a Bin
             </a>
           </div>
@@ -840,24 +840,24 @@
         <div class="reveal" style="transition-delay:0.15s;">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
             <div style="background:rgba(74,74,68,0.08);border-radius:16px;padding:24px 20px;backdrop-filter:blur(4px);">
-              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-0.03em;color:#4A4A44;margin-bottom:4px;">Free</div>
-              <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.82rem;color:#4A4A44;margin-bottom:6px;">Drop-Off, Always</div>
-              <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;line-height:1.5;color:rgba(74,74,68,0.65);">No registration, no appointment, no cost</div>
+              <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-0.03em;color:#545454;margin-bottom:4px;">Free</div>
+              <div style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.82rem;color:#545454;margin-bottom:6px;">Drop-Off, Always</div>
+              <div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;line-height:1.5;color:rgba(74,74,68,0.65);">No registration, no appointment, no cost</div>
             </div>
             <div style="background:rgba(74,74,68,0.08);border-radius:16px;padding:24px 20px;">
-              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-0.03em;color:#4A4A44;margin-bottom:4px;">Johor</div>
-              <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.82rem;color:#4A4A44;margin-bottom:6px;">Where We Operate</div>
-              <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;line-height:1.5;color:rgba(74,74,68,0.65);">Bins across Johor Bahru and surrounding areas</div>
+              <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-0.03em;color:#545454;margin-bottom:4px;">Johor</div>
+              <div style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.82rem;color:#545454;margin-bottom:6px;">Where We Operate</div>
+              <div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;line-height:1.5;color:rgba(74,74,68,0.65);">Bins across Johor Bahru and surrounding areas</div>
             </div>
             <div style="background:rgba(74,74,68,0.08);border-radius:16px;padding:24px 20px;">
-              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-0.03em;color:#4A4A44;margin-bottom:4px;">Zero</div>
-              <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.82rem;color:#4A4A44;margin-bottom:6px;">Landfill Commitment</div>
-              <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;line-height:1.5;color:rgba(74,74,68,0.65);">Every item is tracked and diverted from landfill</div>
+              <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-0.03em;color:#545454;margin-bottom:4px;">Zero</div>
+              <div style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.82rem;color:#545454;margin-bottom:6px;">Landfill Commitment</div>
+              <div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;line-height:1.5;color:rgba(74,74,68,0.65);">Every item is tracked and diverted from landfill</div>
             </div>
-            <div style="background:#4A4A44;border-radius:16px;padding:24px 20px;">
-              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-0.03em;color:#F4D000;margin-bottom:4px;">70%+</div>
-              <div style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.82rem;color:white;margin-bottom:6px;">Recycled or Reused</div>
-              <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;line-height:1.5;color:rgba(255,255,255,0.55);">Of every item we collect finds a new purpose</div>
+            <div style="background:#545454;border-radius:16px;padding:24px 20px;">
+              <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:2rem;letter-spacing:-0.03em;color:#FFDD00;margin-bottom:4px;">70%+</div>
+              <div style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.82rem;color:white;margin-bottom:6px;">Recycled or Reused</div>
+              <div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;line-height:1.5;color:rgba(255,255,255,0.55);">Of every item we collect finds a new purpose</div>
             </div>
           </div>
         </div>
@@ -869,7 +869,7 @@
   <!-- ══════════════════════════════════════════
        SUPPORT OUR CAUSE
   ══════════════════════════════════════════ -->
-  <section style="padding:100px 0;background:#4A4A44;position:relative;overflow:hidden;">
+  <section style="padding:100px 0;background:#545454;position:relative;overflow:hidden;">
 
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -881,21 +881,21 @@
             <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(244,208,0,0.15) 0%,transparent 60%);"></div>
           </div>
           <!-- Yellow accent bar -->
-          <div style="position:absolute;bottom:-16px;left:32px;right:32px;height:6px;background:#F4D000;border-radius:100px;box-shadow:0 4px 16px rgba(244,208,0,0.5);"></div>
+          <div style="position:absolute;bottom:-16px;left:32px;right:32px;height:6px;background:#FFDD00;border-radius:100px;box-shadow:0 4px 16px rgba(244,208,0,0.5);"></div>
         </div>
 
         <!-- Right: Content -->
         <div class="reveal" style="transition-delay:0.15s;">
-          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.25);border-radius:100px;padding:6px 14px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#F4D000;margin-bottom:20px;">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.25);border-radius:100px;padding:6px 14px;font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#FFDD00;margin-bottom:20px;">
             Get Involved
           </div>
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.04em;color:white;line-height:1.1;margin-bottom:20px;">
+          <h2 style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.04em;color:white;line-height:1.1;margin-bottom:20px;">
             Support Our Cause
           </h2>
-          <p style="font-family:'Roboto',sans-serif;font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.6);margin-bottom:16px;">
+          <p style="font-family:'Quicksand',sans-serif;font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.6);margin-bottom:16px;">
             Yellow Bin is more than a recycling company, we're a movement built on community action. From our team collecting bins to the volunteers who spread the word, every person makes a difference.
           </p>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.75;color:rgba(255,255,255,0.5);margin-bottom:36px;">
+          <p style="font-family:'Quicksand',sans-serif;font-size:0.95rem;line-height:1.75;color:rgba(255,255,255,0.5);margin-bottom:36px;">
             Partner with us, volunteer, or simply use your nearest Yellow Bin. Every kilo kept out of landfill is a win for Malaysia's future.
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px;">
@@ -906,7 +906,7 @@
           </div>
           <!-- Partner logos -->
           <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:28px;">
-            <div style="font-family:'Roboto',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:14px;">Trusted by community partners</div>
+            <div style="font-family:'Quicksand',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:14px;">Trusted by community partners</div>
             <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
               <div style="background:white;border-radius:8px;padding:6px 14px;height:44px;display:flex;align-items:center;">
                 <img src="brand_assets/00_logo_horizontal.png" alt="Amitabha Foundation" style="height:28px;width:auto;object-fit:contain;" />
@@ -936,15 +936,15 @@
 
       <!-- Header -->
       <div class="reveal" style="margin-bottom:52px;text-align:center;">
-        <div style="display:inline-flex;align-items:center;gap:10px;font-family:'Roboto',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#6B6B65;margin-bottom:14px;">
-          <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+        <div style="display:inline-flex;align-items:center;gap:10px;font-family:'Quicksand',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#6B6B65;margin-bottom:14px;">
+          <span style="width:24px;height:1.5px;background:#FFDD00;display:inline-block;"></span>
           Community Partners
-          <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+          <span style="width:24px;height:1.5px;background:#FFDD00;display:inline-block;"></span>
         </div>
-        <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.8rem,3.2vw,2.6rem);letter-spacing:-0.04em;color:#4A4A44;line-height:1.1;margin-bottom:14px;">
+        <h2 style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:clamp(1.8rem,3.2vw,2.6rem);letter-spacing:-0.04em;color:#545454;line-height:1.1;margin-bottom:14px;">
           Together for a Greener Malaysia
         </h2>
-        <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.75;color:#6B6B65;max-width:500px;margin:0 auto;">
+        <p style="font-family:'Quicksand',sans-serif;font-size:0.95rem;line-height:1.75;color:#6B6B65;max-width:500px;margin:0 auto;">
           We're proud to work alongside organisations that share our commitment to community, sustainability, and a better future.
         </p>
       </div>
@@ -1014,11 +1014,11 @@
   </style>
 
   <!-- Separator -->
-  <div style="background:#FAFAF8;padding:0 0 0;display:flex;justify-content:center;">
+  <div style="background:#fff6ea;padding:0 0 0;display:flex;justify-content:center;">
     <div style="width:100%;max-width:900px;margin:0 auto;padding:0 24px;">
       <div style="height:1px;background:linear-gradient(to right,transparent,rgba(74,74,68,0.12) 20%,rgba(74,74,68,0.12) 80%,transparent);position:relative;">
-        <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#FAFAF8;padding:0 16px;">
-          <div style="width:8px;height:8px;background:#F4D000;border-radius:50%;box-shadow:0 0 0 3px rgba(244,208,0,0.2);"></div>
+        <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff6ea;padding:0 16px;">
+          <div style="width:8px;height:8px;background:#FFDD00;border-radius:50%;box-shadow:0 0 0 3px rgba(244,208,0,0.2);"></div>
         </div>
       </div>
     </div>
@@ -1027,7 +1027,7 @@
   <!-- ══════════════════════════════════════════
        RECYCLING EVENTS
   ══════════════════════════════════════════ -->
-  <section style="padding:100px 0;background:#FAFAF8;">
+  <section style="padding:100px 0;background:#fff6ea;">
     <div class="max-w-6xl mx-auto px-6">
 
       <div class="grid lg:grid-cols-2 gap-16 items-start">
@@ -1035,33 +1035,33 @@
         <!-- Left: Events -->
         <div>
           <div class="reveal" style="margin-bottom:40px;">
-            <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
-              <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+            <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:16px;">
+              <span style="width:24px;height:1.5px;background:#FFDD00;display:inline-block;"></span>
               Programs &amp; Events
             </div>
-            <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;margin-bottom:16px;">
+            <h2 style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-0.03em;color:#545454;line-height:1.1;margin-bottom:16px;">
               Recycling Events at Yellow Bin
             </h2>
-            <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.75;color:#6B6B65;">
+            <p style="font-family:'Quicksand',sans-serif;font-size:0.95rem;line-height:1.75;color:#6B6B65;">
               We run community events and reward programmes to make recycling fun, accessible, and meaningful for everyone.
             </p>
           </div>
 
           <!-- Past Events (dynamic) -->
           <div id="past-events-section">
-            <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
-              <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+            <div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+              <span style="width:24px;height:1.5px;background:#FFDD00;display:inline-block;"></span>
               Past Events
             </div>
             <div id="past-events-list" style="display:flex;flex-direction:column;gap:16px;">
-              <div style="text-align:center;padding:32px 0;color:#9A9A94;font-family:'Roboto',sans-serif;font-size:0.875rem;">Loading events…</div>
+              <div style="text-align:center;padding:32px 0;color:#9A9A94;font-family:'Quicksand',sans-serif;font-size:0.875rem;">Loading events…</div>
             </div>
           </div>
 
           <!-- Upcoming Events (dynamic) -->
           <div id="upcoming-events-section" style="display:none;margin-top:36px;">
-            <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
-              <span style="width:24px;height:1.5px;background:#F4D000;display:inline-block;"></span>
+            <div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#6B6B65;margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+              <span style="width:24px;height:1.5px;background:#FFDD00;display:inline-block;"></span>
               Upcoming Events
             </div>
             <div id="upcoming-events-list" style="display:flex;flex-direction:column;gap:20px;"></div>
@@ -1071,31 +1071,31 @@
 
         <!-- Right: Social Responsibility -->
         <div class="reveal" style="transition-delay:0.2s;">
-          <div style="background:#4A4A44;border-radius:20px;overflow:hidden;box-shadow:0 16px 48px rgba(74,74,68,0.15);">
+          <div style="background:#545454;border-radius:20px;overflow:hidden;box-shadow:0 16px 48px rgba(74,74,68,0.15);">
             <div style="aspect-ratio:16/9;overflow:hidden;position:relative;">
               <img src="Chosen%20Pictures/2总会志工与居民分享环保的资讯.jpg" alt="Social Responsibility" style="width:100%;height:100%;object-fit:cover;" />
               <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(74,74,68,0.9) 100%);"></div>
-              <div style="position:absolute;top:16px;left:16px;background:#F4D000;border-radius:6px;padding:6px 12px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.04em;color:#4A4A44;">SOCIAL RESPONSIBILITY</div>
+              <div style="position:absolute;top:16px;left:16px;background:#FFDD00;border-radius:6px;padding:6px 12px;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.04em;color:#545454;">SOCIAL RESPONSIBILITY</div>
             </div>
             <div style="padding:28px 28px 32px;">
-              <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.25rem;color:white;margin-bottom:12px;letter-spacing:-0.02em;">Making an Impact Beyond the Bin</h3>
-              <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.7;color:rgba(255,255,255,0.55);margin-bottom:20px;">
+              <h3 style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:1.25rem;color:white;margin-bottom:12px;letter-spacing:-0.02em;">Making an Impact Beyond the Bin</h3>
+              <p style="font-family:'Quicksand',sans-serif;font-size:0.875rem;line-height:1.7;color:rgba(255,255,255,0.55);margin-bottom:20px;">
                 Yellow Bin actively supports underprivileged communities by redistributing wearable donations directly to shelters, welfare homes, and refugee centres across Malaysia and third world countries abroad.
               </p>
               <div style="display:flex;gap:20px;margin-bottom:24px;">
                 <div style="text-align:center;">
-                  <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;letter-spacing:-0.03em;color:#F4D000;">15+</div>
-                  <div style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:2px;">Welfare Homes</div>
+                  <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:1.4rem;letter-spacing:-0.03em;color:#FFDD00;">15+</div>
+                  <div style="font-family:'Quicksand',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:2px;">Welfare Homes</div>
                 </div>
                 <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
                 <div style="text-align:center;">
-                  <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;letter-spacing:-0.03em;color:#F4D000;">10K+</div>
-                  <div style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:2px;">Beneficiaries</div>
+                  <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:1.4rem;letter-spacing:-0.03em;color:#FFDD00;">10K+</div>
+                  <div style="font-family:'Quicksand',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:2px;">Beneficiaries</div>
                 </div>
                 <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
                 <div style="text-align:center;">
-                  <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;letter-spacing:-0.03em;color:#F4D000;">5 yrs</div>
-                  <div style="font-family:'Roboto',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:2px;">Of Service</div>
+                  <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:1.4rem;letter-spacing:-0.03em;color:#FFDD00;">5 yrs</div>
+                  <div style="font-family:'Quicksand',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:2px;">Of Service</div>
                 </div>
               </div>
               <a href="/our-impact" class="btn-primary" style="width:100%;justify-content:center;">Learn About Our Impact</a>
@@ -1110,27 +1110,27 @@
   <!-- ══════════════════════════════════════════
        NEWSLETTER
   ══════════════════════════════════════════ -->
-  <section style="padding:80px 0;background:#F4D000;">
+  <section style="padding:80px 0;background:#FFDD00;">
     <div class="max-w-4xl mx-auto px-6">
       <div class="grid md:grid-cols-2 gap-12 items-center">
 
         <div class="reveal">
-          <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(74,74,68,0.6);margin-bottom:12px;">Stay in the loop</div>
-          <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-0.03em;color:#4A4A44;line-height:1.1;margin-bottom:12px;">
+          <div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(74,74,68,0.6);margin-bottom:12px;">Stay in the loop</div>
+          <h2 style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-0.03em;color:#545454;line-height:1.1;margin-bottom:12px;">
             The Yellow Bin Newsletter
           </h2>
-          <p style="font-family:'Roboto',sans-serif;font-size:0.9rem;line-height:1.7;color:rgba(74,74,68,0.7);">
+          <p style="font-family:'Quicksand',sans-serif;font-size:0.9rem;line-height:1.7;color:rgba(74,74,68,0.7);">
             Get updates on new bin locations, recycling events, community stories, and sustainability tips, straight to your inbox.
           </p>
         </div>
 
         <div class="reveal" style="transition-delay:0.15s;">
-          <form onsubmit="event.preventDefault();this.innerHTML='<div style=\'font-family:Montserrat,sans-serif;font-weight:700;color:#4A4A44;font-size:1rem;\'>✓ You\'re subscribed!</div>';">
+          <form onsubmit="event.preventDefault();this.innerHTML='<div style=\'font-family:'League Spartan',sans-serif;font-weight:700;color:#545454;font-size:1rem;\'>✓ You\'re subscribed!</div>';">
             <div style="display:flex;gap:0;background:white;border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(74,74,68,0.15);">
-              <input type="email" required placeholder="Your email address" style="flex:1;padding:15px 18px;font-family:'Roboto',sans-serif;font-size:0.9rem;color:#4A4A44;border:none;outline:none;background:transparent;" />
-              <button type="submit" style="background:#4A4A44;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;padding:12px 22px;border:none;cursor:pointer;transition:background 0.2s ease;white-space:nowrap;letter-spacing:0.02em;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#4A4A44'">Subscribe</button>
+              <input type="email" required placeholder="Your email address" style="flex:1;padding:15px 18px;font-family:'Quicksand',sans-serif;font-size:0.9rem;color:#545454;border:none;outline:none;background:transparent;" />
+              <button type="submit" style="background:#545454;color:white;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;padding:12px 22px;border:none;cursor:pointer;transition:background 0.2s ease;white-space:nowrap;letter-spacing:0.02em;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#545454'">Subscribe</button>
             </div>
-            <div style="font-family:'Roboto',sans-serif;font-size:0.75rem;color:rgba(74,74,68,0.55);margin-top:10px;">
+            <div style="font-family:'Quicksand',sans-serif;font-size:0.75rem;color:rgba(74,74,68,0.55);margin-top:10px;">
               No spam. Unsubscribe anytime. We respect your privacy.
             </div>
           </form>
@@ -1143,16 +1143,16 @@
   <!-- ══════════════════════════════════════════
        FAQ
   ══════════════════════════════════════════ -->
-  <section id="faq" style="padding:100px 0;background:#FAFAF8;">
+  <section id="faq" style="padding:100px 0;background:#fff6ea;">
     <div class="max-w-3xl mx-auto px-6">
       <div class="text-center reveal" style="margin-bottom:56px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.3);border-radius:100px;padding:6px 16px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#C9AB00;margin-bottom:20px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.3);border-radius:100px;padding:6px 16px;font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#FFD230;margin-bottom:20px;">
           Common Questions
         </div>
-        <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.04em;color:#4A4A44;line-height:1.1;margin-bottom:16px;">
-          Frequently Asked <span style="color:#F4D000;">Questions</span>
+        <h2 style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.04em;color:#545454;line-height:1.1;margin-bottom:16px;">
+          Frequently Asked <span style="color:#FFDD00;">Questions</span>
         </h2>
-        <p style="font-family:'Roboto',sans-serif;font-size:0.95rem;line-height:1.7;color:#6B6B65;max-width:480px;margin:0 auto;">
+        <p style="font-family:'Quicksand',sans-serif;font-size:0.95rem;line-height:1.7;color:#6B6B65;max-width:480px;margin:0 auto;">
           Everything you need to know about recycling your textiles with Yellow Bin.
         </p>
       </div>
@@ -1160,61 +1160,61 @@
 
         <div class="faq-item reveal" style="border-top:1px solid #E0E0D8;">
           <button onclick="toggleFaq(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 0;background:none;border:none;cursor:pointer;text-align:left;gap:16px;">
-            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;letter-spacing:-0.01em;">What is Yellow Bin?</span>
-            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#F4D000;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:1rem;color:#545454;letter-spacing:-0.01em;">What is Yellow Bin?</span>
+            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#FFDD00;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#545454" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </button>
           <div class="faq-answer" style="display:none;padding-bottom:24px;">
-            <p style="font-family:'Roboto',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">Yellow Bin is one of Malaysia's pioneer in recycling and textile social enterprise. We place convenient collection bins across Johor Bahru so you can drop off old clothes, bags, and fabrics anytime for free.</p>
+            <p style="font-family:'Quicksand',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">Yellow Bin is one of Malaysia's pioneer in recycling and textile social enterprise. We place convenient collection bins across Johor Bahru so you can drop off old clothes, bags, and fabrics anytime for free.</p>
           </div>
         </div>
 
         <div class="faq-item reveal" style="border-top:1px solid #E0E0D8;">
           <button onclick="toggleFaq(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 0;background:none;border:none;cursor:pointer;text-align:left;gap:16px;">
-            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;letter-spacing:-0.01em;">What items can I put in a Yellow Bin?</span>
-            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#F4D000;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:1rem;color:#545454;letter-spacing:-0.01em;">What items can I put in a Yellow Bin?</span>
+            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#FFDD00;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#545454" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </button>
           <div class="faq-answer" style="display:none;padding-bottom:24px;">
-            <p style="font-family:'Roboto',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">You can donate clothing, textiles, bags, shoes, accessories, uniforms, workwear, and household fabrics like curtains and towels. Items should be clean and dry.</p>
+            <p style="font-family:'Quicksand',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">You can donate clothing, textiles, bags, shoes, accessories, uniforms, workwear, and household fabrics like curtains and towels. Items should be clean and dry.</p>
           </div>
         </div>
 
         <div class="faq-item reveal" style="border-top:1px solid #E0E0D8;">
           <button onclick="toggleFaq(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 0;background:none;border:none;cursor:pointer;text-align:left;gap:16px;">
-            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;letter-spacing:-0.01em;">Where can I find a Yellow Bin near me?</span>
-            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#F4D000;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:1rem;color:#545454;letter-spacing:-0.01em;">Where can I find a Yellow Bin near me?</span>
+            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#FFDD00;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#545454" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </button>
           <div class="faq-answer" style="display:none;padding-bottom:24px;">
-            <p style="font-family:'Roboto',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">We have 15+ bin locations across Johor Bahru. Use our <a href="/find-a-bin" style="color:#C9AB00;font-weight:500;text-decoration:underline;">Find a Bin</a> page to locate the nearest drop-off point.</p>
+            <p style="font-family:'Quicksand',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">We have 15+ bin locations across Johor Bahru. Use our <a href="/find-a-bin" style="color:#FFD230;font-weight:500;text-decoration:underline;">Find a Bin</a> page to locate the nearest drop-off point.</p>
           </div>
         </div>
 
         <div class="faq-item reveal" style="border-top:1px solid #E0E0D8;">
           <button onclick="toggleFaq(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 0;background:none;border:none;cursor:pointer;text-align:left;gap:16px;">
-            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;letter-spacing:-0.01em;">Is it free to use Yellow Bin?</span>
-            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#F4D000;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:1rem;color:#545454;letter-spacing:-0.01em;">Is it free to use Yellow Bin?</span>
+            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#FFDD00;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#545454" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </button>
           <div class="faq-answer" style="display:none;padding-bottom:24px;">
-            <p style="font-family:'Roboto',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">Yes, dropping off your textiles at a Yellow Bin is completely free. Simply bring your items to the nearest bin and drop them in, no registration or appointment needed.</p>
+            <p style="font-family:'Quicksand',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">Yes, dropping off your textiles at a Yellow Bin is completely free. Simply bring your items to the nearest bin and drop them in, no registration or appointment needed.</p>
           </div>
         </div>
 
         <div class="faq-item reveal" style="border-top:1px solid #E0E0D8;border-bottom:1px solid #E0E0D8;">
           <button onclick="toggleFaq(this)" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 0;background:none;border:none;cursor:pointer;text-align:left;gap:16px;">
-            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:#4A4A44;letter-spacing:-0.01em;">What happens to the clothes I donate?</span>
-            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#F4D000;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#4A4A44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:1rem;color:#545454;letter-spacing:-0.01em;">What happens to the clothes I donate?</span>
+            <span class="faq-icon" style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#FFDD00;display:flex;align-items:center;justify-content:center;transition:transform 0.3s ease;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="#545454" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
           </button>
           <div class="faq-answer" style="display:none;padding-bottom:24px;">
-            <p style="font-family:'Roboto',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">Donated or recycled textiles will be sorted and redistributed to those in need, repurposed for industrial use or recycled into new materials, keeping them out of landfill and reducing textile waste in Malaysia.</p>
+            <p style="font-family:'Quicksand',sans-serif;font-size:0.92rem;line-height:1.75;color:#6B6B65;">Donated or recycled textiles will be sorted and redistributed to those in need, repurposed for industrial use or recycled into new materials, keeping them out of landfill and reducing textile waste in Malaysia.</p>
           </div>
         </div>
 
@@ -1236,14 +1236,14 @@
   ══════════════════════════════════════════ -->
   <section class="cta-banner" style="padding:80px 0;">
     <div class="max-w-4xl mx-auto px-6 text-center reveal" style="position:relative;z-index:1;">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.25);border-radius:100px;padding:6px 16px;font-family:'Roboto',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#F4D000;margin-bottom:24px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,208,0,0.12);border:1px solid rgba(244,208,0,0.25);border-radius:100px;padding:6px 16px;font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:#FFDD00;margin-bottom:24px;">
         Get Involved
       </div>
-      <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,3.5rem);letter-spacing:-0.04em;color:white;line-height:1.05;margin-bottom:20px;">
+      <h2 style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,3.5rem);letter-spacing:-0.04em;color:white;line-height:1.05;margin-bottom:20px;">
         Ready to Make a<br/>
-        <span style="color:#F4D000;">Difference?</span>
+        <span style="color:#FFDD00;">Difference?</span>
       </h2>
-      <p style="font-family:'Roboto',sans-serif;font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto 36px;">
+      <p style="font-family:'Quicksand',sans-serif;font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto 36px;">
         Join thousands of Malaysians already recycling their textiles with Yellow Bin. It takes 30 seconds. Your planet will thank you.
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
@@ -1269,7 +1269,7 @@
         <!-- Brand -->
         <div class="md:col-span-2">
           <img src="brand_assets/Yellow Bin Logo_New White.png" alt="Yellow Bin" style="height:78px;width:auto;margin-bottom:16px;" />
-          <p style="font-family:'Roboto',sans-serif;font-size:0.875rem;line-height:1.7;color:rgba(255,255,255,0.45);max-width:280px;margin-bottom:20px;">
+          <p style="font-family:'Quicksand',sans-serif;font-size:0.875rem;line-height:1.7;color:rgba(255,255,255,0.45);max-width:280px;margin-bottom:20px;">
             Malaysia's trusted recycling social enterprise, turning waste into community impact across Johor &amp; Singapore.
           </p>
           <!-- Social links -->
@@ -1288,7 +1288,7 @@
 
         <!-- Company -->
         <div>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">Company</div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">Company</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <a href="/blog" class="footer-link">Blog</a>
             <a href="/about" class="footer-link">About Us</a>
@@ -1300,7 +1300,7 @@
 
         <!-- Support -->
         <div>
-          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">Get In Touch</div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;">Get In Touch</div>
           <div style="display:flex;flex-direction:column;gap:10px;">
             <a href="index.html#faq" class="footer-link">FAQ</a>
             <a href="https://outlook.office.com/mail/deeplink/compose?to=enquiry@yellowbin.com.my" target="_blank" class="footer-link">Email Us</a>
@@ -1315,7 +1315,7 @@
 
       <!-- Bottom bar -->
       <div style="padding-top:28px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;">
-        <div style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.3);">
+        <div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.3);">
           © 2026 Yellow Bin. All rights reserved.
         </div>
         <div></div>
@@ -1382,7 +1382,7 @@
       100% { background-position:  200% center; }
     }
     .stat-shimmer {
-      background: linear-gradient(90deg, #4A4A44 40%, #F4D000 50%, #4A4A44 60%);
+      background: linear-gradient(90deg, #545454 40%, #FFDD00 50%, #545454 60%);
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -1421,7 +1421,7 @@
     const searchWrapper = searchInput?.parentElement;
     if (searchInput && searchWrapper) {
       searchInput.addEventListener('focus', () => {
-        searchWrapper.style.borderColor = '#F4D000';
+        searchWrapper.style.borderColor = '#FFDD00';
         searchWrapper.style.boxShadow = '0 0 0 3px rgba(244,208,0,0.15), 0 2px 12px rgba(74,74,68,0.06)';
       });
       searchInput.addEventListener('blur', () => {
@@ -1445,7 +1445,7 @@
       const { data } = await sb.from('events').select('*').lt('date', today).order('date', { ascending: false }).limit(4);
       const list = document.getElementById('past-events-list');
       if (!data || data.length === 0) {
-        list.innerHTML = '<div style="background:white;border-radius:12px;padding:20px;border:1px solid rgba(208,208,208,0.4);display:flex;gap:14px;align-items:center;"><div style="width:48px;height:48px;border-radius:10px;background:#F4D000;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A4A44" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div style="font-family:\'Montserrat\',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:4px;">Recycle &amp; Reward</div><p style="font-family:\'Roboto\',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;margin:0;">Drop off textiles at participating bins and earn rewards redeemable for vouchers and community prizes.</p></div></div><div style="background:white;border-radius:12px;padding:20px;border:1px solid rgba(208,208,208,0.4);display:flex;gap:14px;align-items:center;"><div style="width:48px;height:48px;border-radius:10px;background:#4A4A44;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><div style="font-family:\'Montserrat\',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:4px;">Community Drives</div><p style="font-family:\'Roboto\',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;margin:0;">We partner with schools, mosques, and corporates to run dedicated collection drives.</p></div></div>';
+        list.innerHTML = '<div style="background:white;border-radius:12px;padding:20px;border:1px solid rgba(208,208,208,0.4);display:flex;gap:14px;align-items:center;"><div style="width:48px;height:48px;border-radius:10px;background:#FFDD00;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#545454" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div style="font-family:\'League Spartan\',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:4px;">Recycle &amp; Reward</div><p style="font-family:\'Quicksand\',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;margin:0;">Drop off textiles at participating bins and earn rewards redeemable for vouchers and community prizes.</p></div></div><div style="background:white;border-radius:12px;padding:20px;border:1px solid rgba(208,208,208,0.4);display:flex;gap:14px;align-items:center;"><div style="width:48px;height:48px;border-radius:10px;background:#545454;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><div style="font-family:\'League Spartan\',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:4px;">Community Drives</div><p style="font-family:\'Quicksand\',sans-serif;font-size:0.82rem;line-height:1.6;color:#6B6B65;margin:0;">We partner with schools, mosques, and corporates to run dedicated collection drives.</p></div></div>';
         return;
       }
       list.innerHTML = data.map(ev => {
@@ -1457,14 +1457,14 @@
         <div style="background:white;border-radius:12px;padding:16px;border:1px solid rgba(208,208,208,0.4);box-shadow:0 2px 8px rgba(74,74,68,0.04);display:flex;gap:14px;align-items:flex-start;">
           ${ev.poster_url
             ? `<img src="${ev.poster_url}" alt="${ev.title}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;flex-shrink:0;" />`
-            : `<div style="width:60px;height:60px;border-radius:8px;background:#4A4A44;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.05rem;color:#F4D000;line-height:1;">${day}</span><span style="font-family:'Roboto',sans-serif;font-weight:500;font-size:0.55rem;color:rgba(255,255,255,0.6);letter-spacing:0.08em;">${mon}</span></div>`}
+            : `<div style="width:60px;height:60px;border-radius:8px;background:#545454;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:1.05rem;color:#FFDD00;line-height:1;">${day}</span><span style="font-family:'Quicksand',sans-serif;font-weight:500;font-size:0.55rem;color:rgba(255,255,255,0.6);letter-spacing:0.08em;">${mon}</span></div>`}
           <div style="min-width:0;flex:1;">
-            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:#4A4A44;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.title}</div>
-            <div style="font-family:'Roboto',sans-serif;font-size:0.76rem;color:#9A9A94;margin-bottom:6px;display:flex;align-items:center;gap:6px;">
+            <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.title}</div>
+            <div style="font-family:'Quicksand',sans-serif;font-size:0.76rem;color:#9A9A94;margin-bottom:6px;display:flex;align-items:center;gap:6px;">
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               ${dateStr}${ev.location ? ' · ' + ev.location : ''}
             </div>
-            ${ev.description ? `<div style="font-family:'Roboto',sans-serif;font-size:0.78rem;color:#9A9A94;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${ev.description}</div>` : ''}
+            ${ev.description ? `<div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;color:#9A9A94;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${ev.description}</div>` : ''}
           </div>
         </div>`;
       }).join('');
@@ -1489,24 +1489,24 @@
           <div style="position:relative;width:100%;aspect-ratio:16/7;overflow:hidden;">
             <img src="${ev.poster_url}" alt="${ev.title}" style="width:100%;height:100%;object-fit:cover;display:block;" />
             <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(30,30,26,0.55) 100%);"></div>
-            <div style="position:absolute;top:12px;left:12px;background:#F4D000;border-radius:8px;padding:6px 10px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
-              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.1rem;color:#4A4A44;line-height:1;">${day}</div>
-              <div style="font-family:'Roboto',sans-serif;font-weight:600;font-size:0.6rem;color:#6B6B65;letter-spacing:0.08em;margin-top:1px;">${mon} ${year}</div>
+            <div style="position:absolute;top:12px;left:12px;background:#FFDD00;border-radius:8px;padding:6px 10px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+              <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:1.1rem;color:#545454;line-height:1;">${day}</div>
+              <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:0.6rem;color:#6B6B65;letter-spacing:0.08em;margin-top:1px;">${mon} ${year}</div>
             </div>
           </div>` : `
-          <div style="background:linear-gradient(135deg,#F4D000 0%,#e8c400 100%);padding:20px 20px 16px;display:flex;align-items:center;gap:14px;">
+          <div style="background:linear-gradient(135deg,#FFDD00 0%,#e8c400 100%);padding:20px 20px 16px;display:flex;align-items:center;gap:14px;">
             <div style="background:white;border-radius:10px;padding:8px 12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);flex-shrink:0;">
-              <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.4rem;color:#4A4A44;line-height:1;">${day}</div>
-              <div style="font-family:'Roboto',sans-serif;font-weight:600;font-size:0.62rem;color:#6B6B65;letter-spacing:0.08em;margin-top:2px;">${mon} ${year}</div>
+              <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:1.4rem;color:#545454;line-height:1;">${day}</div>
+              <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:0.62rem;color:#6B6B65;letter-spacing:0.08em;margin-top:2px;">${mon} ${year}</div>
             </div>
-            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#4A4A44;line-height:1.3;">${ev.title}</div>
+            <div style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1rem;color:#545454;line-height:1.3;">${ev.title}</div>
           </div>`}
           <div style="padding:18px 20px 20px;">
-            ${hasPoster ? `<div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;color:#4A4A44;margin-bottom:8px;line-height:1.3;">${ev.title}</div>` : ''}
-            ${ev.location ? `<div style="font-family:'Roboto',sans-serif;font-size:0.8rem;color:#6B6B65;margin-bottom:8px;display:flex;align-items:center;gap:5px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${ev.location}</div>` : ''}
-            ${ev.description ? `<div style="font-family:'Roboto',sans-serif;font-size:0.82rem;color:#8A8A84;line-height:1.6;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${ev.description}</div>` : '<div style="margin-bottom:14px;"></div>'}
+            ${hasPoster ? `<div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.95rem;color:#545454;margin-bottom:8px;line-height:1.3;">${ev.title}</div>` : ''}
+            ${ev.location ? `<div style="font-family:'Quicksand',sans-serif;font-size:0.8rem;color:#6B6B65;margin-bottom:8px;display:flex;align-items:center;gap:5px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${ev.location}</div>` : ''}
+            ${ev.description ? `<div style="font-family:'Quicksand',sans-serif;font-size:0.82rem;color:#8A8A84;line-height:1.6;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${ev.description}</div>` : '<div style="margin-bottom:14px;"></div>'}
             ${ev.link ? `
-            <a href="${ev.link}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;background:#4A4A44;color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.03em;padding:10px 18px;border-radius:8px;text-decoration:none;transition:background 0.2s ease;" onmouseover="this.style.background='#F4D000';this.style.color='#4A4A44'" onmouseout="this.style.background='#4A4A44';this.style.color='white'">
+            <a href="${ev.link}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;background:#545454;color:white;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.03em;padding:10px 18px;border-radius:8px;text-decoration:none;transition:background 0.2s ease;" onmouseover="this.style.background='#FFDD00';this.style.color='#545454'" onmouseout="this.style.background='#545454';this.style.color='white'">
               Follow Event
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>` : ''}
@@ -1536,9 +1536,9 @@
 <!-- WhatsApp Float -->
 <div id="wa-widget" style="position:fixed;bottom:26px;right:26px;z-index:9998;display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
   <div id="wa-options" style="display:none;flex-direction:column;gap:8px;align-items:flex-end;">
-    <a href="https://wa.me/60123611200?text=Hi%2C+I%27d+like+to+find+a+Yellow+Bin+near+me." target="_blank" rel="noopener" style="background:white;color:#2A2A24;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.78rem;padding:9px 14px;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,0.12);white-space:nowrap;" onmouseover="this.style.background='#f0fdf4'" onmouseout="this.style.background='white'">📍 Find a bin near me</a>
-    <a href="https://wa.me/60123611200?text=Hi%2C+I%27d+like+to+request+a+Yellow+Bin+placement." target="_blank" rel="noopener" style="background:white;color:#2A2A24;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.78rem;padding:9px 14px;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,0.12);white-space:nowrap;" onmouseover="this.style.background='#f0fdf4'" onmouseout="this.style.background='white'">🗑️ Request a bin placement</a>
-    <a href="https://wa.me/60123611200?text=Hi%2C+I+have+a+question+about+Yellow+Bin." target="_blank" rel="noopener" style="background:white;color:#2A2A24;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.78rem;padding:9px 14px;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,0.12);white-space:nowrap;" onmouseover="this.style.background='#f0fdf4'" onmouseout="this.style.background='white'">💬 General enquiry</a>
+    <a href="https://wa.me/60123611200?text=Hi%2C+I%27d+like+to+find+a+Yellow+Bin+near+me." target="_blank" rel="noopener" style="background:white;color:#2A2A24;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.78rem;padding:9px 14px;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,0.12);white-space:nowrap;" onmouseover="this.style.background='#f0fdf4'" onmouseout="this.style.background='white'">📍 Find a bin near me</a>
+    <a href="https://wa.me/60123611200?text=Hi%2C+I%27d+like+to+request+a+Yellow+Bin+placement." target="_blank" rel="noopener" style="background:white;color:#2A2A24;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.78rem;padding:9px 14px;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,0.12);white-space:nowrap;" onmouseover="this.style.background='#f0fdf4'" onmouseout="this.style.background='white'">🗑️ Request a bin placement</a>
+    <a href="https://wa.me/60123611200?text=Hi%2C+I+have+a+question+about+Yellow+Bin." target="_blank" rel="noopener" style="background:white;color:#2A2A24;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.78rem;padding:9px 14px;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,0.12);white-space:nowrap;" onmouseover="this.style.background='#f0fdf4'" onmouseout="this.style.background='white'">💬 General enquiry</a>
   </div>
   <button onclick="toggleWA()" aria-label="Chat on WhatsApp" style="width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.45);border:none;cursor:pointer;flex-shrink:0;transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 28px rgba(37,211,102,0.6)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(37,211,102,0.45)'">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
