@@ -210,6 +210,20 @@
       background: #1A1A16;
       border-top: 1px solid rgba(255,255,255,0.06);
     }
+
+    /* Event gallery sections */
+    .event-section { padding: 64px 0; }
+    .event-section + .event-section { border-top: 1px solid rgba(84,84,84,0.1); }
+    .section-eyebrow {
+      font-family: 'League Spartan', sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: #9A9A94; margin: 0 0 10px;
+    }
+    .section-title {
+      font-family: 'League Spartan', sans-serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 900;
+      color: #1A1A16; letter-spacing: -0.03em; line-height: 1.1;
+      margin: 0 0 32px; padding-left: 18px; border-left: 4px solid #FFDD00;
+    }
   </style>
 </head>
 <body>
@@ -256,33 +270,124 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <main style="padding: 56px 0 80px;">
+  <!-- GALLERY SECTIONS -->
+  <main style="padding: 40px 0 100px;">
     <div class="max-w-7xl mx-auto px-6">
 
-      <!-- Loading skeletons -->
-      <div id="gallery-loading" class="gallery-grid">
-        <div class="skeleton" style="height:220px;margin-bottom:16px;animation-delay:0s;"></div>
-        <div class="skeleton" style="height:300px;margin-bottom:16px;animation-delay:0.05s;"></div>
-        <div class="skeleton" style="height:180px;margin-bottom:16px;animation-delay:0.1s;"></div>
-        <div class="skeleton" style="height:260px;margin-bottom:16px;animation-delay:0.15s;"></div>
-        <div class="skeleton" style="height:240px;margin-bottom:16px;animation-delay:0.2s;"></div>
-        <div class="skeleton" style="height:200px;margin-bottom:16px;animation-delay:0.25s;"></div>
-        <div class="skeleton" style="height:280px;margin-bottom:16px;animation-delay:0.3s;"></div>
-        <div class="skeleton" style="height:190px;margin-bottom:16px;animation-delay:0.35s;"></div>
-      </div>
+      <!-- 01 MHME Green Campaign -->
+      <section class="event-section">
+        <p class="section-eyebrow">Event 01</p>
+        <h2 class="section-title">MHME Green Campaign</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item" style="animation-delay:0s;" onclick="openLightbox('Event_Pictures/MHME%20Green%20Campaign%20(17%20April%202019)/20190417_014652963_iOS.jpg','')"><img src="Event_Pictures/MHME%20Green%20Campaign%20(17%20April%202019)/20190417_014652963_iOS.jpg" alt="MHME Green Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.04s;" onclick="openLightbox('Event_Pictures/MHME%20Green%20Campaign%20(17%20April%202019)/20190417_023839820_iOS.jpg','')"><img src="Event_Pictures/MHME%20Green%20Campaign%20(17%20April%202019)/20190417_023839820_iOS.jpg" alt="MHME Green Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.08s;" onclick="openLightbox('Event_Pictures/MHME%20Green%20Campaign%20(17%20April%202019)/20190417_032225213_iOS.jpg','')"><img src="Event_Pictures/MHME%20Green%20Campaign%20(17%20April%202019)/20190417_032225213_iOS.jpg" alt="MHME Green Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.12s;" onclick="openLightbox('Event_Pictures/MHME%20Green%20Campaign%20(17%20April%202019)/20190417_055912231_iOS.jpg','')"><img src="Event_Pictures/MHME%20Green%20Campaign%20(17%20April%202019)/20190417_055912231_iOS.jpg" alt="MHME Green Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/MHME%20Green%20Campaign%20(17%20April%202019)/20190417_062139960_iOS.jpg','')"><img src="Event_Pictures/MHME%20Green%20Campaign%20(17%20April%202019)/20190417_062139960_iOS.jpg" alt="MHME Green Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+        </div>
+      </section>
 
-      <!-- Gallery grid -->
-      <div id="gallery-grid" class="gallery-grid" style="display:none;"></div>
+      <!-- 02 Disaster Relief Campaign -->
+      <section class="event-section">
+        <p class="section-eyebrow">Event 02</p>
+        <h2 class="section-title">Disaster Relief Campaign (AM x YB)</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item" style="animation-delay:0s;" onclick="openLightbox('Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/20150403_173618.jpg','')"><img src="Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/20150403_173618.jpg" alt="Disaster Relief Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.04s;" onclick="openLightbox('Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/20150918_180932.jpg','')"><img src="Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/20150918_180932.jpg" alt="Disaster Relief Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.08s;" onclick="openLightbox('Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/20150918_181340_001.jpg','')"><img src="Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/20150918_181340_001.jpg" alt="Disaster Relief Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.12s;" onclick="openLightbox('Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/4.jpg','')"><img src="Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/4.jpg" alt="Disaster Relief Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/7.jpg','')"><img src="Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/7.jpg" alt="Disaster Relief Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/DSC05847.JPG','')"><img src="Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/DSC05847.JPG" alt="Disaster Relief Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/DSC05879.JPG','')"><img src="Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/DSC05879.JPG" alt="Disaster Relief Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/DSC05949.JPG','')"><img src="Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/DSC05949.JPG" alt="Disaster Relief Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/_SAM9891.jpg','')"><img src="Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/_SAM9891.jpg" alt="Disaster Relief Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/_SAM9937.jpg','')"><img src="Event_Pictures/Disaster%20Relief%20Campaign%20(AM%20x%20YB)/_SAM9937.jpg" alt="Disaster Relief Campaign" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+        </div>
+      </section>
 
-      <!-- Empty state -->
-      <div id="gallery-empty" style="display:none;" class="empty-state">
-        <svg style="width:64px;height:64px;color:#C0C0BA;margin:0 auto 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-        </svg>
-        <h3 style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:1.1rem;color:#545454;margin:0 0 8px;">No images yet</h3>
-        <p style="font-family:'Quicksand',sans-serif;font-size:0.875rem;color:#9A9A94;margin:0;">Check back soon, our team is uploading moments from recent events.</p>
-      </div>
+      <!-- 03 SJK(C) Kempas Baru -->
+      <section class="event-section">
+        <p class="section-eyebrow">Event 03</p>
+        <h2 class="section-title">SJK(C) Kempas Baru</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item" style="animation-delay:0s;" onclick="openLightbox('Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0039.jpg','')"><img src="Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0039.jpg" alt="SJK(C) Kempas Baru" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.04s;" onclick="openLightbox('Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0040.jpg','')"><img src="Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0040.jpg" alt="SJK(C) Kempas Baru" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.08s;" onclick="openLightbox('Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0042.jpg','')"><img src="Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0042.jpg" alt="SJK(C) Kempas Baru" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.12s;" onclick="openLightbox('Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0045.jpg','')"><img src="Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0045.jpg" alt="SJK(C) Kempas Baru" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0046.jpg','')"><img src="Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0046.jpg" alt="SJK(C) Kempas Baru" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0047.jpg','')"><img src="Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0047.jpg" alt="SJK(C) Kempas Baru" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0048.jpg','')"><img src="Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0048.jpg" alt="SJK(C) Kempas Baru" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0049.jpg','')"><img src="Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0049.jpg" alt="SJK(C) Kempas Baru" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0050.jpg','')"><img src="Event_Pictures/SJK%20(C)%20Kempas%20Baru/IMG-20170125-WA0050.jpg" alt="SJK(C) Kempas Baru" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+        </div>
+      </section>
+
+      <!-- 04 SJK(C) Foon Yew 3 -->
+      <section class="event-section">
+        <p class="section-eyebrow">Event 04</p>
+        <h2 class="section-title">SJK(C) Foon Yew 3</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item" style="animation-delay:0s;" onclick="openLightbox('Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/DSC_0274.JPG','')"><img src="Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/DSC_0274.JPG" alt="SJK(C) Foon Yew 3" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.04s;" onclick="openLightbox('Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/DSC_0279.JPG','')"><img src="Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/DSC_0279.JPG" alt="SJK(C) Foon Yew 3" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.08s;" onclick="openLightbox('Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/DSC_0280.JPG','')"><img src="Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/DSC_0280.JPG" alt="SJK(C) Foon Yew 3" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.12s;" onclick="openLightbox('Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3361.JPG','')"><img src="Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3361.JPG" alt="SJK(C) Foon Yew 3" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3375.JPG','')"><img src="Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3375.JPG" alt="SJK(C) Foon Yew 3" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3383.JPG','')"><img src="Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3383.JPG" alt="SJK(C) Foon Yew 3" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3388.JPG','')"><img src="Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3388.JPG" alt="SJK(C) Foon Yew 3" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3401.JPG','')"><img src="Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3401.JPG" alt="SJK(C) Foon Yew 3" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3405.JPG','')"><img src="Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3405.JPG" alt="SJK(C) Foon Yew 3" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3407.JPG','')"><img src="Event_Pictures/SJKC%20Foon%20Yew%203%20Recyle%20Program/IMG_3407.JPG" alt="SJK(C) Foon Yew 3" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+        </div>
+      </section>
+
+      <!-- 05 SMK Mount Austin -->
+      <section class="event-section">
+        <p class="section-eyebrow">Event 05</p>
+        <h2 class="section-title">SMK Mount Austin</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item" style="animation-delay:0s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2698.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2698.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.04s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2699.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2699.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.08s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2713.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2713.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.12s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2714.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2714.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2715.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2715.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2717.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2717.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2720.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2720.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2721.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2721.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2725.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2725.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2726.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2726.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2727.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2727.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2729.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2729.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2730.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2730.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2731.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2731.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2732.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2732.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2733.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2733.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2734.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2734.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2735.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2735.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2736.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2736.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2737.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2737.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2738.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2738.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/SMK%20Mount%20Austin/IMG_2739.JPG','')"><img src="Event_Pictures/SMK%20Mount%20Austin/IMG_2739.JPG" alt="SMK Mount Austin" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+        </div>
+      </section>
+
+      <!-- 06 A-Z Kindergarten -->
+      <section class="event-section">
+        <p class="section-eyebrow">Event 06</p>
+        <h2 class="section-title">A-Z Kindergarten</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item" style="animation-delay:0s;" onclick="openLightbox('Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0027.jpg','')"><img src="Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0027.jpg" alt="A-Z Kindergarten" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.04s;" onclick="openLightbox('Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0028.jpg','')"><img src="Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0028.jpg" alt="A-Z Kindergarten" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.08s;" onclick="openLightbox('Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0029.jpg','')"><img src="Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0029.jpg" alt="A-Z Kindergarten" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.12s;" onclick="openLightbox('Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0030.jpg','')"><img src="Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0030.jpg" alt="A-Z Kindergarten" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0031.jpg','')"><img src="Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0031.jpg" alt="A-Z Kindergarten" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0032.jpg','')"><img src="Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0032.jpg" alt="A-Z Kindergarten" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0033.jpg','')"><img src="Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0033.jpg" alt="A-Z Kindergarten" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0034.jpg','')"><img src="Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0034.jpg" alt="A-Z Kindergarten" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0035.jpg','')"><img src="Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0035.jpg" alt="A-Z Kindergarten" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0036.jpg','')"><img src="Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0036.jpg" alt="A-Z Kindergarten" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+          <div class="gallery-item" style="animation-delay:0.16s;" onclick="openLightbox('Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0037.jpg','')"><img src="Event_Pictures/Tadika%20A-Z/IMG-20170428-WA0037.jpg" alt="A-Z Kindergarten" loading="lazy" style="border-radius:12px;"><div class="gallery-item-overlay"></div></div>
+        </div>
+      </section>
 
     </div>
   </main>
@@ -375,7 +480,6 @@
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3Y2RxaGNubXp5bHh2ZnRvdXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMDYwNDcsImV4cCI6MjA5MDY4MjA0N30.Z2jR0GM5KZj7xfpxnxX37rDoG7XRUy82jseirJfQvxU'
     );
 
-    // Auth state
     (async () => {
       const { data: { session } } = await sb.auth.getSession();
       if (session) {
@@ -384,39 +488,6 @@
       }
     })();
 
-    // Load gallery images
-    async function loadGallery() {
-      const { data, error } = await sb.from('gallery').select('*').order('created_at', { ascending: false });
-
-      document.getElementById('gallery-loading').style.display = 'none';
-
-      if (error || !data || data.length === 0) {
-        document.getElementById('gallery-empty').style.display = 'block';
-        return;
-      }
-
-      const grid = document.getElementById('gallery-grid');
-      grid.style.display = 'block';
-      grid.innerHTML = data.map((img, i) => `
-        <div class="gallery-item" style="animation-delay:${i * 0.04}s;" onclick="openLightbox('${escapeAttr(img.url)}', '${escapeAttr(img.caption || '')}')">
-          <img
-            src="${img.url}"
-            alt="${img.caption || 'Gallery image'}"
-            loading="lazy"
-            style="border-radius:12px;"
-          />
-          <div class="gallery-item-overlay">
-            ${img.caption ? `<p class="gallery-item-caption">${img.caption}</p>` : ''}
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function escapeAttr(str) {
-      return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-    }
-
-    // Lightbox
     function openLightbox(url, caption) {
       document.getElementById('lightbox-img').src = url;
       document.getElementById('lightbox-caption').textContent = caption;
@@ -435,8 +506,6 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeLightbox();
     });
-
-    loadGallery();
   </script>
 </body>
 </html>
