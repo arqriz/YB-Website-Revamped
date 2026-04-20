@@ -1043,6 +1043,31 @@
     </div>
   </footer>
 
+  <!-- Supabase auth state -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+  (function(){
+    const sb = supabase.createClient(
+      'https://pwcdqhcnmzylxvftousp.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3Y2RxaGNubXp5bHh2ZnRvdXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMDYwNDcsImV4cCI6MjA5MDY4MjA0N30.Z2jR0GM5KZj7xfpxnxX37rDoG7XRUy82jseirJfQvxU'
+    );
+    sb.auth.getSession().then(({ data: { session } }) => {
+      if (!session) return;
+      document.getElementById('nav-auth-out').style.display = 'none';
+      document.getElementById('mobile-auth-out').style.display = 'none';
+      sb.from('profiles').select('role').eq('id', session.user.id).single().then(({ data }) => {
+        const url = data?.role === 'admin' ? 'admin.html' : 'dashboard.html';
+        const navIn = document.getElementById('nav-auth-in');
+        navIn.querySelector('a').href = url;
+        navIn.style.display = 'flex';
+        const mobileIn = document.getElementById('mobile-auth-in');
+        mobileIn.href = url;
+        mobileIn.style.display = 'block';
+      });
+    });
+  })();
+  </script>
+
   <!-- ══════════════════════════════════════════
        SCRIPTS
   ══════════════════════════════════════════ -->
@@ -1051,17 +1076,6 @@
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-
-    // ── Auth state ──
-    try {
-      const user = JSON.parse(localStorage.getItem('yb_user') || 'null');
-      if (user) {
-        document.getElementById('nav-auth-out').style.display = 'none';
-        document.getElementById('nav-auth-in').style.display = 'flex';
-        document.getElementById('mobile-auth-out').style.display = 'none';
-        document.getElementById('mobile-auth-in').style.display = 'flex';
-      }
-    } catch(e) {}
 
     // ── FAQ toggle ──
     function toggleFaq(btn) {
