@@ -49,7 +49,6 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -146,69 +145,10 @@
     #mobile-menu { display: none; }
     #mobile-menu.open { display: block; }
 
-    .location-card {
-      background: white;
-      border-radius: 14px;
-      padding: 20px 22px;
-      border: 1.5px solid rgba(208,208,217,0.5);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-      cursor: pointer;
-    }
-    .location-card:hover {
-      border-color: #FFDD00;
-      box-shadow: 0 8px 32px rgba(244,208,0,0.12), 0 2px 8px rgba(74,74,68,0.06);
-      transform: translateY(-2px);
-    }
-    .location-card.selected {
-      border-color: #FFDD00;
-      box-shadow: 0 8px 32px rgba(244,208,0,0.2), 0 2px 8px rgba(74,74,68,0.06);
-    }
-
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    #map { width: 100%; height: 100%; }
-
-    /* Custom Leaflet popup */
-    .leaflet-popup-content-wrapper {
-      border-radius: 12px !important;
-      box-shadow: 0 8px 32px rgba(74,74,68,0.18) !important;
-      padding: 0 !important;
-      overflow: hidden;
-    }
-    .leaflet-popup-content { margin: 0 !important; width: auto !important; }
-    .leaflet-popup-tip-container { display: none; }
-    .map-popup { padding: 14px 18px; min-width: 200px; }
-    .map-popup-name { font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 0.875rem; color: #2A2A24; margin-bottom: 4px; }
-    .map-popup-address { font-family: 'Quicksand', sans-serif; font-size: 0.78rem; color: #6B6B65; line-height: 1.5; margin-bottom: 10px; }
-    .map-popup-badge { display: inline-block; background: #FFDD00; color: #545454; font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.04em; padding: 3px 9px; border-radius: 100px; }
-
-    /* Custom yellow marker */
-    .yb-marker {
-      width: 32px; height: 32px;
-      background: #FFDD00;
-      border-radius: 50% 50% 50% 0;
-      transform: rotate(-45deg);
-      border: 2px solid #FFD230;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease;
-    }
-    .yb-marker.active {
-      background: #545454;
-      border-color: #2A2A24;
-      transform: rotate(-45deg) scale(1.25);
-    }
-    .yb-marker-inner {
-      width: 10px; height: 10px;
-      background: #545454;
-      border-radius: 50%;
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .yb-marker.active .yb-marker-inner { background: #FFDD00; }
   </style>
 </head>
 <body>
@@ -282,67 +222,41 @@
         Convenient locations across Johor Bahru and surrounding areas, at supermarkets, schools, and community centres. Open 24/7, no appointment needed.
       </p>
 
-      <!-- Hero Search -->
-      <div style="max-width:520px;animation:fadeInUp 0.6s 0.3s ease both;">
-        <div id="hero-search-wrapper" style="display:flex;background:white;border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2);">
-          <div style="padding:0 16px;display:flex;align-items:center;color:#6B6B65;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <input id="hero-search" type="text" placeholder="Enter your postcode or suburb…" style="flex:1;padding:16px 8px;font-family:'Quicksand',sans-serif;font-size:0.95rem;color:#545454;border:none;outline:none;background:transparent;" />
-          <button onclick="doSearch()" style="background:#FFDD00;color:#545454;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.875rem;padding:14px 24px;border:none;cursor:pointer;transition:background 0.2s ease;white-space:nowrap;" onmouseover="this.style.background='#e6c400'" onmouseout="this.style.background='#FFDD00'">Search</button>
-        </div>
-        <div style="display:flex;gap:20px;margin-top:14px;flex-wrap:wrap;">
-          <button onclick="useLocation()" style="display:inline-flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;font-family:'Quicksand',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.55);transition:color 0.2s ease;padding:0;" onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
-            Use my location
-          </button>
-          <span style="color:rgba(255,255,255,0.2);font-size:0.82rem;">Bins active across Johor</span>
-        </div>
+      <div style="animation:fadeInUp 0.6s 0.3s ease both;">
+        <span style="font-family:'Quicksand',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.4);">Bins active across Johor — click any pin on the map for details, photos & directions.</span>
       </div>
     </div>
   </section>
 
-  <!-- MAP + LOCATIONS -->
-  <section style="padding:80px 0;background:#fff6ea;">
+  <!-- MAP EMBED -->
+  <section style="padding:60px 0 80px;background:#fff6ea;">
     <div class="max-w-6xl mx-auto px-6">
 
-      <div class="grid lg:grid-cols-5 gap-8">
-
-        <!-- Left: Location list -->
-        <div class="lg:col-span-2">
-          <div style="margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-            <h2 style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1.2rem;color:#545454;letter-spacing:-0.02em;">Nearby Locations</h2>
-            <div style="display:flex;gap:8px;">
-              <button id="filter-all" onclick="setFilter('all',this)" style="font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;padding:6px 12px;border-radius:100px;border:1.5px solid #FFDD00;background:#FFDD00;color:#545454;cursor:pointer;transition:all 0.2s;">All</button>
-              <button id="filter-mall" onclick="setFilter('mall',this)" style="font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;padding:6px 12px;border-radius:100px;border:1.5px solid #D0D0D9;background:transparent;color:#6B6B65;cursor:pointer;transition:all 0.2s;">Mall</button>
-              <button id="filter-school" onclick="setFilter('school',this)" style="font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;padding:6px 12px;border-radius:100px;border:1.5px solid #D0D0D9;background:transparent;color:#6B6B65;cursor:pointer;transition:all 0.2s;">School</button>
-              <button id="filter-community" onclick="setFilter('community',this)" style="font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:500;padding:6px 12px;border-radius:100px;border:1.5px solid #D0D0D9;background:transparent;color:#6B6B65;cursor:pointer;transition:all 0.2s;">Community</button>
-            </div>
-          </div>
-
-          <div id="location-list" style="display:flex;flex-direction:column;gap:10px;max-height:580px;overflow-y:auto;padding-right:4px;">
-            <!-- Rendered by JS -->
-          </div>
-
-          <!-- Request a bin -->
-          <div style="margin-top:20px;background:#FFDD00;border-radius:14px;padding:20px 22px;">
-            <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:6px;">Don't see one nearby?</div>
-            <p style="font-family:'Quicksand',sans-serif;font-size:0.82rem;line-height:1.6;color:rgba(74,74,68,0.7);margin-bottom:14px;">Request a Yellow Bin for your building, school, or business. We're expanding every month.</p>
-            <a href="https://wa.me/60123611200?text=Hi%2C%20I%20would%20like%20to%20request%20a%20Yellow%20Bin%20placement." target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#545454;color:white;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.8rem;padding:10px 18px;border-radius:6px;text-decoration:none;transition:background 0.2s ease;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#545454'">
-              Request a Bin
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Right: Map -->
-        <div class="lg:col-span-3">
-          <div style="position:sticky;top:100px;">
-            <div id="map" style="border-radius:20px;overflow:hidden;height:640px;border:1px solid rgba(208,208,217,0.5);box-shadow:0 8px 32px rgba(74,74,68,0.08);"></div>
-          </div>
-        </div>
-
+      <!-- Google My Maps embed -->
+      <div style="border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(74,74,68,0.08);border:1px solid rgba(208,208,217,0.5);height:640px;">
+        <iframe
+          src="https://www.google.com/maps/d/embed?mid=1RUUZLLxkpGTbY8XYzB6fdFKUADmoJ7U"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
+
+      <!-- Don't see one nearby CTA -->
+      <div style="margin-top:20px;background:#FFDD00;border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:4px;">Don't see one nearby?</div>
+          <p style="font-family:'Quicksand',sans-serif;font-size:0.82rem;line-height:1.6;color:rgba(74,74,68,0.7);margin:0;">Request a Yellow Bin for your building, school, or business. We're expanding every month.</p>
+        </div>
+        <a href="https://wa.me/60123611200?text=Hi%2C%20I%20would%20like%20to%20request%20a%20Yellow%20Bin%20placement." target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#545454;color:white;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.8rem;padding:10px 18px;border-radius:6px;text-decoration:none;white-space:nowrap;transition:background 0.2s ease;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#545454'">
+          Request a Bin
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -502,186 +416,7 @@
     </div>
   </footer>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    // ── Location data ──
-    const LOCATIONS = [
-      { name: 'HQ, Maju Jaya JB',               address: 'No.3, Jln Belati 1, Taman Perindustrian Maju Jaya, 81300 JB', type: 'community', lat: 1.547998480933139, lng: 103.70035224134179 },
-      { name: 'Villa Bestari',                   address: 'Jalan Nb2 10/2, Taman Nusa Bestari 2, 81300 Johor Bahru',     type: 'community', lat: 1.4923130032455727, lng: 103.65350725269631 },
-      { name: 'Shattuck St. Marys Forest City',  address: 'Jalan Forest City-Lebuhraya Tanjung Pelepas, Jalan Pulau 1,81550 Gelang Patah Johor.', type: 'school',    lat: 1.3416749993336996, lng: 103.5863254620601 },
-      { name: 'Menara TJB',                      address: 'Jalan Syed Mohd Muffi Bandar Johor Bahru',                    type: 'community', lat: 1.4605694369005668, lng: 103.75937612189836 },
-      { name: 'Amitabha Foundation Children Home', address: '115 & 115A, Jalan Datuk Sulaiman Taman Abad',               type: 'school',    lat: 1.4843281527029453, lng: 103.75716682363839 },
-      { name: 'Fairview International School',   address: 'Lt. Ptd. 168450, Jalan Dato Onn, Mukim Terbrau',              type: 'school',    lat: 1.557806, lng: 103.734028 },
-      { name: 'Shell Taman Daya',                address: 'Jalan Daya, Taman Daya',                                      type: 'community', lat: 1.546611, lng: 103.761750 },
-      { name: 'Shell Aeon Tebrau',               address: 'Persiaran Desa Tebrau Taman Desa Tebrau',                     type: 'community', lat: 1.547306, lng: 103.795500 },
-      { name: 'The Peak Management Office',      address: '143,jalan Mewah Utama Bandar Putra 81000 Kulai',              type: 'community', lat: 1.656472, lng: 103.632028 },
-      { name: 'Mewah View Apartments',           address: 'Jalan Mewah Ria 2/10, Taman Bukit Mewah',                     type: 'community', lat: 1.524222, lng: 103.690333 },
-      { name: 'Pulai View',                      address: 'Pulai View, Johor',                                           type: 'community', lat: 1.502083, lng: 103.695972 },
-      { name: 'IOI Mall Kulai',                  address: 'Lebuh Putra Utama, Bandar Putra Kulai, 81000 Kulai, Johor',   type: 'mall',      lat: 1.648472, lng: 103.627472 }
-    ];
-
-    const TYPE_ICONS = { mall: '🏬', school: '🏫', community: '🏢' };
-
-    // ── Build location cards ──
-    function buildCards(filter) {
-      const list = document.getElementById('location-list');
-      list.innerHTML = '';
-      LOCATIONS.forEach((loc, i) => {
-        if (filter !== 'all' && loc.type !== filter) return;
-        const card = document.createElement('div');
-        card.className = 'location-card' + (i === 0 && filter === 'all' ? ' selected' : '');
-        card.dataset.type = loc.type;
-        card.dataset.index = i;
-        const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}`;
-        card.innerHTML = `
-          <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:6px;">${loc.name}</div>
-          <div style="font-family:'Quicksand',sans-serif;font-size:0.82rem;color:#6B6B65;margin-bottom:8px;">${loc.address}</div>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">
-            <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <span style="background:#fff6ea;border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Quicksand',sans-serif;color:#6B6B65;">${TYPE_ICONS[loc.type] || '📍'} ${loc.type.charAt(0).toUpperCase()+loc.type.slice(1)}</span>
-              <span style="background:rgba(76,175,80,0.08);border-radius:6px;padding:4px 10px;font-size:0.72rem;font-family:'Quicksand',sans-serif;color:#4CAF50;">● Active</span>
-            </div>
-            <a href="${mapsUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="display:inline-flex;align-items:center;gap:5px;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;color:#545454;text-decoration:none;background:#FFDD00;padding:5px 11px;border-radius:6px;transition:background 0.2s;" onmouseover="this.style.background='#e6c400'" onmouseout="this.style.background='#FFDD00'">
-              Directions
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>`;
-        card.addEventListener('click', () => selectLocation(i, card));
-        list.appendChild(card);
-      });
-    }
-
-    // ── Leaflet map setup ──
-    let map, markers = [], activeIndex = 0;
-
-    function makeIcon(active) {
-      return L.divIcon({
-        className: '',
-        html: `<div class="yb-marker${active ? ' active' : ''}"><div class="yb-marker-inner"></div></div>`,
-        iconSize: [32, 32],
-        iconAnchor: [10, 32],
-        popupAnchor: [6, -36],
-      });
-    }
-
-    function initMap() {
-      map = L.map('map', { zoomControl: true, scrollWheelZoom: false });
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        maxZoom: 18,
-      }).addTo(map);
-
-      LOCATIONS.forEach((loc, i) => {
-        const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}`;
-        const marker = L.marker([loc.lat, loc.lng], { icon: makeIcon(i === 0) })
-          .addTo(map)
-          .bindPopup(`
-            <div class="map-popup">
-              <div class="map-popup-name">${loc.name}</div>
-              <div class="map-popup-address">${loc.address}</div>
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
-                <span class="map-popup-badge">${TYPE_ICONS[loc.type] || '📍'} ${loc.type.charAt(0).toUpperCase()+loc.type.slice(1)}</span>
-                <a href="${mapsUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.68rem;color:#545454;text-decoration:none;">
-                  Get Directions <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-              </div>
-            </div>`, { closeButton: false, offset: [0, 0] });
-
-        marker.on('click', () => {
-          const card = document.querySelector(`.location-card[data-index="${i}"]`);
-          if (card) { selectLocation(i, card); card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
-        });
-
-        markers.push(marker);
-      });
-
-      // Start focused on JB (where most pins are)
-      map.setView([1.533, 103.75], 12);
-      markers[0].openPopup();
-    }
-
-    function selectLocation(index, card) {
-      // Update cards
-      document.querySelectorAll('.location-card').forEach(c => c.classList.remove('selected'));
-      if (card) card.classList.add('selected');
-
-      // Update markers
-      markers.forEach((m, i) => m.setIcon(makeIcon(i === index)));
-      activeIndex = index;
-
-      // Pan map
-      const loc = LOCATIONS[index];
-      map.flyTo([loc.lat, loc.lng], 15, { duration: 0.8 });
-      markers[index].openPopup();
-    }
-
-    // ── Filter ──
-    let currentFilter = 'all';
-    function setFilter(type, btn) {
-      currentFilter = type;
-      document.querySelectorAll('[id^="filter-"]').forEach(b => {
-        b.style.background = 'transparent';
-        b.style.borderColor = '#D0D0D9';
-        b.style.color = '#6B6B65';
-      });
-      btn.style.background = '#FFDD00';
-      btn.style.borderColor = '#FFDD00';
-      btn.style.color = '#545454';
-
-      buildCards(type);
-
-      // Show/hide markers
-      markers.forEach((m, i) => {
-        if (type === 'all' || LOCATIONS[i].type === type) {
-          if (!map.hasLayer(m)) m.addTo(map);
-        } else {
-          if (map.hasLayer(m)) map.removeLayer(m);
-        }
-      });
-
-      // If filtered, fit visible markers
-      const visible = LOCATIONS.reduce((acc, loc, i) => {
-        if (type === 'all' || loc.type === type) acc.push([loc.lat, loc.lng]);
-        return acc;
-      }, []);
-      if (visible.length) map.fitBounds(visible, { padding: [40, 40], maxZoom: 14 });
-    }
-
-    // ── Search ──
-    function doSearch() {
-      const val = document.getElementById('hero-search').value.trim().toLowerCase();
-      if (!val) return;
-      const match = LOCATIONS.findIndex(l =>
-        l.name.toLowerCase().includes(val) || l.address.toLowerCase().includes(val)
-      );
-      if (match !== -1) {
-        buildCards('all');
-        document.querySelectorAll('[id^="filter-"]').forEach(b => { b.style.background='transparent'; b.style.borderColor='#D0D0D9'; b.style.color='#6B6B65'; });
-        document.getElementById('filter-all').style.background='#FFDD00';
-        document.getElementById('filter-all').style.borderColor='#FFDD00';
-        document.getElementById('filter-all').style.color='#545454';
-        const card = document.querySelector(`.location-card[data-index="${match}"]`);
-        selectLocation(match, card);
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      } else {
-        document.querySelector('.lg\\:col-span-2').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-    document.getElementById('hero-search').addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
-
-    function useLocation() {
-      if (!navigator.geolocation) return;
-      navigator.geolocation.getCurrentPosition((pos) => {
-        const { latitude, longitude } = pos.coords;
-        map.setView([latitude, longitude], 13);
-        L.circleMarker([latitude, longitude], {
-          radius: 10, fillColor: '#545454', color: 'white',
-          weight: 2, opacity: 1, fillOpacity: 0.9
-        }).addTo(map).bindPopup('<div class="map-popup"><div class="map-popup-name">Your Location</div></div>').openPopup();
-        document.getElementById('hero-search').placeholder = 'Location detected…';
-      });
-    }
-
     // ── Nav ──
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -696,9 +431,6 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => revealObserver.observe(el));
 
-    // ── Init ──
-    buildCards('all');
-    initMap();
   </script>
 
   <!-- WhatsApp Float -->
