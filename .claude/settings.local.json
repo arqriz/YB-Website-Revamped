@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(node -e ':*)",
-      "Bash(node screenshot.mjs http://localhost:3000/blog.html journal)"
+      "Bash(node screenshot.mjs http://localhost:3000/blog.html journal)",
+      "Read(//c/c/Users/canon/Documents/YB Website/**)"
     ]
   }
 }
