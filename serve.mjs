@@ -28,7 +28,15 @@ http.createServer((req, res) => {
   let urlPath = decodeURIComponent(req.url.split('?')[0]);
   if (urlPath === '/') urlPath = '/index.html';
 
-  const filePath = path.join(__dirname, urlPath);
+  const resolveFile = (p) => {
+    const direct = path.join(__dirname, p);
+    if (path.extname(direct)) return direct;
+    const withHtml = direct + '.html';
+    if (fs.existsSync(withHtml)) return withHtml;
+    return direct;
+  };
+
+  const filePath = resolveFile(urlPath);
   const ext = path.extname(filePath).toLowerCase();
   const contentType = MIME[ext] || 'application/octet-stream';
 
@@ -42,5 +50,5 @@ http.createServer((req, res) => {
     res.end(data);
   });
 }).listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
+  console.log('Server running at http://localhost:' + PORT + '/');
 });
