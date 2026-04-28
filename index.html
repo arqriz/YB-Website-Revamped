@@ -1138,7 +1138,7 @@
         </div>
 
         <div class="reveal" style="transition-delay:0.15s;">
-          <form onsubmit="event.preventDefault();this.innerHTML='<div style=\'font-family:'League Spartan',sans-serif;font-weight:700;color:#545454;font-size:1rem;\'>✓ You\'re subscribed!</div>';">
+          <form onsubmit="event.preventDefault();this.innerHTML='<div style=\'font-family:\'League Spartan\',sans-serif;font-weight:700;color:#545454;font-size:1rem;\'>✓ You\'re subscribed!</div>';">
             <div style="display:flex;gap:0;background:white;border-radius:10px;overflow:hidden;box-shadow:0 8px 24px rgba(74,74,68,0.15);">
               <input type="email" required placeholder="Your email address" style="flex:1;padding:15px 18px;font-family:'Quicksand',sans-serif;font-size:0.9rem;color:#545454;border:none;outline:none;background:transparent;" />
               <button type="submit" style="background:#545454;color:white;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;padding:12px 22px;border:none;cursor:pointer;transition:background 0.2s ease;white-space:nowrap;letter-spacing:0.02em;" onmouseover="this.style.background='#333'" onmouseout="this.style.background='#545454'">Subscribe</button>
@@ -1641,4 +1641,9 @@
       const rot   = ((Math.random() > 0.5 ? 1 : -1) * (Math.random() * 280 + 80)).toFixed(0) + 'deg';
       b.style.cssText =
         `--sz:${size}rem;--dur:${dur}s;--del:${delay}s;--op:${op};--drift:${drift};--rot:${rot};left:${left}%;`;
-      layer.appendChil
+      layer.appendChild(b);
+    }
+  })();
+  </script>
+</body>
+</html>
