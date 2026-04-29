@@ -42,8 +42,15 @@ http.createServer((req, res) => {
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end('404 Not Found');
+      fs.readFile(path.join(__dirname, '404.html'), (err404, page404) => {
+        if (err404) {
+          res.writeHead(404, { 'Content-Type': 'text/plain' });
+          res.end('404 Not Found');
+          return;
+        }
+        res.writeHead(404, { 'Content-Type': 'text/html' });
+        res.end(page404);
+      });
       return;
     }
     res.writeHead(200, { 'Content-Type': contentType });
