@@ -372,6 +372,18 @@
               </a>
             </div>
           </div>
+
+          <!-- Search bar -->
+          <div class="fade-up-5" style="margin-top:32px;">
+            <div style="font-family:'Quicksand',sans-serif;font-size:0.82rem;font-weight:600;color:#6B6B65;margin-bottom:10px;">Can't find what you're looking for? Try searching:</div>
+            <form onsubmit="handleSearch(event)" style="display:flex;gap:8px;max-width:400px;">
+              <input id="search-input" type="text" placeholder="e.g. bin locations, what we accept…" aria-label="Search site" style="flex:1;font-family:'Quicksand',sans-serif;font-size:0.88rem;padding:11px 14px;border:1.5px solid #D0D0D9;border-radius:8px;outline:none;background:white;color:#545454;transition:border-color 0.2s ease;" onfocus="this.style.borderColor='#FFDD00'" onblur="this.style.borderColor='#D0D0D9'" />
+              <button type="submit" class="btn-primary" style="padding:11px 18px;font-size:0.85rem;">Search</button>
+            </form>
+            <p style="font-family:'Quicksand',sans-serif;font-size:0.78rem;color:rgba(74,74,68,0.45);margin-top:16px;">
+              Found a broken link? <a href="mailto:enquiry@yellowbin.com.my?subject=Broken%20Link%20Report&body=Hi%2C%20I%20found%20a%20broken%20link%20on%20yellowbin.com.my%3A%20" style="color:#c8a800;text-decoration:underline;">Let us know</a>
+            </p>
+          </div>
         </div>
 
         <!-- Right: animated bin illustration -->
@@ -451,7 +463,7 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid md:grid-cols-4 gap-6 pb-6 border-b border-white/10">
         <div class="md:col-span-2">
-          <img src="/brand_assets/Yellow%20Bin%20Logo_New%20White.png" alt="Yellow Bin" style="height:78px;width:auto;margin-bottom:16px;" />
+          <img src="/brand_assets/Yellow%20Bin%20Logo_New%20White.png" alt="Yellow Bin" loading="lazy" style="height:78px;width:auto;margin-bottom:16px;" />
           <p style="font-family:'Quicksand',sans-serif;font-size:0.82rem;line-height:1.6;color:rgba(255,255,255,0.45);max-width:280px;margin-bottom:12px;">
             Malaysia's trusted recycling social enterprise, turning waste into community impact across Johor &amp; Singapore.
           </p>
@@ -489,8 +501,9 @@
         </div>
       </div>
       <div style="padding-top:16px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;">
-        <div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.3);">
-          © 2026 Yellow Bin. All rights reserved.
+        <div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.3);">© 2026 Yellow Bin. All rights reserved.</div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;">
+          <a href="/sitemap" class="footer-link" style="font-size:0.78rem;color:rgba(255,255,255,0.3);">Sitemap</a>
         </div>
       </div>
     </div>
@@ -509,6 +522,13 @@
   </div>
 
   <script>
+    // Search
+    function handleSearch(e) {
+      e.preventDefault();
+      const q = document.getElementById('search-input').value.trim();
+      if (q) window.location.href = '/find-a-bin?q=' + encodeURIComponent(q);
+    }
+
     // Mobile menu
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('mobile-menu').classList.toggle('open');
