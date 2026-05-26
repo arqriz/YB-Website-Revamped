@@ -183,11 +183,14 @@
 <body>
 
   <!-- NAVIGATION -->
-  <nav id="navbar" class="px-6 py-3">
+    <nav id="navbar" class="px-6 py-3">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
       <a href="/" class="flex-shrink-0">
-        <img src="brand_assets/Yellow Bin Logo_New White.png" alt="Yellow Bin, Recycle Textiles" style="height:78px;width:auto;" />
+        <img src="brand_assets/Yellow%20Bin%20Logo_New%20White.png" alt="Yellow Bin, Recycle Textiles" style="height:78px;width:auto;" />
       </a>
+
+      <!-- Desktop Nav -->
       <div class="hidden md:flex items-center gap-8">
         <a href="/" class="nav-link">Home</a>
         <a href="/how-it-works" class="nav-link">How It Works</a>
@@ -195,6 +198,8 @@
         <a href="/about" class="nav-link">About Us</a>
         <a href="/gallery" class="nav-link">Gallery</a>
       </div>
+
+      <!-- CTA -->
       <div class="hidden md:flex items-center gap-3">
         <a href="/find-a-bin" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -209,18 +214,25 @@
           <a href="/dashboard" class="btn-primary">Dashboard</a>
         </div>
       </div>
+
+      <!-- Mobile hamburger -->
       <button id="hamburger" class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Open menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
-          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
         </svg>
       </button>
     </div>
+
+    <!-- Mobile menu -->
     <div id="mobile-menu" class="md:hidden bg-white/95 backdrop-blur-md border-t border-grey-light mt-2 rounded-b-2xl shadow-lg">
       <div class="flex flex-col gap-1 px-6 py-4">
         <a href="/" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Home</a>
         <a href="/how-it-works" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">How It Works</a>
         <a href="/blog" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Blog</a>
         <a href="/about" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">About Us</a>
+        <a href="/gallery" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Gallery</a>
         <div id="mobile-auth-out" style="display:flex;gap:8px;margin-top:12px;">
           <a href="/login" style="flex:1;text-align:center;padding:11px;border-radius:6px;border:1.5px solid #545454;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.8rem;color:#545454;text-decoration:none;">Sign In</a>
           <a href="/signup" style="flex:1;text-align:center;padding:11px;border-radius:6px;background:#545454;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.8rem;color:white;text-decoration:none;">Sign Up</a>
@@ -345,11 +357,14 @@
   </section>
 
   <!-- FOOTER -->
-  <footer style="padding:36px 0 20px;">
+    <footer style="padding:36px 0 20px;">
     <div class="max-w-6xl mx-auto px-6">
+
       <div class="grid md:grid-cols-4 gap-6 pb-6 border-b border-white/10">
+
+        <!-- Brand -->
         <div class="md:col-span-2">
-          <img src="brand_assets/Yellow Bin Logo_New White.png" alt="Yellow Bin" loading="lazy" style="height:78px;width:auto;margin-bottom:16px;" />
+          <img src="brand_assets/Yellow%20Bin%20Logo_New%20White.png" alt="Yellow Bin" loading="lazy" style="height:78px;width:auto;margin-bottom:16px;" />
           <p style="font-family:'Quicksand',sans-serif;font-size:0.82rem;line-height:1.6;color:rgba(255,255,255,0.45);max-width:280px;margin-bottom:12px;">
             Malaysia's trusted recycling social enterprise, turning waste into community impact across Johor &amp; Singapore.
           </p>
@@ -365,6 +380,8 @@
             </a>
           </div>
         </div>
+
+        <!-- Company -->
         <div>
           <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;">Company</div>
           <div style="display:flex;flex-direction:column;gap:7px;">
@@ -375,6 +392,8 @@
             <a href="/partner" class="footer-link">Partner With Us</a>
           </div>
         </div>
+
+        <!-- Get In Touch -->
         <div>
           <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;">Get In Touch</div>
           <div style="display:flex;flex-direction:column;gap:7px;">
@@ -383,13 +402,20 @@
             <a href="/find-a-bin" class="footer-link">Find a Bin</a>
             <a href="https://wa.me/60123611200?text=Hi%2C%20I%20would%20like%20to%20recycle%20to%20Yellow%20Bin" target="_blank" class="footer-link">Contact Us</a>
             <a href="https://wa.me/60123611200?text=Hi%2C%20I%20would%20like%20to%20request%20a%20Yellow%20Bin%20placement." target="_blank" class="footer-link">Request a Bin</a>
+            <a href="/gallery" class="footer-link">Press &amp; Media</a>
           </div>
         </div>
+
       </div>
+
+      <!-- Bottom bar -->
       <div style="padding-top:16px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;">
-        <div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.3);">© 2026 Yellow Bin. All rights reserved.</div>
+        <div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;color:rgba(255,255,255,0.3);">
+          © 2026 Yellow Bin. All rights reserved.
+        </div>
         <div style="display:flex;gap:20px;flex-wrap:wrap;"><a href="/sitemap" class="footer-link" style="font-size:0.78rem;color:rgba(255,255,255,0.3);">Sitemap</a></div>
       </div>
+
     </div>
   </footer>
 
