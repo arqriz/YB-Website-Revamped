@@ -308,6 +308,22 @@
     @media (min-width: 1024px) {
       .recycle-categories { grid-template-columns: repeat(3, 1fr); }
     }
+
+    /* ── Mobile: fix language pill overflow ── */
+    @media (max-width: 640px) {
+      [style*="border-radius:20px"][style*="white-space:nowrap"] {
+        white-space: normal !important;
+        max-width: calc(100vw - 52px);
+        overflow-wrap: break-word;
+        word-break: break-word;
+        flex-shrink: 1;
+      }
+      /* Ensure pill flex containers don't cause layout overflow */
+      [style*="flex-wrap:wrap"][style*="gap:6px"] {
+        max-width: 100%;
+        overflow: hidden;
+      }
+    }
   </style>
 </head>
 <body>

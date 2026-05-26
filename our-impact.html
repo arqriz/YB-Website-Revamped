@@ -195,6 +195,22 @@
       0%, 100% { box-shadow: 0 0 0 0 rgba(76,175,80,0.3); }
       50% { box-shadow: 0 0 0 8px rgba(76,175,80,0); }
     }
+
+    /* ── Mobile: fix language pill overflow ── */
+    @media (max-width: 640px) {
+      [style*="border-radius:20px"][style*="white-space:nowrap"] {
+        white-space: normal !important;
+        max-width: calc(100vw - 52px);
+        overflow-wrap: break-word;
+        word-break: break-word;
+        flex-shrink: 1;
+      }
+      /* Ensure pill flex containers don't cause layout overflow */
+      [style*="flex-wrap:wrap"][style*="gap:6px"] {
+        max-width: 100%;
+        overflow: hidden;
+      }
+    }
   </style>
 </head>
 <body>

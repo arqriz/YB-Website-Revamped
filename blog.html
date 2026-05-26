@@ -214,6 +214,22 @@
     /* SKELETON LOADER */
     .skel { background: linear-gradient(90deg, #EEEEE8 25%, #E4E4DE 50%, #EEEEE8 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 8px; }
     @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    /* ── Mobile: fix language pill overflow ── */
+    @media (max-width: 640px) {
+      [style*="border-radius:20px"][style*="white-space:nowrap"] {
+        white-space: normal !important;
+        max-width: calc(100vw - 52px);
+        overflow-wrap: break-word;
+        word-break: break-word;
+        flex-shrink: 1;
+      }
+      /* Ensure pill flex containers don't cause layout overflow */
+      [style*="flex-wrap:wrap"][style*="gap:6px"] {
+        max-width: 100%;
+        overflow: hidden;
+      }
+    }
   </style>
 </head>
 <body>
