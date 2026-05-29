@@ -100,6 +100,11 @@
       background: #fff6ea;
       overflow-x: hidden;
     }
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: block; }
+    footer { background: #000000; }
+    .footer-link { color: #D0D0D9; font-size: 0.875rem; transition: color 0.2s ease; text-decoration: none; }
+    .footer-link:hover { color: #FFDD00; }
     body::before {
       content: '';
       position: fixed;
@@ -1014,10 +1019,10 @@
     reveals.forEach(el => observer.observe(el));
 
     // Mobile menu
-    document.getElementById('hamburger').addEventListener('click', () => {
-      const m = document.getElementById('mobile-menu');
-      m.style.display = m.style.display === 'none' ? 'block' : 'none';
-    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
   </script>
 
   <!-- Supabase auth state -->
