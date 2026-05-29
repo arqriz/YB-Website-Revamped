@@ -354,6 +354,13 @@ nav .max-w-6xl {
   div[style*="width:400px"][style*="border-radius:50%"] {
     display: none !important;
   }
+
+  /* Hero slider — per-slide background-position for portrait mobile crop */
+  .slideshow-bg .slide-item:nth-child(1) { background-position: right center !important; }
+  .slideshow-bg .slide-item:nth-child(3) { background-position: 60% center !important; }
+  .slideshow-bg .slide-item:nth-child(4) { background-position: center top !important; }
+  .slideshow-bg .slide-item:nth-child(5) { background-position: 80% center !important; }
+  .slideshow-bg .slide-item:nth-child(7) { background-position: 55% top !important; }
 }
 
 
