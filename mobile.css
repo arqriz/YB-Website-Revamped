@@ -266,18 +266,22 @@ nav .max-w-6xl {
 
 
 /* ─────────────────────────────────────────
-   14. GRID — auto-fit replaces hard column
-       collapse breakpoints; grids reflow
-       naturally at any width
+   14. GRID — collapse multi-col → single col
+       on small screens only. Must stay in a
+       @media block: auto-fit with a vw-based
+       minmax would override desktop grids
+       (e.g. the about page 3×2 photo grid).
    ───────────────────────────────────────── */
 
-[style*="grid-template-columns:repeat(3,"],
-[style*="grid-template-columns:1fr 1fr 1fr"] {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)) !important;
-}
+@media (max-width: 640px) {
+  [style*="grid-template-columns:repeat(3,"],
+  [style*="grid-template-columns:1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
 
-[style*="grid-template-columns:repeat(4,"] {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)) !important;
+  [style*="grid-template-columns:repeat(4,"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
 
 
