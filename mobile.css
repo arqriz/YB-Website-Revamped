@@ -1,0 +1,447 @@
+/* ============================================================
+   YB Website — Global Footer & Header Normalization
+   Applied at ALL viewport sizes (no media query wrapper).
+   Ensures consistent link colors, font, and section headings
+   across every page regardless of per-page style differences.
+   ============================================================ */
+
+/* ── FOOTER LINKS: enforce #D0D0D9 on all pages.
+      Uses !important so it beats inline color overrides
+      (e.g. the sitemap link rgba(255,255,255,0.3)) and
+      pages that are missing .footer-link CSS (gallery). ── */
+footer .footer-link {
+  color: #D0D0D9 !important;
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 0.875rem !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+footer .footer-link:hover {
+  color: #FFDD00 !important;
+}
+
+/* ── FOOTER SECTION HEADINGS ("Company", "Get In Touch"):
+      bump from rgba(0.35) to 0.6 so they read clearly. ── */
+footer [style*="rgba(255,255,255,0.35)"] {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* ── FOOTER BODY DESCRIPTION TEXT:
+      lighten from 0.45 → 0.6 for legibility. ── */
+footer [style*="rgba(255,255,255,0.45)"] {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* ── SOCIAL ICON LINKS in footer: ensure icons are white. ── */
+footer a[href*="instagram"],
+footer a[href*="facebook"],
+footer a[href*="wa.me"] {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+footer a[href*="instagram"]:hover,
+footer a[href*="facebook"]:hover,
+footer a[href*="wa.me"]:hover {
+  color: #FFDD00 !important;
+}
+footer a[href*="instagram"] svg,
+footer a[href*="facebook"] svg,
+footer a[href*="wa.me"] svg {
+  stroke: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* ── MOBILE MENU LINKS: ensure correct font and weight. ── */
+#mobile-menu a {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.95rem;
+  color: #545454;
+  text-decoration: none;
+}
+/* Active mobile menu link stays yellow */
+#mobile-menu a[style*="color:#FFDD00"] {
+  color: #FFDD00 !important;
+  font-weight: 600 !important;
+}
+
+
+/* ============================================================
+   YB Website — Shared Mobile Responsive Styles
+   Linked from every page. Targets phones (≤767px).
+   Uses !important to override inline styles where needed.
+   ============================================================ */
+
+
+/* ─────────────────────────────────────────
+   1. NAVIGATION — shrink logo, tighten nav
+   ───────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  /* Shrink the 78px logo to 50px on mobile */
+  nav img {
+    height: 50px !important;
+    width: auto !important;
+  }
+
+  /* Reduce nav vertical padding so bar isn't so tall */
+  nav {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   2. HERO SECTION — scale heading for phones
+   ───────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  /* Force a smaller minimum for the clamp on very small phones */
+  .hero-heading {
+    font-size: clamp(2rem, 9.5vw, 3rem) !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.05 !important;
+  }
+
+  /* Hero content area: reduce top padding (less empty space under nav) */
+  .hero-section .max-w-6xl {
+    padding-top: 6rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   3. SECTION PADDING — reduce on mobile
+   ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  /* Tailwind utility overrides */
+  .py-24 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+  .py-20 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+  .py-16 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+
+  /* Sections with inline padding:100px 0 */
+  section[style*="padding:100px"] {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+  section[style*="padding:80px"] {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+  section[style*="padding:64px"] {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   4. STAT / IMPACT NUMBERS — scale down large
+      hardcoded font sizes (2.8rem, 3rem)
+   ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  /* About page & Our Impact stats bar */
+  [style*="font-size:2.8rem"] {
+    font-size: 2rem !important;
+  }
+  [style*="font-size:3rem"] {
+    font-size: 2.2rem !important;
+  }
+
+  /* Stat card cell padding */
+  [style*="padding:40px 32px"] {
+    padding: 24px 20px !important;
+  }
+  [style*="padding:36px 28px"],
+  [style*="padding:36px 32px"] {
+    padding: 24px 20px !important;
+  }
+
+  /* Impact number class (our-impact page) */
+  .impact-number {
+    font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   5. STEP CARDS — reduce padding
+   ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .step-card {
+    padding: 24px 20px !important;
+  }
+
+  /* Step number decorative digit */
+  .step-number {
+    font-size: 3.5rem !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   6. WHY / FEATURE CARDS
+   ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .why-card {
+    padding: 20px 18px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   7. MAX-WIDTH TEXT BLOCKS — let them fill
+      available width on narrow phones
+   ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  /* Large max-width values wider than a typical phone viewport */
+  [style*="max-width:600px"],
+  [style*="max-width:580px"],
+  [style*="max-width:560px"],
+  [style*="max-width:540px"],
+  [style*="max-width:520px"],
+  [style*="max-width:500px"],
+  [style*="max-width:480px"],
+  [style*="max-width:460px"],
+  [style*="max-width:440px"],
+  [style*="max-width:420px"],
+  [style*="max-width:400px"],
+  [style*="max-width:880px"],
+  [style*="max-width:720px"],
+  [style*="max-width:900px"] {
+    max-width: 100% !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   8. MARQUEE / PARTNER LOGOS — keep fade
+      gradients proportional
+   ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  /* Shrink the edge fade masks on the marquee */
+  [style*="background:linear-gradient(to right,white,transparent)"],
+  [style*="background:linear-gradient(to left,white,transparent)"] {
+    width: 48px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   9. DECORATIVE BLOBS — hide on mobile to
+      prevent visual overflow clutter
+   ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  /* Large absolute-positioned decorative circles */
+  div[style*="width:360px"][style*="border-radius:50%"],
+  div[style*="width:280px"][style*="border-radius:50%"],
+  div[style*="width:300px"][style*="border-radius:50%"],
+  div[style*="width:600px"][style*="border-radius:50%"],
+  div[style*="width:400px"][style*="border-radius:50%"] {
+    display: none !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   10. LANGUAGE PILLS — allow wrap on small
+       screens (global fallback)
+   ───────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  [style*="white-space:nowrap"] {
+    white-space: normal !important;
+  }
+  [style*="flex-wrap:wrap"] {
+    flex-wrap: wrap !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   11. FOOTER LOGO — scale down
+   ───────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  footer img {
+    height: 56px !important;
+    width: auto !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   12. HORIZONTAL PADDING — tighter on very
+       small phones (< 400px)
+   ───────────────────────────────────────── */
+
+@media (max-width: 400px) {
+  .px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Nav inner container */
+  nav .max-w-6xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   13. HERO STAT / BADGE ROW — stack on tiny
+       screens
+   ───────────────────────────────────────── */
+
+@media (max-width: 400px) {
+  /* Hero badge row with language pills */
+  .hero-section [style*="display:flex"][style*="flex-wrap:wrap"] {
+    gap: 4px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   14. SLIDE ARROWS — hide on mobile (swipe
+       is the natural gesture)
+   ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .slide-prev,
+  .slide-next {
+    display: none !important;
+  }
+
+  /* Move slide dots higher so they don't sit too low */
+  .slide-dots {
+    bottom: 40px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   15. GRID INLINE STYLES — force single col
+       for any inline grid on phones
+   ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  /* Stats bar: 2-col grid → 2-col stays fine, just reduce cell padding (handled above) */
+
+  /* Any section with inline grid-template-columns that sets 3+ cols */
+  [style*="grid-template-columns:repeat(3,"],
+  [style*="grid-template-columns:1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  [style*="grid-template-columns:repeat(4,"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   16. CARD / SECTION BACKGROUNDS with inline
+       padding on dark CTA sections
+   ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  [style*="padding:80px 0"],
+  [style*="padding:72px 0"] {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+  [style*="padding:48px"],
+  [style*="padding:56px"] {
+    padding: 32px 20px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   17. TOUCH TARGETS — ensure all buttons /
+       links are at least 44px tall
+   ───────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .btn-primary,
+  .btn-secondary {
+    min-height: 44px;
+    padding-top: 11px !important;
+    padding-bottom: 11px !important;
+  }
+
+  /* Mobile menu links already use py-3 (48px) — fine */
+}
+
+
+/* ─────────────────────────────────────────
+   18. FAQ ACCORDION — full-width on mobile
+   ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  [style*="padding:24px 28px"] {
+    padding: 18px 16px !important;
+  }
+  [style*="padding:20px 28px"] {
+    padding: 16px 16px !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   19. FIND-A-BIN MAP / SEARCH — ensure
+       full width inputs on mobile
+   ───────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  [style*="max-width:400px"][style*="display:flex"] {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+
+/* ─────────────────────────────────────────
+   21. ABOUT PAGE — hide oversized image blocks
+       on mobile; text content remains intact
+   ───────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  /* Hero 6-photo grid */
+  .about-hero-photos { display: none !important; }
+
+  /* Volunteer section photo card (right column) */
+  .about-volunteer-photos { display: none !important; }
+
+  /* "What Can We Recycle?" large featured image */
+  .recycle-featured { display: none !important; }
+}
+
+
+/* ─────────────────────────────────────────
+   20. GENERAL OVERFLOW SAFETY — belt &
+       suspenders for any missed elements
+   ───────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  html, body {
+    overflow-x: hidden !important;
+  }
+
+  /* Any image should not exceed its container */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  /* Exception: nav and footer logos handled above with specific heights */
+  nav img,
+  footer img {
+    max-width: none;
+  }
+}
