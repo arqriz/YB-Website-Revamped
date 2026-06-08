@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
-  <link rel="shortcut icon" href="/favicon_io/favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="manifest" href="/favicon_io/site.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How It Works | Yellow Bin Textile Recycling Johor | Start</title>
@@ -956,11 +956,11 @@
 
   <!-- Supabase auth state -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/config.js"></script>
   <script>
   (function(){
     const sb = supabase.createClient(
-      'https://pwcdqhcnmzylxvftousp.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3Y2RxaGNubXp5bHh2ZnRvdXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMDYwNDcsImV4cCI6MjA5MDY4MjA0N30.Z2jR0GM5KZj7xfpxnxX37rDoG7XRUy82jseirJfQvxU'
+      SUPABASE_URL, SUPABASE_ANON_KEY
     );
     sb.auth.getSession().then(({ data: { session } }) => {
       if (!session) return;
