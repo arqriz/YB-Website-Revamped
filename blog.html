@@ -15,20 +15,45 @@
   <link rel="canonical" href="https://yellowbin.com.my/blog" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Yellow Bin Journal",
-    "description": "Stories, updates, community posts and events from Yellow Bin Malaysia's textile recycling movement.",
-    "url": "https://yellowbin.com.my/blog.html",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Yellow Bin",
-      "url": "https://www.yellowbin.com.my",
-      "logo": { "@type": "ImageObject", "url": "https://yellowbin.com.my/brand_assets/Yellow Bin Logo_New.png" }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Yellow Bin Journal",
+      "description": "Stories, updates, community posts and events from Yellow Bin Malaysia's textile recycling movement.",
+      "url": "https://yellowbin.com.my/blog.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Yellow Bin",
+        "url": "https://www.yellowbin.com.my",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://yellowbin.com.my/brand_assets/Yellow Bin Logo_New.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://yellowbin.com.my/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Stories & Posts",
+          "item": "https://yellowbin.com.my/blog"
+        }
+      ]
     }
-  }
-  </script>
+  ]
+}
+</script>
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://yellowbin.com.my/blog" />
