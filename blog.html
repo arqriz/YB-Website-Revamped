@@ -129,7 +129,7 @@
       padding: 8px 18px; border-radius: 100px;
       font-family: 'League Spartan', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.04em;
       border: 1.5px solid transparent;
-      cursor: pointer; transition: all 0.2s ease;
+      cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
       background: white; color: #6B6B65; border-color: #E0E0D8;
     }
     .filter-pill:hover { border-color: #545454; color: #2A2A24; }
@@ -655,27 +655,29 @@
 
     function renderFeatured(item) {
       const hasImg = !!item.image_url;
-      const date = item.type === 'event' && item.event_date ? formatDate(item.event_date) : formatDate(item.created_at);
+      const title = item.title || '';
+      const type = item.type || 'post';
+      const date = type === 'event' && item.event_date ? formatDate(item.event_date) : formatDate(item.created_at);
       return `
         <a href="${item.link || '#'}" target="${item.link ? '_blank' : '_self'}" rel="noopener" class="featured-card reveal-card" style="transition:opacity 0.6s ease,transform 0.6s cubic-bezier(0.4,0,0.2,1);">
           ${hasImg
-            ? `<img class="feat-img" src="${item.image_url}" alt="${item.title}" />`
+            ? `<img class="feat-img" src="${item.image_url}" alt="${title}" />`
             : `<div style="position:absolute;inset:0;background:linear-gradient(135deg,#3A3A34 0%,#2A2A24 100%);"></div>`
           }
           <div class="feat-overlay"></div>
-          ${item.type === 'event' && item.event_date ? `
+          ${type === 'event' && item.event_date ? `
             <div style="position:absolute;top:24px;left:24px;background:#4CAF50;color:white;font-family:'League Spartan',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.06em;padding:6px 14px;border-radius:8px;z-index:2;text-transform:uppercase;">
               📅 ${formatDate(item.event_date)}
             </div>` : ''}
-          <div style="position:absolute;top:24px;${item.type === 'event' && item.event_date ? 'right' : 'left'}:24px;z-index:2;">
-            ${item.type !== 'event' ? typeBadge(item.type) : ''}
+          <div style="position:absolute;top:24px;${type === 'event' && item.event_date ? 'right' : 'left'}:24px;z-index:2;">
+            ${type !== 'event' ? typeBadge(type) : ''}
           </div>
           <div class="feat-content">
             <p style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.1em;color:rgba(255,255,255,0.5);text-transform:uppercase;margin:0 0 10px;">${date}</p>
-            <h2 class="feat-title">${item.title}</h2>
+            <h2 class="feat-title">${title}</h2>
             ${item.description ? `<p class="feat-desc">${item.description}</p>` : ''}
             <div class="feat-cta">
-              ${item.type === 'event' ? 'View Event' : item.type === 'blog' ? 'Read Article' : 'See Post'}
+              ${type === 'event' ? 'View Event' : type === 'blog' ? 'Read Article' : 'See Post'}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </div>
           </div>
@@ -683,33 +685,35 @@
     }
 
     function renderCard(item, idx) {
-      const date = item.type === 'event' && item.event_date ? formatDate(item.event_date) : formatDate(item.created_at);
+      const title = item.title || '';
+      const type = item.type || 'post';
+      const date = type === 'event' && item.event_date ? formatDate(item.event_date) : formatDate(item.created_at);
       const delay = Math.min(idx * 60, 400);
       return `
         <a href="${item.link || '#'}" target="${item.link ? '_blank' : '_self'}" rel="noopener" class="content-card reveal-card" style="transition:opacity 0.55s ${delay}ms ease,transform 0.55s ${delay}ms cubic-bezier(0.4,0,0.2,1);">
           <div class="card-img-wrap" style="height:200px;">
             ${item.image_url
-              ? `<img src="${item.image_url}" alt="${item.title}" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />`
+              ? `<img src="${item.image_url}" alt="${title}" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />`
               : `<div class="card-img-placeholder" style="height:200px;">
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C8C8C0" stroke-width="1.2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                 </div>`
             }
-            ${item.type === 'event' && item.event_date
+            ${type === 'event' && item.event_date
               ? `<div style="position:absolute;top:12px;left:12px;background:#4CAF50;color:white;font-family:'League Spartan',sans-serif;font-weight:800;font-size:0.65rem;letter-spacing:0.06em;padding:5px 10px;border-radius:6px;text-transform:uppercase;">📅 ${formatDate(item.event_date)}</div>`
-              : `<div style="position:absolute;top:12px;left:12px;">${typeBadge(item.type)}</div>`
+              : `<div style="position:absolute;top:12px;left:12px;">${typeBadge(type)}</div>`
             }
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,20,16,0.15) 0%,transparent 50%);pointer-events:none;"></div>
           </div>
           <div class="card-body">
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-              ${item.type === 'event' ? typeBadge(item.type) : ''}
+              ${type === 'event' ? typeBadge(type) : ''}
               <span class="card-date">${date}</span>
             </div>
-            <h3 class="card-title" style="font-size:1.05rem;">${item.title}</h3>
+            <h3 class="card-title" style="font-size:1.05rem;">${title}</h3>
             ${item.description ? `<p class="card-desc">${item.description}</p>` : ''}
             <div class="card-footer">
               <span style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.04em;color:#6B6B65;">
-                ${item.type === 'event' ? 'View Event' : item.type === 'blog' ? 'Read Article' : 'See Post'}
+                ${type === 'event' ? 'View Event' : type === 'blog' ? 'Read Article' : 'See Post'}
               </span>
               <div class="card-arrow">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2A2A24" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>

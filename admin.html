@@ -259,19 +259,19 @@
               <div style="display:flex;gap:8px;">
                 <label style="flex:1;cursor:pointer;">
                   <input type="radio" name="content-type" value="blog" style="display:none;" onchange="onTypeChange(this)" />
-                  <div class="type-radio-btn" data-val="blog" style="text-align:center;padding:9px;border-radius:8px;border:1.5px solid #E5E5E0;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.78rem;color:#6A6A64;transition:all 0.2s;background:#FAFAF7;">
+                  <div class="type-radio-btn" data-val="blog" style="text-align:center;padding:9px;border-radius:8px;border:1.5px solid #E5E5E0;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.78rem;color:#6A6A64;transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;background:#FAFAF7;">
                     Blog
                   </div>
                 </label>
                 <label style="flex:1;cursor:pointer;">
                   <input type="radio" name="content-type" value="post" style="display:none;" onchange="onTypeChange(this)" />
-                  <div class="type-radio-btn" data-val="post" style="text-align:center;padding:9px;border-radius:8px;border:1.5px solid #E5E5E0;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.78rem;color:#6A6A64;transition:all 0.2s;background:#FAFAF7;">
+                  <div class="type-radio-btn" data-val="post" style="text-align:center;padding:9px;border-radius:8px;border:1.5px solid #E5E5E0;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.78rem;color:#6A6A64;transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;background:#FAFAF7;">
                     Post
                   </div>
                 </label>
                 <label style="flex:1;cursor:pointer;">
                   <input type="radio" name="content-type" value="event" style="display:none;" onchange="onTypeChange(this)" />
-                  <div class="type-radio-btn" data-val="event" style="text-align:center;padding:9px;border-radius:8px;border:1.5px solid #E5E5E0;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.78rem;color:#6A6A64;transition:all 0.2s;background:#FAFAF7;">
+                  <div class="type-radio-btn" data-val="event" style="text-align:center;padding:9px;border-radius:8px;border:1.5px solid #E5E5E0;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.78rem;color:#6A6A64;transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;background:#FAFAF7;">
                     Event
                   </div>
                 </label>
@@ -340,10 +340,10 @@
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:12px;flex-wrap:wrap;">
             <h2 style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1rem;color:#2A2A24;margin:0;">All Posts</h2>
             <div style="display:flex;gap:6px;">
-              <button onclick="filterContentList('all',this)" class="content-filter-btn active" style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#545454;color:white;cursor:pointer;transition:all 0.2s;">All</button>
-              <button onclick="filterContentList('blog',this)" class="content-filter-btn" style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#FAFAF7;color:#6A6A64;cursor:pointer;transition:all 0.2s;">Blog</button>
-              <button onclick="filterContentList('post',this)" class="content-filter-btn" style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#FAFAF7;color:#6A6A64;cursor:pointer;transition:all 0.2s;">Post</button>
-              <button onclick="filterContentList('event',this)" class="content-filter-btn" style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#FAFAF7;color:#6A6A64;cursor:pointer;transition:all 0.2s;">Event</button>
+              <button onclick="filterContentList('all',this)" class="content-filter-btn active" style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#545454;color:white;cursor:pointer;transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;">All</button>
+              <button onclick="filterContentList('blog',this)" class="content-filter-btn" style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#FAFAF7;color:#6A6A64;cursor:pointer;transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;">Blog</button>
+              <button onclick="filterContentList('post',this)" class="content-filter-btn" style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#FAFAF7;color:#6A6A64;cursor:pointer;transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;">Post</button>
+              <button onclick="filterContentList('event',this)" class="content-filter-btn" style="font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.72rem;padding:5px 12px;border-radius:100px;border:1px solid #E5E5E0;background:#FAFAF7;color:#6A6A64;cursor:pointer;transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;">Event</button>
             </div>
           </div>
           <div id="content-list" style="display:flex;flex-direction:column;gap:10px;max-height:600px;overflow-y:auto;">
