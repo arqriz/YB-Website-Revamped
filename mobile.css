@@ -328,6 +328,10 @@ nav .max-w-6xl {
        single breakpoint at 767px
    ───────────────────────────────────────── */
 
+/* Hero banner defaults: desktop set visible, mobile set hidden */
+.mobile-slides { display: none; }
+.mobile-dots   { display: none; }
+
 @media (max-width: 767px) {
   /* About page oversized image blocks */
   .about-hero-photos { display: none !important; }
@@ -355,12 +359,11 @@ nav .max-w-6xl {
     display: none !important;
   }
 
-  /* Hero slider — per-slide background-position for portrait mobile crop */
-  .slideshow-bg .slide-item:nth-child(1) { background-position: 55% center !important; }
-  .slideshow-bg .slide-item:nth-child(3) { background-position: 60% center !important; }
-  .slideshow-bg .slide-item:nth-child(4) { background-position: center top !important; }
-  .slideshow-bg .slide-item:nth-child(5) { background-position: 80% center !important; }
-  .slideshow-bg .slide-item:nth-child(7) { background-position: 55% top !important; }
+  /* Hero banner: hide desktop slide set, show mobile slide set */
+  .desktop-slides { display: none !important; }
+  .mobile-slides  { display: block !important; }
+  .desktop-dots   { display: none !important; }
+  .mobile-dots    { display: flex !important; }
 }
 
 

@@ -618,8 +618,8 @@
   ══════════════════════════════════════════ -->
   <section class="hero-section" id="home">
 
-    <!-- Slideshow Background -->
-    <div class="slideshow-bg" aria-hidden="true">
+    <!-- Slideshow Background — Desktop (7 images, hidden on mobile) -->
+    <div class="slideshow-bg desktop-slides" aria-hidden="true">
       <div class="slide-item active" style="background-image:url('https://res.cloudinary.com/dwznza6l9/image/upload/q_auto/f_auto/v1777336983/slider-2_hdqojr.jpg');"></div>
       <div class="slide-item" style="background-position:center 20%;" data-bg="url('https://res.cloudinary.com/dwznza6l9/image/upload/q_auto,f_auto,w_1920/v1777345658/slider-3_1_sgryuc.jpg')"></div>
       <div class="slide-item" data-bg="url('https://res.cloudinary.com/dwznza6l9/image/upload/q_auto/f_auto/v1777336984/slider-1_zwljyd.jpg')"></div>
@@ -627,6 +627,15 @@
       <div class="slide-item" data-bg="url('https://res.cloudinary.com/dwznza6l9/image/upload/q_auto/f_auto/v1777343399/slider-6_l5nbye.jpg')"></div>
       <div class="slide-item" data-bg="url('https://res.cloudinary.com/dwznza6l9/image/upload/q_auto/f_auto/v1777343399/slider-7_a9nx6q.jpg')"></div>
       <div class="slide-item" data-bg="url('https://res.cloudinary.com/dwznza6l9/image/upload/q_auto/f_auto/v1777343399/slider-4_gkxjii.jpg')"></div>
+    </div>
+
+    <!-- Slideshow Background — Mobile (5 portrait-cropped images, hidden on desktop) -->
+    <div class="slideshow-bg mobile-slides" aria-hidden="true">
+      <div class="slide-item active" style="background-image:url('https://res.cloudinary.com/dwznza6l9/image/upload/q_auto/f_auto/v1781489214/slider_1_mobile_pmki9w.png');"></div>
+      <div class="slide-item" data-bg="url('https://res.cloudinary.com/dwznza6l9/image/upload/q_auto/f_auto/v1781489211/slider_2_mobile_chsvzh.jpg')"></div>
+      <div class="slide-item" data-bg="url('https://res.cloudinary.com/dwznza6l9/image/upload/q_auto/f_auto/v1781489211/slider_3_mobile_fm5jqr.jpg')"></div>
+      <div class="slide-item" data-bg="url('https://res.cloudinary.com/dwznza6l9/image/upload/q_auto/f_auto/v1781489211/slider_4_mobile_uvfslk.jpg')"></div>
+      <div class="slide-item" data-bg="url('https://res.cloudinary.com/dwznza6l9/image/upload/q_auto/f_auto/v1781489211/slider_5_mobile_npapp6.jpg')"></div>
     </div>
 
     <!-- Dark gradient overlay -->
@@ -691,8 +700,8 @@
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
     </button>
 
-    <!-- Dot indicators -->
-    <div class="slide-dots" role="tablist" aria-label="Slide indicators">
+    <!-- Dot indicators — Desktop (7 dots) -->
+    <div class="slide-dots desktop-dots" role="tablist" aria-label="Slide indicators">
       <button class="slide-dot active" aria-label="Slide 1" onclick="heroSlider.goTo(0)"></button>
       <button class="slide-dot" aria-label="Slide 2" onclick="heroSlider.goTo(1)"></button>
       <button class="slide-dot" aria-label="Slide 3" onclick="heroSlider.goTo(2)"></button>
@@ -700,6 +709,15 @@
       <button class="slide-dot" aria-label="Slide 5" onclick="heroSlider.goTo(4)"></button>
       <button class="slide-dot" aria-label="Slide 6" onclick="heroSlider.goTo(5)"></button>
       <button class="slide-dot" aria-label="Slide 7" onclick="heroSlider.goTo(6)"></button>
+    </div>
+
+    <!-- Dot indicators — Mobile (5 dots) -->
+    <div class="slide-dots mobile-dots" role="tablist" aria-label="Slide indicators">
+      <button class="slide-dot active" aria-label="Slide 1" onclick="heroSlider.goTo(0)"></button>
+      <button class="slide-dot" aria-label="Slide 2" onclick="heroSlider.goTo(1)"></button>
+      <button class="slide-dot" aria-label="Slide 3" onclick="heroSlider.goTo(2)"></button>
+      <button class="slide-dot" aria-label="Slide 4" onclick="heroSlider.goTo(3)"></button>
+      <button class="slide-dot" aria-label="Slide 5" onclick="heroSlider.goTo(4)"></button>
     </div>
 
     <!-- Scroll cue -->
@@ -1583,23 +1601,18 @@
   <!-- ── Hero Slideshow ── -->
   <script>
   const heroSlider = (function() {
-    const slides = document.querySelectorAll('.slide-item');
-    const dots   = document.querySelectorAll('.slide-dot');
+    const isMobile = window.innerWidth < 768;
+    const activeSet   = isMobile ? '.mobile-slides' : '.desktop-slides';
+    const activeDots  = isMobile ? '.mobile-dots'   : '.desktop-dots';
+    const slides = document.querySelectorAll(activeSet + ' .slide-item');
+    const dots   = document.querySelectorAll(activeDots + ' .slide-dot');
     let current  = 0;
     let timer;
 
-    // Eagerly set all background images so they're already in cache when shown
-    const isMobile = window.innerWidth < 768;
-    // Optimise first slide (inline bg) for mobile
-    if (isMobile) {
-      slides[0].style.backgroundImage = slides[0].style.backgroundImage
-        .replace(/q_auto[,/]f_auto(?:,w_\d+)?/, 'q_auto,f_auto,w_800');
-    }
+    // Eagerly resolve data-bg attributes into background-image
     slides.forEach(el => {
       if (!el.style.backgroundImage && el.dataset.bg) {
-        let url = el.dataset.bg;
-        if (isMobile) url = url.replace(/q_auto[,/]f_auto(?:,w_\d+)?/, 'q_auto,f_auto,w_800');
-        el.style.backgroundImage = url;
+        el.style.backgroundImage = el.dataset.bg;
       }
     });
 
