@@ -271,9 +271,10 @@
       <div class="hidden md:flex items-center gap-8">
         <a href="/" class="nav-link">Home</a>
         <a href="/how-it-works" class="nav-link">How It Works</a>
-        <a href="/blog" class="nav-link">Blog</a>
         <a href="/about" class="nav-link">About Us</a>
         <a href="/gallery" class="nav-link active">Gallery</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="/partner" class="nav-link">Partner With Us</a>
       </div>
 
       <!-- CTA -->
@@ -282,14 +283,6 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Find a Bin
         </a>
-        <span style="width:1px;height:20px;background:rgba(255,255,255,0.2);display:inline-block;"></span>
-        <div id="nav-auth-out" style="display:flex;gap:8px;align-items:center;">
-          <a href="/login" class="nav-link">Sign In</a>
-          <a href="/signup" style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.12);color:white;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.03em;padding:9px 18px;border-radius:6px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">Sign Up</a>
-        </div>
-        <div id="nav-auth-in" style="display:none;align-items:center;">
-          <a href="/dashboard" class="btn-primary">Dashboard</a>
-        </div>
       </div>
 
       <!-- Mobile hamburger -->
@@ -307,14 +300,10 @@
       <div class="flex flex-col gap-1 px-6 py-4">
         <a href="/" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Home</a>
         <a href="/how-it-works" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">How It Works</a>
-        <a href="/blog" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Blog</a>
         <a href="/about" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">About Us</a>
         <a href="/gallery" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50" style="color:#FFDD00;font-weight:600;">Gallery</a>
-        <div id="mobile-auth-out" style="display:flex;gap:8px;margin-top:12px;">
-          <a href="/login" style="flex:1;text-align:center;padding:11px;border-radius:6px;border:1.5px solid #545454;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.8rem;color:#545454;text-decoration:none;">Sign In</a>
-          <a href="/signup" style="flex:1;text-align:center;padding:11px;border-radius:6px;background:#545454;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.8rem;color:white;text-decoration:none;">Sign Up</a>
-        </div>
-        <a href="/dashboard" id="mobile-auth-in" class="btn-primary mt-2 justify-center" style="display:none;">Dashboard</a>
+        <a href="/faq" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">FAQ</a>
+        <a href="/partner" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Partner With Us</a>
         <a href="/find-a-bin" class="btn-primary mt-2 justify-center">Find a Bin Near You</a>
       </div>
     </div>
@@ -455,28 +444,13 @@
       <p class="section-eyebrow" style="margin-bottom:10px;">Latest Updates</p>
       <h2 class="section-title" style="margin-bottom:40px;">More From The Community</h2>
 
-      <!-- Loading skeletons -->
-      <div id="gallery-loading" class="gallery-grid">
-        <div class="skeleton" style="height:220px;margin-bottom:16px;animation-delay:0s;"></div>
-        <div class="skeleton" style="height:300px;margin-bottom:16px;animation-delay:0.05s;"></div>
-        <div class="skeleton" style="height:180px;margin-bottom:16px;animation-delay:0.1s;"></div>
-        <div class="skeleton" style="height:260px;margin-bottom:16px;animation-delay:0.15s;"></div>
-        <div class="skeleton" style="height:240px;margin-bottom:16px;animation-delay:0.2s;"></div>
-        <div class="skeleton" style="height:200px;margin-bottom:16px;animation-delay:0.25s;"></div>
-        <div class="skeleton" style="height:280px;margin-bottom:16px;animation-delay:0.3s;"></div>
-        <div class="skeleton" style="height:190px;margin-bottom:16px;animation-delay:0.35s;"></div>
-      </div>
-
-      <!-- Dynamic grid -->
-      <div id="gallery-grid" class="gallery-grid" style="display:none;"></div>
-
-      <!-- Empty state -->
-      <div id="gallery-empty" style="display:none;" class="empty-state">
+      <!-- More photos coming soon -->
+      <div class="empty-state">
         <svg style="width:64px;height:64px;color:#C0C0BA;margin:0 auto 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
         </svg>
-        <h3 style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:1.1rem;color:#545454;margin:0 0 8px;">No uploads yet</h3>
-        <p style="font-family:'Quicksand',sans-serif;font-size:0.875rem;color:#9A9A94;margin:0;">Admin-uploaded photos will appear here.</p>
+        <h3 style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:1.1rem;color:#545454;margin:0 0 8px;">More photos coming soon</h3>
+        <p style="font-family:'Quicksand',sans-serif;font-size:0.875rem;color:#9A9A94;margin:0;">Check back soon for more community moments.</p>
       </div>
     </div>
   </section>
@@ -517,7 +491,6 @@
         <div>
           <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;">Company</div>
           <div style="display:flex;flex-direction:column;gap:7px;">
-            <a href="/blog" class="footer-link">Blog</a>
             <a href="/about" class="footer-link">About Us</a>
             <a href="/our-impact" class="footer-link">Our Impact</a>
             <a href="/how-it-works" class="footer-link">How It Works</a>
@@ -596,58 +569,11 @@
     });
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="/js/config.js"></script>
   <script>
-    const { createClient } = supabase;
-    const sb = createClient(
-      SUPABASE_URL, SUPABASE_ANON_KEY
-    );
-
-    sb.auth.getSession().then(({ data: { session } }) => {
-      if (!session) return;
-      document.getElementById('nav-auth-out').style.display = 'none';
-      document.getElementById('mobile-auth-out').style.display = 'none';
-      sb.from('profiles').select('role').eq('id', session.user.id).single().then(({ data }) => {
-        const url = data?.role === 'admin' ? 'admin.html' : 'dashboard.html';
-        const navIn = document.getElementById('nav-auth-in');
-        navIn.querySelector('a').href = url;
-        navIn.style.display = 'flex';
-        const mobileIn = document.getElementById('mobile-auth-in');
-        mobileIn.href = url;
-        mobileIn.style.display = 'block';
-      });
-    });
-
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
     mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
-
-    async function loadGallery() {
-      const { data, error } = await sb.from('gallery').select('*').order('created_at', { ascending: false });
-      document.getElementById('gallery-loading').style.display = 'none';
-      if (error || !data || data.length === 0) {
-        document.getElementById('gallery-empty').style.display = 'block';
-        return;
-      }
-      const grid = document.getElementById('gallery-grid');
-      grid.style.display = 'block';
-      grid.innerHTML = data.map((img, i) => `
-        <div class="gallery-item" style="animation-delay:${i * 0.04}s;" onclick="openLightbox('${escapeAttr(img.url)}', '${escapeAttr(img.caption || '')}')">
-          <img src="${img.url}" alt="${img.caption || 'Gallery image'}" loading="lazy" style="border-radius:12px;" />
-          <div class="gallery-item-overlay">
-            ${img.caption ? `<p class="gallery-item-caption">${img.caption}</p>` : ''}
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function escapeAttr(str) {
-      return str.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-    }
-
-    loadGallery();
 
     function openLightbox(url, caption) {
       document.getElementById('lightbox-img').src = url;

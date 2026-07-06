@@ -1,7 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /admin.html
-Disallow: /login.html
-Disallow: /signup.html
-Disallow: /dashboard.html
 Sitemap: https://yellowbin.com.my/sitemap.xml

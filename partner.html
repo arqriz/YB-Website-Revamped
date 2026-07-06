@@ -170,9 +170,10 @@
       <div class="hidden md:flex items-center gap-8">
         <a href="/" class="nav-link">Home</a>
         <a href="/how-it-works" class="nav-link">How It Works</a>
-        <a href="/blog" class="nav-link">Blog</a>
         <a href="/about" class="nav-link">About Us</a>
         <a href="/gallery" class="nav-link">Gallery</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="/partner" class="nav-link active">Partner With Us</a>
       </div>
 
       <!-- CTA -->
@@ -181,14 +182,6 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Find a Bin
         </a>
-        <span style="width:1px;height:20px;background:rgba(255,255,255,0.2);display:inline-block;"></span>
-        <div id="nav-auth-out" style="display:flex;gap:8px;align-items:center;">
-          <a href="/login" class="nav-link">Sign In</a>
-          <a href="/signup" style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.12);color:white;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.03em;padding:9px 18px;border-radius:6px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">Sign Up</a>
-        </div>
-        <div id="nav-auth-in" style="display:none;align-items:center;">
-          <a href="/dashboard" class="btn-primary">Dashboard</a>
-        </div>
       </div>
 
       <!-- Mobile hamburger -->
@@ -206,14 +199,10 @@
       <div class="flex flex-col gap-1 px-6 py-4">
         <a href="/" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Home</a>
         <a href="/how-it-works" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">How It Works</a>
-        <a href="/blog" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Blog</a>
         <a href="/about" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">About Us</a>
         <a href="/gallery" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Gallery</a>
-        <div id="mobile-auth-out" style="display:flex;gap:8px;margin-top:12px;">
-          <a href="/login" style="flex:1;text-align:center;padding:11px;border-radius:6px;border:1.5px solid #545454;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.8rem;color:#545454;text-decoration:none;">Sign In</a>
-          <a href="/signup" style="flex:1;text-align:center;padding:11px;border-radius:6px;background:#545454;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.8rem;color:white;text-decoration:none;">Sign Up</a>
-        </div>
-        <a href="/dashboard" id="mobile-auth-in" class="btn-primary mt-2 justify-center" style="display:none;">Dashboard</a>
+        <a href="/faq" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">FAQ</a>
+        <a href="/partner" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50" style="color:#FFDD00;font-weight:600;">Partner With Us</a>
         <a href="/find-a-bin" class="btn-primary mt-2 justify-center">Find a Bin Near You</a>
       </div>
     </div>
@@ -327,26 +316,26 @@
 
             <div id="form-alert" style="display:none;padding:14px 16px;border-radius:8px;font-family:'Quicksand',sans-serif;font-size:0.875rem;margin-bottom:20px;"></div>
 
-            <form id="partner-form" style="display:flex;flex-direction:column;gap:18px;">
+            <form id="partner-form" action="send-partner.php" method="POST" style="display:flex;flex-direction:column;gap:18px;">
               <div>
                 <label class="form-label">Your Name</label>
-                <input class="form-input" type="text" id="pf-name" placeholder="e.g. Ahmad bin Razif" required />
+                <input class="form-input" type="text" id="pf-name" name="name" placeholder="e.g. Ahmad bin Razif" required />
               </div>
               <div>
                 <label class="form-label">E-Mail Address</label>
-                <input class="form-input" type="email" id="pf-email" placeholder="you@company.com" required />
+                <input class="form-input" type="email" id="pf-email" name="email" placeholder="you@company.com" required />
               </div>
               <div>
                 <label class="form-label">Organisation / Company</label>
-                <input class="form-input" type="text" id="pf-org" placeholder="e.g. Seri Alam Residences" />
+                <input class="form-input" type="text" id="pf-org" name="organisation" placeholder="e.g. Seri Alam Residences" />
               </div>
               <div>
                 <label class="form-label">Phone Number</label>
-                <input class="form-input" type="tel" id="pf-phone" placeholder="+601X-XXX XXXX" />
+                <input class="form-input" type="tel" id="pf-phone" name="phone" placeholder="+601X-XXX XXXX" />
               </div>
               <div>
                 <label class="form-label">Message</label>
-                <textarea class="form-input" id="pf-message" rows="4" placeholder="Tell us about your organisation and what kind of partnership you're looking for…" style="resize:vertical;" required></textarea>
+                <textarea class="form-input" id="pf-message" name="message" rows="4" placeholder="Tell us about your organisation and what kind of partnership you're looking for…" style="resize:vertical;" required></textarea>
               </div>
               <button type="submit" id="pf-submit" style="background:#545454;color:white;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.875rem;letter-spacing:0.03em;padding:14px 28px;border-radius:8px;border:none;cursor:pointer;transition:background 0.2s ease,transform 0.15s ease;display:flex;align-items:center;justify-content:center;gap:8px;" onmouseover="this.style.background='#FFDD00';this.style.color='#545454'" onmouseout="this.style.background='#545454';this.style.color='white'">
                 Submit Enquiry
@@ -373,7 +362,7 @@
       </div>
 
       <div id="collab-grid" class="reveal" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;transition-delay:0.1s;">
-        <div style="grid-column:span 4;text-align:center;padding:48px 0;color:#9A9A94;font-family:'Quicksand',sans-serif;font-size:0.875rem;">Loading collaborations…</div>
+        <div style="grid-column:span 4;text-align:center;padding:48px 0;color:#9A9A94;font-family:'Quicksand',sans-serif;font-size:0.875rem;">Photos coming soon.</div>
       </div>
 
       <div class="reveal" style="text-align:center;margin-top:36px;transition-delay:0.2s;">
@@ -414,7 +403,6 @@
         <div>
           <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;">Company</div>
           <div style="display:flex;flex-direction:column;gap:7px;">
-            <a href="/blog" class="footer-link">Blog</a>
             <a href="/about" class="footer-link">About Us</a>
             <a href="/our-impact" class="footer-link">Our Impact</a>
             <a href="/how-it-works" class="footer-link">How It Works</a>
@@ -470,29 +458,10 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="/js/config.js"></script>
   <script>
-    const { createClient } = supabase;
-    const sb = createClient(
-      SUPABASE_URL, SUPABASE_ANON_KEY
-    );
-
     // Mobile nav
     document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('open'));
     document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobile-menu').classList.remove('open')));
-
-    // Auth state
-    sb.auth.getSession().then(({ data: { session } }) => {
-      if (!session) return;
-      document.getElementById('nav-auth-out').style.display = 'none';
-      sb.from('profiles').select('role').eq('id', session.user.id).single().then(({ data }) => {
-        const url = data?.role === 'admin' ? 'admin.html' : 'dashboard.html';
-        const navIn = document.getElementById('nav-auth-in');
-        navIn.querySelector('a').href = url;
-        navIn.style.display = 'flex';
-      });
-    });
 
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
@@ -501,62 +470,45 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => observer.observe(el));
 
-    // Load gallery images for collaborations section
-    (async function loadCollabs() {
-      const { data } = await sb.from('gallery').select('url, caption').order('created_at', { ascending: false }).limit(12);
-      const grid = document.getElementById('collab-grid');
-      if (!data || data.length === 0) {
-        grid.innerHTML = '<div style="grid-column:span 4;text-align:center;padding:48px 0;color:#9A9A94;font-family:\'Quicksand\',sans-serif;font-size:0.875rem;">Gallery coming soon.</div>';
-        return;
-      }
-      grid.innerHTML = data.map(img => `
-        <div style="border-radius:10px;overflow:hidden;aspect-ratio:1;position:relative;background:#F0F0EA;">
-          <img src="${img.url}" alt="${img.caption || 'Yellow Bin collaboration'}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
-          ${img.caption ? `<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 50%);opacity:0;transition:opacity 0.2s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'"><div style="position:absolute;bottom:8px;left:10px;right:10px;font-family:'Quicksand',sans-serif;font-size:0.72rem;color:white;line-height:1.4;">${img.caption}</div></div>` : ''}
-        </div>
-      `).join('');
-    })();
-
     // Partnership form submit
-    document.getElementById('partner-form').addEventListener('submit', async (e) => {
+    const form = document.getElementById('partner-form');
+    const alert = document.getElementById('form-alert');
+    const btn = document.getElementById('pf-submit');
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const btn = document.getElementById('pf-submit');
-      const alert = document.getElementById('form-alert');
-      btn.textContent = 'Sending…';
       btn.disabled = true;
+      btn.textContent = 'Sending…';
 
-      const { error } = await sb.from('partnerships').insert({
-        name: document.getElementById('pf-name').value,
-        email: document.getElementById('pf-email').value,
-        organisation: document.getElementById('pf-org').value,
-        phone: document.getElementById('pf-phone').value,
-        message: document.getElementById('pf-message').value,
-      });
+      const formData = new FormData(form);
 
-      btn.textContent = 'Submit Enquiry';
-      btn.disabled = false;
+      try {
+        const res = await fetch('send-partner.php', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await res.json();
 
-      if (error) {
-        // Fallback: open mailto if table doesn't exist yet
-        const subject = encodeURIComponent('Partnership Enquiry, ' + document.getElementById('pf-org').value);
-        const body = encodeURIComponent(
-          'Name: ' + document.getElementById('pf-name').value + '\n' +
-          'Email: ' + document.getElementById('pf-email').value + '\n' +
-          'Organisation: ' + document.getElementById('pf-org').value + '\n' +
-          'Phone: ' + document.getElementById('pf-phone').value + '\n\n' +
-          document.getElementById('pf-message').value
-        );
-        window.location.href = 'mailto:enquiry@yellowbin.com.my?subject=' + subject + '&body=' + body;
-        return;
+        if (result.success) {
+          alert.style.display = 'block';
+          alert.style.background = 'rgba(34,197,94,0.1)';
+          alert.style.border = '1px solid rgba(34,197,94,0.3)';
+          alert.style.color = '#15803d';
+          alert.textContent = 'Thank you! We\'ll be in touch shortly.';
+          form.reset();
+        } else {
+          throw new Error(result.message || 'Something went wrong.');
+        }
+      } catch (err) {
+        alert.style.display = 'block';
+        alert.style.background = 'rgba(239,68,68,0.1)';
+        alert.style.border = '1px solid rgba(239,68,68,0.3)';
+        alert.style.color = '#b91c1c';
+        alert.textContent = 'Sorry, something went wrong. Please email us directly at enquiry@yellowbin.com.my';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Submit Enquiry';
       }
-
-      alert.style.display = 'block';
-      alert.style.background = '#F0FDF4';
-      alert.style.border = '1px solid #BBF7D0';
-      alert.style.color = '#166534';
-      alert.textContent = '✓ Thank you! We\'ve received your enquiry and will be in touch shortly.';
-      e.target.reset();
-      setTimeout(() => { alert.style.display = 'none'; }, 6000);
     });
   </script>
 </body>

@@ -564,9 +564,10 @@
       <div class="hidden md:flex items-center gap-8">
         <a href="/" class="nav-link active">Home</a>
         <a href="/how-it-works" class="nav-link">How It Works</a>
-        <a href="/blog" class="nav-link">Blog</a>
         <a href="/about" class="nav-link">About Us</a>
         <a href="/gallery" class="nav-link">Gallery</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="/partner" class="nav-link">Partner With Us</a>
       </div>
 
       <!-- CTA -->
@@ -575,14 +576,6 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Find a Bin
         </a>
-        <span style="width:1px;height:20px;background:rgba(255,255,255,0.2);display:inline-block;"></span>
-        <div id="nav-auth-out" style="display:flex;gap:8px;align-items:center;">
-          <a href="/login" class="nav-link">Sign In</a>
-          <a href="/signup" style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.12);color:white;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.03em;padding:9px 18px;border-radius:6px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:background 0.2s ease;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'">Sign Up</a>
-        </div>
-        <div id="nav-auth-in" style="display:none;align-items:center;">
-          <a href="/dashboard" class="btn-primary">Dashboard</a>
-        </div>
       </div>
 
       <!-- Mobile hamburger -->
@@ -600,14 +593,10 @@
       <div class="flex flex-col gap-1 px-6 py-4">
         <a href="/" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50" style="color:#FFDD00;font-weight:600;">Home</a>
         <a href="/how-it-works" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">How It Works</a>
-        <a href="/blog" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Blog</a>
         <a href="/about" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">About Us</a>
         <a href="/gallery" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Gallery</a>
-        <div id="mobile-auth-out" style="display:flex;gap:8px;margin-top:12px;">
-          <a href="/login" style="flex:1;text-align:center;padding:11px;border-radius:6px;border:1.5px solid #545454;font-family:'League Spartan',sans-serif;font-weight:600;font-size:0.8rem;color:#545454;text-decoration:none;">Sign In</a>
-          <a href="/signup" style="flex:1;text-align:center;padding:11px;border-radius:6px;background:#545454;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.8rem;color:white;text-decoration:none;">Sign Up</a>
-        </div>
-        <a href="/dashboard" id="mobile-auth-in" class="btn-primary mt-2 justify-center" style="display:none;">Dashboard</a>
+        <a href="/faq" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">FAQ</a>
+        <a href="/partner" class="py-3 font-body font-medium text-grey-dark border-b border-grey-light/50">Partner With Us</a>
         <a href="/find-a-bin" class="btn-primary mt-2 justify-center">Find a Bin Near You</a>
       </div>
     </div>
@@ -1100,7 +1089,7 @@
               Past Events
             </div>
             <div id="past-events-list" style="display:flex;flex-direction:column;gap:16px;">
-              <div style="text-align:center;padding:32px 0;color:#9A9A94;font-family:'Quicksand',sans-serif;font-size:0.875rem;">Loading events…</div>
+              <div style="background:white;border-radius:12px;padding:20px;border:1px solid rgba(208,208,208,0.4);display:flex;gap:14px;align-items:center;"><div style="width:48px;height:48px;border-radius:10px;background:#FFDD00;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#545454" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:4px;">Recycle &amp; Reward</div><p style="font-family:Quicksand,sans-serif;font-size:0.875rem;line-height:1.6;color:#6B6B65;margin:0;">Drop off textiles at participating bins and earn rewards redeemable for vouchers and community prizes.</p></div></div><div style="background:white;border-radius:12px;padding:20px;border:1px solid rgba(208,208,208,0.4);display:flex;gap:14px;align-items:center;"><div style="width:48px;height:48px;border-radius:10px;background:#545454;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:4px;">Community Drives</div><p style="font-family:Quicksand,sans-serif;font-size:0.875rem;line-height:1.6;color:#6B6B65;margin:0;">We partner with schools, mosques, and corporates to run dedicated collection drives.</p></div></div>
             </div>
           </div>
 
@@ -1335,7 +1324,6 @@
         <div>
           <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;">Company</div>
           <div style="display:flex;flex-direction:column;gap:7px;">
-            <a href="/blog" class="footer-link">Blog</a>
             <a href="/about" class="footer-link">About Us</a>
             <a href="/our-impact" class="footer-link">Our Impact</a>
             <a href="/how-it-works" class="footer-link">How It Works</a>
@@ -1471,108 +1459,6 @@
         searchWrapper.style.boxShadow = '0 2px 12px rgba(74,74,68,0.06)';
       });
     }
-  </script>
-
-  <!-- Supabase auth state -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="/js/config.js"></script>
-  <script>
-  (function(){
-    const sb = supabase.createClient(
-      SUPABASE_URL, SUPABASE_ANON_KEY
-    );
-    // ── Past events on homepage ──
-    (async function loadPastEvents() {
-      const today = new Date().toISOString().split('T')[0];
-      const { data } = await sb.from('events').select('*').lt('date', today).order('date', { ascending: false }).limit(4);
-      const list = document.getElementById('past-events-list');
-      if (!data || data.length === 0) {
-        list.innerHTML = '<div style="background:white;border-radius:12px;padding:20px;border:1px solid rgba(208,208,208,0.4);display:flex;gap:14px;align-items:center;"><div style="width:48px;height:48px;border-radius:10px;background:#FFDD00;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#545454" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div style="font-family:\'League Spartan\',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:4px;">Recycle &amp; Reward</div><p style="font-family:Quicksand,sans-serif;font-size:0.875rem;line-height:1.6;color:#6B6B65;margin:0;">Drop off textiles at participating bins and earn rewards redeemable for vouchers and community prizes.</p></div></div><div style="background:white;border-radius:12px;padding:20px;border:1px solid rgba(208,208,208,0.4);display:flex;gap:14px;align-items:center;"><div style="width:48px;height:48px;border-radius:10px;background:#545454;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><div style="font-family:\'League Spartan\',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:4px;">Community Drives</div><p style="font-family:Quicksand,sans-serif;font-size:0.875rem;line-height:1.6;color:#6B6B65;margin:0;">We partner with schools, mosques, and corporates to run dedicated collection drives.</p></div></div>';
-        return;
-      }
-      list.innerHTML = data.map(ev => {
-        const d = new Date(ev.date);
-        const dateStr = d.toLocaleDateString('en-MY', { day: 'numeric', month: 'short', year: 'numeric' });
-        const day = d.toLocaleDateString('en-MY', { day: '2-digit' });
-        const mon = d.toLocaleDateString('en-MY', { month: 'short' }).toUpperCase();
-        return `
-        <div style="background:white;border-radius:12px;padding:16px;border:1px solid rgba(208,208,208,0.4);box-shadow:0 2px 8px rgba(74,74,68,0.04);display:flex;gap:14px;align-items:flex-start;">
-          ${ev.poster_url
-            ? `<img src="${ev.poster_url}" alt="${ev.title}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;flex-shrink:0;" />`
-            : `<div style="width:60px;height:60px;border-radius:8px;background:#545454;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:1.05rem;color:#FFDD00;line-height:1;">${day}</span><span style="font-family:'Quicksand',sans-serif;font-weight:500;font-size:0.55rem;color:rgba(255,255,255,0.6);letter-spacing:0.08em;">${mon}</span></div>`}
-          <div style="min-width:0;flex:1;">
-            <div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.9rem;color:#545454;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${ev.title}</div>
-            <div style="font-family:'Quicksand',sans-serif;font-size:0.76rem;color:#9A9A94;margin-bottom:6px;display:flex;align-items:center;gap:6px;">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              ${dateStr}${ev.location ? ' · ' + ev.location : ''}
-            </div>
-            ${ev.description ? `<div style="font-family:'Quicksand',sans-serif;font-size:0.78rem;color:#9A9A94;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${ev.description}</div>` : ''}
-          </div>
-        </div>`;
-      }).join('');
-    })();
-
-    // ── Upcoming events on homepage ──
-    (async function loadUpcomingEvents() {
-      const today = new Date().toISOString().split('T')[0];
-      const { data } = await sb.from('events').select('*').gte('date', today).order('date', { ascending: true }).limit(3);
-      if (!data || data.length === 0) return;
-      const section = document.getElementById('upcoming-events-section');
-      const list = document.getElementById('upcoming-events-list');
-      list.innerHTML = data.map(ev => {
-        const d = new Date(ev.date);
-        const day = d.toLocaleDateString('en-MY', { day: '2-digit' });
-        const mon = d.toLocaleDateString('en-MY', { month: 'short' }).toUpperCase();
-        const year = d.getFullYear();
-        const hasPoster = !!ev.poster_url;
-        return `
-        <div style="background:white;border-radius:16px;overflow:hidden;border:1px solid rgba(208,208,208,0.45);box-shadow:0 4px 20px rgba(74,74,68,0.07);transition:transform 0.2s ease,box-shadow 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 32px rgba(74,74,68,0.13)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(74,74,68,0.07)'">
-          ${hasPoster ? `
-          <div style="position:relative;width:100%;aspect-ratio:16/7;overflow:hidden;">
-            <img src="${ev.poster_url}" alt="${ev.title}" style="width:100%;height:100%;object-fit:cover;display:block;" />
-            <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(30,30,26,0.55) 100%);"></div>
-            <div style="position:absolute;top:12px;left:12px;background:#FFDD00;border-radius:8px;padding:6px 10px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
-              <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:1.1rem;color:#545454;line-height:1;">${day}</div>
-              <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:0.6rem;color:#6B6B65;letter-spacing:0.08em;margin-top:1px;">${mon} ${year}</div>
-            </div>
-          </div>` : `
-          <div style="background:linear-gradient(135deg,#FFDD00 0%,#e8c400 100%);padding:20px 20px 16px;display:flex;align-items:center;gap:14px;">
-            <div style="background:white;border-radius:10px;padding:8px 12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.1);flex-shrink:0;">
-              <div style="font-family:'League Spartan',sans-serif;font-weight:900;font-size:1.4rem;color:#545454;line-height:1;">${day}</div>
-              <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:0.62rem;color:#6B6B65;letter-spacing:0.08em;margin-top:2px;">${mon} ${year}</div>
-            </div>
-            <div style="font-family:'League Spartan',sans-serif;font-weight:800;font-size:1rem;color:#545454;line-height:1.3;">${ev.title}</div>
-          </div>`}
-          <div style="padding:18px 20px 20px;">
-            ${hasPoster ? `<div style="font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.95rem;color:#545454;margin-bottom:8px;line-height:1.3;">${ev.title}</div>` : ''}
-            ${ev.location ? `<div style="font-family:'Quicksand',sans-serif;font-size:0.8rem;color:#6B6B65;margin-bottom:8px;display:flex;align-items:center;gap:5px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${ev.location}</div>` : ''}
-            ${ev.description ? `<div style="font-family:'Quicksand',sans-serif;font-size:0.82rem;color:#8A8A84;line-height:1.6;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${ev.description}</div>` : '<div style="margin-bottom:14px;"></div>'}
-            ${ev.link ? `
-            <a href="${ev.link}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;background:#545454;color:white;font-family:'League Spartan',sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.03em;padding:10px 18px;border-radius:8px;text-decoration:none;transition:background 0.2s ease;" onmouseover="this.style.background='#FFDD00';this.style.color='#545454'" onmouseout="this.style.background='#545454';this.style.color='white'">
-              Follow Event
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>` : ''}
-          </div>
-        </div>`;
-      }).join('');
-      section.style.display = 'block';
-    })();
-
-    sb.auth.getSession().then(({ data: { session } }) => {
-      if (!session) return;
-      document.getElementById('nav-auth-out').style.display = 'none';
-      document.getElementById('mobile-auth-out').style.display = 'none';
-      sb.from('profiles').select('role').eq('id', session.user.id).single().then(({ data }) => {
-        const url = data?.role === 'admin' ? 'admin.html' : 'dashboard.html';
-        const navIn = document.getElementById('nav-auth-in');
-        navIn.querySelector('a').href = url;
-        navIn.style.display = 'flex';
-        const mobileIn = document.getElementById('mobile-auth-in');
-        mobileIn.href = url;
-        mobileIn.style.display = 'block';
-      });
-    });
-  })();
   </script>
 
 <!-- WhatsApp Float -->
