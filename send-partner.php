@@ -36,12 +36,10 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $mail = new PHPMailer(true);
 try {
     $mail->isSMTP();
-    $mail->Host       = 'mail.yellowbin.com.my';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'partnership@yellowbin.com.my';
-    $mail->Password   = 'YOUR_EMAIL_PASSWORD_HERE';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 587;
+    $mail->Host       = 'localhost';
+    $mail->SMTPAuth   = false;
+    $mail->SMTPSecure = '';
+    $mail->Port       = 25;
 
     $mail->setFrom('partnership@yellowbin.com.my', 'Yellow Bin');
     $mail->addAddress('arif@gamutpro.my');
