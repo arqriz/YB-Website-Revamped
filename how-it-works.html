@@ -266,13 +266,54 @@
 
     /* ── Recycle category card ── */
     .recycle-card {
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
-      border: none;
-      transition: transform 0.25s ease;
+      background: white;
+      border-radius: 16px;
+      padding: 28px 22px 26px;
+      border: 1.5px solid rgba(208,208,217,0.5);
+      box-shadow: 0 2px 10px rgba(74,74,68,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
-    .recycle-card:hover { transform: translateY(-4px); }
+    .recycle-card:hover {
+      transform: translateY(-4px);
+      border-color: #FFDD00;
+      box-shadow: 0 14px 32px rgba(244,208,0,0.18), 0 4px 10px rgba(74,74,68,0.08);
+    }
+    .recycle-card-icon {
+      width: 84px;
+      height: 84px;
+      background: #fff6ea;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .recycle-card-icon img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      display: block;
+    }
+    .recycle-card h3 {
+      font-family: 'League Spartan', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      color: #545454;
+      line-height: 1.2;
+      margin: 0 0 8px;
+    }
+    .recycle-card p {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: #6B6B65;
+      margin: 0;
+    }
 
     /* ── Recycle section grids — mobile-first ── */
     .recycle-featured {
@@ -739,28 +780,40 @@
       <!-- ── 6 Categories ── -->
       <div class="recycle-categories">
 
-        <div class="recycle-card reveal" style="padding:0;overflow:hidden;transition-delay:0s;">
-          <img src="brand_assets/Garments - Edited.png" alt="Garments and clothing accepted for textile recycling at Yellow Bin, Johor Bahru" loading="lazy" style="width:100%;display:block;height:auto;" />
+        <div class="recycle-card reveal" style="transition-delay:0s;">
+          <div class="recycle-card-icon"><img src="brand_assets/New Icons/item 1.png" alt="Garments and clothing accepted for textile recycling at Yellow Bin, Johor Bahru" loading="lazy" /></div>
+          <h3>Garments</h3>
+          <p>Including men's and women's underwear</p>
         </div>
 
-        <div class="recycle-card reveal" style="padding:0;overflow:hidden;transition-delay:0.08s;">
-          <img src="brand_assets/Accessories - Edited.png" alt="Clothing accessories accepted at Yellow Bin kitar semula textile recycling bins" loading="lazy" style="width:100%;display:block;height:auto;" />
+        <div class="recycle-card reveal" style="transition-delay:0.08s;">
+          <div class="recycle-card-icon"><img src="brand_assets/New Icons/item 2.png" alt="Clothing accessories accepted at Yellow Bin kitar semula textile recycling bins" loading="lazy" /></div>
+          <h3>Clothing accessories</h3>
+          <p>Scarves, belts, socks, stocking, gloves, caps, hats, hair accessories, costume jewellery</p>
         </div>
 
-        <div class="recycle-card reveal" style="padding:0;overflow:hidden;transition-delay:0.16s;">
-          <img src="brand_assets/Footwear - Edited - Edited.png" alt="Footwear and shoes accepted for recycle clothes donation at Yellow Bin Johor" loading="lazy" style="width:100%;display:block;height:auto;" />
+        <div class="recycle-card reveal" style="transition-delay:0.16s;">
+          <div class="recycle-card-icon"><img src="brand_assets/New Icons/item 3.png" alt="Footwear and shoes accepted for recycle clothes donation at Yellow Bin Johor" loading="lazy" /></div>
+          <h3>Footwear</h3>
+          <p>Heels, slippers, sneakers, boots, school shoes</p>
         </div>
 
-        <div class="recycle-card reveal" style="padding:0;overflow:hidden;transition-delay:0.24s;">
-          <img src="brand_assets/Bags - Edited.png" alt="Bags and handbags accepted for textile recycling at Yellow Bin drop-off points, Johor" loading="lazy" style="width:100%;display:block;height:auto;" />
+        <div class="recycle-card reveal" style="transition-delay:0.24s;">
+          <div class="recycle-card-icon"><img src="brand_assets/New Icons/item 4.png" alt="Bags and handbags accepted for textile recycling at Yellow Bin drop-off points, Johor" loading="lazy" /></div>
+          <h3>Bags</h3>
+          <p>Backpacks, school bags, purses, handbags</p>
         </div>
 
-        <div class="recycle-card reveal" style="padding:0;overflow:hidden;transition-delay:0.32s;">
-          <img src="brand_assets/Towels - Edited.png" alt="Towels and light household textiles accepted for kitar semula at Yellow Bin, Johor Bahru" loading="lazy" style="width:100%;display:block;height:auto;" />
+        <div class="recycle-card reveal" style="transition-delay:0.32s;">
+          <div class="recycle-card-icon"><img src="brand_assets/New Icons/item 5.png" alt="Towels and light household textiles accepted for kitar semula at Yellow Bin, Johor Bahru" loading="lazy" /></div>
+          <h3>Light household textiles</h3>
+          <p>Towels</p>
         </div>
 
-        <div class="recycle-card reveal" style="padding:0;overflow:hidden;transition-delay:0.4s;">
-          <img src="brand_assets/Toys - Edited.png" alt="Children's stuffed toys and soft items accepted for Yellow Bin textile recycling donation" loading="lazy" style="width:100%;display:block;height:auto;" />
+        <div class="recycle-card reveal" style="transition-delay:0.4s;">
+          <div class="recycle-card-icon"><img src="brand_assets/New Icons/item 6.png" alt="Children's stuffed toys and soft items accepted for Yellow Bin textile recycling donation" loading="lazy" /></div>
+          <h3>Children's toys</h3>
+          <p>Plush and plastic toys, sports equipments</p>
         </div>
 
       </div>
